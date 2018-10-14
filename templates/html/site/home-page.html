@@ -1,0 +1,56 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Home') }}
+
+    <header>
+        <h1>Home Page</h1>
+    </header>
+    
+    <section>
+        
+        <div class="row">
+            <div class="twelve columns">
+
+                <p>
+                    This is the hosting site for some of my Python utility web applications.<br/>
+                </p>
+
+                <h3>Personal utilities</h3>
+
+                <ol>
+                    <li>Url dump</li>
+                    <li>Palindrome validator</li>
+                    
+                </ol>
+
+                <h3>Generic utilities</h3>
+
+                <ol>
+                    <li>PDF Appender</li>
+                </ol>
+
+                <p>
+                    <i>Have fun!</i>
+                </p>
+
+            </div>
+        </div>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
