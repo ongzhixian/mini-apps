@@ -24,6 +24,16 @@
                     This is the home page for my url dump Python utility web application.<br/>
                 </p>
 
+                <form method="POST" action="/url_dump/upload" enctype="multipart/form-data">
+                    <fieldset>
+                        <legend>Select file to upload</legend>
+                        <input type="file" name="upload_file"/>
+                    </fieldset>
+                    <p>
+                        <button type="submit">Upload</button>
+                    </p>
+                </form>
+
                 <p>
                     <i>Have fun!</i>
                 </p>

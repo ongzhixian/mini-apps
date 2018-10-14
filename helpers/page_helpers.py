@@ -31,8 +31,25 @@ def require_authentication(fn):
 ################################################################################
 
 ########################################
+# Define application hooks
+########################################
+
+def add_auth_cookie_hook():
+    """Add auth cookie if user does not have auth cookie"""
+    if appconfig['application']["auth_cookie_name"] not in bottle.request.cookies:
+        bottle.response.set_cookie('AUTH_COOKIE', 'the username')
+
+
+########################################
 # Define core functions
 ########################################
+
+def get_app():
+    app = page_helpers.default_app()
+
+    # add application hooks here
+    app.add_hook('after_request', add_auth_cookie_hook)
+    return app
 
 def get_default_context(request):
     context = {
