@@ -25,24 +25,22 @@ logging.getLogger().addHandler(console_logger)
 from helpers import *
 
 ################################################################################
-# Setup bottle and fetch configuration
-################################################################################
-
-app = page_helpers.default_app()  
-
-################################################################################
 # Setup appconfig
 ################################################################################
 
 appconfig = app_helpers.appconfig
 
 ################################################################################
+# Setup bottle and fetch configuration
+################################################################################
+
+app = page_helpers.get_app()
+
+################################################################################
 # Setup jinja2 environment
 ################################################################################
 
 jinja2_env = jinja2_helpers.jinja2_env
-
-
 
 ################################################################################
 # Import pages modules
@@ -63,3 +61,4 @@ if __name__ == '__main__':
     logging.debug("%8s test message %s" % ("DEBUG", str(datetime.utcnow())))
     page_helpers.run(host="0.0.0.0", port=49152, debug=True, reloader=False)
     logging.info("[PROGRAM END]")
+
