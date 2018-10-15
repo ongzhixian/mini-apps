@@ -3,10 +3,15 @@
 ################################################################################
 
 import logging
+import time
+import uuid
 import bottle
+import page_helpers
+
+from datetime import datetime, timedelta
+
 from bottle import default_app, run, route, request, response, redirect, abort
 from app_helpers import appconfig
-from datetime import datetime
 
 ################################################################################
 # Function decorators
@@ -36,8 +41,12 @@ def require_authentication(fn):
 
 def add_auth_cookie_hook():
     """Add auth cookie if user does not have auth cookie"""
-    if appconfig['application']["auth_cookie_name"] not in bottle.request.cookies:
-        bottle.response.set_cookie('AUTH_COOKIE', 'the username')
+    auth_cookie_name = str(appconfig['application']["auth_cookie_name"])
+    if auth_cookie_name not in bottle.request.cookies:
+        new_uuid = uuid.uuid4()
+        new_uuid_hex = new_uuid.hex
+        expiry = ((datetime.utcnow() + timedelta(366)) - datetime(1970, 1, 1)).total_seconds()
+        bottle.response.set_cookie(auth_cookie_name, new_uuid.hex, httponly=True, expires=expiry)
 
 
 ########################################
