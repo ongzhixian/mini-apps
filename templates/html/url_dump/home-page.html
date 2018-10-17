@@ -28,27 +28,27 @@
                 </p>
 
                 <!-- Tab links -->
-                <div class="tab">
-                    <button class="tablinks" onclick="openCity(event, 'London')">London</button>
-                    <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+                <div class="tab-list">
+                    <button onclick="displayTab(this, 'London')">London</button>
+                    <button onclick="displayTab(this, 'Paris')">Paris</button>
+                    <button onclick="displayTab(this, 'Tokyo')">Tokyo</button>
                 </div>
       
-      <!-- Tab content -->
-      <div id="London" class="tabcontent">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
-      </div>
-      
-      <div id="Paris" class="tabcontent">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p> 
-      </div>
-      
-      <div id="Tokyo" class="tabcontent">
-        <h3>Tokyo</h3>
-        <p>Tokyo is the capital of Japan.</p>
-      </div>
+                <!-- Tab content -->
+                <div id="London" class="tab-content">
+                    <h3>London</h3>
+                    <p>London is the capital city of England.</p>
+                </div>
+
+                <div id="Paris" class="tab-content">
+                    <h3>Paris</h3>
+                    <p>Paris is the capital of France.</p> 
+                </div>
+
+                <div id="Tokyo" class="tab-content">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
 
                 <form method="POST" action="/url_dump/upload" enctype="multipart/form-data">
                     <fieldset>
@@ -75,4 +75,72 @@
 
 </div>
 
+{% endblock %}
+
+
+{% block linktags %}
+<style>
+/* Style the tab */
+.tab-list {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab-list button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    margin: 0;
+}
+
+    /* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tab-content {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function displayTab(ele, tabId) {
+        // Hide all tab contents
+        document.querySelectorAll(".tab-content").forEach(function (ele) {
+            console.log(ele);
+            ele.style.display = "none";
+        });
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        document.querySelectorAll(".tab-list button").forEach(function (ele) {
+            ele.className = ele.className.replace(" active", "");
+        });
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabId).style.display = "block";
+        ele.className += " active";
+    }
+
+    (function() {
+
+    }());
+
+</script>
 {% endblock %}
