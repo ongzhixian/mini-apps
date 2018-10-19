@@ -29,36 +29,44 @@
 
                 <!-- Tab links -->
                 <div class="tab-list">
-                    <button onclick="displayTab(this, 'London')">London</button>
-                    <button onclick="displayTab(this, 'Paris')">Paris</button>
-                    <button onclick="displayTab(this, 'Tokyo')">Tokyo</button>
+                    <button id="save_one_button" onclick="displayTab('save_one')">Save one</button>
+                    <button id="upload_file_button" onclick="displayTab('upload_file')">Upload file</button>
+                    <!--
+                        <button onclick="displayTab(this, 'Tokyo')">Tokyo</button>
+                    -->
                 </div>
       
                 <!-- Tab content -->
-                <div id="London" class="tab-content">
-                    <h3>London</h3>
-                    <p>London is the capital city of England.</p>
+                <div id="save_one_tab" class="tab-content">
+                    <h3>Save one</h3>
+                    <p>Place content for save one line.</p>
+
+                    <form method="POST" action="/url_dump/upload" enctype="multipart/form-data">
+                        <fieldset>
+                            <legend>Select file to upload</legend>
+                            <input type="text name="save_one_text"/>
+                        </fieldset>
+                        <p>
+                            <button type="submit">Upload</button>
+                        </p>
+                    </form>
+
                 </div>
 
-                <div id="Paris" class="tab-content">
-                    <h3>Paris</h3>
-                    <p>Paris is the capital of France.</p> 
+                <div id="upload_file_tab" class="tab-content">
+                    <h3>Upload file</h3>
+
+                    <form method="POST" action="/url_dump/upload" enctype="multipart/form-data">
+                        <fieldset>
+                            <legend>Select file to upload</legend>
+                            <input type="file" name="upload_file"/>
+                        </fieldset>
+                        <p>
+                            <button type="submit">Upload</button>
+                        </p>
+                    </form>
                 </div>
 
-                <div id="Tokyo" class="tab-content">
-                    <h3>Tokyo</h3>
-                    <p>Tokyo is the capital of Japan.</p>
-                </div>
-
-                <form method="POST" action="/url_dump/upload" enctype="multipart/form-data">
-                    <fieldset>
-                        <legend>Select file to upload</legend>
-                        <input type="file" name="upload_file"/>
-                    </fieldset>
-                    <p>
-                        <button type="submit">Upload</button>
-                    </p>
-                </form>
 
                 <p>
                     <i>Have fun!</i>
@@ -91,21 +99,24 @@
 .tab-list button {
     background-color: inherit;
     float: left;
-    border: none;
+    border: solid 2px gray;
     outline: none;
     cursor: pointer;
-    padding: 14px 16px;
     transition: 0.3s;
+    margin: 0.5em 0.5em;
+    /*
+    padding: 14px 16px;
     margin: 0;
+    */
 }
 
     /* Change background color of buttons on hover */
-.tab button:hover {
+.tab-list button:hover {
     background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
+.tab-list button.active {
     background-color: #ccc;
 }
 
@@ -121,7 +132,10 @@
 
 {% block scripts %}
 <script>
-    function displayTab(ele, tabId) {
+    function displayTab(tabName) {
+
+        var tabId = tabName + "_tab";
+
         // Hide all tab contents
         document.querySelectorAll(".tab-content").forEach(function (ele) {
             console.log(ele);
@@ -135,11 +149,21 @@
 
         // Show the current tab, and add an "active" class to the button that opened the tab
         document.getElementById(tabId).style.display = "block";
-        ele.className += " active";
+        document.getElementById(tabName+"_button").className += " active";
     }
 
     (function() {
+        var hash = window.location.hash.slice(1).replace("-", "_").toLowerCase();
 
+        console.log(window.location.hash.slice(1));
+
+        console.log("Hash is", hash);
+
+        if (hash.length > 0) {
+            displayTab(hash); 
+
+        }
+        //displayTab(this, 'London');
     }());
 
 </script>
