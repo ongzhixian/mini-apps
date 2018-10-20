@@ -6,5 +6,8 @@
         "description"       : "Mini python applications",
         "version"           : "0.1",
         "version_date"      : "2018-10-13"
+    },
+    "url_dump": {
+        "sqlite3_filename"  : "./data/sqlite3/url_kb.sqlite3"
     }
 }
