@@ -29,7 +29,7 @@
 
                 <!-- Tab links -->
                 <div class="tab-list">
-                    <button id="save_one_button" onclick="displayTab('save_one')">Save one</button>
+                    <button id="save_text_button" onclick="displayTab('save_text')">Save text</button>
                     <button id="upload_file_button" onclick="displayTab('upload_file')">Upload file</button>
                     <!--
                         <button onclick="displayTab(this, 'Tokyo')">Tokyo</button>
@@ -37,17 +37,16 @@
                 </div>
       
                 <!-- Tab content -->
-                <div id="save_one_tab" class="tab-content">
-                    <h3>Save one</h3>
-                    <p>Place content for save one line.</p>
+                <div id="save_text_tab" class="tab-content">
+                    <h3>Save text</h3>
 
-                    <form method="POST" action="/url_dump/upload" enctype="multipart/form-data">
+                    <form method="POST">
                         <fieldset>
-                            <legend>Select file to upload</legend>
-                            <input type="text name="save_one_text"/>
+                            <legend>Write content to be saved</legend>
+                            <textarea cols="80" id="save_text_textarea" name="save_text_textarea" style="height:8em;"></textarea>
                         </fieldset>
                         <p>
-                            <button type="submit">Upload</button>
+                            <button type="submit">Save</button>
                         </p>
                     </form>
 
@@ -56,10 +55,10 @@
                 <div id="upload_file_tab" class="tab-content">
                     <h3>Upload file</h3>
 
-                    <form method="POST" action="/url_dump/upload" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data">
                         <fieldset>
                             <legend>Select file to upload</legend>
-                            <input type="file" name="upload_file"/>
+                            <input type="file" name="upload_file_input"/>
                         </fieldset>
                         <p>
                             <button type="submit">Upload</button>
@@ -69,7 +68,7 @@
 
 
                 <p>
-                    <i>Have fun!</i>
+                    {{notification}}
                 </p>
 
             </div>
@@ -150,6 +149,11 @@
         // Show the current tab, and add an "active" class to the button that opened the tab
         document.getElementById(tabId).style.display = "block";
         document.getElementById(tabName+"_button").className += " active";
+
+        // 
+        if (tabName === "save_text") {
+            document.getElementById("save_text_textarea").focus();
+        }
     }
 
     (function() {
@@ -161,9 +165,7 @@
 
         if (hash.length > 0) {
             displayTab(hash); 
-
         }
-        //displayTab(this, 'London');
     }());
 
 </script>
