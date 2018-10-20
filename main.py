@@ -59,6 +59,8 @@ if __name__ == '__main__':
     logging.warning("%8s test message %s" % ("WARNING", str(datetime.utcnow())))
     logging.info("%8s test message %s" % ("INFO", str(datetime.utcnow())))
     logging.debug("%8s test message %s" % ("DEBUG", str(datetime.utcnow())))
+    # Initial modules that requires it
+    url_dump.init()
     page_helpers.run(host="0.0.0.0", port=49152, debug=True, reloader=False)
     logging.info("[PROGRAM END]")
 
