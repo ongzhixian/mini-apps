@@ -106,7 +106,7 @@ def make_url_list(raw_lines):
 # Setup commonly used routes
 ################################################################################
 
-@route('/url_dump', method=['POST','GET'])
+@route('/url-dump', method=['POST','GET'])
 def display_home_page(errorMessages=None):
     #logging.debug("IN display_home_page")
     context = get_default_context(request)
