@@ -3,6 +3,7 @@
 ################################################################################
 
 import logging
+import os
 import time
 import uuid
 import bottle
@@ -39,14 +40,40 @@ def require_authentication(fn):
 # Define application hooks
 ########################################
 
+def add_auth_cookie(cookie_name):
+    # Using UUID4 to generate cookie value
+    new_uuid = uuid.uuid4()
+    new_uuid_hex = new_uuid.hex
+    # Set expiry to be a year (366 days) from now.
+    expiry = ((datetime.utcnow() + timedelta(366)) - datetime(1970, 1, 1)).total_seconds()
+    bottle.response.set_cookie(cookie_name, new_uuid.hex, httponly=True, expires=expiry)
+    # Create a session folder
+    
+    session_store_path = "./data/sessions/{0}".format(new_uuid_hex)
+    dir_exists = os.path.isdir(session_store_path)
+    if not dir_exists:
+        os.mkdir(session_store_path)
+    return new_uuid_hex
+
 def add_auth_cookie_hook():
     """Add auth cookie if user does not have auth cookie"""
+    # Name of the cookie that we want to check for
     auth_cookie_name = str(appconfig['application']["auth_cookie_name"])
+    # If cookie is NOT in request, generate cookie
     if auth_cookie_name not in bottle.request.cookies:
-        new_uuid = uuid.uuid4()
-        new_uuid_hex = new_uuid.hex
-        expiry = ((datetime.utcnow() + timedelta(366)) - datetime(1970, 1, 1)).total_seconds()
-        bottle.response.set_cookie(auth_cookie_name, new_uuid.hex, httponly=True, expires=expiry)
+        add_auth_cookie(auth_cookie_name)
+        # # Using UUID4 to generate cookie value
+        # new_uuid = uuid.uuid4()
+        # new_uuid_hex = new_uuid.hex
+        # # Set expiry to be a year (366 days) from now.
+        # expiry = ((datetime.utcnow() + timedelta(366)) - datetime(1970, 1, 1)).total_seconds()
+        # bottle.response.set_cookie(auth_cookie_name, new_uuid.hex, httponly=True, expires=expiry)
+        # # Create a session folder
+        
+        # session_store_path = "./data/sessions/{0}".format(new_uuid_hex)
+        # dir_exists = os.path.isdir(session_store_path)
+        # if not dir_exists:
+        #     os.mkdir(session_store_path)
 
 
 ########################################
