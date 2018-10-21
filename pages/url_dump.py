@@ -24,11 +24,6 @@ AUTH_COOKIE_NAME = str(appconfig['application']["auth_cookie_name"])
 
 # N/A
 
-# def init():
-#     logging.debug("Init url_dump pages module {0}".format(SQLITE_FILENAME))
-#     #sqlite_filename = appconfig["url_dump"]["sqlite3_filename"]
-#     initialize_sqlite_db(SQLITE_FILENAME)
-
 ################################################################################
 # Sqlite3 functions
 ################################################################################
@@ -98,6 +93,7 @@ def save_url_list(url_list):
     rows_affected = add_raw_url(SQLITE_FILENAME, datetime.utcnow(), url_list, 0)
     return rows_affected
 
+
 def make_url_list(raw_lines):
     url_list = []
     for line in raw_lines:
@@ -154,43 +150,6 @@ def display_home_page(errorMessages=None):
                 context["notification"] = "%d record(s) saved." % rows_affected
         
     return jinja2_env.get_template('html/url_dump/home-page.html').render(context)
-
-# @route('/url_dump/upload', method=['POST','GET'])
-# def upload_url_list(errorMessages=None):
-#     logging.debug("IN upload_url_list")
-
-#     if request.method == 'POST':
-#         logging.debug("IN POST block")
-#         if 'upload_file' in request.files:
-#             logging.debug("[upload_file] key exists in request.files")
-#             upload_file = request.files['upload_file']
-#             logging.debug(str(dir(upload_file)))
-#             upload_file.save("./data/" + upload_file.filename)
-#             logging.debug("Saving [upload_file]")
-#             #return 'file uploaded successfully'
-    
-    
-#     context = get_default_context(request)
-#     return jinja2_env.get_template('html/url_dump/home-page.html').render(context)
-
-
-# @route('/url_dump/save-text', method=['POST', 'GET'])
-# def upload_url_list(errorMessages=None):
-#     logging.debug("IN upload_url_list")
-
-#     if request.method == 'POST':
-#         logging.debug("IN POST block")
-#         if 'save_text_textarea' in request.forms.keys():
-#             # Save text here
-#             import pdb
-#             pdb.set_trace()
-#             redirect('/url_dump#save-text')
-#             pass
-    
-#     context = get_default_context(request)
-#     return jinja2_env.get_template('html/url_dump/home-page.html').render(context)
-
-
 
 ################################################################################
 # Module initialization
