@@ -1,1 +1,8 @@
 # This requirements file lists all dependecies for this project.
+# 
+# To install the dependencies, run the following command:
+# 'pip install -r requirements.txt'
+# 
+
+# An example
+#pytest
