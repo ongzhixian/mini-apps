@@ -42,6 +42,10 @@ def initialize_sqlite_db(sqlite_filename):
         N/A
     """
     logging.info("[url_dump] - Ensuring existence of sqlite3 database [{0}]".format(sqlite_filename))
+    # Create directory if not exists
+    dirName = os.path.dirname(sqlite_filename)
+    if not os.path.isdir(dirName):
+        os.makedirs(dirName)
     create_raw_url_tabl(sqlite_filename)
     
 ########################################
