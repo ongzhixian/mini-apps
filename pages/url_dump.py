@@ -66,9 +66,11 @@ def create_raw_url_tabl(sqlite_filename):
     with sqlite3.connect(sqlite_filename) as conn:
         cursor = conn.cursor()
         cursor.execute('''CREATE TABLE IF NOT EXISTS raw_url (
+            id          integer,
             timestamp   text,
             url         text,
-            status      integer
+            status      integer,
+            PRIMARY KEY (id)
             )''')
 
 ########################################
