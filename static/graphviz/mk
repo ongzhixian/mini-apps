@@ -1,0 +1,15 @@
+#
+if [ -z "$1" ] 
+then
+    echo "\$1 is empty; should be .dot file."
+    exit 1
+fi
+
+fileName=$(basename "$1")   # get base filename; strip directory from file path
+file_name="${fileName%.*}"  # get name of filename
+file_ext="${fileName##*.}"  # get extension of filename
+
+echo $fileName
+echo $file_name
+
+dot -Tsvg $1 -o $file_name.svg

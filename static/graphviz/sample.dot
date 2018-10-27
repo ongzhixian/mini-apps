@@ -1,0 +1,34 @@
+digraph sample  {
+    
+    ////////////////////////////////////////
+    // GLOBAL ATTRIBUTES
+    ////////////////////////////////////////
+    label="Sample graph";
+    id="sample_graph";
+    concentrate=true;
+
+    ////////////////////////////////////////
+    // NODES ATTRIBUTES
+    ////////////////////////////////////////
+    n1 [label="Hello" id="id_1"]
+    n2 [label="World!" URL="http://www.bing.com"]
+    n3 [label="Topic 1"]
+    n4 [label="C#"]
+    n5 [label="C++!"]
+
+    ////////////////////////////////////////
+    // EDGES ATTRIBUTES
+    ////////////////////////////////////////
+    A -> B;
+    B -> C;
+    B -> D [URL="http://www.yahoo.com"];
+    A -> D [color=blue]; 
+    D -> E;
+    E -> A;
+    A -> E;
+
+    n1 -> n2;
+    n3;
+    n4;
+    n5;
+}
