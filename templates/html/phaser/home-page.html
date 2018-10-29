@@ -1,0 +1,97 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} Phaser{% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Home', 'Phaser') }}
+
+    <!--
+        <header>
+            <h1>Phaser validator</h1>
+        </header>
+    -->
+    
+    <section>
+        
+        <div class="row">
+            <div class="twelve columns">
+
+                <p>
+                    This is the home page for my phaser application.<br/>
+                </p>
+
+            </div>
+        </div>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
+
+
+{% block scripts %}
+<script src="/js/phaser2/phaser.js"></script>
+<script>
+var Game = function() {
+
+this._width = window.innerWidth;
+this._height = window.innerHeight;
+
+this.game = new Phaser.Game(this._width, this._height, Phaser.AUTO, '', {
+    preload: this.preload,
+    create: this.create,
+    update: this.update
+});
+}
+
+Game.prototype = {
+        
+    preload: function() {
+        this.game.load.tilemap('MyTerrain', '/assets/MyTerrain.json', null, Phaser.Tilemap.TILED_JSON);
+        this.game.load.image('simple_tileset', '/assets/simple_tileset.png');
+
+    },
+    create: function() {
+
+        //Load the map.
+        map = this.game.add.tilemap('MyTerrain');
+        map.addTilesetImage('simple_tileset', 'simple_tileset');
+
+        layer = map.createLayer('MyTerrain');
+        layer.resizeWorld();
+        layer.wrap = true;
+
+        this.cursors = this.game.input.keyboard.createCursorKeys();
+
+    },
+    update: function() {
+        if (this.cursors.left.isDown) {
+            this.game.camera.x -= 8;
+        } else if (this.cursors.right.isDown) {
+            this.game.camera.x += 8;
+        }
+
+        if (this.cursors.up.isDown) {
+            this.game.camera.y -= 8;
+        } else if (this.cursors.down.isDown) {
+            this.game.camera.y += 8;
+        }
+    }
+}
+
+new Game();
+
+
+</script>
+{% endblock %}

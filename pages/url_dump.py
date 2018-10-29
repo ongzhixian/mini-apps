@@ -70,9 +70,11 @@ def create_raw_url_tabl(sqlite_filename):
     with sqlite3.connect(sqlite_filename) as conn:
         cursor = conn.cursor()
         cursor.execute('''CREATE TABLE IF NOT EXISTS raw_url (
+            id          integer,
             timestamp   text,
             url         text,
-            status      integer
+            status      integer,
+            PRIMARY KEY (id)
             )''')
 
 ########################################
@@ -110,7 +112,7 @@ def make_url_list(raw_lines):
 # Setup commonly used routes
 ################################################################################
 
-@route('/url_dump', method=['POST','GET'])
+@route('/url-dump', method=['POST','GET'])
 def display_home_page(errorMessages=None):
     #logging.debug("IN display_home_page")
     context = get_default_context(request)

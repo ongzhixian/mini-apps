@@ -1,6 +1,6 @@
 {% extends "./html/_layouts/_default.html" %}
 
-{% block title %} {{SITE_NAME}} {% endblock %}
+{% block title %} Palindrome{% endblock %}
 
 {% block content %}
 
@@ -9,11 +9,13 @@
 
 <div class="container">
 
-    {{ macros.page_header('Home') }}
+    {{ macros.page_header('Home', 'Palindrome') }}
 
-    <header>
-        <h1>Home Page</h1>
-    </header>
+    <!--
+        <header>
+            <h1>Palindrome validator</h1>
+        </header>
+    -->
     
     <section>
         
@@ -24,9 +26,33 @@
                     This is the home page for my palindrome validator Python utility web application.<br/>
                 </p>
 
+                <h3>Test text</h3>
+
+                <form method="POST">
+                    <fieldset>
+                        <legend>Text to be tested</legend>
+                        <input type="text" id="test_text_input" name="test_text_input" style="width:100%" />
+                    </fieldset>
+                    <p>
+                        <button type="submit">Test</button>
+                    </p>
+                </form>
+
                 <p>
-                    <i>Have fun!</i>
+                    {{notification}}
                 </p>
+
+                {% if palindromes %}
+                
+                <p>Found results:</p>
+
+                <ol>
+                    {% for result in palindromes%}
+                    <li>{{result}}</li>
+                    {% endfor %}
+                </ol>
+
+                {% endif %}
 
             </div>
         </div>
