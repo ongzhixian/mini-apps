@@ -34,7 +34,7 @@ appconfig = app_helpers.appconfig
 # Setup bottle and fetch configuration
 ################################################################################
 
-app = page_helpers.get_app()
+app = application = page_helpers.get_app()
 
 ################################################################################
 # Setup jinja2 environment
@@ -61,6 +61,6 @@ if __name__ == '__main__':
     logging.debug("%8s test message %s" % ("DEBUG", str(datetime.utcnow())))
     # Initial modules that requires it
     #url_dump.init()
-    page_helpers.run(host="0.0.0.0", port=49152, debug=True, reloader=False)
+    page_helpers.run(host="0.0.0.0", port=50001, debug=True, reloader=False)
     logging.info("[PROGRAM END]")
 
