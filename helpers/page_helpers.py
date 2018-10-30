@@ -84,6 +84,7 @@ def get_app():
     app = page_helpers.default_app()
 
     # add application hooks here
+    # TODO: Add setup for add_auth_cookie_hook; it needs a sessions folder in data folder
     app.add_hook('after_request', add_auth_cookie_hook)
     return app
 
