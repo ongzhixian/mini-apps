@@ -7,6 +7,7 @@ import json
 import logging
 import random
 import threading
+import time
 import uuid
 from datetime import datetime
 
@@ -33,6 +34,35 @@ PRODUCTS=[
 
 order_books = {}
 order_books_lock = threading.Lock()
+
+################################################################################
+# Classes
+################################################################################
+
+class Portfolio:
+    def __init__(self):
+        pass
+    
+
+class TraderProfile:
+    def __init__(self, trader_id, capital):
+        self.trader_id = trader_id
+        self.capital = capital
+        self.decision_time = random.randint(1, 5)
+        self.portfolio = Portfolio()
+        instrument = "apple" if random.randint(1, 10) % 2 == 0 else "banana"
+    
+    def generate_portfolio(self):
+        pass
+
+    def DoWork(self):
+        while (True):
+            side = "bid" if random.randint(1, 10) % 2 == 0 else "ask"
+            instrument = "apple" if random.randint(1, 10) % 2 == 0 else "banana"
+            logging.info("trader_id {0} will {1} for {2}".format(self.trader_id, side, instrument))
+            time.sleep(self.decision_time)
+        
+
 
 ################################################################################
 # Functions
@@ -160,14 +190,12 @@ def get_daemon_thread(thread_target, thread_name, thread_args):
 
 def run_trader(trader_id):
     # defining characteristics of trader
-    side = "bid" if random.randint(1, 10) % 2 == 0 else "ask"
-    instrument = "apple" if random.randint(1, 10) % 2 == 0 else "banana"
-    logging.info("trader_id {0} will {1} for {2}".format(trader_id, side, instrument))
-    while True:
-        import time
-        time.sleep(1000)
-
-
+    
+    capital = random.randint(1, 10) * 10000
+    logging.info("trader_id {0} has ${1}".format(trader_id, capital))
+    trader_profile = TraderProfile(trader_id, capital)
+    trader_profile.DoWork()
+    del trader_profile
 
 ################################################################################
 # Main function
@@ -185,7 +213,7 @@ if __name__ == '__main__':
     # Initial modules that requires it
     init_order_books()
 
-    for num in xrange(10):
+    for num in xrange(2):
         trader_id = "trader{0:0>2d}".format(num)
         new_trader = get_daemon_thread(
             run_trader, 
@@ -193,12 +221,11 @@ if __name__ == '__main__':
             (trader_id,))
         trader_thread_list.append(new_trader)
         new_trader.start()
-    
-        #print trader_id
-    
-    
 
-
+    # while (True):
+    #     time.sleep(5)
+    for trader_thread in trader_thread_list:
+        trader_thread.join()
 
     # order_id = add_order("apple", 1.01, "bid", 10)
     # order_id = add_order("apple", 1.01, "bid", 12)
