@@ -31,13 +31,35 @@ PRODUCTS=[
     { "name" : "apple", "tickSize" : 0.01 }, 
     { "name" : "banana", "tickSize" : 0.01 }
 ]
+TRADER_COUNT = 1
 
 order_books = {}
 order_books_lock = threading.Lock()
+startTradingEvent = threading.Event()
+
 
 ################################################################################
 # Classes
 ################################################################################
+
+
+class ThreadSafeCounter(object):
+    def __init__(self, start_value = 0):
+        self.lock = threading.Lock()
+        self.counter = start_value
+
+    def increment(self, fn = None):
+        with self.lock:
+            self.counter = self.counter + 1
+            if fn == None:
+                return
+            logging.info("Increment; Counter is now {0}".format(self.counter))
+            fn(self)
+
+    def get_counter_value(self):
+        return self.counter;
+
+traders_count = ThreadSafeCounter()
 
 class Portfolio:
     def __init__(self):
@@ -60,6 +82,7 @@ class TraderProfile:
             side = "bid" if random.randint(1, 10) % 2 == 0 else "ask"
             instrument = "apple" if random.randint(1, 10) % 2 == 0 else "banana"
             logging.info("trader_id {0} will {1} for {2}".format(self.trader_id, side, instrument))
+            add_order(instrument, 1, side, 1)
             time.sleep(self.decision_time)
         
 
@@ -109,8 +132,8 @@ def dump_order_book(instrument_name):
     order_book = order_books[instrument_name]
     for px in order_book:
         #logging.info("PX {0}".format(px))
-        logging.info("{0} bid {1}".format(px, order_book[px]["bid"]))
-        logging.info("{0} ask {1}".format(px, order_book[px]["ask"]))
+        logging.info("{0} {1} bid {2}".format(instrument_name, px, order_book[px]["bid"]))
+        logging.info("{0} {1} ask {2}".format(instrument_name, px, order_book[px]["ask"]))
 
 def add_order(instrument_name, price, side, quantity):
     # order_books["name"] = {
@@ -123,7 +146,7 @@ def add_order(instrument_name, price, side, quantity):
     #         ]
     #     }
     # }
-    global order_books
+    global order_books, order_books_lock
     if instrument_name not in order_books.keys():
         return None
     with order_books_lock:
@@ -140,18 +163,19 @@ def add_order(instrument_name, price, side, quantity):
         proc_qty = quantity
 
         while proc_qty > 0:
-            logging.debug("proc_qty: {0}".format(proc_qty))
+            #logging.debug("proc_qty: {0}".format(proc_qty))
             if len(order_book[price][opposite_side]) == 0:
                 order_id = uuid.uuid4().hex
                 order_book[price][side].append({"order_qty" : quantity, "fill_qty" : quantity - proc_qty, "id": order_id})
-                logging.debug("New order: [{0} {1} @ {2}]".format(side, quantity, price))
+                logging.debug("New order: [{0} {1} {2} @ {3}]".format(side, quantity, instrument_name, price))
                 proc_qty = proc_qty - proc_qty
                 # Send execution report for NEW ORDER
+                dump_order_book(instrument_name)
                 return order_id
             else:
                 client_order = order_book[price][opposite_side][0]
                 leaves_qty = client_order["order_qty"] - client_order["fill_qty"]
-                logging.debug("leaves_qty is {0}".format(leaves_qty))
+                #logging.debug("leaves_qty is {0}".format(leaves_qty))
                 # FILL vs PARTIAL FILL
                 if proc_qty >= leaves_qty:
                     # order_qty >= leaves_qty; may have remainder
@@ -167,6 +191,8 @@ def add_order(instrument_name, price, side, quantity):
                     client_order["fill_qty"] = client_order["fill_qty"] + proc_qty
                     proc_qty = proc_qty - quantity
                     # Send execution report for PARTIAL FILL
+        
+
 
 
 ########################################
@@ -188,12 +214,20 @@ def get_daemon_thread(thread_target, thread_name, thread_args):
     finally:
         logging.info("Generating [{0}] daemon thread.".format(thread_name))
 
+def startTrading(tsc):
+    logging.info("Check 1")
+    if tsc.counter >= 2:
+        startTradingEvent.set()
+
+
 def run_trader(trader_id):
     # defining characteristics of trader
-    
     capital = random.randint(1, 10) * 10000
     logging.info("trader_id {0} has ${1}".format(trader_id, capital))
     trader_profile = TraderProfile(trader_id, capital)
+    #traders_count.increment(startTrading)
+    traders_count.increment(lambda tsc : startTradingEvent.set() if tsc.counter >= TRADER_COUNT  else logging.debug("Waiting for everyone..."))
+    startTradingEvent.wait()
     trader_profile.DoWork()
     del trader_profile
 
@@ -213,7 +247,7 @@ if __name__ == '__main__':
     # Initial modules that requires it
     init_order_books()
 
-    for num in xrange(2):
+    for num in xrange(TRADER_COUNT):
         trader_id = "trader{0:0>2d}".format(num)
         new_trader = get_daemon_thread(
             run_trader, 
