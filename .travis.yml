@@ -4,33 +4,6 @@ dist: trusty
 language: python
 python: "2.7"
 
-# command to install dependencies
-#install:
-#  - pip install -r requirements.txt
-
-# command to run tests
-#script: pytest
-
-# Deployment
-# env:
-#   global:
-#   - 'SFTP_USER=[user]'
-#   - 'SFTP_PASSWORD=[password]'
-#  - 'SFTP_KEY=[base64-encoded-rsa-key]'
-
-
-# deploy:
-#   skip_cleanup: true
-
-
-# after_success:
-#   - echo "${SFTP_USER}"
-# # - echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
-# # - curl --ftp-create-dirs
-# #        -T filename
-# #        --key /tmp/sftp_rsa
-# #        sftp://${SFTP_USER}:${SFTP_PASSWORD}@example.com/directory/filename
-
 before_install:
   - echo "before install"
 
@@ -49,15 +22,14 @@ after_success:
 after_failure:
   - echo "IN after_failure"
 
+# before_deploy:
+#   - echo "IN before_deploy"
 
-before_deploy:
-  - echo "IN before_deploy"
+# deploy:
+#   - echo "IN deploy"
 
-deploy:
-  - echo "IN deploy"
-
-after_deploy:
-  - echo "IN after_deploy"
+# after_deploy:
+#   - echo "IN after_deploy"
 
 after_script:
   - echo "IN after_script"
