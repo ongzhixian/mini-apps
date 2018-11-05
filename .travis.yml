@@ -25,3 +25,4 @@ after_success:
 after_script:
   - echo "IN after_script"
   - echo "${SFTP_USER}"
+  - echo $SFTP_USER
