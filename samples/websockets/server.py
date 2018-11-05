@@ -10,6 +10,7 @@ def handle_websocket():
     while True:
         try:
             message = wsock.receive()
+            print("OK. received message {0}".format(message))
             wsock.send("Your message was: %r" % message)
         except WebSocketError:
             break
