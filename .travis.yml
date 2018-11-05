@@ -18,7 +18,8 @@ env:
   - 'SFTP_PASSWORD=[password]'
 #  - 'SFTP_KEY=[base64-encoded-rsa-key]'
 
-# after_success:
+after_success:
+  - echo ${SFTP_USER}
 # - echo "${SFTP_KEY}" | base64 --decode >/tmp/sftp_rsa
 # - curl --ftp-create-dirs
 #        -T filename
