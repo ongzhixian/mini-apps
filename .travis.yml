@@ -16,20 +16,12 @@ before_script:
 script:
   - echo "IN script"
 
-after_success:
-  - echo "IN after_success"
-
 after_failure:
   - echo "IN after_failure"
 
-# before_deploy:
-#   - echo "IN before_deploy"
-
-# deploy:
-#   - echo "IN deploy"
-
-# after_deploy:
-#   - echo "IN after_deploy"
+after_success:
+  - echo "IN after_success"
 
 after_script:
   - echo "IN after_script"
+  - echo "${SFTP_USER}"
