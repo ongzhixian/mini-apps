@@ -30,3 +30,5 @@ after_script:
   - sftp --version
   - sshpass --version
   - ssh-keyscan
+  - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
+  - sftp zhixian@plato.emptool.com
