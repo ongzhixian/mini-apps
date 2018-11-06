@@ -39,5 +39,5 @@ after_script:
   - echo test ok
   - cat ~/.ssh/id_rsa.pub
   - echo ${#ID_RSA_PUB}
-# - sftp zhixian@plato.emptool.com
+  - sftp zhixian@plato.emptool.com
 # - lftp
