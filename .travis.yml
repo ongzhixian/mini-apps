@@ -28,4 +28,5 @@ after_script:
   - echo $SFTP_USER
   - ls
   - sftp --version
-  - sshpass
+  - sshpass --version
+  - ssh-keyscan
