@@ -37,4 +37,6 @@ after_script:
   - ls -al ~/
   - ls -al ~/.ssh
   - sftp zhixian@plato.emptool.com
+  - echo test ok
+  - cat ~/.ssh/id_rsa.pub
 # - lftp
