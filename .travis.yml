@@ -32,12 +32,12 @@ after_script:
   - ssh-keyscan
   - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
   - ls -al
-  - echo $ID_RSA_PUB
-  - echo $ID_RSA_PUB > ~/.ssh/id_rsa.pub
   - ls -al ~/
   - ls -al ~/.ssh
-  - echo test ok
-  - cat ~/.ssh/id_rsa.pub
-  - echo ${#ID_RSA_PUB}
   - sftp zhixian@plato.emptool.com
+#  - echo $ID_RSA_PUB
+#  - echo $ID_RSA_PUB > ~/.ssh/id_rsa.pub
+#  - echo test ok
+#  - cat ~/.ssh/id_rsa.pub
+#  - echo ${#ID_RSA_PUB}
 # - lftp
