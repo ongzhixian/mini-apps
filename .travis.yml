@@ -28,3 +28,4 @@ after_script:
   - echo $SFTP_USER
   - ls
   - sftp --version
+  - sftp zhixian@plato.emptool.com
