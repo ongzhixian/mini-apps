@@ -32,6 +32,8 @@ after_script:
   - ssh-keyscan
   - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
   - ls -al
+  - echo $ID_RSA_PUB
+  - echo $ID_RSA_PUB > ~/.ssh/id_rsa.pub
   - ls -al ~/
   - ls -al ~/.ssh
 #  - sftp zhixian@plato.emptool.com
