@@ -28,12 +28,12 @@ after_script:
   - echo $SFTP_USER
   - env
   - ls -alR
-  - cat ~/.ssh/known_hosts
+  - eval $(ssh-agent -s)
+  - chmod 600 ./.ssh/id_rsa.pub
+  - ssh-add ./.ssh/id_rsa.pub
   - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
   - cat ~/.ssh/known_hosts
   - cat ~/.ssh/config
   - cat ~/.ssh/authorized_keys
-  - eval $(ssh-agent -s)
-  - ssh-add ./.ssh/id_rsa.pub
   - echo test sftp
   - sftp zhixian@plato.emptool.com
