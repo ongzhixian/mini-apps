@@ -38,6 +38,7 @@ after_script:
   - eval $(ssh-agent -s)
   - echo "$ID_RSA" | tr -d '\r' > ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
+  - ssh-keygen -p -P "" -N "" -f ~/.ssh/id_rsa
   - ssh-add -l
   - ssh-add ~/.ssh/id_rsa
   - cat ~/.ssh/id_rsa
