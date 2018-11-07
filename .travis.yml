@@ -31,9 +31,11 @@ after_script:
   - eval $(ssh-agent -s)
   #- chmod 600 ./.ssh/id_rsa.pub
   #- ssh-add ./.ssh/id_rsa.pub
+  - echo "$ID_RSA" | tr -d '\r'
   - echo "$ID_RSA" | tr -d '\r' > ~/.ssh/id_rsa
   - chmod 600 ~/.ssh/id_rsa
-  - ssh-add ~/.ssh/id_rsa
+  - ssh-add -l
+  - ssh-add ~/.ssh/id_rsa &>/dev/null
   - cat ~/.ssh/id_rsa
   - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
   - cat ~/.ssh/known_hosts
