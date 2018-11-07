@@ -34,5 +34,5 @@ after_script:
   - cat ~/.ssh/config
   - cat ~/.ssh/authorized_keys
   - eval $(ssh-agent -s)
-  - ssh-add ~/.ssh/id_rsa.pub
+  - ssh-add ./.ssh/id_rsa.pub
   - echo test sftp
