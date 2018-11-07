@@ -39,9 +39,10 @@ after_script:
   - echo "$ID_RSA" | tr -d '\r' > ./deploy_key
   - chmod 600 ./deploy_key
   # - ssh-keygen -p -P "" -N "" -f ~/.ssh/id_rsa
+  #- ssh-add -k ./deploy_key
   - ssh-add -l
-  - ssh-add -k ./deploy_key
   # - ssh-add -l
   #- cat ~/.ssh/id_rsa
+  - wc ./deploy_key
   - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
   - echo test sftp
