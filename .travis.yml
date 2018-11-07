@@ -36,12 +36,12 @@ after_script:
   - cat ~/.ssh/authorized_keys
   # - ls -alR
   - eval $(ssh-agent -s)
-  - echo "$ID_RSA" | tr -d '\r' > ~/.ssh/id_rsa
-  - chmod 600 ~/.ssh/id_rsa
-  - ssh-keygen -p -P "" -N "" -f ~/.ssh/id_rsa
+  - echo "$ID_RSA" | tr -d '\r' > ./deploy_key
+  - chmod 600 ./deploy_key
+  # - ssh-keygen -p -P "" -N "" -f ~/.ssh/id_rsa
   - ssh-add -l
-  # - ssh-add < ~/.ssh/id_rsa 
+  - ssh-add ./deploy_key
   # - ssh-add -l
-  - cat ~/.ssh/id_rsa
+  #- cat ~/.ssh/id_rsa
   - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
   - echo test sftp
