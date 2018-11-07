@@ -33,6 +33,7 @@ after_script:
   - cat ~/.ssh/known_hosts
   - cat ~/.ssh/config
   - cat ~/.ssh/authorized_keys
-  - ssh-agent -s
+#  - ssh-agent -s
+  - eval $(ssh-agent -s)
   - ssh-add $ID_RSA_PUB
   - echo test sftp
