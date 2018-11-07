@@ -35,6 +35,9 @@ after_script:
   - ls -al ~/
   - ls -al ~/.ssh
   - ps -AL
+  - cat ~/.ssh/known_hosts
+  - cat ~/.ssh/config
+  - cat ~/.ssh/authorized_keys
 #  - sftp zhixian@plato.emptool.com
 #  - echo $ID_RSA_PUB
 #  - echo $ID_RSA_PUB > ~/.ssh/id_rsa.pub
