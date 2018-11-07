@@ -27,7 +27,7 @@ after_script:
   - echo "${SFTP_USER}"
   - echo $SFTP_USER
   - env
-  - ls
+  - ls -AL
   - cat ~/.ssh/known_hosts
   - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
   - cat ~/.ssh/known_hosts
@@ -36,3 +36,4 @@ after_script:
   - eval $(ssh-agent -s)
   - ssh-add ./.ssh/id_rsa.pub
   - echo test sftp
+  - sftp zhixian@plato.emptool.com
