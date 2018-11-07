@@ -27,7 +27,7 @@ after_script:
   - echo "${SFTP_USER}"
   - echo $SFTP_USER
   - env
-  - ls -alR
+#  - ls -alR
   - eval $(ssh-agent -s)
   #- chmod 600 ./.ssh/id_rsa.pub
   #- ssh-add ./.ssh/id_rsa.pub
@@ -40,4 +40,4 @@ after_script:
   - cat ~/.ssh/config
   - cat ~/.ssh/authorized_keys
   - echo test sftp
-  - sftp zhixian@plato.emptool.com
+#  - sftp zhixian@plato.emptool.com
