@@ -27,7 +27,7 @@ after_script:
   - echo "${SFTP_USER}"
   - echo $SFTP_USER
   - env
-  - ls -AL
+  - ls -alR
   - cat ~/.ssh/known_hosts
   - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
   - cat ~/.ssh/known_hosts
