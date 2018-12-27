@@ -1,0 +1,428 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Test') }}
+
+    <header>
+        <h1>Test Page <small>chips</small>
+        </h1>
+    </header>
+
+    <section>
+
+        <div class="row">
+            <div class="twelve columns">
+                <p>
+                    Chips input w/o jQuery <button type="button" class="button" id="fetchDataButton">Fetch data</button>
+                </p>
+
+                <h4>Sort <button type="button" class="button" id="applySortButton">Sort</button></h4>
+                <ul class="tags-input-area">
+                    <li class="tag">fancy <span class="interactive remove-tag">&#10006;</span>
+                    </li>
+                    <li class="new-tag">
+                        <input type="text" autocomplete="off" />
+                    </li>
+                </ul>
+
+                <table class="reconciliation">
+                    <thead>
+                        <tr>
+                            <th>Indicator</th>
+                            <th>Trade date</th>
+                            <th>Exchange</th>
+                            <th>Broker</th>
+                            <th>Security Id</th>
+                            <th>Account</th>
+                            <th>Src Qty</th>
+                            <th>Dst Qty</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>2018-12-14</td>
+                            <td>XASX</td>
+                            <td>JPM</td>
+                            <td>BHP.AX</td>
+                            <td>84721</td>
+                            <td>10</td>
+                            <td>11</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+<style>
+    .interactive {
+        cursor: pointer;
+    }
+
+    .tags-input-area {
+        border: solid 2px #ccc;
+        list-style: none;
+    }
+
+    li.tag,
+    li.new-tag {
+        display: inline-block;
+        margin: 0.36em 0 0.36em 0.36em;
+        padding: 0 0.36em;
+    }
+
+    li.tag {
+
+        background-color: #fafafa;
+        border: solid 1px #ccc;
+        border-radius: 5px;
+    }
+
+    li.new-tag {
+        /* N/A */
+    }
+
+    li.new-tag input {
+        border: none;
+        margin: 0;
+        padding: 0;
+        height: auto;
+    }
+
+    li.new-tag input[type=text]:focus {
+        border: none;
+    }
+
+    /* 
+    li.tag.input {
+        border:0;
+        margin: 0;
+    }
+    li.tag.input input {
+        margin:0;
+        border:0;
+    } */
+</style>
+
+<script>
+    // Write a script that detects when a 
+    var pj = {};
+    var tags = ["new", "reconciliation", "2018-12-12", "jpm", "XASX"];
+
+    // TODO:
+    var chips = {
+        tags : ["new", "reconciliation", "2018-12-12", "jpm", "XASX"],
+        renderChips: function() {},
+        addNewChips: function(e) {},
+        removeChips: function(e) {}
+    };
+
+    var ajax = {
+        "getRequest": function () {
+            if (window.XMLHttpRequest) {
+                return new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                console.log("Browser does not support XMLHTTP.");
+                return false;
+            }
+        }
+    };
+
+
+    function renderChips() {
+        var elementList = document.getElementsByClassName("tags-input-area");
+        var newTagItem = document.getElementsByClassName("new-tag")[0];
+        if (elementList.length <= 0) {
+            return;
+        }
+
+        var rootElement = elementList[0];
+        var html = "";
+
+        // Clear all tags
+        rootElement.querySelectorAll(".tag").forEach(e => {
+            e.remove();
+        });
+
+        // Append each tag we have in list into tag area
+        tags.forEach(element => {
+            var newTagElement = document.createElement('li');
+            newTagElement.classList.add("tag");
+            newTagElement.innerHTML = element + ' <span class="interactive remove-tag">&#10006;</span></li>';
+            // rootElement.prepend(newTagElement);
+            rootElement.insertBefore(newTagElement, newTagItem);
+        });
+
+        // Set event-handlers
+        document.querySelectorAll(".interactive.remove-tag").forEach(element => {
+            // Because JavaScript do not provide a way to check if an event listener has been assigned to an element,
+            // we will always remove the event listener that we want to attach 
+            element.removeEventListener("click", testClick);
+            element.addEventListener("click", testClick);
+        });
+    }
+
+    function addNewChips(e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode == 9) {
+            e.preventDefault();
+            tags.push(this.value);
+            renderChips();
+            this.value = "";
+            console.log("TAB");
+            return;
+        }
+        console.log(keyCode);
+    }
+
+    function testClick(e) {
+        console.log("CLICKED");
+        //debugger;
+        var targetTagText = e.target.parentElement.innerHTML.replace(e.target.outerHTML, "").trim();
+        var foundIndex = tags.indexOf(targetTagText);
+        tags.splice(foundIndex, 1)
+        console.log("TODO: remove ", targetTagText, "found at", foundIndex);
+        renderChips();
+    }
+
+    function renderTableData() {
+        if (!pj) {
+            return;
+        }
+
+        if (pj.layout) {
+            pj.layout.fields.sort(function (a, b) { // Sort display order fields by "seq"
+                return a.seq - b.seq;
+            });
+        }
+
+        if (pj.length === 0) {
+            return
+        } 
+
+        var tbl = document.querySelector("table.reconciliation");
+
+        var new_tbody = tbl.createTBody();
+        var row_idx = 0;
+        var key_idx = 0;
+
+        for (row_idx = 0; row_idx < pj.data.length; row_idx++) {
+
+            var row = new_tbody.insertRow(row_idx);
+
+            for (key_idx = 0; key_idx < pj.layout.fields.length; key_idx++) {
+                var newCell = row.insertCell(key_idx);
+                newCell.innerHTML = pj.data[row_idx][pj.layout.fields[key_idx].field];
+            }
+        }
+
+        tbl.tBodies[0].remove(); // Remove the old tbody
+    }
+
+    function ajaxCall() {
+        // Get data
+        var actionUrl = "http://localhost:50001/api/recon/2018-12-14";
+        var xhr = ajax.getRequest();
+        xhr.onreadystatechange = function () {
+            var DONE = 4; // readyState 4 means the request is done.
+            var OK = 200; // status 200 is a successful return.
+            if (xhr.readyState === DONE) {
+                if (xhr.status === OK) {
+                    //console.log(xhr.responseText); // 'This is the returned text.'
+                    pj = JSON.parse(xhr.responseText);
+                    //debugger;
+
+                    if (pj) {
+                        renderTableData();
+                        return;
+
+                        // Assumes pj will have a layout section and a data section
+                        if (pj.layout) {
+                            // pj.layout.fields.reduce(function(a, cv) {
+                            //     debugger;
+                            //     //return cv;
+                            // })
+
+                            pj.layout.fields.sort(function (a, b) { // Sort display order fields by "seq"
+                                return a.seq - b.seq;
+                            });
+                        }
+
+
+
+                        if (pj.length === 0) {
+                            //     document.querySelector("table.resource-types").classList.add("hide");
+                            //     document.getElementById("resource_types_message").classList.remove("hide");
+                            return
+                        } 
+
+
+                        // Render contents into table
+
+
+                        // if (pj.length === 0) {
+                        //     document.querySelector("table.resource-types").classList.add("hide");
+                        //     document.getElementById("resource_types_message").classList.remove("hide");
+                        // } else {
+                        var tbl = document.querySelector("table.reconciliation");
+
+                        var new_tbody = tbl.createTBody();
+                        var row_idx = 0;
+                        var key_idx = 0;
+
+                        for (row_idx = 0; row_idx < pj.data.length; row_idx++) {
+                            var row = new_tbody.insertRow(row_idx);
+                            //var keys = Object.keys(pj[row_idx])
+
+
+                            for (key_idx = 0; key_idx < pj.layout.fields.length; key_idx++) {
+                                var newCell = row.insertCell(key_idx);
+                                newCell.innerHTML = pj.data[row_idx][pj.layout.fields[key_idx].field];
+                            }
+
+                            // var cell0 = row.insertCell(0);
+                            // var cell1 = row.insertCell(1);
+                            // var cell2 = row.insertCell(2);
+                            // var cell3 = row.insertCell(3);
+                            // var cell4 = row.insertCell(4);
+                            // var cell4 = row.insertCell(5);
+                            // var cell4 = row.insertCell(6);
+                            // var cell4 = row.insertCell(7);
+                            // var cell4 = row.insertCell(8);
+
+                            // cell0.innerHTML = (row_idx + 1).toString();
+                            // cell1.innerHTML = pj[row_idx]["name"];
+                            // cell2.innerHTML = pj[row_idx]["description"];
+                            // cell3.innerHTML = pj[row_idx]["count"];
+                            //cell4.innerHTML = "<a href='#'>Remove</a>";
+                        }
+
+                        tbl.tBodies[0].remove(); // Remove the old tbody
+
+                        //     document.getElementById("resource_types_message").classList.add("hide");
+                        //     document.querySelector("table.resource-types").classList.remove("hide");
+                        // }
+                    } else {
+                        console.log("AJAX call return no data.");
+                    }
+
+                } else {
+                    console.log('Error: ' + xhr.status); // An error occurred during the request.
+                }
+            }
+
+
+            // xhr.setRequestHeader('Content-Type', 'application/json');
+            // var type_name = document.getElementById("resource_type_name").value;
+            // var type_desc = document.getElementById("resource_type_description").value;
+            // var type_count = document.getElementById("resource_type_count").value;
+
+            // application/x-www-form-urlencoded
+            // var post_data = encodeURI('name=');
+
+            // var post_data = {
+            //     "name" : type_name,
+            //     "des" : type_desc,
+            //     "count" : type_count
+            // };
+            // console.log(post_data);
+        }
+        xhr.open('GET', actionUrl);
+        xhr.send(null);
+    }
+
+    (function () {
+        console.log("[START]");
+
+        // Write a function that renders tag
+        renderChips();
+
+        // Add event listeners for input
+        var newTagItem = document.getElementsByClassName("new-tag")[0];
+        var inputElement = document.getElementsByClassName("new-tag")[0].children[0];
+        inputElement.addEventListener("keydown", addNewChips);
+
+
+        var fetchDataButton = document.getElementById("fetchDataButton");
+        fetchDataButton.addEventListener("click", function(e) {
+            console.log("Make ajax call");
+            ajaxCall();
+        });
+
+        var applySortButton = document.getElementById("applySortButton");
+        applySortButton.addEventListener("click", function(e) {
+            console.log("Sort");
+            // data.layout.fields.sort(function (a, b) { // Sort display order fields by "seq"
+            //     debugger;
+            //     return a.seq - b.seq;
+            // });
+
+            
+
+            var orderFields = ['security_id', 'account'];
+
+            orderFields = [
+                {"field" : "security_id",   "asc": 1},
+                {"field" : "account",       "asc": 1}
+            ];
+            //orderFields = ['security_id'];
+
+            pj.data.sort(function (a, b) {
+                // orderFields.forEach(element => {
+                //     console.log(a[element], b[element]);
+                //     console.log(a[element].localeCompare(b[element]));
+                //     return b["security_id"].localeCompare(a["security_id"]);
+                // });
+                var orderField1 = orderFields[0];
+                
+
+                console.log(a[orderField1], b[orderField1]);
+                console.log(a[orderField1].localeCompare(b[orderField1]));
+                
+                //return a["security_id"].localeCompare(b["security_id"]);  // Ascending order
+                var ordSeq = b[orderField1].localeCompare(a[orderField1]);    // Descending order
+
+                if (ordSeq === 0) {
+                    debugger;
+                    orderFields.forEach(element => {
+                        ordSeq = b[element].localeCompare(a[element]);
+                        if (ordSeq !== 0) {
+                            return;
+                        }
+                    });
+                }
+
+                debugger;
+                return ordSeq;
+
+            });
+
+            //sort(pj.data, {'security_id', 'account'})
+            renderTableData();
+            // sort
+        });
+
+
+    })();
+</script>
+
+{% endblock %}

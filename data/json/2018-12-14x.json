@@ -1,0 +1,82 @@
+[
+    {
+        "indicator": 1,
+        "exchange": "XASX",
+        "dst_qty": 11,
+        "broker": "JPM",
+        "src_qty": 10,
+        "trade_date": "2018-12-14",
+        "security_id": "BHP.AX",
+        "account": "84721"
+    },
+    {
+        "indicator": 0,
+        "exchange": "XASX",
+        "dst_qty": 10,
+        "broker": "JPM",
+        "src_qty": 10,
+        "trade_date": "2018-12-14",
+        "security_id": "BOQ.AX",
+        "account": "84721"
+    },
+    {
+        "indicator": 0,
+        "exchange": "XASX",
+        "dst_qty": 10,
+        "broker": "JPM",
+        "src_qty": 10,
+        "trade_date": "2018-12-14",
+        "security_id": "MTS.AX",
+        "account": "84721"
+    },
+    {
+        "indicator": 0,
+        "exchange": "XASX",
+        "dst_qty": 10,
+        "broker": "JPM",
+        "src_qty": 10,
+        "trade_date": "2018-12-14",
+        "security_id": "RIO.AX",
+        "account": "84721"
+    },
+    {
+        "indicator": 0,
+        "exchange": "XASX",
+        "dst_qty": 10,
+        "broker": "JPM",
+        "src_qty": 10,
+        "trade_date": "2018-12-14",
+        "security_id": "SEN.AX",
+        "account": "84721"
+    },
+    {
+        "indicator": 0,
+        "exchange": "XASX",
+        "dst_qty": 10,
+        "broker": "JPM",
+        "src_qty": 10,
+        "trade_date": "2018-12-14",
+        "security_id": "TLS.AX",
+        "account": "84721"
+    },
+    {
+        "indicator": 0,
+        "exchange": "XNTP",
+        "dst_qty": 10,
+        "broker": "JPM",
+        "src_qty": 10,
+        "trade_date": "2018-12-14",
+        "security_id": "APZ8",
+        "account": "32016"
+    },
+    {
+        "indicator": 0,
+        "exchange": "XNTP",
+        "dst_qty": 10,
+        "broker": "JPM",
+        "src_qty": 10,
+        "trade_date": "2018-12-14",
+        "security_id": "APZ8",
+        "account": "84721"
+    }
+]

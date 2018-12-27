@@ -43,3 +43,8 @@ def display_about_page(errorMessages=None):
 def display_contact_page(errorMessages=None):
     context = get_default_context(request)
     return jinja2_env.get_template('html/site/contact-page.html').render(context)
+
+@route('/test')
+def display_test_page(errorMessages=None):
+    context = get_default_context(request)
+    return jinja2_env.get_template('html/site/test-page.html').render(context)
