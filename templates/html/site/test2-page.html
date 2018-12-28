@@ -9,10 +9,10 @@
 
 <div class="container">
 
-    {{ macros.page_header('Test') }}
+    {{ macros.page_header('Test2') }}
 
     <header>
-        <h1>Test Page <small>chips</small>
+        <h1>Test2 Page <small>Canvas</small>
         </h1>
     </header>
 
@@ -21,44 +21,14 @@
         <div class="row">
             <div class="twelve columns">
                 <p>
-                    Chips input w/o jQuery <button type="button" class="button" id="fetchDataButton">Fetch data</button>
+                    Canvas 
+                    <button type="button" class="button" id="renderButton">Render</button>
+                    <button type="button" class="button" id="fetchDataButton">Fetch data</button>
                 </p>
 
-                <h4>Sort <button type="button" class="button" id="applySortButton">Sort</button></h4>
-                <ul class="tags-input-area" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
-                    <li class="tag">fancy <span class="interactive remove-tag">&#10006;</span>
-                    </li>
-                    <li class="new-tag">
-                        <input type="text" autocomplete="off" />
-                    </li>
-                </ul>
-
-                <table class="reconciliation">
-                    <thead>
-                        <tr>
-                            <th>Indicator</th>
-                            <th>Trade date</th>
-                            <th>Exchange</th>
-                            <th>Broker</th>
-                            <th>Security Id</th>
-                            <th>Account</th>
-                            <th>Src Qty</th>
-                            <th>Dst Qty</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2018-12-14</td>
-                            <td>XASX</td>
-                            <td>JPM</td>
-                            <td>BHP.AX</td>
-                            <td>84721</td>
-                            <td>10</td>
-                            <td>11</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <canvas id="ex1" width="100%" height="150" style="border: 1px solid #cccccc;">
+                    HTML5 Canvas not supported
+                </canvas>
 
             </div>
         </div>
@@ -67,8 +37,6 @@
 
     <footer>
         {{ macros.page_footer() }}
-        [<span id="ex">x</span>, <span id="ey">y</span>]
-
     </footer>
 
 </div>
@@ -154,52 +122,13 @@
         ev.preventDefault();
         // Set the dropEffect to move
         ev.dataTransfer.dropEffect = "copy"
-
-        var tagList = document.getElementsByClassName("tags-input-area")[0].children;
-        for (var tagIdx = 0; tagIdx < tagList.length - 1; tagIdx++) {
-            var element = tagList[tagIdx];
-            
-            var boundingRect = element.getBoundingClientRect();
-
-            document.getElementById("ex").innerText = ev.clientX;
-            document.getElementById("ey").innerText = ev.clientY;
-
-            if (
-                (ev.clientX >= boundingRect.left) && (ev.clientX <= boundingRect.right)
-                // && (ev.screenY <= boundingRect.top)
-                // && (ev.screenY >= boundingRect.bottom)
-            )
-            {
-                //console.log("Yes overlapping", (ev.clientX >= boundingRect.left), (ev.clientX <= boundingRect.right));
-                console.log(ev.clientX , boundingRect.left, "|", ev.clientX , boundingRect.right);
-
-            }
-
-            // check if ev.clientX and ev.clientY is withing bounding box
-
-        }
-        // document.getElementsByClassName("tags-input-area")[0].children.forEach(function(e) {
-
-        // });
-        //     element => {
-        //     //console.log(element.getBoundingClientRect());
-        // });
-
-        
-
-        //debugger;
-        // var overlap = !(rect1.right < rect2.left || 
-        //         rect1.left > rect2.right || 
-        //         rect1.bottom < rect2.top || 
-        //         rect1.top > rect2.bottom)
-
     }
     function drop_handler(ev) {
         ev.preventDefault();
         // Get the id of the target and add the moved element to the target's DOM
         var data = ev.dataTransfer.getData("text/plain");
         //ev.target.appendChild(document.getElementById(data));
-        
+        debugger;
     }
 
 
@@ -431,27 +360,110 @@
         }
     }
 
+    function drawExamples(){
+        // Using canvas ALWAYS involve the following two steps:
+        var canvas  = document.getElementById("ex1");   // 1. Get reference to the canvas element.
+        var context = canvas.getContext("2d");          // 2. Get 2D context from the canvas element.
+
+        // [Start drawing arbiturary graphics here]
+        // Draw grid
+        // Draw row of squares
+        var squareSize = 50;
+        
+        
+
+        
+        context.strokeStyle = "#0ac0cc"; // Blue empty rec
+        context.lineWidth   = 5;
+        context.fillStyle = "#ff0000";
+        // context.fillRect(10,10, 100,100); // Red rect
+        
+        for (var y = 2.5; y < canvas.height; y = y + squareSize) {
+            for (var x = 2.5; x < canvas.width; x = x + squareSize) {
+                context.strokeRect(x, y, squareSize, squareSize);
+                //context.fillRect( x+2.5, y+2.5, squareSize, squareSize);
+            }
+        }
+
+
+        // Filled triangle
+        context.beginPath();
+        context.moveTo(25,25);
+        context.lineTo(105,25);
+        context.lineTo(25,105);
+        context.fill();
+                    
+        // Stroked triangle
+        context.strokeStyle = "#0000ff"; // Blue empty rec
+        context.lineCap = "butt";
+        context.lineJoin = "round";
+
+        context.beginPath();
+        context.moveTo(5,500);
+        context.lineTo(125,45);
+        context.lineTo(205,125);
+        //context.closePath();
+        context.stroke();
+        
+        //context.lineWidth   = 2;
+        context.font        = "normal 48px Arial";
+        context.strokeStyle = "#000000";
+        //context.strokeText("\u{02789}", 240, 100);
+        context.fillText("\u{02789}", 0, 100);
+        
+        
+        
+        // context.fillStyle = "#ff0000";
+        // context.fillRect(10,10, 100,100); // Red rect
+
+        // context.fillStyle = "#009900";
+        // context.fillRect(120,10, 100,100); // Green rect
+
+        // context.strokeStyle = "#0000ff"; // Blue empty rec
+        // context.lineWidth   = 5;
+        // context.strokeRect(120,120, 100,100);
+
+
+
+        // context.font      = "normal 36px Verdana";
+        // context.fillStyle = "#000000";
+        // context.fillText("HTML5 Canvas Text", 240, 60);
+
+        // context.font        = "normal 36px Arial";
+        // context.strokeStyle = "#000000";
+        // context.strokeText("HTML5 Canvas Text", 240, 100);
+    }
+
+
     (function () {
         console.log("[START]");
 
         // Write a function that renders tag
-        renderChips();
-
+        //renderChips();
 
         // https://developer.mozilla.org/en-US/docs/Web/Events
 
-        var tagsInputArea = document.getElementsByClassName("tags-input-area")[0];
-        tagsInputArea.addEventListener("click", function (e) {
-            console.log("focus");
-            document.getElementsByClassName("new-tag")[0].children[0].focus();
-        });
-        //inputElement.addEventListener("keydown", addNewChips);
 
         // Add event listeners for input
-        var newTagItem = document.getElementsByClassName("new-tag")[0];
-        var inputElement = document.getElementsByClassName("new-tag")[0].children[0];
-        inputElement.addEventListener("keydown", addNewChips);
 
+        var renderButton = document.getElementById("renderButton");
+        renderButton.addEventListener("click", function(e) {
+            console.log("Render to canvas");
+            var originalCanvas = document.getElementById("ex1");
+            //originalCanvas.width = originalCanvas.parentElement.clientWidth;
+            originalCanvas.width = 505;
+            originalCanvas.height = 505;
+            drawExamples();
+            
+        });
+
+        var drawingCanvas = document.getElementById("ex1");
+        drawingCanvas.addEventListener('mousemove', function(e){
+            // var idx = (e.offsetY*w + e.offsetX)*4;
+            // var parts = Array.prototype.slice.call(data,idx,idx+4);
+            // callback.apply(ctx,parts);
+            console.log(e);
+        }, false);
 
         var fetchDataButton = document.getElementById("fetchDataButton");
         fetchDataButton.addEventListener("click", function(e) {
@@ -459,95 +471,7 @@
             ajaxCall();
         });
 
-        var applySortButton = document.getElementById("applySortButton");
-        applySortButton.addEventListener("click", function(e) {
-            console.log("Sort");
-            // data.layout.fields.sort(function (a, b) { // Sort display order fields by "seq"
-            //     debugger;
-            //     return a.seq - b.seq;
-            // });
-
-
-            var orderFields = [
-                {"field" : "security_id",   "asc": 1},
-                {"field" : "account",       "asc": 0}
-            ];
-
-            // Parse sort criteria
-            
-            orderFields = [];
-            tags.forEach(tag => {
-                // Parse each tag into corresponding entry in orderFields[]
-                // {"field" : "security_id",   "asc": 1},
-                var asc = 1;
-                var targetLabel = tag.trim();
-                var match = null;
-                var regex = null;
-
-                regex = /DESC$/i;
-                if (tag.match(regex) != null)
-                {
-                    asc = 0;
-                    targetLabel = tag.replace(regex,"").trim();
-                }
-
-                regex = /ASC$/i;
-                if (tag.match(regex) != null)
-                {
-                    asc = 1;
-                    targetLabel = tag.replace(regex,"").trim();
-                }
-
-                var orderField = pj.layout.fields.find(function (element) {
-                    return (element.label.toUpperCase() === targetLabel.toUpperCase());
-                });
-
-                if (orderField) {
-                    orderFields.push({
-                        "field" : orderField.field,   
-                        "asc"   : asc
-                    });
-                }
-            });
-            
-            pj.data.sort(function (a, b) {
-                if (orderFields.length <= 0) {
-                    return;
-                }
-
-                var orderField = orderFields[0];
-                var ordSeq = 0;
-                if (orderField.asc === 1) {
-                    ordSeq = sortCompare(a[orderField.field], b[orderField.field]);     // Ascending order
-                } else {
-                    ordSeq = sortCompare(b[orderField.field], a[orderField.field]);     // Descending order
-                }
-
-                // If we cannot find any difference from first-order compare
-                // compare until we find a difference in the fields that we want sorted.
-                // If there's no difference, it probably doesn't matter. ;-)
-                if (ordSeq === 0) {
-                    orderFields.forEach(orderField => {
-                        if (orderField.asc === 1) {
-                            ordSeq = sortCompare(a[orderField.field], b[orderField.field]);     // Ascending order
-                        } else {
-                            ordSeq = sortCompare(b[orderField.field], a[orderField.field]);     // Descending order
-                        }
-                        
-                        if (ordSeq !== 0) {
-                            return;
-                        }
-                    });
-                }
-                return ordSeq;
-
-            });
-
-            //sort(pj.data, {'security_id', 'account'})
-            renderTableData();
-            // sort
-        });
-
+        renderButton.click();
 
     })();
 </script>
