@@ -22,12 +22,12 @@ def display_home_page(errorMessages=None):
     context = get_default_context(request)
     return jinja2_env.get_template('html/phaser/home-page.html').render(context)
 
-@route('/about')
+@route('/phaser/about')
 def display_about_page(errorMessages=None):
     context = get_default_context(request)
     return jinja2_env.get_template('html/phaser/about-page.html').render(context)
 
-@route('/contact')
+@route('/phaser/contact')
 def display_contact_page(errorMessages=None):
     context = get_default_context(request)
     return jinja2_env.get_template('html/phaser/contact-page.html').render(context)
