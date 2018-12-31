@@ -53,3 +53,8 @@ def display_test_page(errorMessages=None):
 def display_test2_page(errorMessages=None):
     context = get_default_context(request)
     return jinja2_env.get_template('html/site/test2-page.html').render(context)
+
+@route('/test3')
+def display_test3_page(errorMessages=None):
+    context = get_default_context(request)
+    return jinja2_env.get_template('html/site/test3-page.html').render(context)

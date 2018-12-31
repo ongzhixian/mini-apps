@@ -9,10 +9,10 @@
 
 <div class="container">
 
-    {{ macros.page_header('Test2') }}
+    {{ macros.page_header('Test3') }}
 
     <header>
-        <h1>Test2 Page <small>Autocomplete</small>
+        <h1>Test <small>Canvas</small>
         </h1>
     </header>
 
@@ -21,14 +21,14 @@
         <div class="row">
             <div class="twelve columns">
                 <p>
-                    User actions
+                    Canvas 
+                    <button type="button" class="button" id="renderButton">Render</button>
                     <button type="button" class="button" id="fetchDataButton">Fetch data</button>
                 </p>
 
-                <div class="autocomplete" style="width:300px;">
-                    <input id="termInput" type="text" name="termInput" placeholder="key terms">
-                </div>
-                
+                <canvas id="ex1" width="100%" height="150" style="border: 1px solid #cccccc;">
+                    HTML5 Canvas not supported
+                </canvas>
 
             </div>
         </div>
@@ -89,50 +89,11 @@
         margin:0;
         border:0;
     } */
-/* css for AutoComplete */
-.autocomplete {
-  /*the container must be positioned relative:*/
-  position: relative;
-  display: inline-block;
-}
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  /*
-  top: 100%;
-  */
-  top: 4rem;
-  left: 0;
-  right: 0;
-}
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
-}
-.autocomplete-items div:hover {
-  /*when hovering an item:*/
-  background-color: #e9e9e9; 
-}
-.autocomplete-active {
-  /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
-}
-
-
 </style>
 
 <script>
     // Write a script that detects when a 
     var pj = {};
-
-    var keyTerms = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
     var tags = ["new", "reconciliation", "2018-12-12", "jpm", "XASX"];
     tags = ["security id desc", "account desc"]
 
@@ -169,6 +130,8 @@
         //ev.target.appendChild(document.getElementById(data));
         debugger;
     }
+
+
     function dragstart_handler(ev) {
         console.log("dragStart");
         // Set the drag effect to move; there are 3 effects:
@@ -182,6 +145,7 @@
         // ev.dataTransfer.setData("text/plain", ev.target.id);
         ev.dataTransfer.setData("text/plain", ev.target.firstChild.data.trim());
     }
+
 
 
     function renderChips() {
@@ -396,112 +360,80 @@
         }
     }
 
+    function drawExamples(){
+        // Using canvas ALWAYS involve the following two steps:
+        var canvas  = document.getElementById("ex1");   // 1. Get reference to the canvas element.
+        var context = canvas.getContext("2d");          // 2. Get 2D context from the canvas element.
 
-    function autoComplete(inp, arr) {
-        /*  the autocomplete function takes two arguments:
-            1.  the text field element and 
-            2.  an array of possible autocompleted values
-        */
-        var currentFocus;
-        /*execute a function when someone writes in the text field:*/
-        inp.addEventListener("input", function(e) {
-            var a, b, i, val = this.value;
-            /*close any already open lists of autocompleted values*/
-            closeAllLists();
-            if (!val) { return false;}
-            currentFocus = -1;
+        // [Start drawing arbiturary graphics here]
+        // Draw grid
+        // Draw row of squares
+        var squareSize = 50;
+        
+        
 
-            /*create a DIV element that will contain the items (values):*/
-            a = document.createElement("DIV");
-            a.setAttribute("id", this.id + "autocomplete-list");
-            a.setAttribute("class", "autocomplete-items");
+        
+        context.strokeStyle = "#0ac0cc"; // Blue empty rec
+        context.lineWidth   = 5;
+        context.fillStyle = "#ff0000";
+        // context.fillRect(10,10, 100,100); // Red rect
+        
+        for (var y = 2.5; y < canvas.height; y = y + squareSize) {
+            for (var x = 2.5; x < canvas.width; x = x + squareSize) {
+                context.strokeRect(x, y, squareSize, squareSize);
+                //context.fillRect( x+2.5, y+2.5, squareSize, squareSize);
+            }
+        }
 
-            /*append the DIV element as a child of the autocomplete container:*/
-            this.parentNode.appendChild(a);
-            
-            /*for each item in the array...*/
-            for (i = 0; i < arr.length; i++) {
-                /*check if the item starts with the same letters as the text field value:*/
-                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-                    /*create a DIV element for each matching element:*/
-                    b = document.createElement("DIV");
-                    /*make the matching letters bold:*/
-                    b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                    b.innerHTML += arr[i].substr(val.length);
-                    /*insert a input field that will hold the current array item's value:*/
-                    b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+
+        // Filled triangle
+        // context.beginPath();
+        // context.moveTo(25,25);
+        // context.lineTo(105,25);
+        // context.lineTo(25,105);
+        // context.fill();
                     
-                    /*execute a function when someone clicks on the item value (DIV element):*/
-                    b.addEventListener("click", function(e) {
-                        /*insert the value for the autocomplete text field:*/
-                        inp.value = this.getElementsByTagName("input")[0].value;
-                        /*close the list of autocompleted values,
-                        (or any other open lists of autocompleted values:*/
-                        closeAllLists();
-                    });
-                    a.appendChild(b);
+        // Stroked triangle
+        context.strokeStyle = "#0000ff"; // Blue empty rec
+        context.lineCap = "butt";
+        context.lineJoin = "round";
 
-                }
-            } // end for
-        });
+        context.beginPath();
+        context.moveTo(5,500);
+        context.lineTo(125,45);
+        context.lineTo(205,125);
+        //context.closePath();
+        context.stroke();
+        
+        //context.lineWidth   = 2;
+        context.font        = "normal 48px Arial";
+        context.strokeStyle = "#000000";
+        //context.strokeText("\u{02789}", 240, 100);
+        context.fillText("\u{02789}", 7.5, 495);
+        //https://www.toptal.com/designers/htmlarrows/symbols/
+        
+        
+        // context.fillStyle = "#ff0000";
+        // context.fillRect(10,10, 100,100); // Red rect
 
-        /*execute a function presses a key on the keyboard:*/
-        inp.addEventListener("keydown", function(e) {
-            var x = document.getElementById(this.id + "autocomplete-list");
-            if (x) x = x.getElementsByTagName("div");
-            if (e.keyCode == 40) {
-            /*If the arrow DOWN key is pressed,
-            increase the currentFocus variable:*/
-            currentFocus++;
-            /*and and make the current item more visible:*/
-            addActive(x);
-            } else if (e.keyCode == 38) { //up
-            /*If the arrow UP key is pressed,
-            decrease the currentFocus variable:*/
-            currentFocus--;
-            /*and and make the current item more visible:*/
-            addActive(x);
-            } else if (e.keyCode == 13) {
-            /*If the ENTER key is pressed, prevent the form from being submitted,*/
-            e.preventDefault();
-            if (currentFocus > -1) {
-                /*and simulate a click on the "active" item:*/
-                if (x) x[currentFocus].click();
-            }
-            }
-        });
-        function addActive(x) {
-            /*a function to classify an item as "active":*/
-            if (!x) return false;
-            /*start by removing the "active" class on all items:*/
-            removeActive(x);
-            if (currentFocus >= x.length) currentFocus = 0;
-            if (currentFocus < 0) currentFocus = (x.length - 1);
-            /*add class "autocomplete-active":*/
-            x[currentFocus].classList.add("autocomplete-active");
-        }
-        function removeActive(x) {
-            /*a function to remove the "active" class from all autocomplete items:*/
-            for (var i = 0; i < x.length; i++) {
-            x[i].classList.remove("autocomplete-active");
-            }
-        }
+        // context.fillStyle = "#009900";
+        // context.fillRect(120,10, 100,100); // Green rect
 
-        function closeAllLists(elmnt) {
-            /*close all autocomplete lists in the document,
-            except the one passed as an argument:*/
-            var x = document.getElementsByClassName("autocomplete-items");
-            for (var i = 0; i < x.length; i++) {
-                if (elmnt != x[i] && elmnt != inp) {
-                    x[i].parentNode.removeChild(x[i]);
-                }
-            }
-            document.addEventListener("click", function (e) {
-                closeAllLists(e.target);
-            });
-        }
+        // context.strokeStyle = "#0000ff"; // Blue empty rec
+        // context.lineWidth   = 5;
+        // context.strokeRect(120,120, 100,100);
+
+
+
+        // context.font      = "normal 36px Verdana";
+        // context.fillStyle = "#000000";
+        // context.fillText("HTML5 Canvas Text", 240, 60);
+
+        // context.font        = "normal 36px Arial";
+        // context.strokeStyle = "#000000";
+        // context.strokeText("HTML5 Canvas Text", 240, 100);
     }
-    
+
 
     (function () {
         console.log("[START]");
@@ -513,7 +445,25 @@
 
 
         // Add event listeners for input
-        autoComplete(document.getElementById("termInput"), keyTerms);
+
+        var renderButton = document.getElementById("renderButton");
+        renderButton.addEventListener("click", function(e) {
+            console.log("Render to canvas");
+            var originalCanvas = document.getElementById("ex1");
+            //originalCanvas.width = originalCanvas.parentElement.clientWidth;
+            originalCanvas.width = 505;
+            originalCanvas.height = 505;
+            drawExamples();
+            
+        });
+
+        var drawingCanvas = document.getElementById("ex1");
+        drawingCanvas.addEventListener('mousemove', function(e){
+            // var idx = (e.offsetY*w + e.offsetX)*4;
+            // var parts = Array.prototype.slice.call(data,idx,idx+4);
+            // callback.apply(ctx,parts);
+            console.log(e);
+        }, false);
 
         var fetchDataButton = document.getElementById("fetchDataButton");
         fetchDataButton.addEventListener("click", function(e) {
@@ -521,7 +471,7 @@
             ajaxCall();
         });
 
-        //renderButton.click();
+        renderButton.click();
 
     })();
 </script>
