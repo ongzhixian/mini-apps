@@ -12,7 +12,7 @@
     {{ macros.page_header('Test3') }}
 
     <header>
-        <h1>Test <small>Canvas</small>
+        <h1>Test <small>re-arrange</small>
         </h1>
     </header>
 
@@ -21,15 +21,20 @@
         <div class="row">
             <div class="twelve columns">
                 <p>
-                    Canvas 
+                    Re-arrange
                     <button type="button" class="button" id="renderButton">Render</button>
                     <button type="button" class="button" id="fetchDataButton">Fetch data</button>
                 </p>
 
-                <canvas id="ex1" width="100%" height="150" style="border: 1px solid #cccccc;">
-                    HTML5 Canvas not supported
-                </canvas>
-
+                <ul id="columns">
+                    <li class="sort-element" draggable="true"><header>A</header></li>
+                    <li class="sort-element" draggable="true"><header>B</header></li>
+                    <li class="sort-element" draggable="true"><header>C</header></li>
+                    <li class="sort-element" draggable="true"><header>D</header></li>
+                    <li class="sort-element" draggable="true"><header>E</header></li>
+                    <li class="sort-element last" draggable="false"><header>&nbsp;</header></li>
+                </ul>
+                
             </div>
         </div>
 
@@ -89,6 +94,59 @@
         margin:0;
         border:0;
     } */
+
+
+    /*Re-arrange COLUMNS css*/
+    #columns {
+        list-style-type: none;
+        margin: 0;
+  padding: 0;
+    }
+
+.sort-element {
+    /*
+    width: 50px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    */
+    padding: 3px;
+  text-align: center;
+  cursor: move;
+  display: inline-block;
+}
+
+.sort-element header {
+  height: 20px;
+  width: 50px;
+  color: black;
+  background-color: #ccc;
+  
+  padding: 5px;
+  
+  border-bottom: 1px solid #ddd;
+  border-radius: 10px;
+  border: 2px solid #666666;
+}
+
+.sort-element.last, .sort-element.last header {
+    
+    width: 1px;
+    padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.sort-element.dragElem {
+  opacity: 0.4;
+}
+.sort-element.over {
+    border-left: 3px solid blue;
+    /*
+    padding-left: 3px;
+    border: 2px dashed #000;
+    border-top: 2px solid blue;
+    */
+}
+
 </style>
 
 <script>
@@ -360,80 +418,88 @@
         }
     }
 
-    function drawExamples(){
-        // Using canvas ALWAYS involve the following two steps:
-        var canvas  = document.getElementById("ex1");   // 1. Get reference to the canvas element.
-        var context = canvas.getContext("2d");          // 2. Get 2D context from the canvas element.
+/////////////////////////////////////////////////////////////////////////////////////////
 
-        // [Start drawing arbiturary graphics here]
-        // Draw grid
-        // Draw row of squares
-        var squareSize = 50;
-        
-        
+var dragSrcEl = null;
 
-        
-        context.strokeStyle = "#0ac0cc"; // Blue empty rec
-        context.lineWidth   = 5;
-        context.fillStyle = "#ff0000";
-        // context.fillRect(10,10, 100,100); // Red rect
-        
-        for (var y = 2.5; y < canvas.height; y = y + squareSize) {
-            for (var x = 2.5; x < canvas.width; x = x + squareSize) {
-                context.strokeRect(x, y, squareSize, squareSize);
-                //context.fillRect( x+2.5, y+2.5, squareSize, squareSize);
-            }
-        }
+function handleDragStart(e) {
+    // Target (this) element is the source node.
+    dragSrcEl = this;
 
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.outerHTML);
 
-        // Filled triangle
-        // context.beginPath();
-        // context.moveTo(25,25);
-        // context.lineTo(105,25);
-        // context.lineTo(25,105);
-        // context.fill();
-                    
-        // Stroked triangle
-        context.strokeStyle = "#0000ff"; // Blue empty rec
-        context.lineCap = "butt";
-        context.lineJoin = "round";
+    this.classList.add('dragElem');
+}
 
-        context.beginPath();
-        context.moveTo(5,500);
-        context.lineTo(125,45);
-        context.lineTo(205,125);
-        //context.closePath();
-        context.stroke();
-        
-        //context.lineWidth   = 2;
-        context.font        = "normal 48px Arial";
-        context.strokeStyle = "#000000";
-        //context.strokeText("\u{02789}", 240, 100);
-        context.fillText("\u{02789}", 7.5, 495);
-        //https://www.toptal.com/designers/htmlarrows/symbols/
-        
-        
-        // context.fillStyle = "#ff0000";
-        // context.fillRect(10,10, 100,100); // Red rect
+function handleDragOver(e) {
+    if (e.preventDefault) {
+        e.preventDefault(); // Necessary. Allows us to drop.
+    }
+    this.classList.add('over');
 
-        // context.fillStyle = "#009900";
-        // context.fillRect(120,10, 100,100); // Green rect
+    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
 
-        // context.strokeStyle = "#0000ff"; // Blue empty rec
-        // context.lineWidth   = 5;
-        // context.strokeRect(120,120, 100,100);
+    return false;
+}
 
+function handleDragEnter(e) {
+  // this / e.target is the current hover target.
+}
 
+function handleDragLeave(e) {
+    this.classList.remove('over');  // this / e.target is previous target element.
+}
 
-        // context.font      = "normal 36px Verdana";
-        // context.fillStyle = "#000000";
-        // context.fillText("HTML5 Canvas Text", 240, 60);
+function handleDrop(e) {
+    // this/e.target is current target element.
 
-        // context.font        = "normal 36px Arial";
-        // context.strokeStyle = "#000000";
-        // context.strokeText("HTML5 Canvas Text", 240, 100);
+    if (e.stopPropagation) {
+        e.stopPropagation(); // Stops some browsers from redirecting.
     }
 
+    // Don't do anything if dropping the same column we're dragging.
+    if (dragSrcEl != this) {
+        // Set the source column's HTML to the HTML of the column we dropped on.
+        //alert(this.outerHTML);
+        //dragSrcEl.innerHTML = this.innerHTML;
+        //this.innerHTML = e.dataTransfer.getData('text/html');
+        this.parentNode.removeChild(dragSrcEl);
+        var dropHTML = e.dataTransfer.getData('text/html');
+        this.insertAdjacentHTML('beforebegin',dropHTML);
+        var dropElem = this.previousSibling;
+        addDnDHandlers(dropElem);
+    }
+
+    this.classList.remove('over');
+    return false;
+}
+
+function handleDragEnd(e) {
+    // this/e.target is the source node.
+    this.classList.remove('over');
+
+    /*[].forEach.call(cols, function (col) {
+    col.classList.remove('over');
+    });*/
+}
+
+
+function addDnDHandlers(elem) {
+    elem.addEventListener('dragstart', handleDragStart, false);
+    elem.addEventListener('dragenter', handleDragEnter, false)
+    elem.addEventListener('dragover', handleDragOver, false);
+    elem.addEventListener('dragleave', handleDragLeave, false);
+    elem.addEventListener('drop', handleDrop, false);
+    elem.addEventListener('dragend', handleDragEnd, false);
+}
+
+var cols = document.querySelectorAll('#columns .sort-element');
+[].forEach.call(cols, addDnDHandlers);
+
+
+
+////////////////////////////////////////////////////////////
 
     (function () {
         console.log("[START]");
@@ -446,32 +512,14 @@
 
         // Add event listeners for input
 
-        var renderButton = document.getElementById("renderButton");
-        renderButton.addEventListener("click", function(e) {
-            console.log("Render to canvas");
-            var originalCanvas = document.getElementById("ex1");
-            //originalCanvas.width = originalCanvas.parentElement.clientWidth;
-            originalCanvas.width = 505;
-            originalCanvas.height = 505;
-            drawExamples();
-            
-        });
 
-        var drawingCanvas = document.getElementById("ex1");
-        drawingCanvas.addEventListener('mousemove', function(e){
-            // var idx = (e.offsetY*w + e.offsetX)*4;
-            // var parts = Array.prototype.slice.call(data,idx,idx+4);
-            // callback.apply(ctx,parts);
-            console.log(e);
-        }, false);
+
 
         var fetchDataButton = document.getElementById("fetchDataButton");
         fetchDataButton.addEventListener("click", function(e) {
             console.log("Make ajax call");
             ajaxCall();
         });
-
-        renderButton.click();
 
     })();
 </script>
