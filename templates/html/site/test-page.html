@@ -25,14 +25,26 @@
                 </p>
 
                 <h4>Sort <button type="button" class="button" id="applySortButton">Sort</button></h4>
-                <ul class="tags-input-area" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+                <!--
+
+                    <ul class="tags-input-area" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+                        <li class="tag">fancy <span class="interactive remove-tag">&#10006;</span>
+                        </li>
+                        <li class="new-tag">
+                            <input type="text" autocomplete="off" />
+                        </li>
+                    </ul>
+                -->
+
+                
+                <ul class="tags-input-area">
                     <li class="tag">fancy <span class="interactive remove-tag">&#10006;</span>
                     </li>
                     <li class="new-tag">
                         <input type="text" autocomplete="off" />
                     </li>
                 </ul>
-
+                    
                 <table class="reconciliation">
                     <thead>
                         <tr>
@@ -121,6 +133,20 @@
         margin:0;
         border:0;
     } */
+
+
+    .tag.dragElem {
+        opacity: 0.4;
+    }
+    .tag.over {
+        border-left: 3px solid blue;
+        /*
+        padding-left: 3px;
+        border: 2px dashed #000;
+        border-top: 2px solid blue;
+        */
+    }
+
 </style>
 
 <script>
@@ -239,7 +265,7 @@
             var newTagElement = document.createElement('li');
             newTagElement.classList.add("tag");
             newTagElement.setAttribute("draggable","true");
-            newTagElement.setAttribute("ondragstart","dragstart_handler(event);");
+            //newTagElement.setAttribute("ondragstart","dragstart_handler(event);");
             newTagElement.innerHTML = element + ' <span class="interactive remove-tag">&#10006;</span></li>';
             // rootElement.prepend(newTagElement);
             rootElement.insertBefore(newTagElement, newTagItem);
@@ -252,6 +278,11 @@
             element.removeEventListener("click", testClick);
             element.addEventListener("click", testClick);
         });
+
+        
+        //var cols = document.querySelectorAll('.tags-input-area .tag');
+        var cols = document.querySelectorAll('.tags-input-area .tag,.tags-input-area .new-tag');
+        [].forEach.call(cols, addDnDHandlers);
     }
 
     function addNewChips(e) {
@@ -270,6 +301,7 @@
     function testClick(e) {
         console.log("CLICKED");
         //debugger;
+        e.stopPropagation();
         var targetTagText = e.target.parentElement.innerHTML.replace(e.target.outerHTML, "").trim();
         var foundIndex = tags.indexOf(targetTagText);
         tags.splice(foundIndex, 1)
@@ -431,6 +463,88 @@
         }
     }
 
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+var dragSrcEl = null;
+
+function handleDragStart(e) {
+    // Target (this) element is the source node.
+    dragSrcEl = this;
+
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.outerHTML);
+
+    this.classList.add('dragElem');
+}
+
+function handleDragOver(e) {
+    if (e.preventDefault) {
+        e.preventDefault(); // Necessary. Allows us to drop.
+    }
+    this.classList.add('over');
+
+    e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+
+    return false;
+}
+
+function handleDragEnter(e) {
+  // this / e.target is the current hover target.
+}
+
+function handleDragLeave(e) {
+    this.classList.remove('over');  // this / e.target is previous target element.
+}
+
+function handleDrop(e) {
+    // this/e.target is current target element.
+
+    if (e.stopPropagation) {
+        e.stopPropagation(); // Stops some browsers from redirecting.
+    }
+
+    // Don't do anything if dropping the same column we're dragging.
+    if (dragSrcEl != this) {
+        // Set the source column's HTML to the HTML of the column we dropped on.
+        
+        //dragSrcEl.innerHTML = this.innerHTML;
+        //this.innerHTML = e.dataTransfer.getData('text/html');
+        this.parentNode.removeChild(dragSrcEl);
+        var dropHTML = e.dataTransfer.getData('text/html');
+        this.insertAdjacentHTML('beforebegin',dropHTML);
+        var dropElem = this.previousSibling;
+        addDnDHandlers(dropElem);
+
+        document.querySelectorAll(".interactive.remove-tag").forEach(element => {
+            // Because JavaScript do not provide a way to check if an event listener has been assigned to an element,
+            // we will always remove the event listener that we want to attach 
+            element.removeEventListener("click", testClick);
+            element.addEventListener("click", testClick);
+        });
+
+    }
+
+    this.classList.remove('over');
+    return false;
+}
+
+function handleDragEnd(e) {
+    this.classList.remove('over');
+    this.classList.remove('dragElem');
+}
+
+
+function addDnDHandlers(elem) {
+    elem.addEventListener('dragstart', handleDragStart, false);
+    elem.addEventListener('dragenter', handleDragEnter, false)
+    elem.addEventListener('dragover', handleDragOver, false);
+    elem.addEventListener('dragleave', handleDragLeave, false);
+    elem.addEventListener('drop', handleDrop, false);
+    elem.addEventListener('dragend', handleDragEnd, false);
+}
+
+
     (function () {
         console.log("[START]");
 
@@ -444,6 +558,7 @@
         tagsInputArea.addEventListener("click", function (e) {
             console.log("focus");
             document.getElementsByClassName("new-tag")[0].children[0].focus();
+            //e.stopPropagation();
         });
         //inputElement.addEventListener("keydown", addNewChips);
 
