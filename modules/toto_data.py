@@ -226,6 +226,15 @@ ORDER BY
 		r.draw_number;
         ''')
 
+
+def create_last_draw_view(sqlite3_cursor):
+    # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
+    return sqlite3_cursor.execute('''CREATE VIEW IF NOT EXISTS last_draw AS
+SELECT 	* 
+FROM 	toto49 
+WHERE 	draw_number = (SELECT MAX(draw_number) FROM toto49);
+        ''')
+
 ########################################
 # core function(s)
 ########################################
@@ -253,6 +262,7 @@ def initialize_sqlite_db(sqlitedb_path):
         create_raw49_view(cursor)
         create_raw49_period_view(cursor)
         create_toto49_view(cursor)
+        create_last_draw_view(cursor)
         
 
 ################################################################################

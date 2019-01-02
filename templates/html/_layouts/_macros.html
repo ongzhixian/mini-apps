@@ -18,12 +18,16 @@
         { 'href' : "/", 'text' : "Home" },
         { 'href' : "/about", 'text' : "About" },
         { 'href' : "/contact", 'text' : "Contact" },
-        { 'href' : "/test", 'text' : "Test" },
-        { 'href' : "/test2", 'text' : "Test2" },
-        { 'href' : "/test3", 'text' : "Test3" },
-        { 'href' : "/test4", 'text' : "Test4" }
+        { 'href' : "/toto", 'text' : "Toto" },
+
     ]
 %}
+{#
+    { 'href' : "/test", 'text' : "Test" },
+    { 'href' : "/test2", 'text' : "Test2" },
+    { 'href' : "/test3", 'text' : "Test3" },
+    { 'href' : "/test4", 'text' : "Test4" }
+#}
 <div class="row">
     <div class="twelve columns">
         <h1 class="page-header">{{SITE_NAME}}
@@ -40,16 +44,19 @@
             {% endif %}
             {%- endfor %}
             
-            <div class="dropdown">
-                <a href="javascript:void(0);" class="dropdown-button" onclick="myFunction('myDropdown')">Tests
-                    <i class="fa fa-caret-down"></i>
-                </a>
-                <div class="dropdown-content" id="myDropdown">
-                    <a href="/test1">Test 1</a>
-                    <a href="/test2">Test 2</a>
-                    <a href="/test3">Test 3</a>
+            <!--
+
+                <div class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-button" onclick="myFunction('myDropdown')">Tests
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="/test1">Test 1</a>
+                        <a href="/test2">Test 2</a>
+                        <a href="/test3">Test 3</a>
+                    </div>
                 </div>
-            </div>
+            -->
                 
         </nav>
     </div>
