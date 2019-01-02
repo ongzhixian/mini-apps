@@ -235,6 +235,40 @@ FROM 	toto49
 WHERE 	draw_number = (SELECT MAX(draw_number) FROM toto49);
         ''')
 
+
+
+########################################
+# Query function(s)
+########################################
+
+def get_last_draw():
+    SQL_QUERY = """
+    SELECT * FROM last_draw;
+    """
+    print(SQLITE_FILE_PATH)
+    with sqlite3.connect(SQLITE_FILE_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute(SQL_QUERY)
+        result = cursor.fetchall()
+    return result
+
+
+# Placeholder sample for querying with parameter
+# def get_instruments(sqlite_filename, sector_name):
+#     SQL_QUERY = """
+#     SELECT * FROM mainboard_instrument WHERE sector = ? ORDER BY volume DESC, last DESC LIMIT 15;
+#     """
+#     with sqlite3.connect(sqlite_filename) as conn:
+#         cursor = conn.cursor()
+#         cursor.execute(
+#             SQL_QUERY,
+#             (sector_name,)
+#         )
+#         result = cursor.fetchall()
+#     return result
+
+
+
 ########################################
 # core function(s)
 ########################################

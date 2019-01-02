@@ -2,6 +2,7 @@ import json
 import logging
 import os
 from helpers.page_helpers import *
+from modules import toto_data
 
 ################################################################################
 # Setup helper functions
@@ -16,12 +17,9 @@ from helpers.page_helpers import *
 @route('/api/toto/last-draw')
 def api_toto_last_draw_get():
     logging.debug("IN api_toto_last_draw_get")
-    return "['Hello', 'World', 'tradedate']"
-    # data_store_filepath = "./data/json/{0}.json".format(trade_date)
-    # with open(data_store_filepath, "r") as infile:
-    #     json_string = infile.read()
-    # data = json.loads(json_string)
-    # return json_string
+    lot_result = toto_data.get_last_draw()
+    # ZX: lot = List of Tuple
+    return json.dumps(lot_result)
 
 
 @route('/api/toto/<draw_date>')
