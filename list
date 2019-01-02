@@ -1,0 +1,2624 @@
+ Volume in drive C is OS
+ Volume Serial Number is 6086-5AF0
+
+ Directory of C:\src\github.com\ongzhixian\python-apps
+
+01/02/2019  12:56 PM    <DIR>          .
+01/02/2019  12:56 PM    <DIR>          ..
+10/22/2018  08:50 AM             1,323 .gitignore
+11/07/2018  09:23 AM    <DIR>          .ssh
+11/01/2018  04:35 PM    <DIR>          .vscode
+12/27/2018  02:44 PM    <DIR>          api
+12/27/2018  10:37 AM               405 app_config.json
+10/15/2018  12:10 PM    <DIR>          certs
+12/27/2018  02:35 PM    <DIR>          data
+11/01/2018  05:36 PM    <DIR>          helpers
+10/15/2018  12:10 PM             1,088 LICENSE
+01/02/2019  12:56 PM                 0 list
+11/12/2018  04:55 PM             3,096 main.py
+01/02/2019  12:48 PM    <DIR>          pages
+01/02/2019  12:52 PM            48,429 python-apps.log
+10/15/2018  12:10 PM                67 README.md
+11/05/2018  12:16 PM               201 requirements.txt
+10/15/2018  12:10 PM    <DIR>          run
+11/05/2018  09:26 AM    <DIR>          samples
+11/07/2018  03:42 PM    <DIR>          services
+10/29/2018  09:14 AM    <DIR>          static
+10/15/2018  12:10 PM    <DIR>          templates
+01/02/2019  12:55 PM               745 watch.log
+01/02/2019  12:55 PM             2,545 watch.py
+11/07/2018  03:35 PM             1,095 xxx.travis.yml
+              11 File(s)         58,994 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git
+
+12/31/2018  12:58 PM                10 COMMIT_EDITMSG
+11/07/2018  11:53 AM               334 config
+10/15/2018  12:10 PM                73 description
+01/02/2019  12:55 PM               103 FETCH_HEAD
+10/15/2018  12:10 PM                23 HEAD
+10/15/2018  12:10 PM    <DIR>          hooks
+12/31/2018  12:58 PM             9,073 index
+10/15/2018  12:10 PM    <DIR>          info
+10/15/2018  12:10 PM    <DIR>          logs
+12/31/2018  12:58 PM    <DIR>          objects
+12/31/2018  09:05 AM                41 ORIG_HEAD
+10/15/2018  12:10 PM               107 packed-refs
+10/15/2018  12:10 PM    <DIR>          refs
+               8 File(s)          9,764 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\hooks
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               478 applypatch-msg.sample
+10/15/2018  12:10 PM               896 commit-msg.sample
+10/15/2018  12:10 PM               189 post-update.sample
+10/15/2018  12:10 PM               424 pre-applypatch.sample
+10/15/2018  12:10 PM             1,642 pre-commit.sample
+10/15/2018  12:10 PM             1,348 pre-push.sample
+10/15/2018  12:10 PM             4,951 pre-rebase.sample
+10/15/2018  12:10 PM               544 pre-receive.sample
+10/15/2018  12:10 PM             1,239 prepare-commit-msg.sample
+10/15/2018  12:10 PM             3,610 update.sample
+              10 File(s)         15,321 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\info
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               240 exclude
+               1 File(s)            240 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\logs
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+12/31/2018  12:58 PM            10,178 HEAD
+10/15/2018  12:10 PM    <DIR>          refs
+               1 File(s)         10,178 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\logs\refs
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM    <DIR>          heads
+10/15/2018  12:10 PM    <DIR>          remotes
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\logs\refs\heads
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+12/31/2018  12:58 PM            10,178 master
+               1 File(s)         10,178 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\logs\refs\remotes
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/17/2018  02:17 PM    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\logs\refs\remotes\origin
+
+10/17/2018  02:17 PM    <DIR>          .
+10/17/2018  02:17 PM    <DIR>          ..
+10/15/2018  12:10 PM               198 HEAD
+12/31/2018  12:58 PM             8,172 master
+               2 File(s)          8,370 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects
+
+12/31/2018  12:58 PM    <DIR>          .
+12/31/2018  12:58 PM    <DIR>          ..
+11/07/2018  11:48 AM    <DIR>          00
+10/29/2018  09:14 AM    <DIR>          01
+12/31/2018  09:50 AM    <DIR>          03
+12/27/2018  05:46 PM    <DIR>          04
+11/07/2018  09:23 AM    <DIR>          05
+10/29/2018  09:14 AM    <DIR>          06
+11/07/2018  11:57 AM    <DIR>          07
+11/05/2018  12:11 PM    <DIR>          08
+11/07/2018  02:38 PM    <DIR>          09
+12/31/2018  12:19 PM    <DIR>          0b
+10/15/2018  12:10 PM    <DIR>          0c
+12/27/2018  05:46 PM    <DIR>          0d
+10/29/2018  09:14 AM    <DIR>          0e
+12/31/2018  12:19 PM    <DIR>          0f
+10/29/2018  09:14 AM    <DIR>          10
+11/07/2018  02:10 PM    <DIR>          12
+12/31/2018  12:19 PM    <DIR>          13
+12/28/2018  05:00 PM    <DIR>          15
+11/07/2018  12:23 PM    <DIR>          16
+12/28/2018  05:00 PM    <DIR>          17
+10/15/2018  12:10 PM    <DIR>          18
+11/07/2018  11:38 AM    <DIR>          19
+10/29/2018  09:14 AM    <DIR>          1a
+12/27/2018  10:34 AM    <DIR>          1b
+10/22/2018  08:48 AM    <DIR>          1c
+10/30/2018  09:58 AM    <DIR>          1e
+12/28/2018  05:05 PM    <DIR>          22
+12/31/2018  09:50 AM    <DIR>          23
+11/07/2018  11:38 AM    <DIR>          24
+12/31/2018  12:19 PM    <DIR>          25
+11/07/2018  11:48 AM    <DIR>          26
+11/07/2018  12:36 PM    <DIR>          27
+11/07/2018  09:23 AM    <DIR>          28
+11/05/2018  12:16 PM    <DIR>          29
+11/05/2018  11:39 AM    <DIR>          2a
+11/07/2018  09:23 AM    <DIR>          2b
+11/07/2018  03:40 PM    <DIR>          2c
+10/29/2018  09:14 AM    <DIR>          2d
+11/07/2018  09:23 AM    <DIR>          2e
+11/07/2018  12:36 PM    <DIR>          2f
+11/07/2018  09:23 AM    <DIR>          30
+12/31/2018  12:58 PM    <DIR>          32
+11/07/2018  02:54 PM    <DIR>          33
+10/29/2018  09:14 AM    <DIR>          34
+11/07/2018  02:26 PM    <DIR>          35
+12/28/2018  05:05 PM    <DIR>          37
+11/05/2018  09:27 AM    <DIR>          38
+11/07/2018  11:44 AM    <DIR>          39
+12/31/2018  09:31 AM    <DIR>          3a
+10/15/2018  12:10 PM    <DIR>          3b
+10/22/2018  08:48 AM    <DIR>          3d
+12/27/2018  10:34 AM    <DIR>          3e
+11/07/2018  01:01 PM    <DIR>          40
+11/07/2018  02:54 PM    <DIR>          41
+11/07/2018  02:51 PM    <DIR>          42
+11/07/2018  11:30 AM    <DIR>          43
+12/28/2018  05:00 PM    <DIR>          44
+12/31/2018  12:19 PM    <DIR>          45
+12/27/2018  05:46 PM    <DIR>          46
+10/22/2018  08:48 AM    <DIR>          47
+11/07/2018  12:58 PM    <DIR>          48
+11/07/2018  09:23 AM    <DIR>          49
+11/07/2018  09:23 AM    <DIR>          4a
+12/31/2018  12:58 PM    <DIR>          4b
+11/07/2018  02:07 PM    <DIR>          4c
+11/07/2018  02:20 PM    <DIR>          4d
+12/31/2018  09:50 AM    <DIR>          4e
+12/27/2018  05:46 PM    <DIR>          4f
+12/27/2018  05:46 PM    <DIR>          50
+12/27/2018  05:46 PM    <DIR>          51
+12/31/2018  12:19 PM    <DIR>          52
+12/28/2018  05:00 PM    <DIR>          53
+11/07/2018  11:09 AM    <DIR>          54
+10/29/2018  09:14 AM    <DIR>          55
+12/27/2018  10:34 AM    <DIR>          56
+12/31/2018  09:31 AM    <DIR>          57
+10/30/2018  08:59 PM    <DIR>          58
+11/07/2018  09:23 AM    <DIR>          59
+11/07/2018  09:23 AM    <DIR>          5a
+12/27/2018  05:46 PM    <DIR>          5b
+10/15/2018  12:10 PM    <DIR>          5c
+12/31/2018  09:31 AM    <DIR>          5d
+11/05/2018  12:26 PM    <DIR>          5e
+12/28/2018  05:05 PM    <DIR>          5f
+11/07/2018  09:23 AM    <DIR>          60
+11/07/2018  02:51 PM    <DIR>          61
+11/07/2018  02:20 PM    <DIR>          62
+11/07/2018  09:23 AM    <DIR>          63
+12/28/2018  05:05 PM    <DIR>          64
+11/07/2018  02:38 PM    <DIR>          65
+11/07/2018  09:23 AM    <DIR>          66
+12/31/2018  09:31 AM    <DIR>          68
+10/15/2018  12:10 PM    <DIR>          69
+11/07/2018  11:47 AM    <DIR>          6a
+11/07/2018  09:51 AM    <DIR>          6b
+11/07/2018  09:23 AM    <DIR>          6c
+11/07/2018  09:23 AM    <DIR>          6d
+11/07/2018  02:10 PM    <DIR>          6e
+11/07/2018  12:03 PM    <DIR>          6f
+12/28/2018  05:05 PM    <DIR>          70
+11/07/2018  09:23 AM    <DIR>          71
+12/31/2018  09:31 AM    <DIR>          72
+11/07/2018  09:23 AM    <DIR>          73
+10/29/2018  09:14 AM    <DIR>          74
+10/22/2018  08:48 AM    <DIR>          75
+11/07/2018  01:01 PM    <DIR>          76
+12/31/2018  12:19 PM    <DIR>          77
+10/29/2018  09:14 AM    <DIR>          78
+11/07/2018  12:28 PM    <DIR>          79
+10/29/2018  09:14 AM    <DIR>          7a
+10/29/2018  09:14 AM    <DIR>          7b
+10/29/2018  09:14 AM    <DIR>          7c
+12/28/2018  05:05 PM    <DIR>          7d
+11/12/2018  04:55 PM    <DIR>          7e
+10/15/2018  12:10 PM    <DIR>          7f
+11/07/2018  02:32 PM    <DIR>          80
+12/27/2018  05:46 PM    <DIR>          81
+10/18/2018  10:20 AM    <DIR>          82
+12/31/2018  09:50 AM    <DIR>          83
+12/28/2018  05:00 PM    <DIR>          84
+11/05/2018  12:10 PM    <DIR>          85
+11/07/2018  02:54 PM    <DIR>          87
+11/07/2018  02:32 PM    <DIR>          88
+11/05/2018  12:37 PM    <DIR>          89
+11/05/2018  12:16 PM    <DIR>          8a
+10/22/2018  08:48 AM    <DIR>          8b
+12/31/2018  12:58 PM    <DIR>          8c
+11/07/2018  11:39 AM    <DIR>          8d
+11/05/2018  12:10 PM    <DIR>          8e
+12/31/2018  12:19 PM    <DIR>          8f
+10/15/2018  12:10 PM    <DIR>          90
+12/28/2018  05:00 PM    <DIR>          91
+12/27/2018  05:46 PM    <DIR>          92
+10/29/2018  09:14 AM    <DIR>          93
+11/07/2018  09:23 AM    <DIR>          94
+10/30/2018  09:48 AM    <DIR>          95
+11/05/2018  11:53 AM    <DIR>          96
+12/27/2018  05:46 PM    <DIR>          97
+11/07/2018  02:17 PM    <DIR>          99
+11/12/2018  04:55 PM    <DIR>          9a
+11/07/2018  11:57 AM    <DIR>          9b
+11/07/2018  09:23 AM    <DIR>          9c
+11/12/2018  04:55 PM    <DIR>          9d
+12/27/2018  10:34 AM    <DIR>          9f
+11/07/2018  11:42 AM    <DIR>          a0
+12/31/2018  09:50 AM    <DIR>          a1
+10/15/2018  12:10 PM    <DIR>          a2
+11/07/2018  02:22 PM    <DIR>          a3
+11/07/2018  09:23 AM    <DIR>          a4
+12/31/2018  12:19 PM    <DIR>          a5
+12/31/2018  09:31 AM    <DIR>          a6
+10/29/2018  09:14 AM    <DIR>          a7
+12/31/2018  09:50 AM    <DIR>          a8
+11/05/2018  11:39 AM    <DIR>          a9
+11/12/2018  04:55 PM    <DIR>          aa
+12/27/2018  05:46 PM    <DIR>          ab
+11/05/2018  09:27 AM    <DIR>          ac
+11/05/2018  12:51 PM    <DIR>          ad
+12/31/2018  09:50 AM    <DIR>          ae
+11/07/2018  11:09 AM    <DIR>          af
+11/07/2018  02:26 PM    <DIR>          b0
+11/07/2018  11:39 AM    <DIR>          b1
+12/28/2018  05:00 PM    <DIR>          b2
+10/15/2018  12:10 PM    <DIR>          b4
+11/07/2018  11:48 AM    <DIR>          b5
+11/07/2018  11:38 AM    <DIR>          b6
+11/07/2018  09:23 AM    <DIR>          b7
+11/07/2018  03:40 PM    <DIR>          b8
+10/15/2018  12:10 PM    <DIR>          b9
+11/05/2018  12:26 PM    <DIR>          ba
+11/07/2018  12:41 PM    <DIR>          bb
+11/05/2018  12:11 PM    <DIR>          bc
+12/31/2018  09:31 AM    <DIR>          bd
+11/07/2018  02:07 PM    <DIR>          be
+10/29/2018  09:14 AM    <DIR>          bf
+12/31/2018  09:50 AM    <DIR>          c0
+12/31/2018  12:58 PM    <DIR>          c1
+10/29/2018  06:00 PM    <DIR>          c2
+11/07/2018  12:58 PM    <DIR>          c3
+10/15/2018  12:10 PM    <DIR>          c4
+10/29/2018  09:14 AM    <DIR>          c7
+10/15/2018  12:10 PM    <DIR>          c8
+11/07/2018  09:23 AM    <DIR>          c9
+11/05/2018  12:26 PM    <DIR>          ca
+12/27/2018  05:46 PM    <DIR>          cb
+11/07/2018  09:23 AM    <DIR>          cc
+12/31/2018  12:19 PM    <DIR>          cd
+11/05/2018  12:16 PM    <DIR>          ce
+10/29/2018  09:14 AM    <DIR>          d0
+11/07/2018  11:44 AM    <DIR>          d1
+12/31/2018  09:31 AM    <DIR>          d2
+11/07/2018  02:51 PM    <DIR>          d4
+10/29/2018  09:14 AM    <DIR>          d6
+12/31/2018  12:58 PM    <DIR>          d7
+11/07/2018  12:58 PM    <DIR>          da
+11/07/2018  09:23 AM    <DIR>          db
+10/15/2018  12:10 PM    <DIR>          dc
+11/07/2018  11:31 AM    <DIR>          dd
+12/31/2018  09:50 AM    <DIR>          de
+11/07/2018  02:17 PM    <DIR>          e0
+10/29/2018  09:14 AM    <DIR>          e1
+12/28/2018  05:00 PM    <DIR>          e2
+12/31/2018  12:58 PM    <DIR>          e3
+11/05/2018  12:10 PM    <DIR>          e4
+10/29/2018  09:14 AM    <DIR>          e5
+11/01/2018  11:09 PM    <DIR>          e6
+11/07/2018  12:28 PM    <DIR>          e7
+11/07/2018  12:23 PM    <DIR>          e8
+11/05/2018  12:45 PM    <DIR>          e9
+11/07/2018  02:07 PM    <DIR>          eb
+10/15/2018  12:10 PM    <DIR>          ec
+12/31/2018  09:31 AM    <DIR>          ed
+11/07/2018  02:20 PM    <DIR>          ee
+11/12/2018  04:55 PM    <DIR>          ef
+11/07/2018  12:03 PM    <DIR>          f0
+11/07/2018  09:23 AM    <DIR>          f2
+11/07/2018  11:19 AM    <DIR>          f4
+12/31/2018  12:19 PM    <DIR>          f5
+10/22/2018  08:48 AM    <DIR>          f6
+12/28/2018  05:00 PM    <DIR>          f9
+10/17/2018  02:17 PM    <DIR>          fa
+11/07/2018  09:23 AM    <DIR>          fd
+12/31/2018  09:31 AM    <DIR>          fe
+11/07/2018  11:42 AM    <DIR>          ff
+10/15/2018  12:10 PM    <DIR>          info
+10/15/2018  12:10 PM    <DIR>          pack
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\00
+
+11/07/2018  11:48 AM    <DIR>          .
+11/07/2018  11:48 AM    <DIR>          ..
+11/07/2018  11:48 AM               324 44dc020679b881d6ac9dbd84947b55a6b65c79
+11/05/2018  12:45 PM               186 6589679c4efabc67744a8502b7f668b45de0b8
+               2 File(s)            510 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\01
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               440 cb937b72a969b56c1da8937c86a3314c274c23
+               1 File(s)            440 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\03
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+12/31/2018  09:50 AM               110 2da40eb374440a064c0460a6aff143b2c07042
+               1 File(s)            110 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\04
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+10/29/2018  09:14 AM               440 38332b28fe39b5803c68c75c5f87945ee95581
+12/27/2018  05:46 PM                89 b92036850e96ef40c0c8e0929950ed28dbc08f
+               2 File(s)            529 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\05
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+10/29/2018  09:14 AM           833,302 0f184080c3300df1f2bc6a880119a575787e49
+11/07/2018  09:23 AM               162 10f603823ba7e94c62293c47e20e26ac33c25f
+11/12/2018  04:55 PM                85 ae540620df84ff953bc21d683d11a442db062d
+11/07/2018  09:23 AM               561 c1d79db720e4c8d34791c777d6c5baf51ad55f
+               4 File(s)        834,110 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\06
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               104 ea8774910546d720103fabdbf19f338c9da483
+               1 File(s)            104 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\07
+
+11/07/2018  11:57 AM    <DIR>          .
+11/07/2018  11:57 AM    <DIR>          ..
+11/07/2018  11:57 AM               157 5f9709354f31ca1f996469ac63fe2092c59934
+10/29/2018  09:14 AM               440 c1d966edbbd6e547291b731a8e7c7a57d0fc3d
+               2 File(s)            597 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\08
+
+11/05/2018  12:11 PM    <DIR>          .
+11/05/2018  12:11 PM    <DIR>          ..
+11/05/2018  12:11 PM               349 9002618ac5123e479986c1d58194b2de451fb0
+               1 File(s)            349 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\09
+
+11/07/2018  02:38 PM    <DIR>          .
+11/07/2018  02:38 PM    <DIR>          ..
+11/07/2018  02:38 PM               159 0b081fdb46426e33f48063870c2dba650cbf46
+               1 File(s)            159 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\0b
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+12/31/2018  12:19 PM                89 65cfdc6ae9c3c67d5724b46fa8bdadd2c10282
+               1 File(s)             89 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\0c
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+12/31/2018  12:19 PM               153 f96c030d173fea878af4b0e76551a2f5572856
+               1 File(s)            153 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\0d
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+12/27/2018  05:46 PM               619 18655a3401cec082599c4d3589df85ab9b8703
+11/05/2018  12:13 PM               185 40116d392440c6979fa82caa69d79998eb7b72
+10/18/2018  10:20 AM               160 addc7c0b752757db59bf46b6dde38e05191583
+10/22/2018  08:57 AM               153 e38f74e14116aa4a85791127f01d8acaa314af
+11/07/2018  09:23 AM               533 f03b7141ead5005e3ac0b52c166c203686d961
+11/07/2018  09:51 AM               161 f1948980f5f71e01c6b8e50193f3c2a9cb2ed6
+               6 File(s)          1,811 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\0e
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+11/12/2018  04:55 PM               139 46c6a3704fbca8a20866fd7b66b51d9fa73936
+               1 File(s)            139 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\0f
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+12/31/2018  12:19 PM               472 32b21c1e13988e9e678ae934f1dcae0787db06
+               1 File(s)            472 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\10
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM           411,060 20146468fa76c283cd5e27fc57ac313d91d3d7
+10/29/2018  09:14 AM               184 6cffe8d77f8e6d8154bcfbc7a566faf1106b9b
+10/15/2018  12:10 PM               121 8818f5faed783dfe097b9f0e17e0611897381f
+               3 File(s)        411,365 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\12
+
+11/07/2018  02:10 PM    <DIR>          .
+11/07/2018  02:10 PM    <DIR>          ..
+11/07/2018  09:23 AM               270 4978bd00c374b71c9ffc3c2ae32082af77cb70
+11/07/2018  11:42 AM               561 7469040a2aec6df6b96412e3740a5991610b46
+11/01/2018  11:09 PM               212 b7ad41846c5f73284edd842c24f37833edd6e8
+11/07/2018  02:10 PM               420 c2fc449a92adad3e353a649c6b506480d9c863
+11/07/2018  11:57 AM               323 d0318aab77cb25618aa26032de9cc7579c1aef
+               5 File(s)          1,786 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\13
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+11/01/2018  11:09 PM               253 0a4cd0e5b12719633910e168ebfefa2394adf1
+12/31/2018  12:19 PM               228 1d904aeaf262e572ec237132490bd85027b44d
+11/07/2018  02:10 PM               159 57127044fbc7bd7c52f17e2c5e6b24b00fc077
+               3 File(s)            640 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\15
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+10/18/2018  10:20 AM               184 2532e6ce577cd6b7e5dfdb7566ff3c6fffad9a
+12/28/2018  05:00 PM               212 73e9515a4f1a6fb937175f52a54224756cb750
+11/05/2018  12:32 PM               533 96776b6c80a48c6cb585fb26a528c2bc60f58a
+               3 File(s)            929 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\16
+
+11/07/2018  12:23 PM    <DIR>          .
+11/07/2018  12:23 PM    <DIR>          ..
+10/15/2018  12:10 PM               183 2956c9dc09d392129c514b183a65e3a5a1f587
+11/07/2018  12:23 PM               157 2c012936f410c1e8d3ebb18e1e66fb1b4978db
+               2 File(s)            340 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\17
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+10/15/2018  12:10 PM                55 460c1a4804ee896e7aa2588c2545375ed83106
+12/28/2018  05:00 PM               110 b91cdb757c2a2e1ff83a36a3307e5fe055f044
+               2 File(s)            165 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\18
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               118 edc0ccc07ee9ad57aeea7c9dc0de183caea721
+               1 File(s)            118 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\19
+
+11/07/2018  11:38 AM    <DIR>          .
+11/07/2018  11:38 AM    <DIR>          ..
+11/07/2018  11:38 AM               561 3e15bd8443441f778d37d412011db78e6f5b5d
+11/12/2018  04:55 PM               212 926eb48199c908ad182dcbe181cdbeb2dab0e9
+               2 File(s)            773 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\1a
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               427 e16a4ad8ae371ce50ba77488baf6c5633494d2
+               1 File(s)            427 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\1b
+
+12/27/2018  10:34 AM    <DIR>          .
+12/27/2018  10:34 AM    <DIR>          ..
+11/07/2018  09:23 AM               561 0e6d3174d817726ccca631fdf71be125d4a6c7
+12/27/2018  10:34 AM               592 509b59a3d077b61c303cd244e645cd16ca5231
+11/07/2018  11:39 AM               158 d1949ba08e30c1d089e9a90ab67f30814d3753
+               3 File(s)          1,311 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\1c
+
+10/22/2018  08:48 AM    <DIR>          .
+10/22/2018  08:48 AM    <DIR>          ..
+10/17/2018  02:17 PM               111 0e754aa9a9487ff6c9857fc66d725aee5a6431
+10/22/2018  08:48 AM               439 58ac05e62669d88a91510e54adfa2c694f126b
+               2 File(s)            550 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\1e
+
+10/30/2018  09:58 AM    <DIR>          .
+10/30/2018  09:58 AM    <DIR>          ..
+10/30/2018  09:58 AM               163 1b1ec2e53614ac92b068ef6f46560be0bd35d8
+10/15/2018  12:10 PM                37 5e04f7046f32a526c2b03d818837d1cbc23ef8
+               2 File(s)            200 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\22
+
+12/28/2018  05:05 PM    <DIR>          .
+12/28/2018  05:05 PM    <DIR>          ..
+10/22/2018  08:48 AM             1,536 780ddf5496c698a37db252e69efa8cc819450d
+12/28/2018  05:05 PM               177 b13c903964a56bdc855bd93b64ed9031373865
+10/15/2018  12:10 PM                36 c45972740744bc1f9a675ac5805d431f64bf82
+               3 File(s)          1,749 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\23
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+11/07/2018  02:38 PM               561 ba3bccb5ba2dd045c486c84ad7d5c826374c71
+12/31/2018  09:50 AM               202 ed8c3368eb3396110c23eca7558c63a61b964d
+               2 File(s)            763 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\24
+
+11/07/2018  11:38 AM    <DIR>          .
+11/07/2018  11:38 AM    <DIR>          ..
+11/07/2018  11:38 AM               158 2b4a0e0134e8331425eafa41cc3fd121c35689
+               1 File(s)            158 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\25
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+12/31/2018  12:19 PM               183 304dcd4ab0a2474f9d8bff743e46152a5adf9b
+               1 File(s)            183 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\26
+
+11/07/2018  11:48 AM    <DIR>          .
+11/07/2018  11:48 AM    <DIR>          ..
+11/07/2018  11:48 AM               561 b2a07bf9eeceb12838b126cf9a81b96ab3509c
+               1 File(s)            561 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\27
+
+11/07/2018  12:36 PM    <DIR>          .
+11/07/2018  12:36 PM    <DIR>          ..
+11/07/2018  09:23 AM               283 121245568fd58972e2315ec915b136c8e059a2
+11/07/2018  09:23 AM               561 7b1e38c5ec349f59cf6a0e89184ae4f148c75f
+11/07/2018  12:36 PM               562 7f44aa9bf524b9b46901c08cb943a9204438e7
+11/07/2018  11:35 AM               164 af26457602809ae0a19a138ab812531f8fde3a
+10/29/2018  09:14 AM               440 dfa07c65e7d1cefb0680d0ac2316991dc939dd
+               5 File(s)          2,010 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\28
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               264 4962bddb70b5cdcc82a0853489e71b94d38650
+10/15/2018  12:10 PM               153 b141880e6b8faa02dcaf5b6e63262bf2d416a1
+               2 File(s)            417 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\29
+
+11/05/2018  12:16 PM    <DIR>          .
+11/05/2018  12:16 PM    <DIR>          ..
+11/05/2018  12:16 PM               151 0b250cf35ea3c8d6b59082af1b33d29d0c2bd2
+10/15/2018  12:10 PM               187 816a71e5e5261f615c8e919ddec448c26072f7
+               2 File(s)            338 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\2a
+
+11/05/2018  11:39 AM    <DIR>          .
+11/05/2018  11:39 AM    <DIR>          ..
+11/12/2018  04:55 PM               188 506098e791b0d427956c3ed4da752714cdc6ab
+               1 File(s)            188 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\2b
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+10/15/2018  12:10 PM                73 62ed72064b726bef8c9e3153f1d5aca3961300
+11/07/2018  09:23 AM               161 d1dc3391e30d81a806f0f3405d22a883a9d6a5
+10/15/2018  12:10 PM                48 fc76f411e3db6333078c786238e75deb48057f
+               3 File(s)            282 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\2c
+
+11/07/2018  03:40 PM    <DIR>          .
+11/07/2018  03:40 PM    <DIR>          ..
+11/07/2018  03:40 PM               182 49fe6bbff0140eb00eed529c2081b582707bc1
+               1 File(s)            182 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\2d
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               184 c9a91557d0f980f352b3719f1395cceec45826
+               1 File(s)            184 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\2e
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               332 d88b1a3dd97ccf0b62ef128fea1b0c42628a5d
+               1 File(s)            332 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\2f
+
+11/07/2018  12:36 PM    <DIR>          .
+11/07/2018  12:36 PM    <DIR>          ..
+11/07/2018  12:36 PM               393 1324fc2be6b1f59f62d45a961681dd9e461ff4
+11/07/2018  09:23 AM               165 d2d4f687a84fddee95d222256df12e6d626a0c
+               2 File(s)            558 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\30
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               160 5aeb4c2cda779a1727d0125ff86413d9def914
+11/07/2018  09:23 AM               161 648be75a7a3604bcca34afaace0685b530b0f1
+               2 File(s)            321 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\32
+
+12/31/2018  12:58 PM    <DIR>          .
+12/31/2018  12:58 PM    <DIR>          ..
+12/31/2018  09:50 AM             7,089 27bd238354807ce4a58ed231f7c11a36c4ab48
+11/05/2018  12:13 PM               348 3445e8818ee08614b83c4d91c6049a46786166
+11/07/2018  02:32 PM               430 8d49f15cd0f73b43ca1261340c4b29f14f4b6a
+12/31/2018  12:58 PM               592 8de177d39dbc3795e06fe0d0933a31fc5d1b45
+11/07/2018  11:19 AM               561 dcad2fa1af4212df3b678dce494474f8c5a251
+               5 File(s)          9,020 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\33
+
+11/07/2018  02:54 PM    <DIR>          .
+11/07/2018  02:54 PM    <DIR>          ..
+11/07/2018  02:54 PM               441 2a1553c172159fed28feb527d3fea42d847915
+10/15/2018  12:10 PM               440 616608662dbe74da43e30099b2887db6f221e5
+10/22/2018  08:57 AM             1,729 f919ceeae6be5a713b7e0ee5c56337010fdc95
+               3 File(s)          2,610 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\34
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/15/2018  12:10 PM                29 4d2af36bf39dbe4b454dfd274eaee7c2a86031
+10/29/2018  09:14 AM               264 8b2052a914d83fb1c5a2503a848dd9324a5c3d
+               2 File(s)            293 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\35
+
+11/07/2018  02:26 PM    <DIR>          .
+11/07/2018  02:26 PM    <DIR>          ..
+11/07/2018  02:26 PM               561 596115c848a52822e314b7a82de43cb2c4326f
+               1 File(s)            561 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\37
+
+12/28/2018  05:05 PM    <DIR>          .
+12/28/2018  05:05 PM    <DIR>          ..
+10/29/2018  09:14 AM               162 77099a35ce844375320539bff388b796f6894e
+11/07/2018  11:09 AM               169 7fcdbe4bd1d0e06ac6660068ce2843b1134126
+11/12/2018  04:55 PM               229 986bf3afcabaa13439b1d4f5dc74d805e74ee3
+12/28/2018  05:05 PM               592 98fda54867bd8e6b7b488ae7db71ad27c37c3d
+11/07/2018  09:23 AM               562 b93f846972c11b066aefc43af5d87c28d49a3b
+11/07/2018  09:23 AM               342 bfe19ce269bdda4180d58ef6da2acd08383dc3
+12/27/2018  05:46 PM             3,994 f86214774e12f1bc71e33c0a5949ca3f1c2999
+               7 File(s)          6,050 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\38
+
+11/05/2018  09:27 AM    <DIR>          .
+11/05/2018  09:27 AM    <DIR>          ..
+11/05/2018  09:27 AM               366 8323822c23720861c7596f7c71b48cdd56bcd9
+               1 File(s)            366 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\39
+
+11/07/2018  11:44 AM    <DIR>          .
+11/07/2018  11:44 AM    <DIR>          ..
+10/29/2018  09:14 AM               110 73b92dabaf375c331996c0b2295ca717f54708
+10/29/2018  09:14 AM               180 95ac353915ea48a1f3f9a9c9a9f3c8e3bbd2ef
+11/07/2018  11:44 AM               158 b149fe669ad7d7cce8a2d1b17c7c98a954cec3
+               3 File(s)            448 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\3a
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+10/29/2018  06:00 PM               122 0348a67e3bbffb9298d1c8ed6733310433045d
+10/30/2018  08:59 PM             2,484 1733f978279eaddb532cff231508f612aa307f
+10/22/2018  08:48 AM               110 8ae0fbe5454291605272e668732cda02526514
+12/31/2018  09:31 AM               183 e14946c73601e293a27b8577f8feace795a4d9
+               4 File(s)          2,899 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\3b
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               232 d0839770c5f886e308c2f5f8f90d3246ab4c56
+               1 File(s)            232 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\3d
+
+10/22/2018  08:48 AM    <DIR>          .
+10/22/2018  08:48 AM    <DIR>          ..
+10/17/2018  02:17 PM               187 31657b6b8b2b8608877ce71c06e4627276e847
+10/22/2018  08:48 AM               159 5da402384723687a99154f960880c72255524f
+10/15/2018  12:10 PM                55 bdaa39bb56223abd3364f1a1f7a4b4100ed7ad
+               3 File(s)            401 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\3e
+
+12/27/2018  10:34 AM    <DIR>          .
+12/27/2018  10:34 AM    <DIR>          ..
+12/27/2018  10:34 AM                88 1e6b0472964f28f6aeb41798fb345dcdbb7e3d
+11/12/2018  04:55 PM                75 db29c03440ec35198daa395d48ea027938ef87
+               2 File(s)            163 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\40
+
+11/07/2018  01:01 PM    <DIR>          .
+11/07/2018  01:01 PM    <DIR>          ..
+10/15/2018  12:10 PM               182 2191506868ff1f78c6e3172825bd6afd9bbad3
+11/07/2018  01:01 PM               159 47ac8aa6e71f7538721a327b7fbc7d0930bbf5
+11/07/2018  12:42 PM               156 6cbdfbc5065150800d0065d6d0bd5c129254da
+10/22/2018  08:48 AM               184 e40843b04c3c011f2dc5c4d247a88899f62d76
+11/07/2018  09:23 AM               561 e4dd5ef9d805da236fb4ff6de18f6e6fea4293
+10/29/2018  09:14 AM           948,226 e97dc8eb6370643b4ba40b083f3d3477948260
+               6 File(s)        949,468 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\41
+
+11/07/2018  02:54 PM    <DIR>          .
+11/07/2018  02:54 PM    <DIR>          ..
+10/22/2018  08:48 AM               184 29656e2b3941c420dd661dd072bb1dcb08f68c
+11/07/2018  09:23 AM               333 3f6916e9b999e140d739a572dab207b72222be
+11/07/2018  02:54 PM               159 4b1cf208d987830b69ace621afd97a1e4ff62a
+11/07/2018  09:23 AM               158 cc2de8a4cbbb515ad5a5191b6a176ce475c13e
+               4 File(s)            834 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\42
+
+11/07/2018  02:51 PM    <DIR>          .
+11/07/2018  02:51 PM    <DIR>          ..
+10/22/2018  08:48 AM               153 0419b48d82c329bbc5da4feedd458fd123d8e5
+11/07/2018  02:51 PM               561 5d60ffc43c844a4e0dca25c1234fd11c5a5566
+               2 File(s)            714 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\43
+
+11/07/2018  11:30 AM    <DIR>          .
+11/07/2018  11:30 AM    <DIR>          ..
+11/07/2018  11:30 AM               284 4add2609e15f4aa910554b5c3c3edde493c030
+10/15/2018  12:10 PM                75 8402d6d8c82e656fdc4d69082967deab9d8c15
+               2 File(s)            359 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\44
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+11/12/2018  04:55 PM               121 189f45f538283f61e3857e7f7e44852cf187a0
+11/07/2018  03:40 PM               448 442794bc1dac219fec1725fe1a8fee4e979d4d
+12/27/2018  05:46 PM               592 ae2a3c053a4ab0202efdfc55a2d737634e8271
+10/15/2018  12:10 PM               440 c083e6d21badee781e0ee2de27595eea14924f
+12/28/2018  05:00 PM               627 d57b06f30a777f63b1cc920f59bce9dce45cbd
+10/18/2018  10:20 AM               110 e8dbfa797025211f3a8feae41707d64a0448bd
+               6 File(s)          2,338 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\45
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+12/31/2018  12:19 PM               153 70b5b98b2097a951402e71318d4e47649d21a4
+12/28/2018  05:00 PM               154 f1593fbe96491e228d7b8d577d3be9c6371a34
+               2 File(s)            307 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\46
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+12/27/2018  05:46 PM                87 77261ca391626b49e07c1513bf5dce067a57cf
+               1 File(s)             87 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\47
+
+10/22/2018  08:48 AM    <DIR>          .
+10/22/2018  08:48 AM    <DIR>          ..
+10/22/2018  08:48 AM               439 fd57775465b355b9b2d4f4900d35d7c7d56951
+               1 File(s)            439 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\48
+
+11/07/2018  12:58 PM    <DIR>          .
+11/07/2018  12:58 PM    <DIR>          ..
+11/07/2018  12:58 PM               157 2955bdc1d05efefa5853240f97ac781f992dd1
+10/15/2018  12:10 PM                96 66d0f8632b62cc5a75536bfffa64f6db5caa27
+               2 File(s)            253 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\49
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               207 bbcc490a99fb3c5a3a71d93563f701f363ae19
+               1 File(s)            207 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\4a
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               310 9a3985f8b560f43b31b467ca5153ab4ea8f7d8
+10/15/2018  12:10 PM               166 a3cf3bac1da96d59751e3d27e1467f477e59f4
+               2 File(s)            476 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\4b
+
+12/31/2018  12:58 PM    <DIR>          .
+12/31/2018  12:58 PM    <DIR>          ..
+12/31/2018  12:58 PM               110 13ce878bebb794ffa7b1cf205c498aca071f14
+12/27/2018  10:34 AM                43 7d984ede75ae49b31d4edd81114b5ab49c9382
+11/05/2018  12:45 PM               167 c2832ff7b5cff7a4866fa1697df3097136cedf
+10/29/2018  06:00 PM               471 d901ea068fb9286635d63bfb90038afbf9ba2f
+               4 File(s)            791 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\4c
+
+11/07/2018  02:07 PM    <DIR>          .
+11/07/2018  02:07 PM    <DIR>          ..
+10/15/2018  12:10 PM               271 3b79fc7dcebc24fe06c3ce68c92856d9cc95bb
+11/07/2018  02:07 PM               562 e8d8d19cf211364f68f8bab51a18a273bd9c4a
+               2 File(s)            833 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\4d
+
+11/07/2018  02:20 PM    <DIR>          .
+11/07/2018  02:20 PM    <DIR>          ..
+11/07/2018  02:20 PM               425 685eb64fdb54f4d6589d0559b683b5a97930d8
+10/15/2018  12:10 PM            35,359 9b3a258759c53e7bc66b6fc554c51e2434437c
+               2 File(s)         35,784 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\4e
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+10/15/2018  12:10 PM               495 361e38952865de9a55e6d35b64ad5ba7586830
+11/07/2018  02:22 PM               561 e3c5a594ca457bc2832e84e530530ce1e8d0dd
+12/31/2018  09:50 AM               183 f105432774679c56920a8ce764b2fc6ad1903a
+               3 File(s)          1,239 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\4f
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+12/27/2018  05:46 PM               183 659e36df7ff5a71daedb22af01c5a5838cb82c
+10/18/2018  10:20 AM               439 e236ab2866fb8b517c45232b0db66a39257b75
+               2 File(s)            622 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\50
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+12/27/2018  05:46 PM               110 b92589cc43a8fd2b8cd3be6d1dda7fcf316605
+               1 File(s)            110 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\51
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+10/15/2018  12:10 PM                56 824c832905e75a2b6067f268b32ae9a23c5c53
+11/07/2018  09:23 AM               287 a8aa1ed66d56cd2c768b16333ec3e0b10ba53d
+12/27/2018  05:46 PM               200 e186cc965e7f7dd7d43647a9235721ca8d04ad
+               3 File(s)            543 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\52
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+12/31/2018  12:19 PM               590 294370475190d187eb1ca1b25c245ed38b66ea
+11/07/2018  01:01 PM               399 643ad7e3fc842907f3db9848e5aa06f636eafc
+11/07/2018  11:35 AM               561 f17a5cc4f92bed7c65116156d665489274e78c
+               3 File(s)          1,550 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\53
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+11/05/2018  11:53 AM               532 2d0ba620f10564c587e0d051a07df0b23050bf
+12/27/2018  05:46 PM               154 4abcd714d100ac778972bd142fb99d854e63e7
+12/28/2018  05:00 PM               454 d94df54242300a76584c99fc6b0fbd7b4b93c7
+10/15/2018  12:10 PM               667 da631baa3beee9496bf7a8fe61f7f5b2725c52
+11/12/2018  04:55 PM               144 f92d672ec4f6fc0833876d95fbda95569e7f5c
+               5 File(s)          1,951 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\54
+
+11/07/2018  11:09 AM    <DIR>          .
+11/07/2018  11:09 AM    <DIR>          ..
+11/07/2018  09:23 AM               158 1f7efa29ffbc59b4588bf7600ff5fea84757f6
+11/07/2018  09:23 AM               330 25e26d6772389cef0990219186139e9b68a14e
+11/07/2018  11:09 AM               562 a2144a32de436caacac36b7e75b0fd778a21cc
+10/17/2018  02:17 PM               877 baf819d95d341e8669dd3ea1dde57d5dac983f
+11/12/2018  04:55 PM               116 ceb8f680075c49a915a91e868229567eb206df
+10/15/2018  12:10 PM                86 f5b16f716cd098d884fe0db978646274252aae
+               6 File(s)          2,129 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\55
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM             1,756 150217dea3d62f052ca863a8abfc079a821990
+10/29/2018  09:14 AM               180 db293706e4688e53dbfadb4c7832911f36fb35
+               2 File(s)          1,936 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\56
+
+12/27/2018  10:34 AM    <DIR>          .
+12/27/2018  10:34 AM    <DIR>          ..
+12/27/2018  10:34 AM                55 03cacf85f368190fafd416b2f70d998b63bff1
+11/12/2018  04:55 PM                54 dd80aa71463052844f37757455ae0d00021f7b
+               2 File(s)            109 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\57
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+12/31/2018  09:31 AM               203 c2d05cf2d846bc191329804fdf2c696fd1e41f
+               1 File(s)            203 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\58
+
+10/30/2018  08:59 PM    <DIR>          .
+10/30/2018  08:59 PM    <DIR>          ..
+10/15/2018  12:10 PM               376 021c294d4cb1ddcb48ef5b59436b2b89c12f29
+10/30/2018  08:59 PM               470 e79e79d5335a04f6b21f5f3a92ec37eed640b1
+               2 File(s)            846 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\59
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               336 e72d2b9870b1a4ee2320cb10b0fe14f82a1a54
+11/07/2018  09:23 AM               323 eba7b79f7b0c411b6736d6ab2ebbfdfebdf62a
+               2 File(s)            659 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\5a
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               533 714c9249750a268af03f3cd187ce590694ee0b
+               1 File(s)            533 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\5b
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+10/15/2018  12:10 PM                48 6923f03cbe2969f8ed16b57a89b491dfdda1ed
+11/07/2018  09:23 AM               562 9dbf40e71b854d1d7c520e7556a8171e248133
+12/27/2018  05:46 PM               212 abfccfd810147d540931d0730db35f713ab603
+               3 File(s)            822 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\5c
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+11/12/2018  04:55 PM               143 5e171f272a739e419066aaa9903568f82b5de6
+               1 File(s)            143 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\5d
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+10/29/2018  09:14 AM               187 5c4108def7fd66430e705aa41da588e4738c91
+11/07/2018  02:26 PM               418 5e09992bb471c7842b32338254927f38c926e6
+11/07/2018  12:03 PM               562 6dc227cdfd478c08a1d96a641e3c77c569ea3d
+12/31/2018  09:31 AM               165 865af035e3c9101dd05231ab807405f2001675
+10/15/2018  12:10 PM            78,888 ae0ed4ec38009438bfd418623b5d50a04c3729
+11/07/2018  09:51 AM               561 efeb0fc59cd2549a6c9faf1bf9eff82a89dee7
+               6 File(s)         80,781 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\5e
+
+11/05/2018  12:26 PM    <DIR>          .
+11/05/2018  12:26 PM    <DIR>          ..
+11/05/2018  12:26 PM               533 2c7b7926c8b4de19ad654e846200f7ac605eed
+10/22/2018  08:48 AM               439 ae3bd89d7eb7c53d82ac427164df5c54d4afe7
+10/22/2018  08:48 AM               182 b1b0757cdb5d6f0d0491a3e2a3f627b235fbe1
+               3 File(s)          1,154 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\5f
+
+12/28/2018  05:05 PM    <DIR>          .
+12/28/2018  05:05 PM    <DIR>          ..
+12/27/2018  05:46 PM               441 08dfc056284a59c0046c00f83b8583173334e6
+11/12/2018  04:55 PM                54 6b618d7bd27fd81ea1562c3a5ce51b51b13dca
+12/28/2018  05:05 PM               154 a9058386851bf9908b80fc1d0f504a74665894
+10/15/2018  12:10 PM               531 d26b69da829967c32e7069acd0ecf3b318f1f9
+               4 File(s)          1,180 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\60
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               163 19f2f9d4342441465ac119f1d3cdd2eb58f486
+11/07/2018  09:23 AM               163 7130698ee7572eb50cc48e55e77bbbe72c2eae
+               2 File(s)            326 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\61
+
+11/07/2018  02:51 PM    <DIR>          .
+11/07/2018  02:51 PM    <DIR>          ..
+10/29/2018  09:14 AM               122 6c3656e7cb21a4b532daed5b4c1fb7cc5f6260
+11/07/2018  11:31 AM               163 8d0df22b9cfe466da8444bc304aec98a77dd7c
+11/12/2018  04:55 PM                53 bb98daf0a71a50df53005af2f54d224dc67c7d
+10/22/2018  08:48 AM               171 e08a031d39733e151c9660f2e5aadb0e1c2cfc
+11/07/2018  02:51 PM               160 f3c09aeb698a68843472b528cd70445555ba7b
+               5 File(s)            669 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\62
+
+11/07/2018  02:20 PM    <DIR>          .
+11/07/2018  02:20 PM    <DIR>          ..
+10/29/2018  09:14 AM             1,634 060973a23d574740219a5127431bccbbe3999f
+11/12/2018  04:55 PM                89 0eb5890e915eadf7a4d29610c0b60b7cb13ccf
+11/07/2018  02:20 PM               561 614af1c22409fa41d67de7a7334eafd7633c50
+10/29/2018  09:14 AM                85 9b99ff9b7b2e3a199c96df6e0bacf43e654915
+               4 File(s)          2,369 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\63
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               157 e9c46a8cf2d175efba898ce585dfff514e8ab4
+               1 File(s)            157 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\64
+
+12/28/2018  05:05 PM    <DIR>          .
+12/28/2018  05:05 PM    <DIR>          ..
+12/28/2018  05:00 PM               177 20dda089ce787a2f406d0cb046d14693bd2508
+12/28/2018  05:05 PM               212 2ccdd4a2efe10c0389ff93b6a65b5f4c0a8025
+11/12/2018  04:55 PM               111 66cbe99e264f36f3751c59cb17e03d21f59f06
+11/12/2018  04:55 PM                53 ff676c739adcf372581d0b7dd598aa5caaad47
+               4 File(s)            553 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\65
+
+11/07/2018  02:38 PM    <DIR>          .
+11/07/2018  02:38 PM    <DIR>          ..
+11/07/2018  02:38 PM               432 20f1b4407b0c3edf3faa64127b2a6158171953
+10/29/2018  09:14 AM               622 afcdde4934113fde4be91b92fe6854cc14a531
+               2 File(s)          1,054 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\66
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               561 47d5aa75654e515417fd05f6b2bd418099a4de
+               1 File(s)            561 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\68
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+12/31/2018  09:31 AM               110 6231ac64592a946d5c38478ed0f1a02ea13b5a
+10/29/2018  09:14 AM               495 eaad0ad4a8ffe47693af6dc2ec6354af6d027f
+               2 File(s)            605 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\69
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               153 714cb839f44cec8ec134e0e845c0775fbd39bd
+               1 File(s)            153 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\6a
+
+11/07/2018  11:47 AM    <DIR>          .
+11/07/2018  11:47 AM    <DIR>          ..
+10/15/2018  12:10 PM               111 66a9c7d77d65e5aebca26b0a004ddbcba9ed23
+11/07/2018  11:47 AM               312 c1f4ffd144f157ed93948f2d665ef88abb402a
+               2 File(s)            423 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\6b
+
+11/07/2018  09:51 AM    <DIR>          .
+11/07/2018  09:51 AM    <DIR>          ..
+11/07/2018  09:51 AM               363 94a117de76197d79a7094d85081d041a3fc092
+10/30/2018  09:58 AM             1,211 be9e80071a60c061c2ddc08d1df04a24769260
+               2 File(s)          1,574 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\6c
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               562 5fe4018bcffeb9db6319aac5b26532f2cd17df
+               1 File(s)            562 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\6d
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               159 b101fe5c2464a472a0012fbcabe0f0d60934ed
+11/05/2018  12:41 PM               174 cd2facc39f7600247ea48bc87564d08d16928e
+               2 File(s)            333 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\6e
+
+11/07/2018  02:10 PM    <DIR>          .
+11/07/2018  02:10 PM    <DIR>          ..
+11/07/2018  02:10 PM               561 7de21b90e05c58b23d935f0a29be95cd38682f
+10/29/2018  06:00 PM               168 a702fa9d214105125de0c9f4de643e3c1512c3
+               2 File(s)            729 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\6f
+
+11/07/2018  12:03 PM    <DIR>          .
+11/07/2018  12:03 PM    <DIR>          ..
+10/29/2018  09:14 AM               183 8edf2f9c7351b5d52c59906be9fe4972911081
+11/07/2018  12:03 PM               157 97dff22882cee28866f3670bcb80d274adee37
+               2 File(s)            340 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\70
+
+12/28/2018  05:05 PM    <DIR>          .
+12/28/2018  05:05 PM    <DIR>          ..
+11/07/2018  09:23 AM               533 c3bb9c9f64b7f6cf451d0f6380277f0448e50d
+12/28/2018  05:05 PM             4,936 dd46b1e465ed4d95d623699f27bef5a0e5c75c
+               2 File(s)          5,469 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\71
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               163 29c887091ac24fdc6ecc176255afc7ea7bde42
+11/05/2018  12:41 PM               181 c3d47be988d0dd9f5be2d7d4ebc2444dae176b
+               2 File(s)            344 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\72
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+12/31/2018  09:31 AM                89 41c48d3af161bbc4772306966bc4d243995900
+10/15/2018  12:10 PM               121 472ed3642e6cbe4d64cbba3f4099d252aca78e
+10/22/2018  08:48 AM               184 7a194dd01ba6c6d86339b0b71ea7de9aa3bf74
+               3 File(s)            394 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\73
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               159 5baf9ee2c2e8c4b0fb4689e58ee244cf58f4ca
+10/29/2018  09:14 AM               264 6248ffdd933f26198d40acf5517665e73790be
+10/29/2018  09:14 AM               441 7fa80660ad77864246c137d7c545cc47e39645
+               3 File(s)            864 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\74
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/15/2018  12:10 PM                41 19c7902b5221289c1d20439fc985c8cdca81ff
+10/29/2018  09:14 AM               153 b99938b6c22fcfa88c955fd07e6e884cdb53da
+               2 File(s)            194 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\75
+
+10/22/2018  08:48 AM    <DIR>          .
+10/22/2018  08:48 AM    <DIR>          ..
+10/22/2018  08:48 AM               153 eeef8e581d8295c36be889be731f7ae86c053d
+               1 File(s)            153 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\76
+
+11/07/2018  01:01 PM    <DIR>          .
+11/07/2018  01:01 PM    <DIR>          ..
+11/07/2018  09:23 AM               217 83e5f517587955a4f64743fd6a617e160bfb20
+10/29/2018  09:14 AM         1,095,394 bcb1fb21a08b44e58cf5c645ef703bfe3c5778
+11/07/2018  01:01 PM               562 bed479432d14b3bbd6aea1115bb8460558677e
+               3 File(s)      1,096,173 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\77
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+11/12/2018  04:55 PM               122 091458046933320ff17aa10e8c14ba6149ee8d
+12/31/2018  12:19 PM               110 4308986613dd183f19843e39ca0e1b3a02ad9a
+11/12/2018  04:55 PM                52 cb01f12536001d1488bb746082984bddd2b8b2
+               3 File(s)            284 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\78
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM           226,028 5c2b9a2ee85ec18f4d9417cd7d1570723c9482
+               1 File(s)        226,028 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\79
+
+11/07/2018  12:28 PM    <DIR>          .
+11/07/2018  12:28 PM    <DIR>          ..
+10/22/2018  08:48 AM               204 43e4252aab427b6d3b40aded74901b16dfc82c
+11/07/2018  12:28 PM               158 5ed84cdbe56bda22cb6d30e0770e7f98c92bfb
+10/29/2018  09:14 AM           241,932 611464e920631d74d9f04ac3c73cb1c6b07246
+               3 File(s)        242,294 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\7a
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/15/2018  12:10 PM                84 2f5bfb070737c8e43950eed631791d14c7bb97
+10/15/2018  12:10 PM             1,177 3c81c1e32b4e4224452cf8261a585480caa0ea
+11/12/2018  04:55 PM               221 dd5095caa8607abf1392a95c91672ddb78609b
+               3 File(s)          1,482 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\7b
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               561 39faf6358d245b72886588dbc5c7d5dd99c2b0
+10/15/2018  12:10 PM               611 a25a4ac3f1d924714ccf5793e7a01f361ce307
+               2 File(s)          1,172 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\7c
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               440 bfdc8b103db8686165a293d3ffe1e93b107f74
+               1 File(s)            440 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\7d
+
+12/28/2018  05:05 PM    <DIR>          .
+12/28/2018  05:05 PM    <DIR>          ..
+12/28/2018  05:05 PM               110 fe45ec0e6c6e239a0ca15ef3fdc677d2f9a049
+               1 File(s)            110 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\7e
+
+11/12/2018  04:55 PM    <DIR>          .
+11/12/2018  04:55 PM    <DIR>          ..
+10/29/2018  09:14 AM               180 3971cc0c3de8a422de1e1f91c21f6e412ad9c9
+11/12/2018  04:55 PM               121 4566352af252ea5a531ae44336a8b888172aae
+10/29/2018  09:14 AM           269,311 d8baff30f4d2c68c75fdc5c7ce639d5731fc20
+11/12/2018  04:55 PM               593 ea332d8a3c1fbe374ad3dd04f7a99a248b81ff
+11/12/2018  04:55 PM                55 f4ae46b6574be41a19e13ed79896252f666982
+               5 File(s)        270,260 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\7f
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               122 2e4e404700b00f2cfcee9c2ee0de772d8cdc19
+               1 File(s)            122 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\80
+
+11/07/2018  02:32 PM    <DIR>          .
+11/07/2018  02:32 PM    <DIR>          ..
+11/07/2018  11:35 AM               297 125e8b38e4357269775f9be21b03d9799e1da9
+10/29/2018  09:14 AM               153 a9b757fd1bd4b0e4253aa5806abfa79657dbbf
+11/07/2018  02:32 PM               561 b0b2bd290149cf4d6d03853696df32abfefc97
+               3 File(s)          1,011 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\81
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+10/29/2018  09:14 AM               240 060589a43186ba7db02f7619db36411186ebee
+10/15/2018  12:10 PM             2,872 c6f31ea4b8d36d19133c690c0701c240200e7e
+11/07/2018  09:23 AM               309 ccc6b8533ea38d560d92769d9b9280b8b2cde1
+12/27/2018  05:46 PM                42 fbd7f17c7920b181562844e0c9fd4ba3078879
+               4 File(s)          3,463 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\82
+
+10/18/2018  10:20 AM    <DIR>          .
+10/18/2018  10:20 AM    <DIR>          ..
+10/18/2018  10:20 AM               121 b48827d0547f40a305cc0ecd346ea6cba011f2
+               1 File(s)            121 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\83
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+12/27/2018  05:46 PM               516 557c941d2d9fe56ead21c523b0e88147b1a094
+12/31/2018  09:50 AM               592 d5697bef5922a5ff1d2e280add431af32df1e3
+11/07/2018  09:23 AM               169 fc32611fdf7d3f85673ef1e1af3b77d59d0fbe
+               3 File(s)          1,277 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\84
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+12/28/2018  05:00 PM               592 30b0d16a2a9d16485253b764b82d07bde63934
+12/27/2018  05:46 PM               470 f45115223cb760fa37f998c4a9418cec9e6389
+               2 File(s)          1,062 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\85
+
+11/05/2018  12:10 PM    <DIR>          .
+11/05/2018  12:10 PM    <DIR>          ..
+11/05/2018  12:10 PM               175 5d2671236fd409817dce19c859a8b25e3962fc
+10/15/2018  12:10 PM               499 799213e4cde8185ed28e8f1eb34be2ae7218bb
+               2 File(s)            674 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\87
+
+11/07/2018  02:54 PM    <DIR>          .
+11/07/2018  02:54 PM    <DIR>          ..
+10/29/2018  09:14 AM               303 49667040aca7aaf069c7643c88ca26daa9f1b6
+10/15/2018  12:10 PM                61 7ee2da8e409bcbcaea36eaf05f6c18e6049dba
+11/07/2018  02:54 PM               561 ab486388892bb2ca2e73d6108aa1b5e2dc61e7
+10/30/2018  08:59 PM               122 bf77f032c9a0f870eab9815ba803ecff22460d
+               4 File(s)          1,047 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\88
+
+11/07/2018  02:32 PM    <DIR>          .
+11/07/2018  02:32 PM    <DIR>          ..
+11/07/2018  02:32 PM               160 44a06455baf759380a9dd29595bacb0edb3a47
+11/07/2018  09:23 AM               562 dc444d008416b247d9ba71136d5817e132e5fa
+               2 File(s)            722 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\89
+
+11/05/2018  12:37 PM    <DIR>          .
+11/05/2018  12:37 PM    <DIR>          ..
+11/05/2018  12:37 PM               533 11d8e89a89cdc388a1e2302eb092f25dee488a
+11/05/2018  12:13 PM               532 1f5c14bb273936138237ac52bf56a8159a18c7
+10/15/2018  12:10 PM               695 4a44cc066a027465cd26d634948d56d13af9af
+11/12/2018  04:55 PM               186 50f8751ffb6357cf52f98720790141429eb83c
+               4 File(s)          1,946 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\8a
+
+11/05/2018  12:16 PM    <DIR>          .
+11/05/2018  12:16 PM    <DIR>          ..
+11/05/2018  12:16 PM               533 96fd1e6f59f1db8f7e94a4d3100007e2049cc7
+10/15/2018  12:10 PM               819 a0cb5d422facfd674525e420f832a7df1c8ddc
+               2 File(s)          1,352 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\8b
+
+10/22/2018  08:48 AM    <DIR>          .
+10/22/2018  08:48 AM    <DIR>          ..
+10/22/2018  08:48 AM             1,974 9c6ece451d2277f0467acdab44306c47474faf
+               1 File(s)          1,974 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\8c
+
+12/31/2018  12:58 PM    <DIR>          .
+12/31/2018  12:58 PM    <DIR>          ..
+12/31/2018  12:58 PM               228 975d2238505b1551152f419c1acb791f3209ff
+               1 File(s)            228 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\8d
+
+11/07/2018  11:39 AM    <DIR>          .
+11/07/2018  11:39 AM    <DIR>          ..
+11/05/2018  12:37 PM               194 130370dc873cf8a58cb23bd764125bbf7024a5
+11/07/2018  11:39 AM               561 4ad661ec1925fcaebbbbdc823f17c1dc56d037
+               2 File(s)            755 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\8e
+
+11/05/2018  12:10 PM    <DIR>          .
+11/05/2018  12:10 PM    <DIR>          ..
+11/05/2018  12:10 PM               344 2eddbb1be055117f53d51bdc2e38d55746ff1a
+11/01/2018  11:09 PM               470 e72dcae4a038efbe55982cd7c40f9bd7959768
+               2 File(s)            814 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\8f
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+12/31/2018  12:19 PM               212 101ab9e6d358d45ecfedc50c6602c86e492efe
+10/15/2018  12:10 PM               168 65062b987f9f2a14fa684e9d4a2cee1e63f194
+11/07/2018  09:23 AM               561 8a030efbe0f2f0727ae28600603ae5a3998712
+11/12/2018  04:55 PM               183 d4aabe18ab496830e7aaab011443023ee9a1ee
+               4 File(s)          1,124 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\90
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+12/31/2018  12:19 PM               481 697334c3d7549266a1ff4a9bcf48a59cc4cb3b
+               1 File(s)            481 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\91
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+10/22/2018  08:48 AM               440 1bc16f635966c8b86f2c5533a65754796188e4
+10/29/2018  09:14 AM               234 39e6ad1a3adbaa1a3ea18a1db5556dc597bf1c
+11/12/2018  04:55 PM                54 46102c7eaccfeb72f81a1c8c102ec88aa71200
+10/15/2018  12:10 PM               672 73b50900599f03fc107d03e5cde460c4731d59
+10/29/2018  09:14 AM               187 809815c9fd99b51e61c84f24ad01375ae6bd50
+12/28/2018  05:00 PM                89 819a48e7fad8ec2f2187f3617cf26ef6a4d49b
+               6 File(s)          1,676 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\92
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+12/27/2018  05:46 PM               120 a2d6bef58e4c99fd3d4d81152519145ddc9e64
+               1 File(s)            120 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\93
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/22/2018  08:48 AM             1,471 38bec9a8546f5521767774fc0f5b918df2ff9f
+10/22/2018  08:48 AM               121 d7f933c5d640e4ceadfdce72773b2266383995
+10/29/2018  09:14 AM               172 f0d6d7b3ac09f577eb1c7fc7c17272c42c5786
+               3 File(s)          1,764 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\94
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               162 c4c3a7d8ed53e8b2ba4d3fe12c244eb1ada5e5
+               1 File(s)            162 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\95
+
+10/30/2018  09:48 AM    <DIR>          .
+10/30/2018  09:48 AM    <DIR>          ..
+10/30/2018  09:48 AM               705 b842a34973618d7bcecaed65b5a734168dd011
+10/29/2018  09:14 AM               824 c3c4f3fb8262ee5a977c1d2924d8d08ce1010d
+               2 File(s)          1,529 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\96
+
+11/05/2018  11:53 AM    <DIR>          .
+11/05/2018  11:53 AM    <DIR>          ..
+11/05/2018  11:53 AM               171 3537a87b81623f34c8b02e25144d5621794e33
+               1 File(s)            171 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\97
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+12/27/2018  05:46 PM               117 1c78eced8e3e817fcf7f0c995e4c1659a45675
+11/05/2018  09:27 AM               189 58749d32565c3114e383ccc1e3b3e3ccc7ac90
+11/07/2018  09:23 AM               334 92c099079b1acf99addd7151d00b558dfeab58
+               3 File(s)            640 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\99
+
+11/07/2018  02:17 PM    <DIR>          .
+11/07/2018  02:17 PM    <DIR>          ..
+10/29/2018  09:14 AM               163 4c58bf97df1b656e21fe2315a5b2e05406be53
+11/07/2018  02:17 PM               423 517c3fca5fa9190793c06d54b518351bcd95aa
+11/07/2018  09:23 AM               160 64575e544204366f23e1e7775e8161d8a0f70a
+               3 File(s)            746 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\9a
+
+11/12/2018  04:55 PM    <DIR>          .
+11/12/2018  04:55 PM    <DIR>          ..
+10/30/2018  08:59 PM               166 088643e8674f6cfd57d83a0d2721eb51d77f0b
+10/29/2018  09:14 AM         1,076,824 1883b4ade938cf020a83caa0b9a340caff2277
+10/29/2018  09:14 AM               147 37ebf3721e48465520942902ef1d9112431de0
+10/30/2018  09:49 AM               203 98445c53447dfa361d1163c227d6b5451ef5e3
+11/12/2018  04:55 PM               588 ef9be7b4e40ed954655de27a2c15951b5c9a31
+               5 File(s)      1,077,928 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\9b
+
+11/07/2018  11:57 AM    <DIR>          .
+11/07/2018  11:57 AM    <DIR>          ..
+10/15/2018  12:10 PM            98,173 5206bcc60781905d111863bdb6232d90490f33
+11/07/2018  11:57 AM               561 7cbefb3f6cd1d6096eb4399ec998a432ccd326
+11/01/2018  11:09 PM            72,618 d7f725ab9aa2defd5214b9a9eb04e8afea532a
+               3 File(s)        171,352 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\9c
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               533 b0f647a01634829ef38f1c4d99151cc69e08a6
+10/17/2018  02:17 PM               439 d1e932c21c52340c617e5dde65c8b179687b0a
+               2 File(s)            972 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\9d
+
+11/12/2018  04:55 PM    <DIR>          .
+11/12/2018  04:55 PM    <DIR>          ..
+10/22/2018  08:48 AM               439 4c2a7b60e128a15ab6223974f6b6cc6aef52b0
+11/12/2018  04:55 PM               718 8a0c45ae3354a4149c24ae2f1e8fd3ff817d44
+10/29/2018  09:14 AM             1,668 fae9bfdda4f05a02981f37de7e668554b5d745
+               3 File(s)          2,825 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\9f
+
+12/27/2018  10:34 AM    <DIR>          .
+12/27/2018  10:34 AM    <DIR>          ..
+12/27/2018  10:34 AM               174 2bf03bf85b825f8bdb2d3ffd713beaf9681174
+10/15/2018  12:10 PM                68 84bb7cb1ac37d04e9403791382ed93bc52d30b
+10/15/2018  12:10 PM                77 8cdf7efac88e9fff4b1639689a83ded203cff9
+10/15/2018  12:10 PM               311 c1e7e9903ec51971f48f8c4c29a17673c97bae
+               4 File(s)            630 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a0
+
+11/07/2018  11:42 AM    <DIR>          .
+11/07/2018  11:42 AM    <DIR>          ..
+10/22/2018  08:48 AM               173 7b0e0f0784b34492e50cc96593cf77bf469345
+11/07/2018  11:42 AM               158 ba4ca538cd858d8974d1431c437c8b2a6043a8
+10/17/2018  02:17 PM               168 f57e550f9cb989723cc99cd27c77e60bbcd5ed
+               3 File(s)            499 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a1
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+11/07/2018  12:42 PM               561 26ed57eaabcac56b7cd7e38e7a070be4ab0bb3
+12/31/2018  09:50 AM               522 bcd3cd1ba8cef7b42e21ad90033bf299e9e536
+               2 File(s)          1,083 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a2
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               162 972f9eec3bfdd0b799787351ee72e7e1e9b64b
+               1 File(s)            162 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a3
+
+11/07/2018  02:22 PM    <DIR>          .
+11/07/2018  02:22 PM    <DIR>          ..
+11/07/2018  02:22 PM               418 094c104d180cd703c4c83a34385d2bf6adb65d
+11/05/2018  12:41 PM               533 a84ec842bfdda78b50b58a4f7449550e1befc6
+10/15/2018  12:10 PM               341 bdf1351705b174bf8eeb2f053c037c1b17e78f
+               3 File(s)          1,292 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a4
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               174 0cf371ab783a1c9a8ccbf57ab408a1b2e3ec71
+10/15/2018  12:10 PM                97 3200265f4b0732a53c72c85478ad5539c93b86
+               2 File(s)            271 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a5
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+12/31/2018  12:19 PM             7,671 04c5eb107b73415aac397a6a2fbc6c68e51cbe
+12/31/2018  12:19 PM             4,948 8fea784c782017ecd74554268747bb9dc19a66
+10/22/2018  08:49 AM               666 e5f2bc3f90c7a18d342e19565097ebc60a6776
+               3 File(s)         13,285 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a6
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+10/22/2018  08:48 AM               110 5c80f612560520e61bcf909dfc474d67cc1705
+12/31/2018  09:31 AM               592 a54d3d8a5bda918d0e4a0c39489378e310a765
+10/15/2018  12:10 PM               153 d74049ec588e156ae8b96d35bac509c811aa11
+               3 File(s)            855 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a7
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/22/2018  08:48 AM               701 41e578bf6ae3c6c802d5bc2841f0b377aedae2
+11/12/2018  04:55 PM               109 7490c4487a4ac5f357cd2f59aaaf13140a968d
+               2 File(s)            810 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a8
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+12/31/2018  09:50 AM               749 21683282ef0b557932dae74f514b53f34fdbb4
+11/07/2018  12:28 PM               369 24136e794859566edcd451a41d90928af6da2a
+               2 File(s)          1,118 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\a9
+
+11/05/2018  11:39 AM    <DIR>          .
+11/05/2018  11:39 AM    <DIR>          ..
+11/05/2018  11:39 AM               499 345ebe7d058f455dba168485bf45862415bd22
+10/29/2018  09:14 AM               161 35d950284db6293ce7248904b3270ee20411ec
+10/17/2018  02:17 PM               183 94aa064aa9748790c386c6a9bd9ca029e5e2c6
+               3 File(s)            843 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\aa
+
+11/12/2018  04:55 PM    <DIR>          .
+11/12/2018  04:55 PM    <DIR>          ..
+11/12/2018  04:55 PM                86 3c7548977aa74ef1957da1b625722f75ab3646
+               1 File(s)             86 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ab
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+10/15/2018  12:10 PM               440 10f9e413e68969152a30f81570f98520a748bc
+12/27/2018  05:46 PM               150 ebc472fc0c2f0d59dd57c656b73c468d005bf9
+               2 File(s)            590 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ac
+
+11/05/2018  09:27 AM    <DIR>          .
+11/05/2018  09:27 AM    <DIR>          ..
+10/22/2018  08:57 AM               180 2fa9ea603aee3cb12e51fe045b20e377bb298f
+11/05/2018  09:27 AM               155 cb55ee8a34879de5ddae8593c8c0d768ff48e7
+10/15/2018  12:10 PM               122 d3a53f60120ac5b20e7fd03b7e18d183fff1d8
+               3 File(s)            457 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ad
+
+11/05/2018  12:51 PM    <DIR>          .
+11/05/2018  12:51 PM    <DIR>          ..
+11/05/2018  12:51 PM               533 07f1750950640bd17a2b09d702a16809327b3e
+10/29/2018  09:14 AM               440 4da30eb97f85b07ffdabfe3ffd144fd1d51e10
+11/12/2018  04:55 PM                89 fd10204ba47beace326b8824a5d20de8633893
+               3 File(s)          1,062 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ae
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+10/29/2018  09:14 AM               110 758f64c90152ac9db7d5785736b8d955cae446
+12/31/2018  09:50 AM               212 a8f68b4efbdf83dedba5545f9e3f71640062d4
+               2 File(s)            322 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\af
+
+11/07/2018  11:09 AM    <DIR>          .
+11/07/2018  11:09 AM    <DIR>          ..
+11/07/2018  11:09 AM               261 b09eb11fd7a94f275b920df8f458f1942bd686
+               1 File(s)            261 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b0
+
+11/07/2018  02:26 PM    <DIR>          .
+11/07/2018  02:26 PM    <DIR>          ..
+11/07/2018  09:23 AM               323 12e7d42f4b42591f55319c2e5e0f1c4311640d
+11/07/2018  02:26 PM               159 3648cc13980eb3bd245489c37e4912927aea7f
+10/15/2018  12:10 PM               583 90e9f0d70953f32f3b74e88b00425c93b67c4f
+               3 File(s)          1,065 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b1
+
+11/07/2018  11:39 AM    <DIR>          .
+11/07/2018  11:39 AM    <DIR>          ..
+10/22/2018  08:48 AM               439 16fc813e3716bbe0a7e063fbff4695a3a605ca
+11/07/2018  11:39 AM               314 d83408e30d636acd969dd5840e0386ce53d87e
+               2 File(s)            753 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b2
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+10/15/2018  12:10 PM               749 2492cc34b158fd3423bec411d005539acb80f4
+11/12/2018  04:55 PM               268 76329dbb6c3f184781560a68ab8608bb4b0fe3
+12/28/2018  05:00 PM             4,890 a01607db3fbf816b6a26b6f159fa28aebf9fa5
+               3 File(s)          5,907 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b4
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               186 3e8bd0a2f5288c392c45efe25d36c14d955313
+10/15/2018  12:10 PM               270 7aa07dc5814e4808686b2f7edcf471ada86388
+               2 File(s)            456 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b5
+
+11/07/2018  11:48 AM    <DIR>          .
+11/07/2018  11:48 AM    <DIR>          ..
+10/22/2018  08:48 AM               440 454bfcdf5454bf0721432efeb9357478d3a890
+11/07/2018  11:48 AM               158 c18deee472779e68cb6c90accf39d67171c973
+10/15/2018  12:10 PM               167 d69038f922144d3d5d0acee3d1e285c4e1da05
+               3 File(s)            765 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b6
+
+11/07/2018  11:38 AM    <DIR>          .
+11/07/2018  11:38 AM    <DIR>          ..
+10/22/2018  08:48 AM             1,171 29b41d88e8665a3c7184e6c2faf666f49d1682
+11/07/2018  11:38 AM               298 5a33826e9574431bdcce003d40deae218235a9
+               2 File(s)          1,469 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b7
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               228 7e61f3fd8e96c64df584f205b4213cc6ec5005
+               1 File(s)            228 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b8
+
+11/07/2018  03:40 PM    <DIR>          .
+11/07/2018  03:40 PM    <DIR>          ..
+10/29/2018  09:14 AM               217 4987f47b6a51afcddb802601261b32b30bd1b6
+11/01/2018  11:09 PM               173 8e2d68ddeae2d9e6b3a09fd0fde198872e208c
+10/30/2018  09:49 AM               471 8f56376a0aa9bc7a68057a9949f7cab0c025a2
+11/07/2018  03:40 PM               566 d396e6958ce243dffbec78303a56cad4e81aa4
+               4 File(s)          1,427 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\b9
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               110 5a181200a5a05bc43855314f275cb01b5f5016
+               1 File(s)            110 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ba
+
+11/05/2018  12:26 PM    <DIR>          .
+11/05/2018  12:26 PM    <DIR>          ..
+11/05/2018  12:26 PM               474 7ed7838853a256bb4027d5f357a8a07dafd145
+               1 File(s)            474 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\bb
+
+11/07/2018  12:41 PM    <DIR>          .
+11/07/2018  12:41 PM    <DIR>          ..
+11/07/2018  12:41 PM               399 7f6fb3f91a0d2788142c413ca5006987675d42
+10/29/2018  09:14 AM            46,858 871769905838ba4631df9958a47dcd8294f2fa
+11/07/2018  09:23 AM               561 8fbdfbed6b92f5816c20fc77f1451aa1cb2d8b
+               3 File(s)         47,818 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\bc
+
+11/05/2018  12:11 PM    <DIR>          .
+11/05/2018  12:11 PM    <DIR>          ..
+11/05/2018  12:11 PM               533 38071664717ba81967a4a83aec755ef92ae8cc
+10/29/2018  09:14 AM               364 6f050f44a3e066b1e522681c135b65b80f1820
+               2 File(s)            897 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\bd
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+12/31/2018  09:31 AM               212 12cfb69f57748b21c5d9d8085f61496fed1f5d
+11/05/2018  12:32 PM               473 981287c395002b79ad3d630caf0ee4f7dfa4c0
+11/05/2018  12:51 PM               200 beae06df5cbbf5b19551d8f2012d218a4331b9
+               3 File(s)            885 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\be
+
+11/07/2018  02:07 PM    <DIR>          .
+11/07/2018  02:07 PM    <DIR>          ..
+11/07/2018  02:07 PM               158 e72f15183438d4e67c26c2f29b2607aa86ae89
+               1 File(s)            158 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\bf
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               440 324318e5f6ec53d44297dba0d842358e78ba74
+10/15/2018  12:10 PM               110 b6d7c7e829952e3465dd3a14a1302e4c801bbb
+               2 File(s)            550 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\c0
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+11/05/2018  09:27 AM               186 2f8d022c22fbae6066f2391e6ec8690cef94e3
+11/07/2018  02:22 PM               160 38060f34f15208c02eb6e0d08b0bf2d04af0e2
+12/31/2018  12:19 PM               293 9e778144f0cc56a3d2fda8f3c2af11f606a336
+12/31/2018  09:50 AM               165 c531996ed9b226ccc9e24c2ce9615ae3e2eb1e
+               4 File(s)            804 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\c1
+
+12/31/2018  12:58 PM    <DIR>          .
+12/31/2018  12:58 PM    <DIR>          ..
+11/07/2018  11:44 AM               306 01966eb901a728c6dff1aded213d46f08af4ae
+12/31/2018  12:58 PM               211 2ecc6bcd0ad016f6c663329d501b1648f43744
+10/29/2018  09:14 AM               183 732cc88939fd2460f52b79820dd18a22a97a08
+11/07/2018  09:23 AM               310 bd0535597f940fb6539db4f49d8147b4c4a2b6
+10/15/2018  12:10 PM               429 bd1e49fb98530a83549ea90d61bf05257a1eed
+10/22/2018  08:48 AM             1,576 dda52ec0685f1dd974118d58eaf9cda76ceae9
+11/07/2018  11:19 AM               160 e4a7500b4fccdb896a3f4dee09892d6f6d41ac
+               7 File(s)          3,175 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\c2
+
+10/29/2018  06:00 PM    <DIR>          .
+10/29/2018  06:00 PM    <DIR>          ..
+10/29/2018  09:14 AM               110 48f1145c87e66b4738b17f9679e751f4640022
+10/29/2018  09:14 AM               293 4f0eba54af65d19a705c7c5b04cd3831c1f17c
+10/29/2018  06:00 PM             2,238 4ff87f62fac5e84b12909eaa43cbe02555d621
+               3 File(s)          2,641 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\c3
+
+11/07/2018  12:58 PM    <DIR>          .
+11/07/2018  12:58 PM    <DIR>          ..
+11/01/2018  11:09 PM             2,856 53df30fe7c32e750d4cfe1450a41365a005ee4
+11/05/2018  12:32 PM               161 67d5a28290f4715546ecb84e2d79a98b809e90
+10/29/2018  09:14 AM               174 6c9185877856226ee4fa556ca1a318ed3d66b4
+11/07/2018  12:58 PM               404 e2a37e3ba1907d91931e01ee95b744a3100dcb
+               4 File(s)          3,595 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\c4
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               381 7331e8ccd1f7407fa97d759502e229a7ea87e3
+               1 File(s)            381 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\c7
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               289 d6f9af9131c7fc3d7a5ccb762a10829793d6ef
+               1 File(s)            289 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\c8
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM                33 e2adbb28989807e1b629125a3c0a14df2acbd0
+               1 File(s)             33 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\c9
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               341 097b885648c437481fe166b05fe6945daa2ba1
+               1 File(s)            341 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ca
+
+11/05/2018  12:26 PM    <DIR>          .
+11/05/2018  12:26 PM    <DIR>          ..
+11/05/2018  12:26 PM               168 7506955f473f65ec031c17b0d4600985ed4e45
+11/01/2018  11:09 PM               336 c5679248b1392506e41ad2a08b15f907ece6fb
+               2 File(s)            504 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\cb
+
+12/27/2018  05:46 PM    <DIR>          .
+12/27/2018  05:46 PM    <DIR>          ..
+11/07/2018  02:17 PM               561 0de9110af3718fadbf1e83ae116831fe1138f3
+12/27/2018  05:46 PM               233 4dc54ddebe41a3271d6024478da8f0848b94f1
+               2 File(s)            794 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\cc
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               277 9c8ba879145c8e858ffbba9f5b0858fc8d66cc
+10/29/2018  06:00 PM               105 dccac561d82e48af3b228ad740d0bc33b81dba
+11/12/2018  04:55 PM                56 debd2b0bfcf73d7b80814bab6fcc99a1b3758e
+               3 File(s)            438 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\cd
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+12/31/2018  09:31 AM               461 349afb6b6bda5f09e1db2c101e7076b85c8316
+12/31/2018  12:19 PM               799 7152821289e54ce3edb22c0de4fa72df61ab92
+11/05/2018  09:27 AM               499 fecd5efee93f45a76a77f5ad11d960779023db
+               3 File(s)          1,759 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ce
+
+11/05/2018  12:16 PM    <DIR>          .
+11/05/2018  12:16 PM    <DIR>          ..
+11/05/2018  11:53 AM               139 0c59bd472286d263be7baaf3242f1e2dcc306d
+11/05/2018  12:16 PM               186 915428abbc7803f32d0838cf15396cac35187e
+               2 File(s)            325 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\d0
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM             1,694 27d096b9a13d60b332e26591323044c0c0d2fd
+10/22/2018  08:48 AM               440 825baa89639f7778da91d13694d032ecbff648
+               2 File(s)          2,134 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\d1
+
+11/07/2018  11:44 AM    <DIR>          .
+11/07/2018  11:44 AM    <DIR>          ..
+11/05/2018  12:11 PM               178 3c30683f686aa35704cb1305865257f25c7412
+11/07/2018  11:44 AM               562 b0c7a85bc4513f997f4696ebac7c8dabac0308
+               2 File(s)            740 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\d2
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+11/05/2018  11:39 AM               174 29ef50108877838e42f8aed34d1830d1f217ae
+11/05/2018  12:51 PM               158 37c176282987c9f40e51959b968b1431195d42
+12/31/2018  09:31 AM             4,935 84c379cd6ec55b92c9b15f34de450beb57c2bd
+11/07/2018  11:31 AM               562 bba37771c52842b00f2da2b338a3b268acc748
+10/15/2018  12:10 PM               440 c39328ea929224cdd9bdfe2a244bdbf8615709
+               5 File(s)          6,269 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\d4
+
+11/07/2018  02:51 PM    <DIR>          .
+11/07/2018  02:51 PM    <DIR>          ..
+10/22/2018  08:48 AM             1,667 099656be41afabbc2d683ddf61e501d97f468d
+11/07/2018  02:51 PM               431 63b023fe5ebc7d9372190b6be779bf3d0ffda5
+10/22/2018  08:57 AM               440 e9188cab674f936378781586e09c25cd8b6c13
+               3 File(s)          2,538 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\d6
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               697 5213e26c934b8d3056292fca5d95e7af0cd929
+               1 File(s)            697 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\d7
+
+12/31/2018  12:58 PM    <DIR>          .
+12/31/2018  12:58 PM    <DIR>          ..
+10/17/2018  02:17 PM               168 27fa93467caa71ae72535d20c2f45581830bb5
+12/31/2018  12:58 PM               156 c61158aa9ad82e0cef93efca2ecfa0b03e24e8
+               2 File(s)            324 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\da
+
+11/07/2018  12:58 PM    <DIR>          .
+11/07/2018  12:58 PM    <DIR>          ..
+11/07/2018  12:58 PM               562 81045ff40fd8a587f8e9a58a35ce5e4ab144a9
+               1 File(s)            562 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\db
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               159 445cf0fe1d77e782a2359ef0571af2208e8fab
+               1 File(s)            159 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\dc
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM                82 b54c3af45e34a5faee878039813badec52e570
+               1 File(s)             82 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\dd
+
+11/07/2018  11:31 AM    <DIR>          .
+11/07/2018  11:31 AM    <DIR>          ..
+11/07/2018  11:31 AM               292 19c29a77ec8b23cbac9306bb8088fd778bdac2
+10/22/2018  08:48 AM               706 b4c7b6dc3229bf01ede1f823c774a6d8190851
+               2 File(s)            998 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\de
+
+12/31/2018  09:50 AM    <DIR>          .
+12/31/2018  09:50 AM    <DIR>          ..
+12/31/2018  09:50 AM               303 63aef2163bda6ac3169e80b9515959156b803d
+               1 File(s)            303 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e0
+
+11/07/2018  02:17 PM    <DIR>          .
+11/07/2018  02:17 PM    <DIR>          ..
+10/15/2018  12:10 PM               393 31120611b5c8dcc6d145b8ea1a69c4011dfe48
+11/07/2018  02:17 PM               158 6404db8a605e707ec83cc6d63447905432266e
+               2 File(s)            551 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e1
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/15/2018  12:10 PM               184 326fb655e772e89f912c8d788b5e54730cca3d
+10/29/2018  09:14 AM               440 374a24ec050b23d953f5e0b1a27df93ea40561
+               2 File(s)            624 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e2
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+11/07/2018  09:23 AM               163 23ad3b74159a870be0c633f526b3b1d36322ef
+12/28/2018  05:00 PM             5,439 b22d0c55215bc5c2ad371b21fb4c3f7d1c9e48
+10/15/2018  12:10 PM               511 e1abc50e4c1195266a7ffc8c78dc4d02b085ad
+               3 File(s)          6,113 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e3
+
+12/31/2018  12:58 PM    <DIR>          .
+12/31/2018  12:58 PM    <DIR>          ..
+12/31/2018  12:58 PM             6,376 251cc33a0813ec9cb51268226bee6ac7a129dd
+               1 File(s)          6,376 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e4
+
+11/05/2018  12:10 PM    <DIR>          .
+11/05/2018  12:10 PM    <DIR>          ..
+10/22/2018  08:48 AM               703 25d5ab24a38f14bc68b2b1008baa2014e16859
+11/05/2018  12:10 PM               532 361533386e97f785aa505d8f614ea96bb0ad2f
+10/15/2018  12:10 PM               440 b4928028a9e17fd76f5a45c7efc5e2a8ec5364
+10/29/2018  09:14 AM               153 e8d17b092ded0705808b9dd9332c1840de9c04
+               4 File(s)          1,828 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e5
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               440 21a7b67a13096e0350c48f866267be62006236
+10/22/2018  08:48 AM               169 597570c9bf5207775f5911199fccf3b953b608
+               2 File(s)            609 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e6
+
+11/01/2018  11:09 PM    <DIR>          .
+11/01/2018  11:09 PM    <DIR>          ..
+11/01/2018  11:09 PM                15 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+10/29/2018  09:14 AM           266,101 b5575092b0a74b67da7b8a02011d7598a5ab04
+               2 File(s)        266,116 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e7
+
+11/07/2018  12:28 PM    <DIR>          .
+11/07/2018  12:28 PM    <DIR>          ..
+10/15/2018  12:10 PM                36 11634461f2bc3faa10c98f1081c8270793de23
+11/05/2018  11:39 AM             2,368 1963b6e4d28a0ee2834b91804cbf7a77b0ebbf
+11/07/2018  09:23 AM               272 9654b38b960acfd332706edfa148eab08b6dad
+11/07/2018  12:28 PM               561 b3e4ba041248411a16453ebc1a23f740ff2c40
+11/07/2018  09:23 AM               561 c312eece9edc6ef1e0a1aa88aa7771a9ccee3f
+10/29/2018  09:14 AM               173 c84befa885778dbc87e533cdac47e8e6fd2b68
+               6 File(s)          3,971 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e8
+
+11/07/2018  12:23 PM    <DIR>          .
+11/07/2018  12:23 PM    <DIR>          ..
+11/12/2018  04:55 PM               122 1ddd65b062ba0af492456fdc79895fd8e0452f
+11/07/2018  12:23 PM               367 400e109f3a982965a232d912426070fed93c5a
+10/15/2018  12:10 PM               472 7a55df11d4a175ebe835f2c347a58bad2388ce
+11/07/2018  09:23 AM               533 a9f1f9ab0bd939e5b8e4c7e97a1a366ac1ae52
+11/07/2018  09:23 AM               562 bfd0cc9ceeedfe25aca32772473e16a88e4c8a
+               5 File(s)          2,056 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\e9
+
+11/05/2018  12:45 PM    <DIR>          .
+11/05/2018  12:45 PM    <DIR>          ..
+10/15/2018  12:10 PM               656 1b74649d327e7939086c3b7bfb98285f65688f
+11/05/2018  12:45 PM               533 45bf78cb3eb400c1908695325e7e7ffaa89695
+10/15/2018  12:10 PM               122 63eb678368c938a9ecff6e70b9cd9f37835fbd
+11/05/2018  12:37 PM               167 95142410694e3165e9991627e70300214c1d61
+               4 File(s)          1,478 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\eb
+
+11/07/2018  02:07 PM    <DIR>          .
+11/07/2018  02:07 PM    <DIR>          ..
+11/07/2018  02:07 PM               396 7d42c3b3181c898e24bef4f5bde17a17ed8be5
+               1 File(s)            396 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ec
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM               765 26068d6851a270fab0c4514a98475e12aaed54
+               1 File(s)            765 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ed
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+12/31/2018  09:31 AM               636 6a4c399c40903936fe2fdbd0acd6f6003223b4
+11/07/2018  09:23 AM               562 acb28b337d353cfc045dc8a62d19fd706d9931
+               2 File(s)          1,198 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ee
+
+11/07/2018  02:20 PM    <DIR>          .
+11/07/2018  02:20 PM    <DIR>          ..
+11/07/2018  02:20 PM               158 717c6b48180601dffc9e5d83439d896c13cf14
+               1 File(s)            158 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ef
+
+11/12/2018  04:55 PM    <DIR>          .
+11/12/2018  04:55 PM    <DIR>          ..
+10/17/2018  02:17 PM               758 1e672e8af5612ca59cc8b37ad5160b1b5bf4a2
+11/12/2018  04:55 PM               165 6a2271f5ca74f7e650345905caea86b0d299fa
+               2 File(s)            923 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\f0
+
+11/07/2018  12:03 PM    <DIR>          .
+11/07/2018  12:03 PM    <DIR>          ..
+11/12/2018  04:55 PM                54 07dbd1d43a25503f364e712d4f8f9b1c19be39
+10/15/2018  12:10 PM               666 52e5796abbe9ca2ce6bfbde2987bcfd6f8226c
+11/07/2018  12:03 PM               325 5bcb0c24df6edfd20391f34cb3f3697addcad5
+               3 File(s)          1,045 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\f2
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/12/2018  04:55 PM                53 6c820ce6e1603bd438d4f86274a1ce2109aea9
+11/07/2018  09:23 AM               162 6cd3420e6e2f4b35333eb0692b4d28652ec37b
+10/15/2018  12:10 PM             2,994 8bf6c596e70b5adc60595fd61f99d9b08cdecf
+10/18/2018  10:20 AM             1,355 f44559b77e441de7a9517a2431abf2cee517f3
+               4 File(s)          4,564 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\f4
+
+11/07/2018  11:19 AM    <DIR>          .
+11/07/2018  11:19 AM    <DIR>          ..
+10/17/2018  02:17 PM               439 c35bfd8f9e32f9ebc13517689d4fb2b0d1a372
+10/15/2018  12:10 PM            28,010 ca9b24ba13e964450fef6135b85e47cf109aa0
+11/07/2018  11:19 AM               264 f927a6ece3705a7b1b25a77d53b2240869f985
+               3 File(s)         28,713 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\f5
+
+12/31/2018  12:19 PM    <DIR>          .
+12/31/2018  12:19 PM    <DIR>          ..
+10/29/2018  09:14 AM               441 3e53415b622a362c5a15405cdc119827f735f9
+10/30/2018  09:58 AM               470 49b73f098358f0c99d64aaf574580f0101fa37
+10/22/2018  08:48 AM               153 78c4d63d4285a30495ed8bd4110fb7adcae5c4
+10/29/2018  06:00 PM                62 bd1a3015aaef6ffb8cfa0afca598cfc40db6ff
+12/31/2018  12:19 PM             4,935 fdb73453fe4297e3084293113878343ddbb4e3
+               5 File(s)          6,061 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\f6
+
+10/22/2018  08:48 AM    <DIR>          .
+10/22/2018  08:48 AM    <DIR>          ..
+10/22/2018  08:48 AM               184 1346f47ed2d272233e11f3076468733a95a401
+10/15/2018  12:10 PM               119 8b562147b1f25371ae834612ba888db8b9a4c7
+               2 File(s)            303 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\f9
+
+12/28/2018  05:00 PM    <DIR>          .
+12/28/2018  05:00 PM    <DIR>          ..
+12/28/2018  05:00 PM               183 1f940dd2e605302230dacec1718d44d9253499
+11/07/2018  12:36 PM               159 b2292935a2173c9a4b3cbeb1895415c8ca3483
+               2 File(s)            342 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\fa
+
+10/17/2018  02:17 PM    <DIR>          .
+10/17/2018  02:17 PM    <DIR>          ..
+10/17/2018  02:17 PM               121 c1d6571a1b08f87d8deeb034ee634f80ef1339
+               1 File(s)            121 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\fd
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+10/22/2018  08:48 AM               174 08279fffddbc8a0bdfcc8c1a4ce95bb4c93f81
+11/07/2018  09:23 AM               561 7a7a1156cac57487e39e6ccaee3f6a7ba6fd81
+               2 File(s)            735 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\fe
+
+12/31/2018  09:31 AM    <DIR>          .
+12/31/2018  09:31 AM    <DIR>          ..
+11/07/2018  12:23 PM               561 1ab2c984ce7e3a3a69f44dc9ac5f6809f63dc7
+12/31/2018  09:31 AM             7,037 944e4a22fd5abd5736b353cd5eaa5454f88cb3
+               2 File(s)          7,598 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\ff
+
+11/07/2018  11:42 AM    <DIR>          .
+11/07/2018  11:42 AM    <DIR>          ..
+11/07/2018  11:42 AM               304 70a613177fbc616d814ffdcc7590450c96ce68
+10/15/2018  12:10 PM               162 b1934bf9b784c0d4a62bfdce93a17e3b69aef0
+               2 File(s)            466 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\info
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\objects\pack
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\refs
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+12/31/2018  12:58 PM    <DIR>          heads
+10/15/2018  12:10 PM    <DIR>          remotes
+10/15/2018  12:10 PM    <DIR>          tags
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\refs\heads
+
+12/31/2018  12:58 PM    <DIR>          .
+12/31/2018  12:58 PM    <DIR>          ..
+12/31/2018  12:58 PM                41 master
+               1 File(s)             41 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\refs\remotes
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+12/31/2018  01:05 PM    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\refs\remotes\origin
+
+12/31/2018  01:05 PM    <DIR>          .
+12/31/2018  01:05 PM    <DIR>          ..
+10/15/2018  12:10 PM                32 HEAD
+12/31/2018  12:58 PM                41 master
+               2 File(s)             73 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.git\refs\tags
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.ssh
+
+11/07/2018  09:23 AM    <DIR>          .
+11/07/2018  09:23 AM    <DIR>          ..
+11/07/2018  09:23 AM               395 id_rsa.pub
+               1 File(s)            395 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\.vscode
+
+11/01/2018  04:35 PM    <DIR>          .
+11/01/2018  04:35 PM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\api
+
+12/27/2018  02:44 PM    <DIR>          .
+12/27/2018  02:44 PM    <DIR>          ..
+12/27/2018  02:44 PM             1,443 sample.py
+12/27/2018  02:44 PM             1,302 sample.pyc
+11/12/2018  04:55 PM               216 __init__.py
+12/27/2018  10:32 AM               175 __init__.pyc
+               4 File(s)          3,136 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\certs
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM                39 README.md
+               1 File(s)             39 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\data
+
+12/27/2018  02:35 PM    <DIR>          .
+12/27/2018  02:35 PM    <DIR>          ..
+12/27/2018  03:32 PM    <DIR>          json
+10/15/2018  12:10 PM                47 README.md
+01/02/2019  12:39 PM    <DIR>          sessions
+11/05/2018  11:20 AM    <DIR>          sqlite3
+               1 File(s)             47 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\data\json
+
+12/27/2018  03:32 PM    <DIR>          .
+12/27/2018  03:32 PM    <DIR>          ..
+12/27/2018  03:56 PM             3,175 2018-12-14.json
+12/27/2018  03:32 PM             1,935 2018-12-14x.json
+12/27/2018  02:35 PM                27 README.md
+               3 File(s)          5,137 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\data\sessions
+
+01/02/2019  12:39 PM    <DIR>          .
+01/02/2019  12:39 PM    <DIR>          ..
+01/02/2019  12:39 PM    <DIR>          43cfae7b252049a39038954ab74fde8c
+12/27/2018  10:33 AM    <DIR>          b5917cf6cea3432db46161934704e2ca
+12/27/2018  10:33 AM                31 README.txt
+               1 File(s)             31 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\data\sessions\43cfae7b252049a39038954ab74fde8c
+
+01/02/2019  12:39 PM    <DIR>          .
+01/02/2019  12:39 PM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\data\sessions\b5917cf6cea3432db46161934704e2ca
+
+12/27/2018  10:33 AM    <DIR>          .
+12/27/2018  10:33 AM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\data\sqlite3
+
+11/05/2018  11:20 AM    <DIR>          .
+11/05/2018  11:20 AM    <DIR>          ..
+11/05/2018  11:20 AM         6,385,664 url_kb.sqlite3
+               1 File(s)      6,385,664 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\helpers
+
+11/01/2018  05:36 PM    <DIR>          .
+11/01/2018  05:36 PM    <DIR>          ..
+10/15/2018  12:10 PM             1,468 app_helpers.py
+10/18/2018  04:12 PM               673 app_helpers.pyc
+10/15/2018  12:10 PM             3,002 jinja2_helpers.py
+10/18/2018  04:12 PM             2,336 jinja2_helpers.pyc
+10/30/2018  09:58 AM             4,222 page_helpers.py
+11/01/2018  05:36 PM             2,905 page_helpers.pyc
+10/15/2018  12:10 PM                86 README.md
+10/15/2018  12:10 PM               255 __init__.py
+10/18/2018  04:12 PM               226 __init__.pyc
+               9 File(s)         15,173 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\pages
+
+01/02/2019  12:48 PM    <DIR>          .
+01/02/2019  12:48 PM    <DIR>          ..
+01/02/2019  12:47 PM             1,649 brahman.py
+01/02/2019  12:48 PM             1,410 brahman.pyc
+10/29/2018  09:14 AM             5,250 palindrome.py
+10/29/2018  10:11 AM             3,399 palindrome.pyc
+12/31/2018  09:48 AM             1,322 phaser.py
+12/31/2018  09:48 AM             1,273 phaser.pyc
+01/02/2019  12:17 PM             2,388 site.py
+01/02/2019  12:17 PM             3,010 site.pyc
+10/29/2018  09:14 AM             5,567 url_dump.py
+10/29/2018  10:11 AM             3,921 url_dump.pyc
+01/02/2019  12:20 PM               263 __init__.py
+01/02/2019  12:21 PM               238 __init__.pyc
+              12 File(s)         29,690 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\run
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM                46 README.md
+               1 File(s)             46 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\samples
+
+11/05/2018  09:26 AM    <DIR>          .
+11/05/2018  09:26 AM    <DIR>          ..
+11/05/2018  09:26 AM    <DIR>          websockets
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\samples\websockets
+
+11/05/2018  09:26 AM    <DIR>          .
+11/05/2018  09:26 AM    <DIR>          ..
+11/02/2018  11:03 AM               277 client.py
+11/02/2018  11:04 AM               714 server.py
+               2 File(s)            991 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\services
+
+11/07/2018  03:42 PM    <DIR>          .
+11/07/2018  03:42 PM    <DIR>          ..
+11/07/2018  03:42 PM             6,331 demo-market.log
+11/01/2018  05:17 PM            10,386 market.py
+10/29/2018  10:22 AM                48 README.md
+11/01/2018  05:32 PM               302 test.html
+11/05/2018  11:39 AM             9,039 url_mine.py
+10/29/2018  10:21 AM               253 __init__.py
+               6 File(s)         26,359 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/15/2018  12:10 PM    <DIR>          .well-known
+10/29/2018  09:14 AM    <DIR>          assets
+10/15/2018  12:10 PM    <DIR>          css
+10/15/2018  12:10 PM    <DIR>          data
+10/15/2018  12:10 PM    <DIR>          fonts
+10/29/2018  09:14 AM    <DIR>          graphviz
+10/15/2018  12:10 PM    <DIR>          images
+10/29/2018  09:14 AM    <DIR>          js
+10/15/2018  12:10 PM                39 README.md
+               1 File(s)             39 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\.well-known
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM    <DIR>          acme-challenge
+               0 File(s)              0 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\.well-known\acme-challenge
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM                59 README.md
+               1 File(s)             59 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\assets
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM             2,212 demo-tiled-map.json
+10/29/2018  09:14 AM             3,058 MyTerrain.json
+10/29/2018  09:14 AM            47,230 simple_tileset.png
+               3 File(s)         52,500 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\css
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM             8,223 normalize.css
+10/15/2018  12:10 PM                39 README.md
+12/31/2018  10:16 AM             1,768 site.css
+10/15/2018  12:10 PM            11,870 skeleton.css
+               4 File(s)         21,900 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\data
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM                50 README.md
+               1 File(s)             50 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\fonts
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM                16 README.md
+               1 File(s)             16 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\graphviz
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM               355 example.py
+10/29/2018  09:14 AM               350 mk
+10/29/2018  09:14 AM               791 sample.dot
+               3 File(s)          1,496 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\images
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM             1,156 favicon.png
+10/15/2018  12:10 PM                17 README.md
+               2 File(s)          1,173 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\js
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/15/2018  12:10 PM    <DIR>          jQuery
+10/29/2018  09:14 AM    <DIR>          phaser2
+10/29/2018  09:14 AM    <DIR>          phaser3
+10/15/2018  12:10 PM                21 README.md
+               1 File(s)             21 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\js\jQuery
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM           282,115 jquery-3.3.1.js
+10/15/2018  12:10 PM            86,929 jquery-3.3.1.min.js
+10/15/2018  12:10 PM           227,166 jquery-3.3.1.slim.js
+10/15/2018  12:10 PM            69,919 jquery-3.3.1.slim.min.js
+               4 File(s)        666,129 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\js\phaser2
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM         3,588,680 phaser.js
+10/29/2018  09:14 AM         1,145,551 phaser.map
+10/29/2018  09:14 AM           832,485 phaser.min.js
+               3 File(s)      5,566,716 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\static\js\phaser3
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM         4,686,156 phaser-arcade-physics.js
+10/29/2018  09:14 AM           720,901 phaser-arcade-physics.min.js
+10/29/2018  09:14 AM         5,340,844 phaser-facebook-instant-games.js
+10/29/2018  09:14 AM           845,755 phaser-facebook-instant-games.min.js
+10/29/2018  09:14 AM         5,251,791 phaser.js
+10/29/2018  09:14 AM           831,913 phaser.min.js
+               6 File(s)     17,677,360 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM    <DIR>          csv
+01/02/2019  12:19 PM    <DIR>          html
+10/15/2018  12:10 PM                20 README.md
+               1 File(s)             20 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates\csv
+
+10/15/2018  12:10 PM    <DIR>          .
+10/15/2018  12:10 PM    <DIR>          ..
+10/15/2018  12:10 PM                20 README.md
+               1 File(s)             20 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates\html
+
+01/02/2019  12:19 PM    <DIR>          .
+01/02/2019  12:19 PM    <DIR>          ..
+01/02/2019  12:47 PM    <DIR>          brahman
+10/29/2018  09:14 AM    <DIR>          palindrome
+10/29/2018  09:14 AM    <DIR>          phaser
+10/15/2018  12:10 PM                25 README.md
+12/31/2018  11:42 AM    <DIR>          site
+10/22/2018  08:50 AM    <DIR>          url_dump
+01/02/2019  12:31 PM    <DIR>          _layouts
+               1 File(s)             25 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates\html\brahman
+
+01/02/2019  12:47 PM    <DIR>          .
+01/02/2019  12:47 PM    <DIR>          ..
+01/02/2019  12:45 PM               931 home-page.html
+01/02/2019  12:51 PM            23,170 test1-page.html
+01/02/2019  12:46 PM            23,262 test2-page.html
+01/02/2019  12:47 PM            16,701 xxx-test3-page.html
+               4 File(s)         64,064 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates\html\palindrome
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/15/2018  12:10 PM             2,078 about-page.html
+10/15/2018  12:10 PM               801 contact-page.html
+10/29/2018  09:14 AM             1,723 home-page.html
+               3 File(s)          4,602 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates\html\phaser
+
+10/29/2018  09:14 AM    <DIR>          .
+10/29/2018  09:14 AM    <DIR>          ..
+10/29/2018  09:14 AM             2,078 about-page.html
+10/29/2018  09:14 AM               801 contact-page.html
+10/29/2018  09:14 AM             2,232 home-page.html
+               3 File(s)          5,111 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates\html\site
+
+12/31/2018  11:42 AM    <DIR>          .
+12/31/2018  11:42 AM    <DIR>          ..
+12/31/2018  09:46 AM             2,234 about-page.html
+10/29/2018  09:14 AM             1,007 contact-page.html
+12/31/2018  09:45 AM             1,391 home-page.html
+12/31/2018  12:46 PM            23,222 test-page.html
+12/31/2018  11:41 AM            23,262 test2-page.html
+12/31/2018  12:16 PM            16,701 test3-page.html
+12/31/2018  11:43 AM            16,321 test4-page.html
+               7 File(s)         84,138 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates\html\url_dump
+
+10/22/2018  08:50 AM    <DIR>          .
+10/22/2018  08:50 AM    <DIR>          ..
+10/15/2018  12:10 PM             2,078 about-page.html
+10/15/2018  12:10 PM               801 contact-page.html
+10/22/2018  08:50 AM             4,724 home-page.html
+               3 File(s)          7,603 bytes
+
+ Directory of C:\src\github.com\ongzhixian\python-apps\templates\html\_layouts
+
+01/02/2019  12:31 PM    <DIR>          .
+01/02/2019  12:31 PM    <DIR>          ..
+01/02/2019  12:30 PM             2,508 _brahman.html
+01/02/2019  12:50 PM             4,268 _brahman_macros.html
+10/15/2018  12:10 PM             2,500 _default.html
+01/02/2019  12:31 PM             2,419 _macros.html
+               4 File(s)         11,695 bytes
+
+     Total Files Listed:
+             669 File(s)     36,717,159 bytes
+             833 Dir(s)  21,335,019,520 bytes free
