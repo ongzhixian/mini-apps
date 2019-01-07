@@ -2,6 +2,7 @@ import json
 import logging
 import os
 from helpers.page_helpers import *
+from modules import toto_data
 
 ################################################################################
 # Setup helper functions
@@ -13,32 +14,39 @@ from helpers.page_helpers import *
 # Setup routes
 ################################################################################
 
-@route('/api/sample', method='POST')
-def api_sample_post():
-    logging.debug("IN api_sample_post")
-    # json_data = request.json
-    # logging.info(str(json_data))
-    cwd = os.getcwd()
-    logging.info(cwd)
+@route('/api/toto/last-draw')
+def api_toto_last_draw_get():
+    logging.debug("IN api_toto_last_draw_get")
+    lot_result = toto_data.get_last_draw()
+    # ZX: lot = List of Tuple
+    return json.dumps(lot_result)
 
 
-@route('/api/sample')
-def api_sample_get():
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
-    response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-    logging.debug("IN api_sample_get")
-    return "['Hello', 'World']"
-    
-@route('/api/recon/<trade_date>')
-def api_recon_get(trade_date):
-    logging.debug("IN api_recon_get")
+@route('/api/toto/<draw_date>')
+def api_toto_get(draw_date):
+    logging.debug("IN api_toto_get")
     #return "['Hello', 'World', 'tradedate']"
-    data_store_filepath = "./data/json/{0}.json".format(trade_date)
+    data_store_filepath = "./data/json/{0}.json".format(draw_date)
     with open(data_store_filepath, "r") as infile:
         json_string = infile.read()
     data = json.loads(json_string)
     return json_string
+
+# @route('/api/toto/sample', method='POST')
+# def api_sample_post():
+#     logging.debug("IN api_sample_post")
+#     # json_data = request.json
+#     # logging.info(str(json_data))
+#     cwd = os.getcwd()
+#     logging.info(cwd)
+
+
+# @route('/api/toto/sample')
+# def api_sample_get():
+#     logging.debug("IN api_sample_get")
+#     return "['Hello', 'World']"
+    
+
 
 
     # with tempfile.TemporaryFile() as temp_file:

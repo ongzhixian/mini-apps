@@ -43,3 +43,29 @@ def display_about_page(errorMessages=None):
 def display_contact_page(errorMessages=None):
     context = get_default_context(request)
     return jinja2_env.get_template('html/site/contact-page.html').render(context)
+
+@route('/toto')
+def display_test_page(errorMessages=None):
+    context = get_default_context(request)
+    return jinja2_env.get_template('html/site/toto-page.html').render(context)
+
+@route('/test')
+@route('/test/')
+def display_test_page(errorMessages=None):
+    context = get_default_context(request)
+    return jinja2_env.get_template('html/site/test-page.html').render(context)
+
+@route('/test2')
+def display_test2_page(errorMessages=None):
+    context = get_default_context(request)
+    return jinja2_env.get_template('html/site/test2-page.html').render(context)
+
+@route('/test3')
+def display_test3_page(errorMessages=None):
+    context = get_default_context(request)
+    return jinja2_env.get_template('html/site/test3-page.html').render(context)
+
+@route('/test4')
+def display_test4_page(errorMessages=None):
+    context = get_default_context(request)
+    return jinja2_env.get_template('html/site/test4-page.html').render(context)

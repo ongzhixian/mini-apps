@@ -15,18 +15,13 @@
 {% macro page_header(active_text, sub_title) %}
 {% 
     set menu_items = [
-        { 'href' : "/", 'text' : "Home" },
-        { 'href' : "/about", 'text' : "About" },
-        { 'href' : "/contact", 'text' : "Contact" },
-        { 'href' : "/toto", 'text' : "Toto" },
-
+        { 'href' : "/brahman", 'text' : "Home" },
+        { 'href' : "/brahman/reconciliation/test1", 'text' : "Test1" },
+        { 'href' : "/brahman/reconciliation/test2", 'text' : "Test2" }
     ]
 %}
-{#
-    { 'href' : "/test", 'text' : "Test" },
-    { 'href' : "/test2", 'text' : "Test2" },
-    { 'href' : "/test3", 'text' : "Test3" },
-    { 'href' : "/test4", 'text' : "Test4" }
+{#  Menu items that are obsolete can be commented within here. 
+    { 'href' : "/brahman/reconciliation/test3", 'text' : "Test3" } 
 #}
 <div class="row">
     <div class="twelve columns">
@@ -63,6 +58,53 @@
 </div><!--end of .row .twelve.columns -->
 {% endmacro %}
 
+
+{% macro brahman_page_header(active_text, sub_title) %}
+{% 
+    set menu_items = [
+        { 'href' : "/brahman", 'text' : "Home" },
+        { 'href' : "/brahman/about", 'text' : "About" },
+        { 'href' : "/brahman/contact", 'text' : "Contact" },
+        { 'href' : "/brahman/reconciliation/test", 'text' : "Test" },
+        { 'href' : "/brahman/reconciliation/test2", 'text' : "Test2" },
+        { 'href' : "/brahman/reconciliation/test3", 'text' : "Test3" },
+        { 'href' : "/brahman/reconciliation/test4", 'text' : "Test4" }
+    ]
+%}
+<div class="row">
+    <div class="twelve columns">
+        <h1 class="page-header">{{SITE_NAME}}
+            {% if sub_title|length > 0 %}
+            <small>{{sub_title}}</small>
+            {% endif %}
+        </h1>
+        <nav class="top-navbar">
+            {% for item in menu_items %}
+            {% if active_text == item.text %}
+            <a href="{{item.href}}" class="active">{{item.text}}</a>
+            {% else %}
+            <a href="{{item.href}}">{{item.text}}</a>
+            {% endif %}
+            {%- endfor %}
+            
+            <!--
+
+                <div class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-button" onclick="myFunction('myDropdown')">Tests
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="/test1">Test 1</a>
+                        <a href="/test2">Test 2</a>
+                        <a href="/test3">Test 3</a>
+                    </div>
+                </div>
+            -->
+                
+        </nav>
+    </div>
+</div><!--end of .row .twelve.columns -->
+{% endmacro %}
 
 
 {########################################}

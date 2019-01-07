@@ -1,0 +1,48 @@
+dist: trusty
+#sudo: required
+
+language: python
+python: "2.7"
+
+before_install:
+  - echo "before install"
+
+install:
+  - echo "IN install"
+
+before_script:
+  - echo "before script"
+
+script:
+  - echo "IN script"
+
+after_failure:
+  - echo "IN after_failure"
+
+after_success:
+  - echo "IN after_success"
+
+after_script:
+  - echo "IN after_script"
+  # - echo "${SFTP_USER}"
+  # - echo $SFTP_USER
+  # - env
+  # - echo "Host plato" >> ~/.ssh/config
+  # - echo "HostName plato.emptool.com" >> ~/.ssh/config
+  # - echo "User zhixian" >> ~/.ssh/config
+  # - echo "IdentityFile ~/.ssh/id_rsa" >> ~/.ssh/config
+  # - cat ~/.ssh/known_hosts
+  # - cat ~/.ssh/config
+  # - cat ~/.ssh/authorized_keys
+  # # - ls -alR
+  # - eval $(ssh-agent -s)
+  # - echo "$ID_RSA" | tr -d '\r' > ./deploy_key
+  # - chmod 600 ./deploy_key
+  # # - ssh-keygen -p -P "" -N "" -f ~/.ssh/id_rsa
+  # #- ssh-add -k ./deploy_key
+  # - ssh-add -l
+  # # - ssh-add -l
+  # #- cat ~/.ssh/id_rsa
+  # - wc ./deploy_key
+  # - ssh-keyscan -H plato.emptool.com >> ~/.ssh/known_hosts
+  # - echo test sftp

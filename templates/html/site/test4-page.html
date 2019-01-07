@@ -1,0 +1,479 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Test4') }}
+
+    <header>
+        <h1>Test <small>Canvas</small>
+        </h1>
+    </header>
+
+    <section>
+
+        <div class="row">
+            <div class="twelve columns">
+                <p>
+                    Canvas 
+                    <button type="button" class="button" id="renderButton">Render</button>
+                    <button type="button" class="button" id="fetchDataButton">Fetch data</button>
+                </p>
+
+                <canvas id="ex1" width="100%" height="150" style="border: 1px solid #cccccc;">
+                    HTML5 Canvas not supported
+                </canvas>
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+<style>
+    .interactive {
+        cursor: pointer;
+    }
+
+    .tags-input-area {
+        border: solid 2px #ccc;
+        list-style: none;
+    }
+
+    li.tag,
+    li.new-tag {
+        display: inline-block;
+        margin: 0.36em 0 0.36em 0.36em;
+        padding: 0 0.36em;
+    }
+
+    li.tag {
+
+        background-color: #fafafa;
+        border: solid 1px #ccc;
+        border-radius: 5px;
+    }
+
+    li.new-tag {
+        /* N/A */
+    }
+
+    li.new-tag input {
+        border: none;
+        margin: 0;
+        padding: 0;
+        height: auto;
+    }
+
+    li.new-tag input[type=text]:focus {
+        border: none;
+    }
+
+    /* 
+    li.tag.input {
+        border:0;
+        margin: 0;
+    }
+    li.tag.input input {
+        margin:0;
+        border:0;
+    } */
+</style>
+
+<script>
+    // Write a script that detects when a 
+    var pj = {};
+    var tags = ["new", "reconciliation", "2018-12-12", "jpm", "XASX"];
+    tags = ["security id desc", "account desc"]
+
+    // TODO:
+    var chips = {
+        tags : ["new", "reconciliation", "2018-12-12", "jpm", "XASX"],
+        renderChips: function() {},
+        addNewChips: function(e) {},
+        removeChips: function(e) {}
+    };
+
+    var ajax = {
+        "getRequest": function () {
+            if (window.XMLHttpRequest) {
+                return new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                console.log("Browser does not support XMLHTTP.");
+                return false;
+            }
+        }
+    };
+
+    function dragover_handler(ev) {
+        ev.preventDefault();
+        // Set the dropEffect to move
+        ev.dataTransfer.dropEffect = "copy"
+    }
+    function drop_handler(ev) {
+        ev.preventDefault();
+        // Get the id of the target and add the moved element to the target's DOM
+        var data = ev.dataTransfer.getData("text/plain");
+        //ev.target.appendChild(document.getElementById(data));
+        debugger;
+    }
+
+
+    function dragstart_handler(ev) {
+        console.log("dragStart");
+        // Set the drag effect to move; there are 3 effects:
+        //  copy - indicates that the data being dragged will be copied from its present location to the drop location. 
+        //  move - indicates that the data being dragged will be moved
+        //  link - indicates that some form of relationship or connection will be created between the source and drop locations. 
+        //  Set the drag effect to move;
+        ev.dataTransfer.dropEffect = "copy";
+
+        // Add the target element's id to the data transfer object
+        // ev.dataTransfer.setData("text/plain", ev.target.id);
+        ev.dataTransfer.setData("text/plain", ev.target.firstChild.data.trim());
+    }
+
+
+
+    function renderChips() {
+        var elementList = document.getElementsByClassName("tags-input-area");
+        var newTagItem = document.getElementsByClassName("new-tag")[0];
+        if (elementList.length <= 0) {
+            return;
+        }
+
+        var rootElement = elementList[0];
+        var html = "";
+
+        // Clear all tags
+        rootElement.querySelectorAll(".tag").forEach(e => {
+            e.remove();
+        });
+
+        // Append each tag we have in list into tag area
+        tags.forEach(element => {
+            var newTagElement = document.createElement('li');
+            newTagElement.classList.add("tag");
+            newTagElement.setAttribute("draggable","true");
+            newTagElement.setAttribute("ondragstart","dragstart_handler(event);");
+            newTagElement.innerHTML = element + ' <span class="interactive remove-tag">&#10006;</span></li>';
+            // rootElement.prepend(newTagElement);
+            rootElement.insertBefore(newTagElement, newTagItem);
+        });
+
+        // Set event-handlers
+        document.querySelectorAll(".interactive.remove-tag").forEach(element => {
+            // Because JavaScript do not provide a way to check if an event listener has been assigned to an element,
+            // we will always remove the event listener that we want to attach 
+            element.removeEventListener("click", testClick);
+            element.addEventListener("click", testClick);
+        });
+    }
+
+    function addNewChips(e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode == 9) {
+            e.preventDefault();
+            tags.push(this.value);
+            renderChips();
+            this.value = "";
+            console.log("TAB");
+            return;
+        }
+        console.log(keyCode);
+    }
+
+    function testClick(e) {
+        console.log("CLICKED");
+        //debugger;
+        var targetTagText = e.target.parentElement.innerHTML.replace(e.target.outerHTML, "").trim();
+        var foundIndex = tags.indexOf(targetTagText);
+        tags.splice(foundIndex, 1)
+        console.log("TODO: remove ", targetTagText, "found at", foundIndex);
+        renderChips();
+    }
+
+    function renderTableData() {
+        if (!pj) {
+            return;
+        }
+
+        if (pj.layout) {
+            pj.layout.fields.sort(function (a, b) { // Sort display order fields by "seq"
+                return a.seq - b.seq;
+            });
+        }
+
+        if (pj.length === 0) {
+            return
+        } 
+
+        var tbl = document.querySelector("table.reconciliation");
+
+        var new_tbody = tbl.createTBody();
+        var row_idx = 0;
+        var key_idx = 0;
+
+        for (row_idx = 0; row_idx < pj.data.length; row_idx++) {
+
+            var row = new_tbody.insertRow(row_idx);
+
+            for (key_idx = 0; key_idx < pj.layout.fields.length; key_idx++) {
+                var newCell = row.insertCell(key_idx);
+                newCell.innerHTML = pj.data[row_idx][pj.layout.fields[key_idx].field];
+            }
+        }
+
+        tbl.tBodies[0].remove(); // Remove the old tbody
+    }
+
+    function ajaxCall() {
+        // Get data
+        var actionUrl = "http://localhost:50001/api/recon/2018-12-14";
+        var xhr = ajax.getRequest();
+        xhr.onreadystatechange = function () {
+            var DONE = 4; // readyState 4 means the request is done.
+            var OK = 200; // status 200 is a successful return.
+            if (xhr.readyState === DONE) {
+                if (xhr.status === OK) {
+                    //console.log(xhr.responseText); // 'This is the returned text.'
+                    pj = JSON.parse(xhr.responseText);
+                    //debugger;
+
+                    if (pj) {
+                        renderTableData();
+                        return;
+
+                        // Assumes pj will have a layout section and a data section
+                        if (pj.layout) {
+                            // pj.layout.fields.reduce(function(a, cv) {
+                            //     debugger;
+                            //     //return cv;
+                            // })
+
+                            pj.layout.fields.sort(function (a, b) { // Sort display order fields by "seq"
+                                return a.seq - b.seq;
+                            });
+                        }
+
+
+
+                        if (pj.length === 0) {
+                            //     document.querySelector("table.resource-types").classList.add("hide");
+                            //     document.getElementById("resource_types_message").classList.remove("hide");
+                            return
+                        } 
+
+
+                        // Render contents into table
+
+
+                        // if (pj.length === 0) {
+                        //     document.querySelector("table.resource-types").classList.add("hide");
+                        //     document.getElementById("resource_types_message").classList.remove("hide");
+                        // } else {
+                        var tbl = document.querySelector("table.reconciliation");
+
+                        var new_tbody = tbl.createTBody();
+                        var row_idx = 0;
+                        var key_idx = 0;
+
+                        for (row_idx = 0; row_idx < pj.data.length; row_idx++) {
+                            var row = new_tbody.insertRow(row_idx);
+                            //var keys = Object.keys(pj[row_idx])
+
+
+                            for (key_idx = 0; key_idx < pj.layout.fields.length; key_idx++) {
+                                var newCell = row.insertCell(key_idx);
+                                newCell.innerHTML = pj.data[row_idx][pj.layout.fields[key_idx].field];
+                            }
+
+                            // var cell0 = row.insertCell(0);
+                            // var cell1 = row.insertCell(1);
+                            // var cell2 = row.insertCell(2);
+                            // var cell3 = row.insertCell(3);
+                            // var cell4 = row.insertCell(4);
+                            // var cell4 = row.insertCell(5);
+                            // var cell4 = row.insertCell(6);
+                            // var cell4 = row.insertCell(7);
+                            // var cell4 = row.insertCell(8);
+
+                            // cell0.innerHTML = (row_idx + 1).toString();
+                            // cell1.innerHTML = pj[row_idx]["name"];
+                            // cell2.innerHTML = pj[row_idx]["description"];
+                            // cell3.innerHTML = pj[row_idx]["count"];
+                            //cell4.innerHTML = "<a href='#'>Remove</a>";
+                        }
+
+                        tbl.tBodies[0].remove(); // Remove the old tbody
+
+                        //     document.getElementById("resource_types_message").classList.add("hide");
+                        //     document.querySelector("table.resource-types").classList.remove("hide");
+                        // }
+                    } else {
+                        console.log("AJAX call return no data.");
+                    }
+
+                } else {
+                    console.log('Error: ' + xhr.status); // An error occurred during the request.
+                }
+            }
+
+
+            // xhr.setRequestHeader('Content-Type', 'application/json');
+            // var type_name = document.getElementById("resource_type_name").value;
+            // var type_desc = document.getElementById("resource_type_description").value;
+            // var type_count = document.getElementById("resource_type_count").value;
+
+            // application/x-www-form-urlencoded
+            // var post_data = encodeURI('name=');
+
+            // var post_data = {
+            //     "name" : type_name,
+            //     "des" : type_desc,
+            //     "count" : type_count
+            // };
+            // console.log(post_data);
+        }
+        xhr.open('GET', actionUrl);
+        xhr.send(null);
+    }
+
+    function sortCompare(a, b) {
+        if (typeof(a) === "string") {
+            return a.localeCompare(b);
+        } else {
+            return a - b;
+        }
+    }
+
+    function drawExamples(){
+        // Using canvas ALWAYS involve the following two steps:
+        var canvas  = document.getElementById("ex1");   // 1. Get reference to the canvas element.
+        var context = canvas.getContext("2d");          // 2. Get 2D context from the canvas element.
+
+        // [Start drawing arbiturary graphics here]
+        // Draw grid
+        // Draw row of squares
+        var squareSize = 50;
+        
+        
+
+        
+        context.strokeStyle = "#0ac0cc"; // Blue empty rec
+        context.lineWidth   = 5;
+        context.fillStyle = "#ff0000";
+        // context.fillRect(10,10, 100,100); // Red rect
+        
+        for (var y = 2.5; y < canvas.height; y = y + squareSize) {
+            for (var x = 2.5; x < canvas.width; x = x + squareSize) {
+                context.strokeRect(x, y, squareSize, squareSize);
+                //context.fillRect( x+2.5, y+2.5, squareSize, squareSize);
+            }
+        }
+
+
+        // Filled triangle
+        // context.beginPath();
+        // context.moveTo(25,25);
+        // context.lineTo(105,25);
+        // context.lineTo(25,105);
+        // context.fill();
+                    
+        // Stroked triangle
+        context.strokeStyle = "#0000ff"; // Blue empty rec
+        context.lineCap = "butt";
+        context.lineJoin = "round";
+
+        context.beginPath();
+        context.moveTo(5,500);
+        context.lineTo(125,45);
+        context.lineTo(205,125);
+        //context.closePath();
+        context.stroke();
+        
+        //context.lineWidth   = 2;
+        context.font        = "normal 48px Arial";
+        context.strokeStyle = "#000000";
+        //context.strokeText("\u{02789}", 240, 100);
+        context.fillText("\u{02789}", 7.5, 495);
+        //https://www.toptal.com/designers/htmlarrows/symbols/
+        
+        
+        // context.fillStyle = "#ff0000";
+        // context.fillRect(10,10, 100,100); // Red rect
+
+        // context.fillStyle = "#009900";
+        // context.fillRect(120,10, 100,100); // Green rect
+
+        // context.strokeStyle = "#0000ff"; // Blue empty rec
+        // context.lineWidth   = 5;
+        // context.strokeRect(120,120, 100,100);
+
+
+
+        // context.font      = "normal 36px Verdana";
+        // context.fillStyle = "#000000";
+        // context.fillText("HTML5 Canvas Text", 240, 60);
+
+        // context.font        = "normal 36px Arial";
+        // context.strokeStyle = "#000000";
+        // context.strokeText("HTML5 Canvas Text", 240, 100);
+    }
+
+
+    (function () {
+        console.log("[START]");
+
+        // Write a function that renders tag
+        //renderChips();
+
+        // https://developer.mozilla.org/en-US/docs/Web/Events
+
+
+        // Add event listeners for input
+
+        var renderButton = document.getElementById("renderButton");
+        renderButton.addEventListener("click", function(e) {
+            console.log("Render to canvas");
+            var originalCanvas = document.getElementById("ex1");
+            //originalCanvas.width = originalCanvas.parentElement.clientWidth;
+            originalCanvas.width = 505;
+            originalCanvas.height = 505;
+            drawExamples();
+            
+        });
+
+        var drawingCanvas = document.getElementById("ex1");
+        drawingCanvas.addEventListener('mousemove', function(e){
+            // var idx = (e.offsetY*w + e.offsetX)*4;
+            // var parts = Array.prototype.slice.call(data,idx,idx+4);
+            // callback.apply(ctx,parts);
+            console.log(e);
+        }, false);
+
+        var fetchDataButton = document.getElementById("fetchDataButton");
+        fetchDataButton.addEventListener("click", function(e) {
+            console.log("Make ajax call");
+            ajaxCall();
+        });
+
+        renderButton.click();
+
+    })();
+</script>
+
+{% endblock %}

@@ -2,7 +2,7 @@
     "application": {
         "application_name"  : "python-apps",
         "auth_cookie_name"  : "python-apps-auth",
-        "site_name"         : "Python Apps",
+        "site_name"         : "Mini-Apps",
         "description"       : "Mini python applications",
         "version"           : "0.1",
         "version_date"      : "2018-10-13"

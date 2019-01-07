@@ -1,0 +1,101 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Toto') }}
+
+    <header>
+        <h1>Toto</h1>
+    </header>
+    
+    <section>
+        
+        <div class="row">
+            <div class="twelve columns">
+
+                <p>
+                    Toto a legalized form of lottery sold in Singapore. <br />
+                    This is my fun page based on my understanding of the winning results.
+                </p>
+
+                <h3>Last draw results</h3>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <th colspan="2">Draw number</th>
+                            <td colspan="2">1232</td>
+                            <th colspan="2">Draw date</th>
+                            <td colspan="2">2018-12-12</td>
+                        </tr>
+                    </tbody>
+                    
+                    <tbody class="winning-numbers">
+                        <tr>
+                            <th>Winning numbers</th>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>7</td>
+                        </tr>
+                    </tbody>
+
+                    <tbody class="winner-division">
+                        <tr>
+                            <th></th>
+                            <th>Div1</th>
+                            <th>Div2</th>
+                            <th>Div3</th>
+                            <th>Div4</th>
+                            <th>Div5</th>
+                            <th>Div6</th>
+                            <th>Div7</th>
+                        </tr>
+                        <tr>
+                            <th>Winners</th>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>127</td>
+                        </tr>
+                        <tr>
+                            <th>Payout</th>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>12</td>
+                            <td>127</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
