@@ -7,12 +7,11 @@ import os
 import time
 import uuid
 import bottle
-import page_helpers
 
 from datetime import datetime, timedelta
 
 from bottle import default_app, run, route, request, response, redirect, abort
-from app_helpers import appconfig
+from .app_helpers import appconfig
 
 ################################################################################
 # Function decorators
@@ -81,7 +80,7 @@ def add_auth_cookie_hook():
 ########################################
 
 def get_app():
-    app = page_helpers.default_app()
+    app = default_app()
 
     # add application hooks here
     # TODO: Add setup for add_auth_cookie_hook; it needs a sessions folder in data folder
