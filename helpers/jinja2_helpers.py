@@ -9,7 +9,7 @@ import jinja2
 from datetime import datetime
 from os import getenv
 from jinja2 import Template, Environment, FileSystemLoader
-from app_helpers import appconfig
+from .app_helpers import appconfig
 
 ################################################################################
 # Function decorators
