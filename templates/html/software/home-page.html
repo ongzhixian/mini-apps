@@ -1,0 +1,42 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Software', 'Home') }}
+
+    <header>
+        <!--
+            <h1 style="float:right;cursor:pointer;">&#10066;</h1>
+        -->
+        <h1 style="float:right;cursor:pointer;">&#9166;</h1>
+        <h1>Software home page</h1>
+    </header>
+    
+    <section>
+        
+        <div class="row">
+            <div class="twelve columns">
+
+                <p>
+                    Brahman related test pages.
+                </p>
+
+            </div>
+        </div>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}

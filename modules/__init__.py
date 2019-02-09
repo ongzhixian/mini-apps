@@ -2,4 +2,4 @@
 # Define package composition
 ################################################################################
 
-__all__ = ["toto_data"]
+__all__ = ["toto_data", "sw_news_data"]
