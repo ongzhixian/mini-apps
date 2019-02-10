@@ -1,0 +1,57 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Software', 'Software news') }}
+
+    <!-- 
+    <header>
+        
+        <p>
+            This is a page to display news and updates on software that I'm in interested in.
+        </p>
+            <h1>Reconciliation <small>example</small></h1> 
+        </header>
+    -->
+
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Version</th>
+                    <th>Last updated</th>
+                    <th>Last checked</th>
+                    <!-- KIV
+                        <th>Tags</th>
+                    -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>xxx</td>
+                    <td>0.1A</td>
+                    <td>2019-01-01</td>
+                    <td>2019-01-01</td>
+                    <!-- KIV
+                        <td>Category, asd</td>
+                    -->
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}

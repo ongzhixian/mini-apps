@@ -49,11 +49,15 @@ def display_test_page(errorMessages=None):
     context = get_default_context(request)
     return jinja2_env.get_template('html/site/toto-page.html').render(context)
 
-@route('/test')
-@route('/test/')
+########################################
+# Other test routes
+########################################
+
+@route('/test1')
+@route('/test1/')
 def display_test_page(errorMessages=None):
     context = get_default_context(request)
-    return jinja2_env.get_template('html/site/test-page.html').render(context)
+    return jinja2_env.get_template('html/site/test1-page.html').render(context)
 
 @route('/test2')
 def display_test2_page(errorMessages=None):
