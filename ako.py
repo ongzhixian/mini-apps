@@ -154,6 +154,58 @@ def scrape_nodejs():
         update_software_news(rec)
 
 
+def scrape_dotnet():
+    target_url = 'https://dotnet.microsoft.com/download?initial-os=windows'
+    html_tree = get_html_tree(target_url)
+
+    # target_url has define the following software version defined:
+    # .NET Framework
+    # .NET CORE SDK
+    # .NET CORE Runtime
+
+    target_xpath = '/html/body/div[4]/div[3]/div[1]/div[2]/h2'
+    element_list = html_tree.xpath(target_xpath)
+    if len(element_list) > 0:
+        e = element_list[0]
+        #print(e.text)
+        rec = mk_rec(
+            ".NET Framework",
+            e.text.replace('.NET Framework','').strip(),
+            None,
+            get_utc_date(),
+            get_md5_hash(etree.tostring(e))
+        )
+        update_software_news(rec)
+    
+    target_xpath = '/html/body/div[4]/div[3]/div[2]/table[1]/thead/tr/th[2]/text()[2]'
+    element_list = html_tree.xpath(target_xpath)
+    if len(element_list) > 0:
+        e = element_list[0]
+        #print(e.strip())
+        rec = mk_rec(
+            ".NET CORE SDK",
+            e.strip(),
+            None,
+            get_utc_date(),
+            get_md5_hash(e.strip())
+        )
+        update_software_news(rec)
+
+    target_xpath = '/html/body/div[4]/div[3]/div[2]/table[1]/thead/tr/th[3]/text()[2]'
+    element_list = html_tree.xpath(target_xpath)
+    if len(element_list) > 0:
+        e = element_list[0]
+        #print(e.strip())
+        rec = mk_rec(
+            ".NET CORE Runtime",
+            e.strip(),
+            None,
+            get_utc_date(),
+            get_md5_hash(e.strip())
+        )
+        update_software_news(rec)
+
+
 if __name__ == "__main__":
     pass
     from modules import sw_news_data
@@ -161,5 +213,4 @@ if __name__ == "__main__":
 
     scrape_nuget()
     scrape_nodejs()
-
-    
+    scrape_dotnet()
