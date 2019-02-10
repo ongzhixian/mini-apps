@@ -1,44 +1,23 @@
-
-# Packages used
-# pip install beautifulsoup4
-# pip install lxml
-# pip install feedparser
-# [OPTIONAL] pip install html5lib
-
-
-# import urllib2
-
-# target_url = 'https://www.nuget.org/downloads'
-
-# import requests
-# from bs4 import BeautifulSoup
-
-# #r = requests.get('https://api.github.com', auth=('user', 'pass'))
-# r = requests.get(target_url)
-
-# soup = BeautifulSoup(r.content)
-
-# #print r.status_code
-# #print r.headers['content-type']
-
-
-# from lxml import etree
-
-# target_xpath = '//*[@id="stage-dynamic"]/div[2]/div[1]/div/ul/li[1]/a/span[1]'
-
-# htmlparser = etree.HTMLParser()
-# #from StringIO import StringIO
-# from io import StringIO
-# tree = etree.parse(StringIO(r.text), htmlparser)
-# tree.xpath(target_xpath)
+################################################################################
+# Imports
+################################################################################
 
 import json
-import urllib.request
+
+try:
+    # Python3
+    from urllib.request import urlopen
+except Exception:
+    # Python2
+    from urllib import urlopen
 
 from datetime import datetime
 from hashlib import md5
 from io import StringIO
 from lxml import etree
+
+from modules import sw_news_data
+
 
 ################################################################################
 # Common functions
@@ -47,12 +26,13 @@ from lxml import etree
 def get_content(target_url=None):
     response_content = None
     try:
-        http_response = urllib.request.urlopen(target_url)
+        http_response = urlopen(target_url)
         response_content = http_response.read()
     except Exception:
         response_content = None
     
     return response_content
+
 
 def get_json(target_url=None):
     json_data = None
@@ -67,6 +47,7 @@ def get_json(target_url=None):
         json_data = None
     
     return json_data
+
 
 def get_html_tree(target_url=None):
     html_tree = None
@@ -85,13 +66,9 @@ def get_html_tree(target_url=None):
     return html_tree
 
 
-
-################################################################################
-# Data scraping (JSON)
-################################################################################
-
 def get_md5_hash(strVal):
     return md5(str(strVal).encode('utf-8')).hexdigest()
+
 
 def get_utc_date():
     return datetime.utcnow().strftime("%Y-%m-%d")
@@ -107,40 +84,44 @@ def mk_rec(name, version, last_updated, last_checked, md5_hash):
     }
 
 
-def scrape_nuget():
+def update_software_news(rec):
+    print(rec)
+    sw_news_data.update_software_news(
+        rec['name'],
+        rec['version'],
+        rec['last_updated'],
+        rec['md5_hash'],
+        rec['last_checked']
+    )
+
+
+########################################
+# Data scraping (JSON)
+########################################
+
+def scrape_nuget(): 
     target_url = 'https://dist.nuget.org/index.json'
     json_data = get_json(target_url)
     jd = json_data['artifacts'][0]['versions'][0]
     rec = mk_rec(
-        'nuget.exe', 
+        'nuget', 
         jd['version'],
         jd['releasedate'],
         get_utc_date(),
         get_md5_hash(jd)
-        )
-    print(rec)
-    return rec
+    )
+    update_software_news(rec)
 
 
-if __name__ == "__main__":
-    pass
-    #scrape_nuget()
+########################################
+# Data scraping (HTML via xpath)
+########################################
 
-    # target_url = 'https://nodejs.org/en/'
-    # t = get_content(target_url)
-    # htmlparser = etree.HTMLParser()
-    # tree = etree.parse(StringIO(t.decode('utf-8')), htmlparser)
-
-    # # LTS
-    # target_xpath = '//*[@id="home-intro"]/div[1]/a'
-    # # Current
-    # elementList = tree.xpath(target_xpath)
-
-    # scrape nodejs
+def scrape_nodejs():
     target_url = 'https://nodejs.org/en/'
     html_tree = get_html_tree(target_url)
-
-    # nodejs has LTS and Current
+    
+    # nodejs has 2 versions defined on target_url: LTS and Current
 
     # LTS case
     target_xpath = '//*[@id="home-intro"]/div[1]/a'
@@ -148,14 +129,14 @@ if __name__ == "__main__":
     if len(element_list) > 0:
         e = element_list[0]
         
-        lts_rec = mk_rec(
+        rec = mk_rec(
             "nodejs (lts)",
             e.get('data-version'),
             None,
             get_utc_date(),
             get_md5_hash(etree.tostring(e))
         )
-        print(lts_rec)
+        update_software_news(rec)
 
     # Current case
     target_xpath = '//*[@id="home-intro"]/div[2]/a'
@@ -163,14 +144,22 @@ if __name__ == "__main__":
     if len(element_list) > 0:
         e = element_list[0]
         
-        current_rec = mk_rec(
+        rec = mk_rec(
             "nodejs (current)",
             e.get('data-version'),
             None,
             get_utc_date(),
             get_md5_hash(etree.tostring(e))
         )
-        print(current_rec)
+        update_software_news(rec)
 
 
-    #print(t)
+if __name__ == "__main__":
+    pass
+    from modules import sw_news_data
+    sw_news_data.init()
+
+    scrape_nuget()
+    scrape_nodejs()
+
+    
