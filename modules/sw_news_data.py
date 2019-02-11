@@ -188,17 +188,9 @@ WHERE 	draw_number = (SELECT MAX(draw_number) FROM toto49);
 # Query function(s)
 ########################################
 
-def get_software_list(sqlite3_cursor):
-    SQL_QUERY = """
-    SELECT * FROM software;
-    """
-    print(SQLITE_FILE_PATH)
-    with sqlite3.connect(SQLITE_FILE_PATH) as conn:
-        cursor = conn.cursor()
-        cursor.execute(SQL_QUERY)
-        result = cursor.fetchall()
-    return result
-
+####################
+# Dependent queries
+####################
 
 def get_software(sqlite3_cursor, name):
     SQL_QUERY = """
@@ -211,6 +203,20 @@ def get_software(sqlite3_cursor, name):
     result = sqlite3_cursor.fetchall()
     return result
 
+####################
+# Standalone queries
+####################
+
+def get_software_list():
+    SQL_QUERY = """
+    SELECT name, version, last_checked FROM software;
+    """
+    #print(SQLITE_FILE_PATH)
+    with sqlite3.connect(SQLITE_FILE_PATH) as conn:
+        cursor = conn.cursor()
+        cursor.execute(SQL_QUERY)
+        result = cursor.fetchall()
+    return result
 
 
 # Placeholder sample for querying with parameter

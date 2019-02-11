@@ -48,3 +48,26 @@ https://frappe.io/charts
 https://www.google.com/search?client=ubuntu&channel=fs&q=python+horn+clauses&ie=utf-8&oe=utf-8
 http://www.martinbroadhurst.com/greedy-hornsat-in-python.html
 http://aima.cs.berkeley.edu/python/logic.html
+
+
+WHere to put script
+
+https://developers.google.com/speed/docs/insights/BlockingJS
+https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup
+
+Today, browsers support the async and defer attributes on scripts. These attributes tell the browser it's safe to continue parsing while the scripts are being downloaded.
+async
+
+<script type="text/javascript" src="path/to/script1.js" async></script>
+<script type="text/javascript" src="path/to/script2.js" async></script>
+
+Scripts with the async attribute are executed asynchronously. This means the script is executed as soon as it's downloaded, without blocking the browser in the meantime.
+
+This implies that it's possible to script 2 is downloaded & executed before script 1. 
+<script type="text/javascript" src="path/to/script1.js" defer></script>
+<script type="text/javascript" src="path/to/script2.js" defer></script>
+
+Scripts with the defer attribute are executed in order (i.e. first script 1, then script 2). This also does not block the browser.
+
+Unlike async scripts, defer scripts are only executed after the entire document has been loaded.
+

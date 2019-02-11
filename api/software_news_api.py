@@ -40,12 +40,14 @@ def api_software_news_post():
     # logging.info(cwd)
 
     
-# @route('/api/toto/last-draw')
-# def api_toto_last_draw_get():
-#     logging.debug("IN api_toto_last_draw_get")
-#     lot_result = toto_data.get_last_draw()
-#     # ZX: lot = List of Tuple
-#     return json.dumps(lot_result)
+@route('/api/software/news')
+def api_software_news_get():
+    logging.debug("IN api_software_news_get")
+    record_list = sw_news_data.get_software_list()
+    #lot_result = toto_data.get_last_draw()
+    # ZX:   record_list = List of Tuple
+    #       json.dumps will convert it to list of list
+    return json.dumps(record_list)
 
 
 # @route('/api/toto/<draw_date>')
