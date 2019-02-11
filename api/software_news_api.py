@@ -2,7 +2,7 @@ import json
 import logging
 import os
 from helpers.page_helpers import *
-from modules import toto_data
+from modules import sw_news_data
 
 ################################################################################
 # Setup helper functions
@@ -20,6 +20,21 @@ def api_software_news_post():
     json_data = request.json
     print("IN api_software_news_post")
     print(json_data)
+    rec = json_data
+    sw_news_data.init()
+    sw_news_data.update_software_news(
+        rec['name'],
+        rec['version'],
+        rec['last_updated'],
+        rec['md5_hash'],
+        rec['last_checked']
+    )
+
+    op_result = {
+        "result": "OK",
+        "errors": [],
+    }
+    return json.dumps(op_result)
     # logging.info(str(json_data))
     # cwd = os.getcwd()
     # logging.info(cwd)

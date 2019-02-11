@@ -2,14 +2,19 @@
 # Imports
 ################################################################################
 
-import json
-
-try:
-    # Python3
-    from urllib.request import urlopen
-except Exception:
+import sys
+if sys.version_info[0] < 3:
     # Python2
-    from urllib import urlopen
+    from urllib import urlencode
+    from urllib2 import urlopen, Request
+    # from urllib2 import Request
+else:
+    # Python3
+    from urllib.parse import urlencode
+    from urllib.request import urlopen, Request
+    # from urllib.request import Request
+
+import json
 
 from datetime import datetime
 from hashlib import md5
@@ -84,15 +89,25 @@ def mk_rec(name, version, last_updated, last_checked, md5_hash):
     }
 
 
+def http_post(url, data_dict):
+    request_headers = {"Content-Type": "application/json"}
+    request = Request(url, data=json.dumps(data_dict).encode('utf-8'), headers=request_headers)
+    response = urlopen(request)
+    return response.read()
+
+
 def update_software_news(rec):
     print(rec)
-    sw_news_data.update_software_news(
-        rec['name'],
-        rec['version'],
-        rec['last_updated'],
-        rec['md5_hash'],
-        rec['last_checked']
-    )
+    target_url = "http://localhost:50001/api/software/news"
+    target_url = "http://mini-apps.plato.emptool.com/api/software/news"
+    http_post(target_url, rec)
+    # sw_news_data.update_software_news(
+    #     rec['name'],
+    #     rec['version'],
+    #     rec['last_updated'],
+    #     rec['md5_hash'],
+    #     rec['last_checked']
+    # )
 
 
 ########################################
