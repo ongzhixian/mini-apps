@@ -64,7 +64,23 @@ const READYSTATE = {
 };
 
 const HTTPSTATUS = {
+    CONTINUE: 100,
+    SWITCHING_PROTOCOLS: 101,
     OK: 200
+    // 201 Created
+    // 202 Accepted
+    // 203 Non-Authoritative Information
+    // 204 No Content
+    // 205 Reset Content
+    // 206 Partial Content
+    // 300 Multiple Choices
+    // 301 Moved Permanently
+    // 302 Found
+    // 303 See Other
+    // 304 Not Modified
+    // 305 Use Proxy
+    // 306 (Unused)
+    // 307 Temporary Redirect
 };
 
 var ui = {
@@ -79,7 +95,7 @@ var ui = {
             return false;
         }
     },
-    "ajaxCall" : function () {
+    "getNews" : function () {
         // Get data
         var actionUrl = "/api/software/news";
         var xhr = ui.getXHR();
@@ -133,7 +149,7 @@ var ui = {
 (function () {
 
     console.log("Hello world");
-    ui.ajaxCall();
+    ui.getNews();
 }());
 
 </script>
