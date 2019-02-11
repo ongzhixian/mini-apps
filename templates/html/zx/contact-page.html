@@ -1,0 +1,45 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Contact', 'Contact') }}
+
+    <!--
+
+        <header>
+            <h1>Contact Page</h1>
+        </header>
+    -->
+    
+    <section>
+        
+        <div class="row">
+            <div class="twelve columns">
+
+                <p>
+                    If there are issues that you need to contact me, please reach me by e-mail at:
+                </p>
+                
+                <p>
+                        <a href="mailto:zhixian@hotmail.com?subject=Python Apps Issue">zhixian@hotmail.com</a>
+                </p>
+
+            </div>
+        </div>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
