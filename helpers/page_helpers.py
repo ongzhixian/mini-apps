@@ -7,11 +7,14 @@ import os
 import time
 import uuid
 import bottle
+import json
 
 from datetime import datetime, timedelta
 
 from bottle import default_app, run, route, request, response, redirect, abort
 from .app_helpers import appconfig
+
+from modules import cryptograph
 
 ################################################################################
 # Function decorators
@@ -39,6 +42,9 @@ def require_authentication(fn):
 # Define application hooks
 ########################################
 
+##########
+# auth_cookie
+
 def add_auth_cookie(cookie_name):
     # Using UUID4 to generate cookie value
     new_uuid = uuid.uuid4()
@@ -47,11 +53,14 @@ def add_auth_cookie(cookie_name):
     expiry = ((datetime.utcnow() + timedelta(366)) - datetime(1970, 1, 1)).total_seconds()
     bottle.response.set_cookie(cookie_name, new_uuid.hex, httponly=True, expires=expiry)
     # Create a session folder
-    
     session_store_path = "./data/sessions/{0}".format(new_uuid_hex)
     dir_exists = os.path.isdir(session_store_path)
     if not dir_exists:
         os.mkdir(session_store_path)
+        file_path = os.path.join(session_store_path, "cryptography-keys.json")
+        aes_crypto =  cryptograph.make_keys("AES", 32, 16)
+        with open(file_path, "w+b") as f:
+            f.write(json.dumps(aes_crypto))
     return new_uuid_hex
 
 def add_auth_cookie_hook():
@@ -74,6 +83,36 @@ def add_auth_cookie_hook():
         # if not dir_exists:
         #     os.mkdir(session_store_path)
 
+##########
+# sess_cookie
+
+
+def add_sess_cookie(cookie_name):
+    # Using UUID4 to generate cookie value
+    new_uuid = uuid.uuid4()
+    new_uuid_hex = new_uuid.hex
+    # Set expiry to be a year (366 days) from now.
+    expiry = ((datetime.utcnow() + timedelta(366)) - datetime(1970, 1, 1)).total_seconds()
+    bottle.response.set_cookie(cookie_name, new_uuid.hex, httponly=True, expires=expiry)
+    # Create a session folder
+    session_store_path = "./data/sessions/{0}".format(new_uuid_hex)
+    dir_exists = os.path.isdir(session_store_path)
+    if not dir_exists:
+        os.mkdir(session_store_path)
+        file_path = os.path.join(session_store_path, "cryptography-keys.json")
+        aes_crypto =  cryptograph.make_keys("AES", 32, 16)
+        with open(file_path, "w+b") as f:
+            f.write(json.dumps(aes_crypto))
+    return new_uuid_hex
+
+def add_sess_cookie_hook():
+    """Add session cookie if user does not have session cookie"""
+    # Name of the cookie that we want to check for
+    sess_cookie_name = str(appconfig['application']["sess_cookie_name"])
+    # If cookie is NOT in request, generate cookie
+    if sess_cookie_name not in bottle.request.cookies:
+        add_sess_cookie(sess_cookie_name)
+        
 
 ########################################
 # Define core functions
@@ -84,7 +123,8 @@ def get_app():
 
     # add application hooks here
     # TODO: Add setup for add_auth_cookie_hook; it needs a sessions folder in data folder
-    app.add_hook('after_request', add_auth_cookie_hook)
+    #app.add_hook('after_request', add_auth_cookie_hook)
+    app.add_hook('after_request', add_sess_cookie_hook)
     return app
 
 def get_default_context(request):

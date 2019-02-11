@@ -1,7 +1,8 @@
 {
     "application": {
-        "application_name"  : "python-apps",
-        "auth_cookie_name"  : "python-apps-auth",
+        "application_name"  : "mini-apps",
+        "sess_cookie_name"  : "mini-apps-session",
+        "auth_cookie_name"  : "mini-apps-auth",
         "site_name"         : "Mini-Apps",
         "description"       : "Mini python applications",
         "version"           : "0.1",
