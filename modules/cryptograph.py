@@ -65,6 +65,23 @@ def aes_decrypt(cipher_key, cipher_iv, cipher_text):
     plain_text = cipher.decrypt(cipher_text)
     return plain_text
 
+def aes_encrypt_as_hex(crypto_struct, plain_text):
+    cipher_key = hex_string_to_byte_string(crypto_struct['key'])
+    cipher_iv  = hex_string_to_byte_string(crypto_struct['iv'])
+    cipher = AES.new(cipher_key, AES.MODE_CFB, cipher_iv)
+    cipher_text = cipher.encrypt(plain_text)
+    return binascii.hexlify(cipher_text)
+
+
+def aes_decrypt_from_hex(crypto_struct, hex_text):
+    cipher_key = hex_string_to_byte_string(crypto_struct['key'])
+    cipher_iv  = hex_string_to_byte_string(crypto_struct['iv'])
+    cipher = AES.new(cipher_key, AES.MODE_CFB, cipher_iv)
+    cipher_text = binascii.unhexlify(hex_text)
+    plain_text = cipher.decrypt(cipher_text)
+    return plain_text
+
+
 def aes_sample_usage():
     aes_key = get_random_byte_string(32)    # 256 bits (32 bytes)
     aes_iv  = get_random_byte_string(16)    # 16 bytes (same as block size)

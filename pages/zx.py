@@ -16,6 +16,7 @@ VALID_CREDENTIALS = {
 }
 
 AUTH_COOKIE_NAME = 'ZX_AUTH'
+LOGIN_URL = '/zx/login'
 
 # N/A
 def is_authenticate_credentials(email, password):
@@ -30,7 +31,7 @@ def is_authenticate_credentials(email, password):
 # Setup commonly used routes
 ################################################################################
 
-@route('/zx/login', method=['POST','GET'])
+@route(LOGIN_URL, method=['POST','GET'])
 def display_zx_login_page(errorMessages=None):
     context = get_default_context(request)
     logging.debug(context['auth_cookie'])
@@ -46,7 +47,6 @@ def display_zx_login_page(errorMessages=None):
             password_input = request.forms['password_input']
         if is_authenticate_credentials(email_input, password_input):
             cookie_value = "{0}|{1}".format(email_input, "admin,user")
-            import urllib
             cookie_id = add_auth_cookie(AUTH_COOKIE_NAME, cookie_value)
             redirect("/zx")
         else:
@@ -56,13 +56,24 @@ def display_zx_login_page(errorMessages=None):
 
 # ZX: Route decorator should always be outer-most decorator
 @route('/zx')
-@require_auth_cookie(AUTH_COOKIE_NAME, '/zx/login')
+@require_auth_cookie(AUTH_COOKIE_NAME, LOGIN_URL)
+@require_permission(AUTH_COOKIE_NAME, ["xadmin", "user"], LOGIN_URL)
 def display_home_page(errorMessages=None):
     context = get_default_context(request)
     #response.set_cookie('username', 'the username')
     # logging.debug(context['auth_cookie'])
     # logging.debug(context['current_datetime'])
     return jinja2_env.get_template('html/zx/home-page.html').render(context)
+
+
+@route('/zx/ok')
+def display_home_page(errorMessages=None):
+    context = get_default_context(request)
+    #response.set_cookie('username', 'the username')
+    # logging.debug(context['auth_cookie'])
+    # logging.debug(context['current_datetime'])
+    return jinja2_env.get_template('html/zx/home-page.html').render(context)
+
 
 # @route('/about')
 # def display_about_page(errorMessages=None):
