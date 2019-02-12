@@ -245,16 +245,22 @@ def add_sess_cookie_hook():
 # Define error pages
 ########################################
 
-@error(404)
-def error404(error):
-    #bottle.response.set_cookie('mini-apps-session', '', expires=0)
-    return 'Nothing here, sorry'
-
 @error(403)
 def error403(error):
     bottle.response.set_cookie('mini-apps-session', '', expires=0)
     bottle.response.set_cookie('ZX_AUTH', '', expires=0)
     return '403 - Forbidden'
+
+@error(404)
+def error404(error):
+    #bottle.response.set_cookie('mini-apps-session', '', expires=0)
+    return 'Nothing here, sorry'
+
+@error(500)
+def error500(error):
+    #bottle.response.set_cookie('mini-apps-session', '', expires=0)
+    return error
+
 
 
 ########################################

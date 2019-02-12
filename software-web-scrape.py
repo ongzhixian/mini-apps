@@ -98,7 +98,7 @@ def http_post(url, data_dict):
 
 def update_software_news(rec):
     print(rec)
-    target_url = "http://localhost:50001/api/software/news"
+    #target_url = "http://localhost:50001/api/software/news"
     target_url = "http://mini-apps.plato.emptool.com/api/software/news"
     http_post(target_url, rec)
     # sw_news_data.update_software_news(
