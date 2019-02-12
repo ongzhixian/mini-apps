@@ -113,14 +113,14 @@ def require_permission(cookie_name, permission_list, login_url):
                     # 2.    roles
                     if len(cookie_val_list) < 2:
                         print("INVALID.")
+                        abort(403)
                     role_list = cookie_val_list[1].split(",")
                     print(role_list)
                     if set(role_list) & set(permission_list):
                         print("VALID PERMISSION")
                     else:
                         print("INVALID PERMISSION")
-
-
+                        abort(403)
                 return fn(*args, **kwargs)
         return fn_logic
     return fn_decorator
@@ -254,7 +254,7 @@ def error404(error):
 def error403(error):
     bottle.response.set_cookie('mini-apps-session', '', expires=0)
     bottle.response.set_cookie('ZX_AUTH', '', expires=0)
-    #return 'Nothing here, sorry'
+    return '403 - Forbidden'
 
 
 ########################################

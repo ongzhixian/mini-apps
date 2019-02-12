@@ -57,7 +57,7 @@ def display_zx_login_page(errorMessages=None):
 # ZX: Route decorator should always be outer-most decorator
 @route('/zx')
 @require_auth_cookie(AUTH_COOKIE_NAME, LOGIN_URL)
-@require_permission(AUTH_COOKIE_NAME, ["xadmin", "user"], LOGIN_URL)
+@require_permission(AUTH_COOKIE_NAME, ["admin", "user"], LOGIN_URL)
 def display_home_page(errorMessages=None):
     context = get_default_context(request)
     #response.set_cookie('username', 'the username')
@@ -66,13 +66,6 @@ def display_home_page(errorMessages=None):
     return jinja2_env.get_template('html/zx/home-page.html').render(context)
 
 
-@route('/zx/ok')
-def display_home_page(errorMessages=None):
-    context = get_default_context(request)
-    #response.set_cookie('username', 'the username')
-    # logging.debug(context['auth_cookie'])
-    # logging.debug(context['current_datetime'])
-    return jinja2_env.get_template('html/zx/home-page.html').render(context)
 
 
 # @route('/about')
