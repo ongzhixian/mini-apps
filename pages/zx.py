@@ -11,10 +11,20 @@ from helpers.jinja2_helpers import *
 ################################################################################
 # Setup helper functions
 ################################################################################
+VALID_CREDENTIALS = {
+    'zhixian@hotmail.com' : 'Password1234'
+}
+
+AUTH_COOKIE_NAME = 'ZX_AUTH'
 
 # N/A
 def is_authenticate_credentials(email, password):
-    return True
+    result = False
+    logging.debug("email_input:     [{0}]".format(email))
+    logging.debug("password_input:  [{0}]".format(password))
+    if email in VALID_CREDENTIALS and VALID_CREDENTIALS[email] == password:
+        result = True
+    return result
 
 ################################################################################
 # Setup commonly used routes
@@ -35,18 +45,23 @@ def display_zx_login_page(errorMessages=None):
         if 'password_input' in request.forms.keys():
             password_input = request.forms['password_input']
         if is_authenticate_credentials(email_input, password_input):
+            cookie_value = "{0}|{1}".format(email_input, "admin,user")
+            import urllib
+            cookie_id = add_auth_cookie(AUTH_COOKIE_NAME, cookie_value)
             redirect("/zx")
         else:
-            context["error_message"] = "Invalid credentials."
+            context["message"] = "Invalid credentials."
     return jinja2_env.get_template('html/zx/login-page.html').render(context)
 
 
+# ZX: Route decorator should always be outer-most decorator
 @route('/zx')
+@require_auth_cookie(AUTH_COOKIE_NAME, '/zx/login')
 def display_home_page(errorMessages=None):
     context = get_default_context(request)
     #response.set_cookie('username', 'the username')
-    logging.debug(context['auth_cookie'])
-    logging.debug(context['current_datetime'])
+    # logging.debug(context['auth_cookie'])
+    # logging.debug(context['current_datetime'])
     return jinja2_env.get_template('html/zx/home-page.html').render(context)
 
 # @route('/about')

@@ -34,6 +34,30 @@ def require_authentication(fn):
             return fn(*args, **kwargs)
     return wrapper
 
+# def xwrapper(extra_greeting, greet2):
+#     def my_decorator(func):
+#         def add_to_greet():
+#             func()
+#             print(extra_greeting)
+#         return add_to_greet
+#     return my_decorator
+
+# ZX:   To make a decorator take in arguments,
+#       we wrap another decorator over a decorator
+def require_auth_cookie(cookie_name, redirect_url):
+    def fn_decorator(fn):
+        def fn_logic(*args, **kwargs):
+            auth_cookie_id = request.cookies.get(cookie_name)
+            if not auth_cookie_id:  # auth cookie does NOT exists
+                redirect(redirect_url)
+            else: # auth cookie EXISTS
+                return fn(*args, **kwargs)
+        return fn_logic
+    return fn_decorator
+
+
+
+
 ################################################################################
 # Basic functions
 ################################################################################
@@ -45,24 +69,19 @@ def require_authentication(fn):
 ##########
 # auth_cookie
 
-def add_auth_cookie(cookie_name):
+def add_auth_cookie(cookie_name, cookie_value):
     # Using UUID4 to generate cookie value
     new_uuid = uuid.uuid4()
     new_uuid_hex = new_uuid.hex
     # Set expiry to be a year (366 days) from now.
     expiry = ((datetime.utcnow() + timedelta(366)) - datetime(1970, 1, 1)).total_seconds()
-    bottle.response.set_cookie(cookie_name, new_uuid.hex, httponly=True, expires=expiry)
-    # Create a session folder
-    session_store_path = "./data/sessions/{0}".format(new_uuid_hex)
-    dir_exists = os.path.isdir(session_store_path)
-    if not dir_exists:
-        os.mkdir(session_store_path)
-        file_path = os.path.join(session_store_path, "cryptography-keys.json")
-        aes_crypto =  cryptograph.make_keys("AES", 32, 16)
-        with open(file_path, "w+b") as f:
-            f.write(json.dumps(aes_crypto))
+    #bottle.response.set_cookie(cookie_name, new_uuid.hex, httponly=True, expires=expiry)
+    bottle.response.set_cookie(cookie_name, cookie_value, httponly=True, expires=expiry)
     return new_uuid_hex
 
+# ZX:   Not used; auth cookie should not be hooked
+#       This was an error in coding; what we really want to hook is session cookie
+#       This is done below.
 def add_auth_cookie_hook():
     """Add auth cookie if user does not have auth cookie"""
     # Name of the cookie that we want to check for
@@ -94,6 +113,8 @@ def add_sess_cookie(cookie_name):
     # Set expiry to be a year (366 days) from now.
     expiry = ((datetime.utcnow() + timedelta(366)) - datetime(1970, 1, 1)).total_seconds()
     bottle.response.set_cookie(cookie_name, new_uuid.hex, httponly=True, expires=expiry)
+    # ZX:   Bottle does not have a facility for tracking session
+    #       We use the filesystem with each folder representing a singular session. 
     # Create a session folder
     session_store_path = "./data/sessions/{0}".format(new_uuid_hex)
     dir_exists = os.path.isdir(session_store_path)

@@ -22,6 +22,12 @@
         Please log in to the website to proceed.
     </p>
 
+    <p class="message">
+        {% if message %}
+        {{message}}
+        {% endif %}
+    </p>
+
     <form method="POST">
 
         <div class="row">
