@@ -85,6 +85,18 @@ def get_html_tree(target_url=None):
     return html_tree
 
 
+def post_json(target_url, data_dict):
+    # data = {"con1":40, "con2":20, "con3":99, "con4":40, "password":"1234"} 
+    json_data = json.dumps(data_dict).encode('utf8')
+    request_headers = {
+        'content-type': 'application/json'
+    }
+    req = urllib.request.Request(target_url, data=json_data, headers=request_headers)
+    response = urlopen(req)
+    response_content = response.read()
+    return json.loads(response_content)
+    #return response_content
+
 
 ################################################################################
 # Data scraping (JSON)
@@ -173,4 +185,35 @@ if __name__ == "__main__":
         print(current_rec)
 
 
+    # HTTP Post
+    from urllib.parse import urlencode
+    from urllib.request import Request, urlopen
+
+    url = 'http://localhost:50001/api/software/news' # Set destination URL here
+    # Set POST fields here
+    post_fields = {
+        'foo': 'bar'
+    }
+    r = post_json(url, current_rec)
+    
+    # newConditions = {"con1":40, "con2":20, "con3":99, "con4":40, "password":"1234"} 
+    # params = json.dumps(newConditions).encode('utf8')
+    # req = urllib.request.Request(url, data=params, headers={'content-type': 'application/json'})
+    # response = urlopen(req)
+
+    # data = {"con1":40, "con2":20, "con3":99, "con4":40, "password":"1234"} 
+    # json_data = json.dumps(data).encode('utf8')
+    # request_headers = {
+    #     'content-type': 'application/json'
+    # }
+    # req = urllib.request.Request(url, data=json_data, headers=request_headers)
+    # response = urlopen(req)
+    # r = post_json(url, {"con1":40, "con2":20, "con3":99, "con4":40, "password":"1234"})
+
+    # request = Request(url, urlencode(post_fields).encode())
+    # response = urlopen(request)
+    ##.read().decode()
+    #print(json)
+    
+    print("[ALL DONE]")
     #print(t)

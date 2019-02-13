@@ -2,4 +2,4 @@
 # Define package composition
 ################################################################################
 
-__all__ = ["sample", "toto_api", "url_dump_api"]
+__all__ = ["sample", "toto_api", "url_dump_api", "sw_news"]
