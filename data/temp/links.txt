@@ -74,3 +74,19 @@ Scripts with the defer attribute are executed in order (i.e. first script 1, the
 
 Unlike async scripts, defer scripts are only executed after the entire document has been loaded.
 
+
+
+
+
+
+
+
+
+
+
+
+https://tradingeconomics.com/singapore/stock-market
+https://finance.yahoo.com/quote/%5ESTI%3FP%3D%5ESTI/history?period1=567619200&period2=1549987200&interval=1d&filter=history&frequency=1d
+https://www2.sgx.com/indices/products/sti
+https://quotes.wsj.com/index/SG/STI
+https://www.marketwatch.com/investing/index/sti/historical?countrycode=sg

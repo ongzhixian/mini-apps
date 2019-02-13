@@ -221,57 +221,16 @@ def scrape_dotnet():
         update_software_news(rec)
 
 
-if __name__ == "__main__":
-    pass
-    from modules import sw_news_data
-    sw_news_data.init()
-
-    # scrape_nuget()
-    # scrape_nodejs()
-    # scrape_dotnet()
-    
-    
-    
-    # Scrape Toto 
-    # ZX:   On October 17, 2014 TOTO was changed to a '6 out-of 49' format.
-    #       But website only have results starting from 15 Feb 2016
-    #       It maybe better to look at: https://www.en.lottolyzer.com/history/singapore/toto
-    #       In September 2016, TOTO became available online.[7]
-    # The following scraper works with the official website
-
-
-    # http://www.singaporepools.com.sg/en/product/sr/Pages/toto_results.aspx?sppl=RHJhd051bWJlcj0zNDQy
-    # http://www.singaporepools.com.sg/en/product/Pages/toto_results.aspx
-
-    
-    # https://www.en.lottolyzer.com/history/singapore/toto
-    # https://en.lottolyzer.com/history-export-csv/singapore/toto
-
-    # ZX: The website use web components; so using the following url to get HTML markup for date dropdown
-    
-    # Scrape dates
-    target_url = 'http://www.singaporepools.com.sg/DataFileArchive/Lottery/Output/toto_result_draw_list_en.html'
+def fetch_result(target_url):
+    result = {}
     html_tree = get_html_tree(target_url)
-
-    target_xpath = '/html/body/select/option'
-    element_list = html_tree.xpath(target_xpath)
-
-    e = element_list[0].get('querystring')
-    # e should look like: sppl=RHJhd051bWJlcj0zNDQy
-
-    target_url = "http://www.singaporepools.com.sg/en/product/sr/Pages/toto_results.aspx?{0}".format(e)
-    print(target_url)
-    
-    html_tree = get_html_tree(target_url)
-    
     
     el = html_tree.xpath("//th[@class='drawDate']")
     draw_date = el[0].text if len(el) > 0 else None
     from datetime import datetime
-    datetime.strptime(draw_date, "Mon, 11 Feb 2019")
+    #datetime.strptime(draw_date, "Mon, 11 Feb 2019")
     draw_date = datetime.strptime(draw_date, "%a, %d %b %Y").strftime("%Y-%m-%d")
     
-
     el = html_tree.xpath("//th[@class='drawNumber']")
     draw_number = el[0].text if len(el) > 0 else None
     draw_number = draw_number.replace("Draw No.", "").strip()
@@ -297,10 +256,8 @@ if __name__ == "__main__":
     el = html_tree.xpath("//td[@class='additional']")
     additional = el[0].text if len(el) > 0 else None
 
-
     print("Draw date:   [{0}]".format(draw_date))
     print("Draw number: [{0}]".format(draw_number))
-
     print("win1:        [{0}]".format(win1))
     print("win2:        [{0}]".format(win2))
     print("win3:        [{0}]".format(win3))
@@ -308,6 +265,16 @@ if __name__ == "__main__":
     print("win5:        [{0}]".format(win5))
     print("win6:        [{0}]".format(win6))
     print("add:         [{0}]".format(additional))
+
+    result['draw_date'] = draw_date
+    result['draw_number'] = draw_number
+    result['win1'] = win1
+    result['win2'] = win2
+    result['win3'] = win3
+    result['win4'] = win4
+    result['win5'] = win5
+    result['win6'] = win6
+    result['additional'] = additional
     
     el = html_tree.xpath("//table[@class='table table-striped tableWinningShares']")
 
@@ -316,9 +283,57 @@ if __name__ == "__main__":
     #html_tree.xpath("//table[@class='tableWinningShares']")
     el = html_tree.xpath("//table[contains(@class,'tableWinningShares')]/tbody/tr[position()>1]")
 
+    group_count = 1
     for e in el:
         cell_list = e.xpath('td')
         group = cell_list[0].text.strip()
         amount_per_share = cell_list[1].text.replace("$", "").replace(",", "").strip()
-        number_of_shares = cell_list[2].text.strip()
-        print("[{0}] - [{1}] - [{2}]".format(group, amount_per_share, number_of_shares))
+        number_of_shares = cell_list[2].text.replace("$", "").replace(",", "").strip()
+        print("[{0}] - [{1:>7}] - [{2:>7}]".format(group, amount_per_share, number_of_shares))
+        result["grp{0}_amount".format(group_count)] = amount_per_share
+        result["grp{0}_count".format(group_count)] = number_of_shares
+        group_count = group_count + 1
+    return result
+
+
+if __name__ == "__main__":
+    pass
+    from modules import toto_news_data
+    toto_news_data.init()
+
+    # scrape_nuget()
+    # scrape_nodejs()
+    # scrape_dotnet()
+    
+    # Scrape Toto 
+    # ZX:   On October 17, 2014 TOTO was changed to a '6 out-of 49' format.
+    #       But website only have results starting from 15 Feb 2016
+    #       It maybe better to look at: https://www.en.lottolyzer.com/history/singapore/toto
+    #       In September 2016, TOTO became available online.[7]
+    # The following scraper works with the official website
+
+
+    # http://www.singaporepools.com.sg/en/product/sr/Pages/toto_results.aspx?sppl=RHJhd051bWJlcj0zNDQy
+    # http://www.singaporepools.com.sg/en/product/Pages/toto_results.aspx
+
+    
+    # https://www.en.lottolyzer.com/history/singapore/toto
+    # https://en.lottolyzer.com/history-export-csv/singapore/toto
+
+    # ZX: The website use web components; so using the following url to get HTML markup for date dropdown
+    
+    # Scrape dates
+    target_url = 'http://www.singaporepools.com.sg/DataFileArchive/Lottery/Output/toto_result_draw_list_en.html'
+    html_tree = get_html_tree(target_url)
+
+    target_xpath = '/html/body/select/option'
+    date_element_list = html_tree.xpath(target_xpath)
+
+    for date_element in date_element_list:
+        date_querystring = date_element.get('querystring')
+        # date_querystring should look like: sppl=RHJhd051bWJlcj0zNDQy
+        target_url = "http://www.singaporepools.com.sg/en/product/sr/Pages/toto_results.aspx?{0}".format(date_querystring)
+        print(target_url)
+        data_map = fetch_result(target_url)
+        print(data_map)
+        toto_news_data.add_toto(data_map)
