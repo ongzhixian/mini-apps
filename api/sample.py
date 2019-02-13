@@ -24,6 +24,9 @@ def api_sample_post():
 
 @route('/api/sample')
 def api_sample_get():
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
     logging.debug("IN api_sample_get")
     return "['Hello', 'World']"
     

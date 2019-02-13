@@ -11,16 +11,17 @@ import sqlite3
 from datetime import datetime
 
 
+
 ################################################################################
 # CONSTANT(s)
 ################################################################################
 
 DATA_DIRECTORY_PATH = './data/sqlite3'
-SQLITE_FILE_NAME = 'sw-news.sqlite3'
+SQLITE_FILE_NAME = 'toto-news.sqlite3'
 SQLITE_FILE_PATH = os.path.join(DATA_DIRECTORY_PATH, SQLITE_FILE_NAME)
 constants = {
     DATA_DIRECTORY_PATH : './data/sqlite3',
-    SQLITE_FILE_NAME : 'sw-news.sqlite3',
+    SQLITE_FILE_NAME : 'toto-news.sqlite3',
     SQLITE_FILE_PATH : os.path.join(DATA_DIRECTORY_PATH, SQLITE_FILE_NAME)
 }
 
@@ -34,7 +35,6 @@ constants = {
 
 def init():
     initialize_sqlite_db(SQLITE_FILE_PATH)
-
 
 def load_csv(csv_path):
     results = []
@@ -93,127 +93,161 @@ def csv_to_db(csv_path):
 ############################################################
 
 ########################################
-# [software] table functions
+# raw table functions
 ########################################
 
-def create_software_table(sqlite3_cursor):
+def create_toto_table(sqlite3_cursor):
     # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
-    return sqlite3_cursor.execute('''CREATE TABLE IF NOT EXISTS software (
-        name            text,
-        version         text,
-        last_updated    text,
-        md5             text,
-        last_checked    text,
-        last_md5        text,
-        status          integer,
-        PRIMARY KEY (name)
+    return sqlite3_cursor.execute('''CREATE TABLE IF NOT EXISTS toto (
+        draw_number         numeric ,
+        draw_date           text,
+        num1                numeric,
+        num2                numeric,
+        num3                numeric,
+        num4                numeric,
+        num5                numeric,
+        num6                numeric,
+        num7                numeric,
+        grp1_amount         numeric,
+        grp1_count          numeric,
+        grp2_amount         numeric,
+        grp2_count          numeric,
+        grp3_amount         numeric,
+        grp3_count          numeric,
+        grp4_amount         numeric,
+        grp4_count          numeric,
+        grp5_amount         numeric,
+        grp5_count          numeric,
+        grp6_amount         numeric,
+        grp6_count          numeric,
+        grp7_amount         numeric,
+        grp7_count          numeric,
+        PRIMARY KEY (draw_number)
         )''')
 
-def add_software_news(sqlite3_cursor, name, version, last_updated, md5, last_checked):
-    return sqlite3_cursor.execute(
-        "INSERT OR REPLACE INTO software (name, version, last_updated, md5, last_checked, last_md5) VALUES (?, ?, ?, ?, ?, ?)",
-        (name, version, last_updated, None, last_checked, None)
-    )
-
-def add_news(json_data):
+def add_toto(data_dict):
+    print(SQLITE_FILE_PATH)
     with sqlite3.connect(SQLITE_FILE_PATH) as conn:
         cursor = conn.cursor()
-        #
-        # {'name': 'nodejs (current)', 
-        # 'version': 'v11.9.0', 
-        # 'last_updated': None, 
-        # 'last_checked': '2019-02-09', 
-        # 'md5_hash': '18d49f20ff1b1c2aa5959b1ba46ee104'}
-        upsert_software(
-            cursor, 
-            json_data['name'],
-            json_data['version'],
-            json_data['last_updated'],
-            json_data['last_checked']
-        )  
-    # return result
-    # # with sqlite3.connect(SQLITE_FILE_PATH) as conn:
-    # #     cursor = conn.cursor()
-    # #     for row in csv_reader:
-    # #         #results.append(row)
-    # #         exec_cursor = add_raw(
-    # #             cursor, 
-    # #             row[0], # draw_number
-    # #             row[1], # draw_date
-    # #             row[2], # num1
-    # #             row[3], # num2
-    # #             row[4], # num3
-    # #             row[5], # num4
-    # #             row[6], # num5
-    # #             row[7], # num6
-    # #             row[8], # num7
-    # #             ''      # remarks
-    # #             )
-
-
-        "INSERT INTO software (name, version, last_updated, md5, last_checked, last_md5, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
-        (name, version, last_updated, md5, last_checked, None, 0)
-    )
-
-def update_software_last_checked(sqlite3_cursor, name, last_checked):
-    return sqlite3_cursor.execute(
-        """
-        UPDATE  software 
-        SET     last_checked    = ?
-        WHERE   name = ?
-        """,
-        (last_checked, name)
-    )
-
-
-def update_software(sqlite3_cursor, name, version, last_updated, md5, last_checked, last_md5, status):
-    return sqlite3_cursor.execute(
-        """
-        UPDATE  software 
-        SET     version         = ?, 
-                last_updated    = ?, 
-                md5             = ?,
-                last_checked    = ?, 
-                last_md5        = ?, 
-                status          = ?
-        WHERE   name = ?
-        """,
-        (version, last_updated, md5, last_checked, last_md5, status, name)
-    )
-
-
-def update_software_news(name, version, last_updated, md5, last_checked):
-    
-    logging.debug("update_software_news")
-    
-    # Algorithm
-    # ---------
-    # If record does not exists, add record to table
-    # If record exists, update last_updated date ONLY   if md5 is the same.
-    # If record exists, update record                   if md5 is different.
-
-    with sqlite3.connect(SQLITE_FILE_PATH) as conn:
-        cursor = conn.cursor()
-        record_list = get_software(cursor, name)
-
-        if len(record_list) <= 0: # If record does not exists
-            # add record to table
-            add_software_news(cursor, name, version, last_updated, md5, last_checked)
-        else: # If record exists
-            rec = record_list[0]
-            last_md5 = rec[3] 
-
-            if md5 == last_md5: # if md5 is the same.
-                # update last_updated date ONLY
-                update_software_last_checked(cursor, name, last_checked)
-            else:
-                # update record
-                update_software(cursor, name, version, last_updated, md5, last_checked, last_md5, 1)
-
+        SQL = """INSERT OR REPLACE INTO toto (
+                draw_number, draw_date, num1, num2, num3, num4, num5, num6, num7,
+                grp1_amount, grp1_count, grp2_amount, grp2_count, grp3_amount, grp3_count, 
+                grp4_amount, grp4_count, grp5_amount, grp5_count, grp6_amount, grp6_count, 
+                grp7_amount, grp7_count) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"""
+        return cursor.execute(
+            SQL,
+            (
+                data_dict['draw_number'],
+                data_dict['draw_date'],
+                data_dict['win1'],
+                data_dict['win2'],
+                data_dict['win3'],
+                data_dict['win4'],
+                data_dict['win5'],
+                data_dict['win6'],
+                data_dict['additional'],
+                data_dict['grp1_amount'],
+                data_dict['grp1_count'],
+                data_dict['grp2_amount'],
+                data_dict['grp2_count'],
+                data_dict['grp3_amount'],
+                data_dict['grp3_count'],
+                data_dict['grp4_amount'],
+                data_dict['grp4_count'],
+                data_dict['grp5_amount'],
+                data_dict['grp5_count'],
+                data_dict['grp6_amount'],
+                data_dict['grp6_count'],
+                data_dict['grp7_amount'],
+                data_dict['grp7_count']
+            )
+        )
 
 ########################################
 # create views
 ########################################
+
+def create_winner_summary_view(sqlite3_cursor):
+    # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
+    return sqlite3_cursor.execute('''CREATE VIEW IF NOT EXISTS winner_summary AS
+SELECT 	draw_number, draw_date,
+		SUM(case when w.division = '1' then winner_count end) AS 'd1_cnt',
+		SUM(case when w.division = '1' then prize end) AS 'd1_amt',
+		SUM(case when w.division = '2' then winner_count end) AS 'd2_cnt',
+		SUM(case when w.division = '2' then prize end) AS 'd2_amt',
+		SUM(case when w.division = '3' then winner_count end) AS 'd3_cnt',
+		SUM(case when w.division = '3' then prize end) AS 'd3_amt',
+		SUM(case when w.division = '4' then winner_count end) AS 'd4_cnt',
+		SUM(case when w.division = '4' then prize end) AS 'd4_amt',
+		SUM(case when w.division = '5' then winner_count end) AS 'd5_cnt',
+		SUM(case when w.division = '5' then prize end) AS 'd5_amt',
+		SUM(case when w.division = '6' then winner_count end) AS 'd6_cnt',
+		SUM(case when w.division = '6' then prize end) AS 'd6_amt',
+		SUM(case when w.division = '7' then winner_count end) AS 'd7_cnt',
+		SUM(case when w.division = '7' then prize end) AS 'd7_amt'
+FROM 	winner w
+GROUP BY 
+		w.draw_number
+ORDER BY 
+		w.draw_number DESC;
+        ''')
+
+def create_raw49_view(sqlite3_cursor):
+    # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
+    return sqlite3_cursor.execute('''CREATE VIEW IF NOT EXISTS raw49 AS
+SELECT 	* 
+FROM 	raw 
+WHERE 	draw_date >= '2014-10-17' 
+ORDER BY 
+		draw_number DESC;
+        ''')
+
+def create_raw49_period_view(sqlite3_cursor):
+    # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
+    return sqlite3_cursor.execute('''CREATE VIEW IF NOT EXISTS raw49_period AS
+SELECT 	MIN(draw_date)	    AS 'min_draw_date', 
+		MIN(draw_number)    AS 'min_draw_number', 
+		MAX(draw_date)      AS 'max_draw_date', 
+		MAX(draw_number)    AS 'max_draw_number'
+FROM 	raw49;
+        ''')
+
+def create_toto49_view(sqlite3_cursor):
+    # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
+    return sqlite3_cursor.execute('''CREATE VIEW IF NOT EXISTS toto49 AS
+SELECT 	r.draw_number
+		, r.draw_date
+		, r.num1
+		, r.num2
+		, r.num3
+		, r.num4
+		, r.num5
+		, r.num6
+		, r.num7
+		, ws.d1_cnt
+		, ws.d1_amt
+		, ws.d2_cnt
+		, ws.d2_amt
+		, ws.d3_cnt
+		, ws.d3_amt
+		, ws.d4_cnt
+		, ws.d4_amt
+		, ws.d5_cnt
+		, ws.d5_amt
+		, ws.d6_cnt
+		, ws.d6_amt
+		, ws.d7_cnt
+		, ws.d7_amt
+FROM 	raw r 
+INNER JOIN 
+		winner_summary ws
+		ON r.draw_number = ws.draw_number
+WHERE	r.draw_number >= 2998 
+ORDER BY 
+		r.draw_number;
+        ''')
+
 
 def create_last_draw_view(sqlite3_cursor):
     # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
@@ -224,34 +258,16 @@ WHERE 	draw_number = (SELECT MAX(draw_number) FROM toto49);
         ''')
 
 
+
 ########################################
 # Query function(s)
 ########################################
 
-####################
-# Dependent queries
-####################
-
-def get_software(sqlite3_cursor, name):
+def get_last_draw():
     SQL_QUERY = """
-    SELECT * FROM software WHERE name = ?;
+    SELECT * FROM last_draw;
     """
-    sqlite3_cursor.execute(
-        SQL_QUERY,
-        (name,)
-    )
-    result = sqlite3_cursor.fetchall()
-    return result
-
-####################
-# Standalone queries
-####################
-
-def get_software_list():
-    SQL_QUERY = """
-    SELECT name, version, last_checked FROM software;
-    """
-    #print(SQLITE_FILE_PATH)
+    print(SQLITE_FILE_PATH)
     with sqlite3.connect(SQLITE_FILE_PATH) as conn:
         cursor = conn.cursor()
         cursor.execute(SQL_QUERY)
@@ -280,11 +296,11 @@ def get_software_list():
 ########################################
 
 def initialize_sqlite_db(sqlitedb_path):
-    """Initialize a sqlite3 database for tracking software new.
+    """Initialize a sqlite3 database for tracking ASX sector indices.
 
     Table(s) created:
 
-    1.  raw
+    1.  toto
     1.  winner
 
     Args:
@@ -296,7 +312,7 @@ def initialize_sqlite_db(sqlitedb_path):
     logging.info("Ensuring existence of sqlite3 database [{0}]".format(sqlitedb_path))
     with sqlite3.connect(sqlitedb_path) as conn:
         cursor = conn.cursor()
-        create_software_table(cursor)
+        create_toto_table(cursor)
         # create_winner_table(cursor)
         # create_winner_summary_view(cursor)
         # create_raw49_view(cursor)
@@ -310,4 +326,4 @@ def initialize_sqlite_db(sqlitedb_path):
 ################################################################################
 
 if __name__ == '__main__':
-    initialize_sqlite_db(SQLITE_FILE_NAME)
+    initialize_sqlite_db(SQLITE_FILE_PATH)

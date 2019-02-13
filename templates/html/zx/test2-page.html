@@ -1,0 +1,599 @@
+{% extends "./html/_layouts/_default.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Test2') }}
+
+    <header>
+        <h1>Test2 Page <small>Autocomplete</small>
+        </h1>
+    </header>
+
+    <section>
+
+        <div class="row">
+            <div class="twelve columns">
+                <p>
+                    User actions
+                    <button type="button" class="button" id="fetchDataButton">Fetch data</button>
+                </p>
+
+                <div class="autocomplete" style="width:300px;">
+                    <input id="termInput" type="text" name="termInput" placeholder="key terms">
+                </div>
+
+                <!--
+
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                -->
+
+
+                
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+<style>
+    .interactive {
+        cursor: pointer;
+    }
+
+    .tags-input-area {
+        border: solid 2px #ccc;
+        list-style: none;
+    }
+
+    li.tag,
+    li.new-tag {
+        display: inline-block;
+        margin: 0.36em 0 0.36em 0.36em;
+        padding: 0 0.36em;
+    }
+
+    li.tag {
+
+        background-color: #fafafa;
+        border: solid 1px #ccc;
+        border-radius: 5px;
+    }
+
+    li.new-tag {
+        /* N/A */
+    }
+
+    li.new-tag input {
+        border: none;
+        margin: 0;
+        padding: 0;
+        height: auto;
+    }
+
+    li.new-tag input[type=text]:focus {
+        border: none;
+    }
+
+    /* 
+    li.tag.input {
+        border:0;
+        margin: 0;
+    }
+    li.tag.input input {
+        margin:0;
+        border:0;
+    } */
+/* css for AutoComplete */
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  /*
+  top: 100%;
+  */
+  top: 4rem;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+
+
+/* css for dropdown menu*/
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown-content.show {
+    display: block;
+    top: 12rem;
+}
+
+.dropdown-content {
+  display: none;
+  background-color: #f9f900;
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+nav.top-navbar .dropdown-content a {
+    float: none;
+    color: black;
+    display: block;
+    text-align: left;
+}
+
+/*
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+*/
+
+
+
+
+</style>
+
+<script>
+    // Write a script that detects when a 
+    var pj = {};
+
+    var keyTerms = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+    keyTerms = ["Indicator", "Trade date", "Exchange", "Broker", "Security Id", "Account", "Src Qty", "Dst Qty"];
+    var tags = ["new", "reconciliation", "2018-12-12", "jpm", "XASX"];
+    tags = ["security id desc", "account desc"]
+
+    // TODO:
+    var chips = {
+        tags : ["new", "reconciliation", "2018-12-12", "jpm", "XASX"],
+        renderChips: function() {},
+        addNewChips: function(e) {},
+        removeChips: function(e) {}
+    };
+
+    var ajax = {
+        "getRequest": function () {
+            if (window.XMLHttpRequest) {
+                return new XMLHttpRequest();
+            } else if (window.ActiveXObject) {
+                return new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                console.log("Browser does not support XMLHTTP.");
+                return false;
+            }
+        }
+    };
+
+    function dragover_handler(ev) {
+        ev.preventDefault();
+        // Set the dropEffect to move
+        ev.dataTransfer.dropEffect = "copy"
+    }
+    function drop_handler(ev) {
+        ev.preventDefault();
+        // Get the id of the target and add the moved element to the target's DOM
+        var data = ev.dataTransfer.getData("text/plain");
+        //ev.target.appendChild(document.getElementById(data));
+        debugger;
+    }
+    function dragstart_handler(ev) {
+        console.log("dragStart");
+        // Set the drag effect to move; there are 3 effects:
+        //  copy - indicates that the data being dragged will be copied from its present location to the drop location. 
+        //  move - indicates that the data being dragged will be moved
+        //  link - indicates that some form of relationship or connection will be created between the source and drop locations. 
+        //  Set the drag effect to move;
+        ev.dataTransfer.dropEffect = "copy";
+
+        // Add the target element's id to the data transfer object
+        // ev.dataTransfer.setData("text/plain", ev.target.id);
+        ev.dataTransfer.setData("text/plain", ev.target.firstChild.data.trim());
+    }
+
+
+    function renderChips() {
+        var elementList = document.getElementsByClassName("tags-input-area");
+        var newTagItem = document.getElementsByClassName("new-tag")[0];
+        if (elementList.length <= 0) {
+            return;
+        }
+
+        var rootElement = elementList[0];
+        var html = "";
+
+        // Clear all tags
+        rootElement.querySelectorAll(".tag").forEach(e => {
+            e.remove();
+        });
+
+        // Append each tag we have in list into tag area
+        tags.forEach(element => {
+            var newTagElement = document.createElement('li');
+            newTagElement.classList.add("tag");
+            newTagElement.setAttribute("draggable","true");
+            newTagElement.setAttribute("ondragstart","dragstart_handler(event);");
+            newTagElement.innerHTML = element + ' <span class="interactive remove-tag">&#10006;</span></li>';
+            // rootElement.prepend(newTagElement);
+            rootElement.insertBefore(newTagElement, newTagItem);
+        });
+
+        // Set event-handlers
+        document.querySelectorAll(".interactive.remove-tag").forEach(element => {
+            // Because JavaScript do not provide a way to check if an event listener has been assigned to an element,
+            // we will always remove the event listener that we want to attach 
+            element.removeEventListener("click", testClick);
+            element.addEventListener("click", testClick);
+        });
+    }
+
+    function addNewChips(e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode == 9) {
+            e.preventDefault();
+            tags.push(this.value);
+            renderChips();
+            this.value = "";
+            console.log("TAB");
+            return;
+        }
+        console.log(keyCode);
+    }
+
+    function testClick(e) {
+        console.log("CLICKED");
+        //debugger;
+        var targetTagText = e.target.parentElement.innerHTML.replace(e.target.outerHTML, "").trim();
+        var foundIndex = tags.indexOf(targetTagText);
+        tags.splice(foundIndex, 1)
+        console.log("TODO: remove ", targetTagText, "found at", foundIndex);
+        renderChips();
+    }
+
+    function renderTableData() {
+        if (!pj) {
+            return;
+        }
+
+        if (pj.layout) {
+            pj.layout.fields.sort(function (a, b) { // Sort display order fields by "seq"
+                return a.seq - b.seq;
+            });
+        }
+
+        if (pj.length === 0) {
+            return
+        } 
+
+        var tbl = document.querySelector("table.reconciliation");
+
+        var new_tbody = tbl.createTBody();
+        var row_idx = 0;
+        var key_idx = 0;
+
+        for (row_idx = 0; row_idx < pj.data.length; row_idx++) {
+
+            var row = new_tbody.insertRow(row_idx);
+
+            for (key_idx = 0; key_idx < pj.layout.fields.length; key_idx++) {
+                var newCell = row.insertCell(key_idx);
+                newCell.innerHTML = pj.data[row_idx][pj.layout.fields[key_idx].field];
+            }
+        }
+
+        tbl.tBodies[0].remove(); // Remove the old tbody
+    }
+
+    function ajaxCall() {
+        // Get data
+        var actionUrl = "http://localhost:50001/api/recon/2018-12-14";
+        var xhr = ajax.getRequest();
+        xhr.onreadystatechange = function () {
+            var DONE = 4; // readyState 4 means the request is done.
+            var OK = 200; // status 200 is a successful return.
+            if (xhr.readyState === DONE) {
+                if (xhr.status === OK) {
+                    //console.log(xhr.responseText); // 'This is the returned text.'
+                    pj = JSON.parse(xhr.responseText);
+                    //debugger;
+
+                    if (pj) {
+                        renderTableData();
+                        return;
+
+                        // Assumes pj will have a layout section and a data section
+                        if (pj.layout) {
+                            // pj.layout.fields.reduce(function(a, cv) {
+                            //     debugger;
+                            //     //return cv;
+                            // })
+
+                            pj.layout.fields.sort(function (a, b) { // Sort display order fields by "seq"
+                                return a.seq - b.seq;
+                            });
+                        }
+
+
+
+                        if (pj.length === 0) {
+                            //     document.querySelector("table.resource-types").classList.add("hide");
+                            //     document.getElementById("resource_types_message").classList.remove("hide");
+                            return
+                        } 
+
+
+                        // Render contents into table
+
+
+                        // if (pj.length === 0) {
+                        //     document.querySelector("table.resource-types").classList.add("hide");
+                        //     document.getElementById("resource_types_message").classList.remove("hide");
+                        // } else {
+                        var tbl = document.querySelector("table.reconciliation");
+
+                        var new_tbody = tbl.createTBody();
+                        var row_idx = 0;
+                        var key_idx = 0;
+
+                        for (row_idx = 0; row_idx < pj.data.length; row_idx++) {
+                            var row = new_tbody.insertRow(row_idx);
+                            //var keys = Object.keys(pj[row_idx])
+
+
+                            for (key_idx = 0; key_idx < pj.layout.fields.length; key_idx++) {
+                                var newCell = row.insertCell(key_idx);
+                                newCell.innerHTML = pj.data[row_idx][pj.layout.fields[key_idx].field];
+                            }
+
+                            // var cell0 = row.insertCell(0);
+                            // var cell1 = row.insertCell(1);
+                            // var cell2 = row.insertCell(2);
+                            // var cell3 = row.insertCell(3);
+                            // var cell4 = row.insertCell(4);
+                            // var cell4 = row.insertCell(5);
+                            // var cell4 = row.insertCell(6);
+                            // var cell4 = row.insertCell(7);
+                            // var cell4 = row.insertCell(8);
+
+                            // cell0.innerHTML = (row_idx + 1).toString();
+                            // cell1.innerHTML = pj[row_idx]["name"];
+                            // cell2.innerHTML = pj[row_idx]["description"];
+                            // cell3.innerHTML = pj[row_idx]["count"];
+                            //cell4.innerHTML = "<a href='#'>Remove</a>";
+                        }
+
+                        tbl.tBodies[0].remove(); // Remove the old tbody
+
+                        //     document.getElementById("resource_types_message").classList.add("hide");
+                        //     document.querySelector("table.resource-types").classList.remove("hide");
+                        // }
+                    } else {
+                        console.log("AJAX call return no data.");
+                    }
+
+                } else {
+                    console.log('Error: ' + xhr.status); // An error occurred during the request.
+                }
+            }
+
+
+            // xhr.setRequestHeader('Content-Type', 'application/json');
+            // var type_name = document.getElementById("resource_type_name").value;
+            // var type_desc = document.getElementById("resource_type_description").value;
+            // var type_count = document.getElementById("resource_type_count").value;
+
+            // application/x-www-form-urlencoded
+            // var post_data = encodeURI('name=');
+
+            // var post_data = {
+            //     "name" : type_name,
+            //     "des" : type_desc,
+            //     "count" : type_count
+            // };
+            // console.log(post_data);
+        }
+        xhr.open('GET', actionUrl);
+        xhr.send(null);
+    }
+
+    function sortCompare(a, b) {
+        if (typeof(a) === "string") {
+            return a.localeCompare(b);
+        } else {
+            return a - b;
+        }
+    }
+
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function autoComplete(inp, arr) {
+        /*  the autocomplete function takes two arguments:
+            1.  the text field element and 
+            2.  an array of possible autocompleted values
+        */
+        var currentFocus;
+        /*execute a function when someone writes in the text field:*/
+        inp.addEventListener("input", function(e) {
+            var a, b, i, val = this.value;
+            /*close any already open lists of autocompleted values*/
+            closeAllLists();
+            if (!val) { return false;}
+            currentFocus = -1;
+
+            /*create a DIV element that will contain the items (values):*/
+            a = document.createElement("DIV");
+            a.setAttribute("id", this.id + "autocomplete-list");
+            a.setAttribute("class", "autocomplete-items");
+
+            /*append the DIV element as a child of the autocomplete container:*/
+            this.parentNode.appendChild(a);
+            
+            /*for each item in the array...*/
+            for (i = 0; i < arr.length; i++) {
+                /*check if the item starts with the same letters as the text field value:*/
+                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                    /*create a DIV element for each matching element:*/
+                    b = document.createElement("DIV");
+                    /*make the matching letters bold:*/
+                    b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                    b.innerHTML += arr[i].substr(val.length);
+                    /*insert a input field that will hold the current array item's value:*/
+                    b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                    
+                    /*execute a function when someone clicks on the item value (DIV element):*/
+                    b.addEventListener("click", function(e) {
+                        /*insert the value for the autocomplete text field:*/
+                        inp.value = this.getElementsByTagName("input")[0].value;
+                        /*close the list of autocompleted values,
+                        (or any other open lists of autocompleted values:*/
+                        closeAllLists();
+                    });
+                    a.appendChild(b);
+
+                }
+            } // end for
+        });
+
+        /*execute a function presses a key on the keyboard:*/
+        inp.addEventListener("keydown", function(e) {
+            var x = document.getElementById(this.id + "autocomplete-list");
+            if (x) x = x.getElementsByTagName("div");
+            if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+            } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+            } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+                /*and simulate a click on the "active" item:*/
+                if (x) x[currentFocus].click();
+            }
+            }
+        });
+        function addActive(x) {
+            /*a function to classify an item as "active":*/
+            if (!x) return false;
+            /*start by removing the "active" class on all items:*/
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1);
+            /*add class "autocomplete-active":*/
+            x[currentFocus].classList.add("autocomplete-active");
+        }
+        function removeActive(x) {
+            /*a function to remove the "active" class from all autocomplete items:*/
+            for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+            }
+        }
+
+        function closeAllLists(elmnt) {
+            /*close all autocomplete lists in the document,
+            except the one passed as an argument:*/
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+                if (elmnt != x[i] && elmnt != inp) {
+                    x[i].parentNode.removeChild(x[i]);
+                }
+            }
+            document.addEventListener("click", function (e) {
+                closeAllLists(e.target);
+            });
+        }
+    }
+    
+
+    (function () {
+        console.log("[START]");
+
+        // Write a function that renders tag
+        //renderChips();
+
+        // https://developer.mozilla.org/en-US/docs/Web/Events
+
+
+        // Add event listeners for input
+        autoComplete(document.getElementById("termInput"), keyTerms);
+
+        var fetchDataButton = document.getElementById("fetchDataButton");
+        fetchDataButton.addEventListener("click", function(e) {
+            console.log("Make ajax call");
+            ajaxCall();
+        });
+
+        //renderButton.click();
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        } // end window.onclick = function(event) {
+
+    })();
+</script>
+
+{% endblock %}

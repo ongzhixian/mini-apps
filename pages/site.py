@@ -31,7 +31,7 @@ def static(filename):
 @route('/')
 def display_home_page(errorMessages=None):
     context = get_default_context(request)
-    response.set_cookie('username', 'the username')
+    #response.set_cookie('username', 'the username')
     return jinja2_env.get_template('html/site/home-page.html').render(context)
 
 @route('/about')

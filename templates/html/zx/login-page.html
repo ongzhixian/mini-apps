@@ -1,0 +1,63 @@
+{% extends "./html/_layouts/_zx.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    <div class="row">
+        <div class="twelve columns">
+            <h1 class="page-header">
+                ZX <small>&mdash; login</small>
+            </h1>
+        </div>
+    </div><!--end of .row .twelve.columns -->
+
+    <p>
+        You are trying to access an area in the website that is restrict to authenticated members only.<br/>
+        Please log in to the website to proceed.
+    </p>
+
+    <p class="message">
+        {% if message %}
+        {{message}}
+        {% endif %}
+    </p>
+
+    <form method="POST">
+
+        <div class="row">
+            <div class="six columns">
+                <label for="email_input">Email (username)</label>
+                <input class="u-full-width" type="email" placeholder="username@domain.domain" id="email_input" name="email_input">
+
+                <label for="password_input">Password</label>
+                <input class="u-full-width" type="password" placeholder="password" id="password_input" name="password_input">
+            </div>
+            
+            <div class="six columns">
+                
+            </div>
+        </div>
+
+        <!-- KIV
+            <label class="example-send-yourself-copy">
+                <input type="checkbox">
+                <span class="label-body">Send a copy to yourself</span>
+            </label>
+        -->
+        <button class="button-primary" type="submit">Log in</button>
+        <!-- <input class="button-primary" type="submit" value="Submit"> -->
+    </form>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}

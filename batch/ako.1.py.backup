@@ -33,12 +33,20 @@
 # tree.xpath(target_xpath)
 
 import json
-import urllib.request
+try:
+    # Python3
+    from urllib.request import urlopen
+except Exception:
+    # Python2
+    from urllib import urlopen
 
 from datetime import datetime
 from hashlib import md5
 from io import StringIO
 from lxml import etree
+
+from modules import sw_news_data
+
 
 ################################################################################
 # Common functions
@@ -47,7 +55,7 @@ from lxml import etree
 def get_content(target_url=None):
     response_content = None
     try:
-        http_response = urllib.request.urlopen(target_url)
+        http_response = urlopen(target_url)
         response_content = http_response.read()
     except Exception:
         response_content = None
@@ -119,23 +127,94 @@ def mk_rec(name, version, last_updated, last_checked, md5_hash):
     }
 
 
-def scrape_nuget():
+########################################
+# Data scraping (JSON)
+########################################
+
+def scrape_nuget(): 
     target_url = 'https://dist.nuget.org/index.json'
     json_data = get_json(target_url)
     jd = json_data['artifacts'][0]['versions'][0]
     rec = mk_rec(
-        'nuget.exe', 
+        'nuget', 
         jd['version'],
         jd['releasedate'],
         get_utc_date(),
         get_md5_hash(jd)
         )
     print(rec)
+    sw_news_data.update_software_news(
+        current_rec['name'],
+        current_rec['version'],
+        current_rec['last_updated'],
+        current_rec['md5_hash'],
+        current_rec['last_checked']
+    )
     return rec
+
+########################################
+# Data scraping (HTML)
+########################################
+
+def scrape_nodejs():
+    target_url = 'https://nodejs.org/en/'
+    html_tree = get_html_tree(target_url)
+    
+    # nodejs has 2 versions defined on target_url: LTS and Current
+
+    # LTS case
+    target_xpath = '//*[@id="home-intro"]/div[1]/a'
+    element_list = html_tree.xpath(target_xpath)
+    if len(element_list) > 0:
+        e = element_list[0]
+        
+        rec = mk_rec(
+            "nodejs (lts)",
+            e.get('data-version'),
+            None,
+            get_utc_date(),
+            get_md5_hash(etree.tostring(e))
+        )
+
+        print(rec)
+        sw_news_data.update_software_news(
+            current_rec['name'],
+            current_rec['version'],
+            current_rec['last_updated'],
+            current_rec['md5_hash'],
+            current_rec['last_checked']
+        )
+
+    # Current case
+    target_xpath = '//*[@id="home-intro"]/div[2]/a'
+    element_list = html_tree.xpath(target_xpath)
+    if len(element_list) > 0:
+        e = element_list[0]
+        
+        rec = mk_rec(
+            "nodejs (current)",
+            e.get('data-version'),
+            None,
+            get_utc_date(),
+            get_md5_hash(etree.tostring(e))
+        )
+        
+        print(rec)
+        sw_news_data.update_software_news(
+            current_rec['name'],
+            current_rec['version'],
+            current_rec['last_updated'],
+            current_rec['md5_hash'],
+            current_rec['last_checked']
+        )
+    
 
 
 if __name__ == "__main__":
     pass
+    from modules import sw_news_data
+    sw_news_data.init()
+
     #scrape_nuget()
 
     # target_url = 'https://nodejs.org/en/'
@@ -217,3 +296,21 @@ if __name__ == "__main__":
     
     print("[ALL DONE]")
     #print(t)
+    
+    # {'version': 'v10.15.1', 'last_updated': None, 'name': 'nodejs (lts)', 'last_checked': '2019-02-10', 'md5_hash': 'dfa422fb9a3e39cf4d356b8041431a73'}
+    # {
+    # 'version': 'v11.9.0', 
+    # 'last_updated': None, 
+    # 'name': 'nodejs (current)', 
+    # 'last_checked': '2019-02-10', 
+    # 'md5_hash': 'fe2dc19c2cbd5f7c3d99051ffc413b69'}
+
+    # name, version, last_updated, md5, last_checked
+    sw_news_data.update_software_news(
+        current_rec['name'],
+        current_rec['version'],
+        current_rec['last_updated'],
+        current_rec['md5_hash'],
+        current_rec['last_checked']
+    )
+    

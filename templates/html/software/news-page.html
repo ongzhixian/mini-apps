@@ -22,12 +22,11 @@
     -->
 
     <section>
-        <table>
+        <table class="software">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Version</th>
-                    <th>Last updated</th>
                     <th>Last checked</th>
                     <!-- KIV
                         <th>Tags</th>
@@ -38,7 +37,6 @@
                 <tr>
                     <td>xxx</td>
                     <td>0.1A</td>
-                    <td>2019-01-01</td>
                     <td>2019-01-01</td>
                     <!-- KIV
                         <td>Category, asd</td>
@@ -53,5 +51,107 @@
     </footer>
 
 </div>
+
+
+<script type="text/javascript">
+
+const READYSTATE = {
+    UNSENT:             0,  // Client has been created. open() not called yet.
+    OPENED:             1,  // open() has been called.
+    HEADERS_RECEIVED:   2,  // send() has been called, and headers and status are available.
+    LOADING:            3,  // Downloading; responseText holds partial data.
+    DONE:               4   // request is done
+};
+
+const HTTPSTATUS = {
+    CONTINUE: 100,
+    SWITCHING_PROTOCOLS: 101,
+    OK: 200
+    // 201 Created
+    // 202 Accepted
+    // 203 Non-Authoritative Information
+    // 204 No Content
+    // 205 Reset Content
+    // 206 Partial Content
+    // 300 Multiple Choices
+    // 301 Moved Permanently
+    // 302 Found
+    // 303 See Other
+    // 304 Not Modified
+    // 305 Use Proxy
+    // 306 (Unused)
+    // 307 Temporary Redirect
+};
+
+var ui = {
+
+    "getXHR": function () {
+        if (window.XMLHttpRequest) {
+            return new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            return new ActiveXObject("Microsoft.XMLHTTP");
+        } else {
+            console.log("Browser does not support XMLHTTP.");
+            return false;
+        }
+    },
+    "getNews" : function () {
+        // Get data
+        var actionUrl = "/api/software/news";
+        var xhr = ui.getXHR();
+        xhr.onreadystatechange = function () {
+            var DONE = 4; // readyState 4 means the request is done.
+            var OK = 200; // status 200 is a successful return.
+            
+            if (xhr.readyState === READYSTATE.DONE) {
+                if (xhr.status === HTTPSTATUS.OK) {
+                    pj = JSON.parse(xhr.responseText);
+                    if (pj) {
+                        // Generate HTML markup for table's tbody
+                        var tbl = document.querySelector("table.software");
+                        var new_tbody = tbl.createTBody();
+                        var row_idx = 0;
+                        var key_idx = 0;
+
+                        // Foreach record, add new row
+                        for (row_idx = 0; row_idx < pj.length; row_idx++) {
+
+                            var row = new_tbody.insertRow(row_idx);
+
+                            for (key_idx = 0; key_idx < 3; key_idx++) {
+                                var newCell = row.insertCell(key_idx);
+                                newCell.innerHTML = pj[row_idx][key_idx];
+                            }
+
+                            // for (key_idx = 0; key_idx < pj.layout.fields.length; key_idx++) {
+                            //     var newCell = row.insertCell(key_idx);
+                            //     newCell.innerHTML = pj.data[row_idx][pj.layout.fields[key_idx].field];
+                            // }
+                        }
+
+                        tbl.tBodies[0].remove(); // Remove the old tbody
+
+                    } else {
+                        console.log("AJAX call return no data.");
+                    }
+                } else {
+                    console.log('Error: ' + xhr.status); // An error occurred during the request.
+                }
+            }
+        };
+
+        xhr.open('GET', actionUrl);
+        xhr.send(null);
+    }
+
+};
+
+(function () {
+
+    console.log("Hello world");
+    ui.getNews();
+}());
+
+</script>
 
 {% endblock %}
