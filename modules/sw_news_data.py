@@ -115,45 +115,43 @@ def add_software_news(sqlite3_cursor, name, version, last_updated, md5, last_che
         (name, version, last_updated, None, last_checked, None)
     )
 
-def add_news(json_data):
-    with sqlite3.connect(SQLITE_FILE_PATH) as conn:
-        cursor = conn.cursor()
-        #
-        # {'name': 'nodejs (current)', 
-        # 'version': 'v11.9.0', 
-        # 'last_updated': None, 
-        # 'last_checked': '2019-02-09', 
-        # 'md5_hash': '18d49f20ff1b1c2aa5959b1ba46ee104'}
-        upsert_software(
-            cursor, 
-            json_data['name'],
-            json_data['version'],
-            json_data['last_updated'],
-            json_data['last_checked']
-        )  
-    # return result
-    # # with sqlite3.connect(SQLITE_FILE_PATH) as conn:
-    # #     cursor = conn.cursor()
-    # #     for row in csv_reader:
-    # #         #results.append(row)
-    # #         exec_cursor = add_raw(
-    # #             cursor, 
-    # #             row[0], # draw_number
-    # #             row[1], # draw_date
-    # #             row[2], # num1
-    # #             row[3], # num2
-    # #             row[4], # num3
-    # #             row[5], # num4
-    # #             row[6], # num5
-    # #             row[7], # num6
-    # #             row[8], # num7
-    # #             ''      # remarks
-    # #             )
-
-
-        "INSERT INTO software (name, version, last_updated, md5, last_checked, last_md5, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
-        (name, version, last_updated, md5, last_checked, None, 0)
-    )
+# def add_news(json_data):
+#     with sqlite3.connect(SQLITE_FILE_PATH) as conn:
+#         cursor = conn.cursor()
+#         #
+#         # {'name': 'nodejs (current)', 
+#         # 'version': 'v11.9.0', 
+#         # 'last_updated': None, 
+#         # 'last_checked': '2019-02-09', 
+#         # 'md5_hash': '18d49f20ff1b1c2aa5959b1ba46ee104'}
+#         upsert_software(
+#             cursor, 
+#             json_data['name'],
+#             json_data['version'],
+#             json_data['last_updated'],
+#             json_data['last_checked']
+#         )  
+#     # return result
+#     # # with sqlite3.connect(SQLITE_FILE_PATH) as conn:
+#     # #     cursor = conn.cursor()
+#     # #     for row in csv_reader:
+#     # #         #results.append(row)
+#     # #         exec_cursor = add_raw(
+#     # #             cursor, 
+#     # #             row[0], # draw_number
+#     # #             row[1], # draw_date
+#     # #             row[2], # num1
+#     # #             row[3], # num2
+#     # #             row[4], # num3
+#     # #             row[5], # num4
+#     # #             row[6], # num5
+#     # #             row[7], # num6
+#     # #             row[8], # num7
+#     # #             ''      # remarks
+#     # #             )
+#         "INSERT INTO software (name, version, last_updated, md5, last_checked, last_md5, status) VALUES (?, ?, ?, ?, ?, ?, ?)",
+#         (name, version, last_updated, md5, last_checked, None, 0)
+#     )
 
 def update_software_last_checked(sqlite3_cursor, name, last_checked):
     return sqlite3_cursor.execute(

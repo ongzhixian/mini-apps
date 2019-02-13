@@ -1,0 +1,43 @@
+{% extends "./html/_layouts/_zx.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    
+
+    <!--
+
+        <header>
+            <h1>About Page</h1>
+        </header>
+    -->
+
+    <div class="row">
+        <div class="twelve columns">
+            <h1 class="page-header">
+                ZX <small>&mdash; logged out</small>
+            </h1>
+        </div>
+    </div><!--end of .row .twelve.columns -->
+    
+        
+    <section>
+        <p>
+            You have logged out.
+        </p>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}

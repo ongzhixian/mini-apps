@@ -53,8 +53,16 @@ def display_zx_login_page(errorMessages=None):
             context["message"] = "Invalid credentials."
     return jinja2_env.get_template('html/zx/login-page.html').render(context)
 
+@route('/zx/logout')
+def display_zx_logout_page(errorMessages=None):
+    context = get_default_context(request)
+    bottle.response.set_cookie('mini-apps-session', '', path='/', expires=0)
+    bottle.response.set_cookie('ZX_AUTH', '', path='/', expires=0)
+    return jinja2_env.get_template('html/zx/logout-page.html').render(context)
+
 
 # ZX: Route decorator should always be outer-most decorator
+@route('/zx/')
 @route('/zx')
 @require_auth_cookie(AUTH_COOKIE_NAME, LOGIN_URL)
 @require_permission(AUTH_COOKIE_NAME, ["admin", "user"], LOGIN_URL)
@@ -64,6 +72,17 @@ def display_home_page(errorMessages=None):
     # logging.debug(context['auth_cookie'])
     # logging.debug(context['current_datetime'])
     return jinja2_env.get_template('html/zx/home-page.html').render(context)
+
+
+@route('/zx/trading')
+@require_auth_cookie(AUTH_COOKIE_NAME, LOGIN_URL)
+@require_permission(AUTH_COOKIE_NAME, ["admin", "user"], LOGIN_URL)
+def display_home_page(errorMessages=None):
+    context = get_default_context(request)
+    #response.set_cookie('username', 'the username')
+    # logging.debug(context['auth_cookie'])
+    # logging.debug(context['current_datetime'])
+    return jinja2_env.get_template('html/zx/trading-page.html').render(context)
 
 
 
