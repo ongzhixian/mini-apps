@@ -29,3 +29,8 @@ def display_game_home_page(errorMessages=None):
 def display_game_trading_page(errorMessages=None):
     context = get_default_context(request)
     return jinja2_env.get_template('html/game/trading-page.html').render(context)
+
+@route('/game/lottery')
+def display_game_lottery_page(errorMessages=None):
+    context = get_default_context(request)
+    return jinja2_env.get_template('html/game/lottery-page.html').render(context)

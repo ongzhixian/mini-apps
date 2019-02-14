@@ -4,7 +4,9 @@
 
 {% block style %}
 <style type="text/css">
-* {box-sizing: border-box}
+.vertical-tabs, .tab-content {
+    box-sizing: border-box
+}
 
 /* Style the tab */
 .vertical-tabs {
@@ -66,6 +68,7 @@
 
         <div class="vertical-tabs">
             <button class="tab-button" value="trading">Trading</button>
+            <button class="tab-button" value="lottery">Lottery</button>
             <!--
                 <button class="tab-button" value="Paris">Paris</button>
                 <button class="tab-button" value="Tokyo">Tokyo</button>
@@ -79,19 +82,15 @@
                 <br/>It simulates a stock exchange.
             </p>
         </div>
-        
-        <!-- KIV the other tabs
-            <div id="Paris" class="tab-content">
-                <h3>Paris</h3>
-                <p>Paris is the capital of France.</p>
-            </div>
-        
-            <div id="Tokyo" class="tab-content">
-            <h3>Tokyo</h3>
-            <p>Tokyo is the capital of Japan.</p>
-        </div> 
-        -->
-        
+
+        <div id="lottery" class="tab-content">
+            <h3>Lottery</h3>
+            <p>
+                Lottery is my lottery simulation game.
+                <br/>It simulates a 6-49 lottery system.
+            </p>
+        </div>
+
     </section>
 
     <footer>
