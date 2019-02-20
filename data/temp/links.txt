@@ -76,10 +76,34 @@ Unlike async scripts, defer scripts are only executed after the entire document 
 
 
 
+Developing and debugging Flutter apps for iOS without a Mac
+https://medium.com/flutter-community/developing-and-debugging-flutter-apps-for-ios-without-a-mac-8d362a8ec667
 
 
+https://stackoverflow.com/questions/40567540/is-it-possible-to-develop-ios-apps-with-flutter-on-a-linux-virtual-machine
+
+https://medium.com/@agavatar/flutter-environment-setup-for-ios-791e64cd37d8
+https://github.com/flutter/flutter/issues/22771
+https://ch8n.blogspot.com/2018/03/installing-flutter-ubuntu.html
+https://www.zdnet.com/article/building-for-ios-and-android-getting-started-with-googles-flutter/
 
 
+Maps
+https://simplemaps.com/resources/svg-maps
+https://commons.wikimedia.org/wiki/Category:Blank_SVG_maps_of_the_world
+
+https://mapsvg.com/maps/
+https://www.amcharts.com/svg-maps/
+https://pixelmap.amcharts.com/
+https://www.smashingmagazine.com/2015/09/making-svg-maps-from-natural-earth-data/
+http://jvectormap.com/
+https://parall.ax/blog/view/2985/tutorial-creating-an-interactive-svg-map
+
+Free
+https://www.embarcadero.com/products/delphi/starter/free-download
+https://www.embarcadero.com/free-tools/firemonkey-stencils
+
+https://www.cnbc.com/2019/02/13/jp-morgan-is-rolling-out-the-first-us-bank-backed-cryptocurrency-to-transform-payments--.html
 
 
 
