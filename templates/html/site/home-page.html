@@ -24,32 +24,34 @@
             <div class="twelve columns">
 
                 <p>
-                    This is the hosting site for some of my Python web utilities.<br/>
-                </p>
-                <!--
-
-                <p>Personal utilities are applications that are written and targetted to help me only.<br />
-                    They are not of any use of anyone else.
+                    Mini-Apps is growing!<br/>
                 </p>
 
-                <h3>Personal utilities</h3>
-
-                <ol>
-                    <li><a href="/url-dump">Url dump</a></li>
-                    <li><a href="/palindrome">Palindrome validator</a></li>
-                </ol>
-
-
-                    <h3>Generic utilities</h3>
-                    
-                    <ol>
-                        <li>PDF Appender</li>
-                    </ol>
-                    
-                    <p>
-                        <i>Have fun!</i>
-                    </p>
-                -->
+                <!-- Tab links -->
+                <div class="horizontal-tab">
+                    <button class="tablinks" onclick="openCity(event, 'London')">Trading</button>
+                    <button class="tablinks" onclick="openCity(event, 'Paris')">Game</button>
+                    <!-- 
+                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">WMS</button>
+                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">HR</button>
+                     -->
+                </div>
+                
+                <!-- Tab content -->
+                <div id="London" class="tabcontent">
+                    <h3>London</h3>
+                    <p>London is the capital city of England.</p>
+                </div>
+                
+                <div id="Paris" class="tabcontent">
+                    <h3>Paris</h3>
+                    <p>Paris is the capital of France.</p> 
+                </div>
+                
+                <div id="Tokyo" class="tabcontent">
+                    <h3>Tokyo</h3>
+                    <p>Tokyo is the capital of Japan.</p>
+                </div>
 
             </div>
         </div>
@@ -62,4 +64,71 @@
 
 </div>
 
+{% endblock %}
+
+{% block style %}
+<style type="text/css">
+/* Style the tab */
+.horizontal-tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.horizontal-tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.horizontal-tab button:hover {
+  background-color: #ddd;
+  border-radius:0;
+}
+
+/* Create an active/current tablink class */
+.horizontal-tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+function openCity(evt, cityName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 {% endblock %}
