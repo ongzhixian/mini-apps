@@ -177,6 +177,7 @@ def add_auth_cookie(cookie_name, cookie_value):
 
         # Use aes_crypto to encrypt
         encrypted_cookie_value_hex = cryptograph.aes_encrypt_as_hex(aes_crypto, cookie_value)
+        print("encrypted_cookie_value_hex:\n{0}".format(encrypted_cookie_value_hex))
     bottle.response.set_cookie(cookie_name, encrypted_cookie_value_hex, path='/', httponly=True, expires=expiry)
     return new_uuid_hex
 
@@ -229,7 +230,7 @@ def add_sess_cookie(cookie_name):
         file_path = os.path.join(session_store_path, "cryptography-keys.json")
         aes_crypto =  cryptograph.make_keys("AES", 32, 16)
         with open(file_path, "w+b") as f:
-            f.write(json.dumps(aes_crypto))
+            f.write(json.dumps(aes_crypto).encode("utf-8"))
     return new_uuid_hex
 
 def add_sess_cookie_hook():
@@ -245,23 +246,23 @@ def add_sess_cookie_hook():
 # Define error pages
 ########################################
 
-@error(403)
-def error403(error):
-    bottle.response.set_cookie('mini-apps-session', '', path='/', expires=0)
-    bottle.response.set_cookie('ZX_AUTH', '', path='/', expires=0)
-    return '403 - Forbidden'
+# @error(403)
+# def error403(error):
+#     bottle.response.set_cookie('mini-apps-session', '', path='/', expires=0)
+#     bottle.response.set_cookie('ZX_AUTH', '', path='/', expires=0)
+#     return '403 - Forbidden'
 
-@error(404)
-def error404(error):
-    #bottle.response.set_cookie('mini-apps-session', '', expires=0)
-    bottle.response.set_cookie('mini-apps-session', '', path='/',expires=0)
-    bottle.response.set_cookie('ZX_AUTH', '', path='/', expires=0)
-    return 'Nothing here, sorry'
+# @error(404)
+# def error404(error):
+#     #bottle.response.set_cookie('mini-apps-session', '', expires=0)
+#     bottle.response.set_cookie('mini-apps-session', '', path='/',expires=0)
+#     bottle.response.set_cookie('ZX_AUTH', '', path='/', expires=0)
+#     return 'Nothing here, sorry'
 
-@error(500)
-def error500(error):
-    #bottle.response.set_cookie('mini-apps-session', '', expires=0)
-    return error
+# @error(500)
+# def error500(error):
+#     #bottle.response.set_cookie('mini-apps-session', '', expires=0)
+#     return error
 
 
 

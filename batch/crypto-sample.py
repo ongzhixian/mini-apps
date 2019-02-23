@@ -49,6 +49,9 @@ if __name__ == "__main__":
     aes_key = get_random_byte_string(32)    # 256 bits (32 bytes)
     aes_iv  = get_random_byte_string(16)    # 16 bytes (same as block size)
 
+    import pdb
+    pdb.set_trace()
+
     aes_key_hex_string = "480b41eec90e92aabe6ec159768d7d88fa64eb35a91c7e5c39b89be53eab0d06"
     aes_iv_hex_string = "ed0306cc63b48a3ab0405608aa4ea334"
 

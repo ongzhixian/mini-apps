@@ -27,18 +27,6 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1550415605106" ID="ID_1426106615" MODIFIED="1550864754493" POSITION="left" STYLE="fork" TEXT="game">
-<edge COLOR="#808080" STYLE="sharp_bezier" WIDTH="8"/>
-<font NAME="Dialog" SIZE="18"/>
-<node COLOR="#00b439" CREATED="1550416500579" ID="ID_231438583" LINK="../mindmaps/trading-game.mm" MODIFIED="1550864754508" TEXT="trading">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="Dialog" SIZE="16"/>
-</node>
-<node COLOR="#00b439" CREATED="1550416602615" ID="ID_1977343932" MODIFIED="1550864754508" TEXT="lottery">
-<edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="Dialog" SIZE="16"/>
-</node>
-</node>
 <node COLOR="#0033ff" CREATED="1550415626975" ID="ID_405851840" MODIFIED="1550864754508" POSITION="left" STYLE="fork" TEXT="machine learning">
 <edge COLOR="#808080" STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="Dialog" SIZE="18"/>

@@ -7,7 +7,8 @@ import logging
 import binascii
 
 from Crypto.Cipher import AES
-from Crypto.Random import random
+#from Crypto.Random import random
+from Crypto import Random
 
 ################################################################################
 # Basic functions
@@ -17,17 +18,20 @@ from Crypto.Random import random
 # Define core functions
 ########################################
 
+# def get_random_byte_string(byte_length):
+#     """ Use this function to generate random byte string
+#     """
+#     byte_list = []
+#     i = 0
+#     while i < byte_length:
+#         byte_list.append(chr(random.getrandbits(8)))
+#         i = i + 1
+#     # Make into a string
+#     byte_string = ''.join(byte_list)
+#     return byte_string
+
 def get_random_byte_string(byte_length):
-    """ Use this function to generate random byte string
-    """
-    byte_list = []
-    i = 0
-    while i < byte_length:
-        byte_list.append(chr(random.getrandbits(8)))
-        i = i + 1
-    # Make into a string
-    byte_string = ''.join(byte_list)
-    return byte_string
+    return Random.get_random_bytes(byte_length)
 
 def byte_string_to_hex_string(byte_string):
     return binascii.hexlify(byte_string)
@@ -43,8 +47,8 @@ def make_keys(cipher_type, key_size, iv_size):
     
     return {
         "cipher":   cipher_type,
-        "key":      binascii.hexlify(cipher_key),
-        "iv":       binascii.hexlify(cipher_iv)
+        "key":      binascii.hexlify(cipher_key).decode("utf-8"),
+        "iv":       binascii.hexlify(cipher_iv).decode("utf-8")
     }
     # import json
     # with open("cryptography-keys.json", "w+b") as f:
@@ -69,8 +73,8 @@ def aes_encrypt_as_hex(crypto_struct, plain_text):
     cipher_key = hex_string_to_byte_string(crypto_struct['key'])
     cipher_iv  = hex_string_to_byte_string(crypto_struct['iv'])
     cipher = AES.new(cipher_key, AES.MODE_CFB, cipher_iv)
-    cipher_text = cipher.encrypt(plain_text)
-    return binascii.hexlify(cipher_text)
+    cipher_text = cipher.encrypt(plain_text.encode("utf-8"))
+    return binascii.hexlify(cipher_text).decode("utf-8")
 
 
 def aes_decrypt_from_hex(crypto_struct, hex_text):
@@ -78,7 +82,7 @@ def aes_decrypt_from_hex(crypto_struct, hex_text):
     cipher_iv  = hex_string_to_byte_string(crypto_struct['iv'])
     cipher = AES.new(cipher_key, AES.MODE_CFB, cipher_iv)
     cipher_text = binascii.unhexlify(hex_text)
-    plain_text = cipher.decrypt(cipher_text)
+    plain_text = cipher.decrypt(cipher_text).decode("utf-8")
     return plain_text
 
 
