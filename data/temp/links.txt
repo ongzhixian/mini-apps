@@ -114,3 +114,12 @@ https://finance.yahoo.com/quote/%5ESTI%3FP%3D%5ESTI/history?period1=567619200&pe
 https://www2.sgx.com/indices/products/sti
 https://quotes.wsj.com/index/SG/STI
 https://www.marketwatch.com/investing/index/sti/historical?countrycode=sg
+
+
+https://github.com/flutter/flutter/tree/master/examples/flutter_gallery/lib/gallery
+https://github.com/flutter/samples/blob/master/INDEX.md
+https://flutter.io/docs/development/ui/widgets-intro
+
+https://www.w3schools.com/howto/howto_js_vertical_tabs.asp
+https://www.w3schools.com/charsets/ref_utf_arrows.asp
+
