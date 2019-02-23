@@ -7,3 +7,17 @@
 # An example
 bottle
 #pytest
+
+#python -m pip install SomePackage
+
+
+# If specific python has no pip module, get the following file and run it:
+# https://bootstrap.pypa.io/get-pip.py
+# sudo python3.7 get-pip.py
+
+# After installing pip module, you can install packages as follows:
+sudo python3.7 -m pip install SomePackage
+
+##### Modules install
+sudo python3.7 -m pip install bottle
+sudo python3.7 -m pip install pycryptodome
