@@ -1,8 +1,9 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1550864796082" STYLE="fork" TEXT="focus">
+<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1550865220055" STYLE="fork" TEXT="focus">
 <edge COLOR="#808080" STYLE="bezier" WIDTH="thin"/>
 <font NAME="Consolas" SIZE="20"/>
+<hook NAME="accessories/plugins/AutomaticLayout.properties"/>
 <node COLOR="#0033ff" CREATED="1550415564804" ID="ID_534368945" MODIFIED="1550864754493" POSITION="right" STYLE="fork" TEXT="protocols">
 <edge COLOR="#808080" STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="Consolas" SIZE="18"/>
@@ -64,6 +65,10 @@
 </node>
 <node COLOR="#00b439" CREATED="1550415669690" ID="ID_1148047081" MODIFIED="1550864754524" STYLE="fork" TEXT="Android">
 <edge COLOR="#808080" STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1550865207408" ID="ID_1938418520" MODIFIED="1550865220039" TEXT="Fire">
+<edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="Consolas" SIZE="16"/>
 </node>
 </node>
