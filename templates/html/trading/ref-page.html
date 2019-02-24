@@ -1,0 +1,100 @@
+{% extends "./html/_layouts/_trading.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Reference', 'Home') }}
+
+    <section>
+        <!-- <h3> Reference page</h3> -->
+
+        <table>
+            <!--
+                data-src: http://www.iotafinance.com/en/Futures-Options-Month-Delivery-Codes.html
+            -->
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="/trading/ref/futures/month-codes">Futures Contract delivery month codes</a></td></tr>
+                <tr><td><a href="/trading/ref/options/month-codes">Options Contract delivery month codes</a></td></tr>
+            </tbody>
+        </table>
+
+        <p>External</p>
+
+        <table>
+                <!--
+                    data-src: http://www.iotafinance.com/en/Futures-Options-Month-Delivery-Codes.html
+                -->
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>
+                        <a href="http://www.iotafinance.com/en/Classification-of-Financial-Instrument-codes-CFI-ISO-10962.html">
+                        Classification of Financial Instuments codes (CFI, norm ISO 10962:2015)
+                        </a></td></tr>
+                    <tr><td>
+                        <a href="http://www.iotafinance.com/en/Market-data-interest-rates.html">
+                        Market data - Interest rates (LIBOR, Euro overnight)
+                        </a></td></tr>
+
+                    <tr><td>
+                        <a href="http://www.iotafinance.com/en/Directory-Asset-Management.html">
+                        Financial directory for Asset management
+                        </a></td></tr>
+
+                    <tr><td>
+                        <a href="https://www.iso20022.org/10383/iso-10383-market-identifier-codes">
+                        ISO 10383 Codes for exchanges and market identification (MIC)
+                        </a></td></tr>
+
+                    <tr><td>
+                        <a href="http://www.iotafinance.com/en/SWIFT-messages-ISO15022-standard.html">
+                        SWIFT messages - ISO 15022 standard
+                        </a></td></tr>
+
+                    <tr><td>
+                        <a href="https://www.msci.com/gics">
+                        GICs
+                        </a></td></tr>
+                        
+
+                    <tr><td>SIBOR</td></tr>
+                    <!--
+                        https://www.quantshare.com/sa-620-10-new-ways-to-download-historical-stock-quotes-for-free
+                        https://www.tickdata.com/data-delivery-overview/tickapi/
+
+
+                        https://finance.yahoo.com/quote/CSV/history/
+                        https://finance.yahoo.com/quote/%5ESTI%3FP%3D%5ESTI/history/
+
+                    -->
+
+
+
+                </tbody>
+            </table>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}

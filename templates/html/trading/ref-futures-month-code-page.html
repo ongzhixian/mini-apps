@@ -1,0 +1,61 @@
+{% extends "./html/_layouts/_trading.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Reference', 'Futures month codes') }}
+
+    <p>
+        Futures contracts delivery month codes
+    </p>
+
+    <section>
+        <table>
+            <!--
+                data-src: http://www.iotafinance.com/en/Futures-Options-Month-Delivery-Codes.html
+            -->
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Code</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr><td>January</td><td>F</td></tr>
+                <tr><td>February</td><td>G</td></tr>
+                <tr><td>March</td><td>H</td></tr>
+
+                <tr><td>April</td><td>J</td></tr>
+                <tr><td>May</td><td>K</td></tr>
+                <tr><td>June</td><td>M</td></tr>
+
+                <tr><td>July</td><td>N</td></tr>
+                <tr><td>August</td><td>Q</td></tr>
+                <tr><td>September</td><td>U</td></tr>
+
+                <tr><td>October</td><td>V</td></tr>
+                <tr><td>November</td><td>X</td></tr>
+                <tr><td>December</td><td>Z</td></tr>
+
+                
+            </tbody>
+        </table>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
+
