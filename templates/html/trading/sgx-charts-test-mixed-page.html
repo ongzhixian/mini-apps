@@ -1,0 +1,66 @@
+{% extends "./html/_layouts/_trading.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Home', 'Area chart sample') }}
+    
+    <section>
+
+        <div>
+            <canvas id="myChart" width="400" height="167"></canvas>
+        </div>
+
+        <p>
+            <a href="/trading/sgx/charts/test">Back to sample list</a>
+        </p>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/js/chartjs/Chart.js"></script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+          label: 'Bar Dataset',
+          data: [10, 20, 30, 40]
+        }, {
+          label: 'Line Dataset',
+          data: [35, 35, 35, 35],
+          // Changes this dataset to become a line
+          type: 'line',
+          fill: false
+        }],
+
+        
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+{% endblock %}

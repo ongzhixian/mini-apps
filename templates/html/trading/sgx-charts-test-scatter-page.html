@@ -1,0 +1,67 @@
+{% extends "./html/_layouts/_trading.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Home', 'Scatter chart sample') }}
+    
+    <section>
+
+        <div>
+            <canvas id="myChart" width="400" height="167"></canvas>
+        </div>
+
+        <p>
+            <a href="/trading/sgx/charts/test">Back to sample list</a>
+        </p>
+    
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/js/chartjs/Chart.js"></script>
+<script type="text/javascript">
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [
+                {   x: -10,     y: 0    }
+                , {   x: -8,     y: 5   }
+                , {   x: 0,     y: 10   }
+                , {   x: 10,    y: 3    }
+                , {   x: 5,     y: 15   }
+                , {   x: 13,     y: 15   }
+            ],
+            borderWidth: 1,
+            fill: true,
+            radius: 8
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                type: 'linear',
+                position: 'bottom'
+            }]
+        }
+    }
+});
+</script>
+{% endblock %}

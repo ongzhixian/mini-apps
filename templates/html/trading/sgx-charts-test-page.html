@@ -1,0 +1,43 @@
+{% extends "./html/_layouts/_trading.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Home', 'Charts demo list') }}
+
+    
+    <section>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Chart type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><a href="/trading/sgx/charts/test-line">Line</a></td></tr>
+                <tr><td><a href="/trading/sgx/charts/test-bar">Bar</a></td></tr>
+                <tr><td><a href="/trading/sgx/charts/test-area">Area</a></td></tr>
+                <tr><td><a href="/trading/sgx/charts/test-radar">Radar</a></td></tr>
+                <tr><td><a href="/trading/sgx/charts/test-doughnut">Doughnut</a></td></tr>
+                <tr><td><a href="/trading/sgx/charts/test-bubble">Bubble</a></td></tr>
+                <tr><td><a href="/trading/sgx/charts/test-scatter">Scatter</a></td></tr>
+                <tr><td><a href="/trading/sgx/charts/test-polar">Polar</a></td></tr>
+                <tr><td><a href="/trading/sgx/charts/test-mixed">Mixed</a></td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
