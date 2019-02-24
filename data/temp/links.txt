@@ -123,3 +123,13 @@ https://flutter.io/docs/development/ui/widgets-intro
 https://www.w3schools.com/howto/howto_js_vertical_tabs.asp
 https://www.w3schools.com/charsets/ref_utf_arrows.asp
 
+
+
+
+https://reactjs.org/?no-cache=1
+
+
+https://dotnet.microsoft.com/learn/machinelearning-ai/ml-dotnet-get-started-tutorial/dataset
+https://github.com/dotnet/machinelearning
+https://dotnet.microsoft.com/
+http://www.monogame.net/documentation/?page=main
