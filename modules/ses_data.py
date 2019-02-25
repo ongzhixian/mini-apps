@@ -128,7 +128,7 @@ def get_latest_historical_price_key():
     return pj['items'][0]['key']
 
 
-def download_prices(start_num=None, end_num=None, last_n_days=7):
+def download_prices(start_num=None, end_num=None, last_n_days=7, save_file_path="data/ses/prices/"):
     file_path_list = []
     if start_num is None or end_num is None:
         (start_num, end_num) = get_download_prices_start_end(last_n_days)
@@ -139,15 +139,18 @@ def download_prices(start_num=None, end_num=None, last_n_days=7):
 
     # Loop from start_num to end_num to download file by key
     curr_num = start_num
-    url_template = "https://links.sgx.com/1.0.0/securities-historical/{0}/SESprice.dat"
-    save_file_path_template = "data/ses/prices/SESprice-{0}.dat"
+    url_template = "https://links.sgx.com/1.0.0/securities-historical/{0}/SESprice.zip"
+    save_file_path_template = os.path.join(save_file_path, "SESprice-{0}.zip")
     while curr_num <= end_num:
-        curr_url = url_template.format(curr_num)
-        curr_save_file_path = save_file_path_template.format(curr_num)
-        download_file(curr_url, curr_save_file_path)
-        file_path_list.append(curr_save_file_path)
-        logging.info("Downloaded price for key[{0}] to [{1}]".format(curr_num, curr_save_file_path))
-        curr_num = curr_num + 1
+        try:
+            curr_url = url_template.format(curr_num)
+            curr_save_file_path = save_file_path_template.format(curr_num)
+            download_file(curr_url, curr_save_file_path)
+            file_path_list.append(curr_save_file_path)
+            logging.info("Downloaded price for key[{0}] to [{1}]".format(curr_num, curr_save_file_path))
+            curr_num = curr_num + 1
+        except Exception as ex:
+            logging.error(ex)
     return (start_num, end_num, file_path_list)
 
 def get_download_prices_start_end(last_n_days=7):
