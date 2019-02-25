@@ -14,6 +14,7 @@ from io import StringIO
 from lxml import etree
 
 import logging
+from zipfile import ZipFile
 
 from modules import sw_news_data
 
@@ -90,8 +91,8 @@ if __name__ == "__main__":
     # ses_data.process_isin_file(filepath)
 
     logging.info("[PRICE]")
-    tp = ses_data.download_prices() # tp - tuple; tp = (start_num, end_num, file_path_list)
-    file_path_list = tp[2]
+    # tp = ses_data.download_prices(save_file_path="C:/src/downloads/ses") # tp - tuple; tp = (start_num, end_num, file_path_list)
+    # file_path_list = tp[2]
     # if file_path_list is not None and len(file_path_list) > 0:
     #     for file_path in file_path_list:
     #         ses_data.process_price_file(file_path)
@@ -101,17 +102,47 @@ if __name__ == "__main__":
     # bn = os.path.basename(file1)
     #ses_data.process_price_file(file1)
 
-    # Process archived files
-    raw_prices_dir = "data/ses/raw-prices"
-    file_list = os.listdir(raw_prices_dir)
-
-    for file_name in file_list:
-        price_file_path = os.path.join(raw_prices_dir, file_name)
-        logging.info("Processing [{0}]".format(price_file_path))
+    # Process zipped archived files (old)
+    #raw_prices_dir = "data/ses/raw-prices"
+    raw_prices_dir = "C:/src/downloads/ses"
+    # SESprice-5388.zip
+    start_num = 5388
+    curr_num = start_num 
+    while curr_num > 0:
+        curr_zipped_file_name = "SESprice-{0}.zip".format(curr_num)
+        zipped_price_file_path = os.path.join(raw_prices_dir, curr_zipped_file_name)
+        logging.info("Processing [{0}]".format(zipped_price_file_path))
         try:
-            ses_data.process_price_file(price_file_path)
+            # create directory for zipfile content extraction
+            output_dir_name = "SESprice-{0}".format(curr_num)
+            extract_dirpath = 'C:/src/temp/ses/{0}'.format(output_dir_name)
+            if not os.path.exists(extract_dirpath):
+                os.makedirs(extract_dirpath)
+            # unzip file
+            with ZipFile(zipped_price_file_path, 'r') as myzip:
+                myzip.extractall(extract_dirpath)
+            # process the SESPRICE.DAT in each directory
+            # TODO:
+            curr_num = curr_num - 1
         except Exception as ex:
-            logging.exception("Fail to process file: [{0}]".format(price_file_path))
+            logging.error(ex)
+        # try:
+        #     ses_data.process_price_file(price_file_path)
+        # except Exception as ex:
+        #     logging.exception("Fail to process file: [{0}]".format(price_file_path))
+
+
+    # Process archived files (old)
+    # raw_prices_dir = "data/ses/raw-prices"
+    # file_list = os.listdir(raw_prices_dir)
+
+    # for file_name in file_list:
+    #     price_file_path = os.path.join(raw_prices_dir, file_name)
+    #     logging.info("Processing [{0}]".format(price_file_path))
+    #     try:
+    #         ses_data.process_price_file(price_file_path)
+    #     except Exception as ex:
+    #         logging.exception("Fail to process file: [{0}]".format(price_file_path))
 
     #print(file_list[0])
 
