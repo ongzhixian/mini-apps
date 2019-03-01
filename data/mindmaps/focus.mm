@@ -1,8 +1,9 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1550900824721" STYLE="fork" TEXT="focus">
+<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1551274811389" STYLE="fork" TEXT="focus">
 <edge COLOR="#808080" STYLE="bezier" WIDTH="thin"/>
 <font NAME="Dialog" SIZE="20"/>
+<hook NAME="accessories/plugins/AutomaticLayout.properties"/>
 <node COLOR="#0033ff" CREATED="1550415564804" ID="ID_534368945" MODIFIED="1550864754493" POSITION="right" STYLE="fork" TEXT="protocols">
 <edge COLOR="#808080" STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="Dialog" SIZE="18"/>
@@ -25,6 +26,14 @@
 <node COLOR="#00b439" CREATED="1550900815599" ID="ID_81626364" MODIFIED="1550900821711" TEXT="pop">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551274765729" ID="ID_1624202370" MODIFIED="1551274811328" TEXT="tls">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551274778694" ID="ID_1414742436" MODIFIED="1551274811379" TEXT="ets (eTLS)">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
 </node>
 </node>
 <node COLOR="#0033ff" CREATED="1550415626975" ID="ID_405851840" MODIFIED="1550864754508" POSITION="left" STYLE="fork" TEXT="machine learning">
@@ -63,6 +72,10 @@
 <font NAME="Dialog" SIZE="16"/>
 </node>
 <node COLOR="#00b439" CREATED="1550865207408" ID="ID_1938418520" MODIFIED="1550865220039" TEXT="Fire">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551366831987" ID="ID_248711613" MODIFIED="1551366834318" TEXT="PWA">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="Consolas" SIZE="16"/>
 </node>
@@ -361,6 +374,34 @@
 <font NAME="Dialog" SIZE="12"/>
 </node>
 </node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1551276311506" ID="ID_114431926" MODIFIED="1551276314594" POSITION="left" TEXT="workflow">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="Consolas" SIZE="18"/>
+</node>
+<node COLOR="#0033ff" CREATED="1551366425168" ID="ID_1345799582" MODIFIED="1551366428914" POSITION="right" TEXT="deployment">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="Consolas" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1551366413080" ID="ID_325909345" MODIFIED="1551366431977" TEXT="jenkins">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551366434827" ID="ID_1081771646" MODIFIED="1551366436232" TEXT="tfs">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551366437020" ID="ID_738927123" MODIFIED="1551366441194" TEXT="travis">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551366441819" ID="ID_369416567" MODIFIED="1551366446196" TEXT="gitlab">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551366449128" ID="ID_1862664860" MODIFIED="1551366830148" TEXT="">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
 </node>
 </node>
 </node>

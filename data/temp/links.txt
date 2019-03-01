@@ -134,3 +134,6 @@ https://dotnet.microsoft.com/learn/machinelearning-ai/ml-dotnet-get-started-tuto
 https://github.com/dotnet/machinelearning
 https://dotnet.microsoft.com/
 http://www.monogame.net/documentation/?page=main
+
+
+https://www.qara.ai/dl
