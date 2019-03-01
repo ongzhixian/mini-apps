@@ -25,6 +25,11 @@ sudo python3.7 -m pip install flask
 sudo python3.7 -m pip install pycryptodome
 sudo python3.7 -m pip install jinja2
 
+sudo python3.7 -m pip install requests
+sudo python3.7 -m pip install lxml
+sudo python3.7 -m pip install beautifulsoup4
+
+
 sudo python3.7 -m pip install pandas
 sudo python3.7 -m pip install numpy
 sudo python3.7 -m pip install scikit-learn

@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1551274811389" STYLE="fork" TEXT="focus">
+<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1551484012580" STYLE="fork" TEXT="focus">
 <edge COLOR="#808080" STYLE="bezier" WIDTH="thin"/>
 <font NAME="Dialog" SIZE="20"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
@@ -34,6 +34,14 @@
 <node COLOR="#00b439" CREATED="1551274778694" ID="ID_1414742436" MODIFIED="1551274811379" TEXT="ets (eTLS)">
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484237653" ID="ID_1763382837" MODIFIED="1551484239161" TEXT="opc">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484248457" ID="ID_923024118" MODIFIED="1551484312842" TEXT="market-data">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
 <node COLOR="#0033ff" CREATED="1550415626975" ID="ID_405851840" MODIFIED="1550864754508" POSITION="left" STYLE="fork" TEXT="machine learning">
@@ -98,6 +106,10 @@
 <node COLOR="#00b439" CREATED="1550415726821" ID="ID_582614461" MODIFIED="1550864754540" STYLE="fork" TEXT="xul">
 <edge COLOR="#808080" STYLE="bezier" WIDTH="thin"/>
 <font NAME="Dialog" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484208989" ID="ID_1381196098" MODIFIED="1551484215118" TEXT="coldfusion">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
 <node COLOR="#0033ff" CREATED="1550415907591" ID="ID_358614696" MODIFIED="1550864754540" POSITION="left" STYLE="fork" TEXT="task runners">
@@ -238,7 +250,7 @@
 <font NAME="Dialog" SIZE="16"/>
 </node>
 </node>
-<node COLOR="#0033ff" CREATED="1550863839398" FOLDED="true" ID="ID_1616469961" MODIFIED="1550864813003" POSITION="right" TEXT="api">
+<node COLOR="#0033ff" CREATED="1550863839398" ID="ID_1616469961" MODIFIED="1551484162786" POSITION="right" TEXT="api">
 <edge STYLE="sharp_bezier" WIDTH="8"/>
 <font NAME="Dialog" SIZE="18"/>
 <node COLOR="#00b439" CREATED="1550863909691" ID="ID_1907402712" MODIFIED="1550864754571" TEXT="messaging">
@@ -275,6 +287,16 @@
 </node>
 <node COLOR="#990000" CREATED="1550863856574" ID="ID_625781386" MODIFIED="1550864754587" TEXT="google gmail">
 <font NAME="Dialog" SIZE="14"/>
+</node>
+</node>
+<node COLOR="#00b439" CREATED="1551484180398" ID="ID_1512001303" MODIFIED="1551484187670" TEXT="tasks">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1551484188565" ID="ID_1447752490" MODIFIED="1551484191918" TEXT="google keep">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1551484192342" ID="ID_1967470018" MODIFIED="1551484198221" TEXT="microsoft todo">
+<font NAME="SansSerif" SIZE="14"/>
 </node>
 </node>
 </node>
@@ -399,9 +421,49 @@
 <edge STYLE="bezier" WIDTH="thin"/>
 <font NAME="Consolas" SIZE="16"/>
 </node>
-<node COLOR="#00b439" CREATED="1551366449128" ID="ID_1862664860" MODIFIED="1551366830148" TEXT="">
+</node>
+<node COLOR="#0033ff" CREATED="1551484047886" ID="ID_358351467" MODIFIED="1551484050045" POSITION="left" TEXT="cloud">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1551484050943" ID="ID_1688992521" MODIFIED="1551484058536" TEXT="amazon">
 <edge STYLE="bezier" WIDTH="thin"/>
-<font NAME="Consolas" SIZE="16"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484059062" ID="ID_1750789430" MODIFIED="1551484064997" TEXT="ibm cloud">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484065767" ID="ID_799983871" MODIFIED="1551484068136" TEXT="azure">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484069990" ID="ID_1342350641" MODIFIED="1551484078149" TEXT="google cloud platform">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484078479" ID="ID_1238813634" MODIFIED="1551484080718" TEXT="alibaba">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1551484091855" ID="ID_1818907897" MODIFIED="1551484122925" POSITION="right" TEXT="bots">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1551484111662" ID="ID_396663822" MODIFIED="1551484121073" TEXT="conceptual">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+<node COLOR="#990000" CREATED="1551484100294" ID="ID_1230032061" MODIFIED="1551484117007" TEXT="brahman-roster-bot">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="14"/>
+<node COLOR="#111111" CREATED="1551484128382" ID="ID_1360490136" MODIFIED="1551484133123" TEXT="roster members"/>
+<node COLOR="#111111" CREATED="1551484133534" ID="ID_787729454" MODIFIED="1551484138571" TEXT="rostering rules"/>
+</node>
+<node COLOR="#990000" CREATED="1551484280612" ID="ID_162569324" MODIFIED="1551484285508" TEXT="emmy-slack-bot">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
+<node COLOR="#990000" CREATED="1551484295405" ID="ID_1440541372" MODIFIED="1551484300636" TEXT="brahman-devops-bot">
+<font NAME="SansSerif" SIZE="14"/>
+</node>
 </node>
 </node>
 </node>
