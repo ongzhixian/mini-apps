@@ -115,7 +115,7 @@ if __name__ == "__main__":
     start_num = 5392
     start_num = 5155 # 5156 is not zip file
     start_num = 4729 # 4730 is not zip file
-    start_num = 4563 # 4564 is not zip file
+    start_num = 4564 # 4564 is not zip file
     curr_num = start_num 
     while curr_num > 0:
         curr_zipped_file_name = "SESprice-{0}.zip".format(curr_num)
@@ -143,8 +143,8 @@ if __name__ == "__main__":
             # TODO:
             curr_num = curr_num - 1
         except BadZipFile as badZipFileEx:
-            logging.error(badZipFileEx)
-            continue
+            logging.error("FILE NUMBER {0}; {1}".format(curr_num, badZipFileEx))
+            curr_num = curr_num - 1
         except Exception as ex:
             import pdb
             pdb.set_trace()
