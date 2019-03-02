@@ -14,7 +14,7 @@ from io import StringIO
 from lxml import etree
 
 import logging
-from zipfile import ZipFile
+from zipfile import ZipFile, BadZipFile
 
 from modules import sw_news_data
 
@@ -113,6 +113,9 @@ if __name__ == "__main__":
     # SESprice-5388.zip
     # ZX: Work backwards starting with latest files first
     start_num = 5392
+    start_num = 5155 # 5156 is not zip file
+    start_num = 4729 # 4730 is not zip file
+    start_num = 4563 # 4564 is not zip file
     curr_num = start_num 
     while curr_num > 0:
         curr_zipped_file_name = "SESprice-{0}.zip".format(curr_num)
@@ -139,7 +142,12 @@ if __name__ == "__main__":
 
             # TODO:
             curr_num = curr_num - 1
+        except BadZipFile as badZipFileEx:
+            logging.error(badZipFileEx)
+            continue
         except Exception as ex:
+            import pdb
+            pdb.set_trace()
             logging.error(ex)
             
     

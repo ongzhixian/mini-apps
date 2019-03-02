@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1551484012580" STYLE="fork" TEXT="focus">
+<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1551484784345" STYLE="fork" TEXT="focus">
 <edge COLOR="#808080" STYLE="bezier" WIDTH="thin"/>
 <font NAME="Dialog" SIZE="20"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
@@ -464,6 +464,30 @@
 <node COLOR="#990000" CREATED="1551484295405" ID="ID_1440541372" MODIFIED="1551484300636" TEXT="brahman-devops-bot">
 <font NAME="SansSerif" SIZE="14"/>
 </node>
+</node>
+</node>
+<node COLOR="#0033ff" CREATED="1551484743329" ID="ID_1728360403" MODIFIED="1551484746870" POSITION="left" TEXT="reporting">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="SansSerif" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1551484747874" ID="ID_212909335" MODIFIED="1551484752539" TEXT="crystal reports">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484752922" ID="ID_361803380" MODIFIED="1551484756852" TEXT="power bi">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484757641" ID="ID_969479569" MODIFIED="1551484761194" TEXT="power apps?">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484761610" ID="ID_314667634" MODIFIED="1551484766209" TEXT="SSRS">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1551484769226" ID="ID_83145893" MODIFIED="1551484773067" TEXT="pentaho">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
 </node>
