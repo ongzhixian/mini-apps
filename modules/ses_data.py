@@ -179,35 +179,51 @@ def process_isin_file(input_file_path):
     # ISIN Code   20
     # Code        10
     # Name        50
-    for line_data in lines:
-        name = line_data[:50].strip()
-        status = line_data[50:60].strip()
-        isin_code = line_data[60:80].strip()
-        code = line_data[80:90].strip()
-        counter_name = line_data[90:].strip()
-        logging.debug("Updating ISIN for [{0}]".format(code))
-        upsert_isin(SQLITE_FILE_PATH, code, name, status, isin_code, counter_name, current_timestamp)
+    # for line_data in lines:
+    #     name = line_data[:50].strip()
+    #     status = line_data[50:60].strip()
+    #     isin_code = line_data[60:80].strip()
+    #     code = line_data[80:90].strip()
+    #     counter_name = line_data[90:].strip()
+    #     logging.debug("Updating ISIN for [{0}]".format(code))
+    # ZX: Connecting on every upsert is too slow! Especially on Windows/Python3.7
+    #     upsert_isin(SQLITE_FILE_PATH, code, name, status, isin_code, counter_name, current_timestamp)
+    with sqlite3.connect(SQLITE_FILE_PATH) as conn:
+        cursor = conn.cursor()
+        for line_data in lines:
+            name = line_data[:50].strip()
+            status = line_data[50:60].strip()
+            isin_code = line_data[60:80].strip()
+            code = line_data[80:90].strip()
+            counter_name = line_data[90:].strip()
+            cursor.execute(
+                "INSERT OR REPLACE INTO isin (code, name, status, isin_code, counter_name, timestamp) VALUES (?, ?, ?, ?, ?, ?)",
+                (code, name, status, isin_code, counter_name, current_timestamp)
+                )
+            logging.debug("Updating ISIN for [{0}]".format(code))
     logging.info("Number of lines processed: [{0}]".format(len(lines)))
 
 def process_price_file(input_file_path):
     current_timestamp = datetime.now().strftime("%Y-%m-%d")
+
     with open (input_file_path, 'r') as f:
         # csv   - comma separated values
         # ssv  - semi-colon separated values
         #line = f.readline() # skip header (if any)
         row_num = 0
         price_reader = csv.reader(f, delimiter=';')
-        for row in price_reader:
-            #logging.debug("Updating company [%s] for trade date [%s]" % (row[14], row[0]))
-            if len(row) < 16:
-                logging.warning("Skipping line; row has lesser than 16 fields: [%s]" %  row)
-                continue
-            upsert_price(SQLITE_FILE_PATH, row)
-            row_num = row_num + 1
-        logging.info("[{0}] has [{1}] rows processed.".format(input_file_path, row_num))
-        input_file_name = os.path.basename(input_file_path)
-        upsert_processed_file(SQLITE_FILE_PATH, input_file_name, input_file_path, "PRICE", row[0], current_timestamp, None)
-
+        with sqlite3.connect(SQLITE_FILE_PATH) as conn:
+            cursor = conn.cursor()
+            for row in price_reader:
+                #logging.debug("Updating company [%s] for trade date [%s]" % (row[14], row[0]))
+                if len(row) < 16:
+                    logging.warning("Skipping line; row has lesser than 16 fields: [%s]" %  row)
+                    continue
+                upsert_price(cursor, row)
+                row_num = row_num + 1
+            logging.info("[{0}] has [{1}] rows processed.".format(input_file_path, row_num))
+            input_file_name = os.path.basename(input_file_path)
+            upsert_processed_file(cursor, input_file_name, input_file_path, "PRICE", row[0], current_timestamp, None)
 
 
 # def download_prices():
@@ -361,44 +377,45 @@ def create_price_table(sqlite3_cursor):
         PRIMARY KEY (trade_date, stock_code)
         )''')
 
-def upsert_price(sqlite_filename, sv_row):
-    with sqlite3.connect(sqlite_filename) as conn:
-        cursor = conn.cursor()
-        # #update_company_table(appconfig["sqlite"]["sgx_db"], row)
-        # update_price_table(appconfig["sqlite"]["sgx_db"], row)
-        # logging.debug("DO row")
-        # row_num = row_num + 1
-        # timestamp   = row[0].strip()
-        # code        = row[14].strip()
-        # mkt_open    = row[12].strip()
-        # mkt_high    = row[4].strip()
-        # mkt_low     = row[5].strip()
-        # mkt_close   = row[6].strip()
-        # bid         = row[9].strip()
-        # ask         = row[10].strip()
-        # volume      = row[8].strip()
-        # value       = row[13].strip()
-        f_trade_date  = sv_row[0].strip()
-        f_stock_name  = sv_row[1].strip()
-        f_remarks     = sv_row[2].strip()
-        f_currency    = sv_row[3].strip()
-        f_high        = sv_row[4].strip()
-        f_low         = sv_row[5].strip()
-        f_last        = sv_row[6].strip()
-        f_change      = sv_row[7].strip()
-        f_volume      = sv_row[8].strip()
-        f_bid         = sv_row[9].strip()
-        f_offer       = sv_row[10].strip()
-        f_market      = sv_row[11].strip()
-        f_open        = sv_row[12].strip()
-        f_value       = sv_row[13].strip()
-        f_stock_code  = sv_row[14].strip()
-        f_dclose      = sv_row[15].strip()
-        logging.debug(f_trade_date, f_stock_name, f_remarks, f_currency, f_high, f_low, f_last, f_change, f_volume, f_bid, f_offer, f_market, f_open, f_value, f_stock_code, f_dclose)
+def upsert_price(cursor, sv_row):
+    # #update_company_table(appconfig["sqlite"]["sgx_db"], row)
+    # update_price_table(appconfig["sqlite"]["sgx_db"], row)
+    # logging.debug("DO row")
+    # row_num = row_num + 1
+    # timestamp   = row[0].strip()
+    # code        = row[14].strip()
+    # mkt_open    = row[12].strip()
+    # mkt_high    = row[4].strip()
+    # mkt_low     = row[5].strip()
+    # mkt_close   = row[6].strip()
+    # bid         = row[9].strip()
+    # ask         = row[10].strip()
+    # volume      = row[8].strip()
+    # value       = row[13].strip()
+    f_trade_date  = sv_row[0].strip()
+    f_stock_name  = sv_row[1].strip()
+    f_remarks     = sv_row[2].strip()
+    f_currency    = sv_row[3].strip()
+    f_high        = sv_row[4].strip()
+    f_low         = sv_row[5].strip()
+    f_last        = sv_row[6].strip()
+    f_change      = sv_row[7].strip()
+    f_volume      = sv_row[8].strip()
+    f_bid         = sv_row[9].strip()
+    f_offer       = sv_row[10].strip()
+    f_market      = sv_row[11].strip()
+    f_open        = sv_row[12].strip()
+    f_value       = sv_row[13].strip()
+    f_stock_code  = sv_row[14].strip()
+    f_dclose      = sv_row[15].strip()
+    #logging.debug(f_trade_date, f_stock_name, f_remarks, f_currency, f_high, f_low, f_last, f_change, f_volume, f_bid, f_offer, f_market, f_open, f_value, f_stock_code, f_dclose)
+    try:
         cursor.execute(
             "INSERT OR REPLACE INTO price (trade_date, stock_name, remarks, currency, high, low, last, change, volume, bid, offer, market, open, value, stock_code, dclose) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (f_trade_date, f_stock_name, f_remarks, f_currency, f_high, f_low, f_last, f_change, f_volume, f_bid, f_offer, f_market, f_open, f_value, f_stock_code, f_dclose)
             )
+    except Exception as ex:
+        logging.error(ex)
 
 
 ########################################
@@ -419,13 +436,11 @@ def create_processed_file_table(sqlite3_cursor):
         PRIMARY KEY (file_path)
         )''')
 
-def upsert_processed_file(sqlite_filename, file_name, file_path, file_type, trade_date, timestamp, remarks):
-    with sqlite3.connect(sqlite_filename) as conn:
-        cursor = conn.cursor()
-        cursor.execute(
-            "INSERT OR REPLACE INTO processed_file (file_name, file_path, file_type, trade_date, timestamp, remarks) VALUES (?, ?, ?, ?, ?, ?)",
-            (file_name, file_path, file_type, trade_date, timestamp, remarks)
-            )
+def upsert_processed_file(cursor, file_name, file_path, file_type, trade_date, timestamp, remarks):
+    cursor.execute(
+        "INSERT OR REPLACE INTO processed_file (file_name, file_path, file_type, trade_date, timestamp, remarks) VALUES (?, ?, ?, ?, ?, ?)",
+        (file_name, file_path, file_type, trade_date, timestamp, remarks)
+        )
 
 
 

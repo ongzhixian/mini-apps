@@ -10,5 +10,12 @@
     },
     "url_dump": {
         "sqlite3_filename"  : "./data/sqlite3/url_kb.sqlite3"
+    },
+    "runtime_environment"   : {
+        "acadian" : {
+            "src_dir"   : "D:/src/github.com/ongzhixian/mini-apps",
+            "temp_dir"  : "D:/temp"
+        }
     }
+
 }
