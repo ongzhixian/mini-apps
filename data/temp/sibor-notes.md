@@ -38,3 +38,8 @@ https://secure.mas.gov.sg/api/Search.aspx
 http://www.mas.gov.sg/Statistics/Other-Statistics.aspx
 
 
+Other sites with interesting data
+https://tradingeconomics.com/singapore/indicators
+https://finance.yahoo.com/quote/%5ESTI%3FP%3D%5ESTI/history/
+
+https://www.dividendearner.com/google-finance-alternatives/

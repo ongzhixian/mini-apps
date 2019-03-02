@@ -112,10 +112,8 @@ if __name__ == "__main__":
     
     # SESprice-5388.zip
     # ZX: Work backwards starting with latest files first
-    start_num = 5392
-    start_num = 5155 # 5156 is not zip file
-    start_num = 4729 # 4730 is not zip file
-    start_num = 4564 # 4564 is not zip file
+    start_num = 3547 # 3548, 3348 looks weird
+    start_num = 1394
     curr_num = start_num 
     while curr_num > 0:
         curr_zipped_file_name = "SESprice-{0}.zip".format(curr_num)

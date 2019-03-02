@@ -215,15 +215,40 @@ def process_price_file(input_file_path):
         with sqlite3.connect(SQLITE_FILE_PATH) as conn:
             cursor = conn.cursor()
             for row in price_reader:
-                #logging.debug("Updating company [%s] for trade date [%s]" % (row[14], row[0]))
                 if len(row) < 16:
                     logging.warning("Skipping line; row has lesser than 16 fields: [%s]" %  row)
-                    continue
+                    break
                 upsert_price(cursor, row)
                 row_num = row_num + 1
-            logging.info("[{0}] has [{1}] rows processed.".format(input_file_path, row_num))
-            input_file_name = os.path.basename(input_file_path)
-            upsert_processed_file(cursor, input_file_name, input_file_path, "PRICE", row[0], current_timestamp, None)
+
+        # If no rows are processed, probably because format is old format (comma-separated instead of semi-colon)    
+    if row_num == 0:
+        with open (input_file_path, 'r') as f:  
+            price_reader = csv.reader(f, delimiter=',')
+            with sqlite3.connect(SQLITE_FILE_PATH) as conn:
+                cursor = conn.cursor()
+                for row in price_reader:
+                    if len(row) >= 15:
+                        upsert_price_old(cursor, row)
+                        row_num = row_num + 1
+                    elif len(row) == 13:
+                        upsert_price_old12(cursor, row)
+                        row_num = row_num + 1
+                    elif len(row) > 0 and row[0] == '\x1a':
+                        continue
+                    else:
+                        logging.warning("Skipping line; row has lesser than 13 fields: [%s]" %  row)
+                        import pdb
+                        pdb.set_trace()
+                        break
+                    # upsert_price_old(cursor, row)
+                    # row_num = row_num + 1
+
+        if row_num == 0:
+            logging.warning("FILE NOT PROCESSED: [{0}]".format(input_file_path))
+        logging.info("[{0}] has [{1}] rows processed.".format(input_file_path, row_num))
+        input_file_name = os.path.basename(input_file_path)
+        upsert_processed_file(cursor, input_file_name, input_file_path, "PRICE", row[0], current_timestamp, None)
 
 
 # def download_prices():
@@ -373,7 +398,7 @@ def create_price_table(sqlite3_cursor):
         open        numeric,
         value       text,
         stock_code  text,
-        dclose      text,
+        dclose      numeric,
         PRIMARY KEY (trade_date, stock_code)
         )''')
 
@@ -413,6 +438,54 @@ def upsert_price(cursor, sv_row):
         cursor.execute(
             "INSERT OR REPLACE INTO price (trade_date, stock_name, remarks, currency, high, low, last, change, volume, bid, offer, market, open, value, stock_code, dclose) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             (f_trade_date, f_stock_name, f_remarks, f_currency, f_high, f_low, f_last, f_change, f_volume, f_bid, f_offer, f_market, f_open, f_value, f_stock_code, f_dclose)
+            )
+    except Exception as ex:
+        logging.error(ex)
+
+def upsert_price_old(cursor, sv_row):
+    f_trade_date  = sv_row[0].strip()
+    f_stock_name  = sv_row[1].strip()
+    f_remarks     = sv_row[2].strip()
+    f_currency    = sv_row[3].strip()
+    f_high        = sv_row[4].strip()
+    f_low         = sv_row[5].strip()
+    f_last        = sv_row[6].strip()
+    f_change      = sv_row[7].strip()
+    f_volume      = sv_row[8].strip()
+    f_bid         = sv_row[9].strip()
+    f_offer       = sv_row[10].strip()
+    f_market      = sv_row[11].strip()
+    f_open        = sv_row[12].strip()
+    f_value       = sv_row[13].strip()
+    f_stock_code  = sv_row[14].strip()
+    #f_dclose      = sv_row[15].strip()
+    #logging.debug(f_trade_date, f_stock_name, f_remarks, f_currency, f_high, f_low, f_last, f_change, f_volume, f_bid, f_offer, f_market, f_open, f_value, f_stock_code, f_dclose)
+    try:
+        cursor.execute(
+            "INSERT OR REPLACE INTO price (trade_date, stock_name, remarks, currency, high, low, last, change, volume, bid, offer, market, open, value, stock_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (f_trade_date, f_stock_name, f_remarks, f_currency, f_high, f_low, f_last, f_change, f_volume, f_bid, f_offer, f_market, f_open, f_value, f_stock_code)
+            )
+    except Exception as ex:
+        logging.error(ex)
+
+
+def upsert_price_old12(cursor, sv_row):
+    f_trade_date  = sv_row[0].strip()
+    f_stock_name  = sv_row[1].strip()
+    f_remarks     = sv_row[2].strip()
+    f_currency    = sv_row[3].strip()
+    f_high        = sv_row[4].strip()
+    f_low         = sv_row[5].strip()
+    f_last        = sv_row[6].strip()
+    f_change      = sv_row[7].strip()
+    f_volume      = sv_row[8].strip()
+    f_bid         = sv_row[9].strip()
+    f_offer       = sv_row[10].strip()
+    f_market      = sv_row[11].strip()
+    try:
+        cursor.execute(
+            "INSERT OR REPLACE INTO price (trade_date, stock_name, remarks, currency, high, low, last, change, volume, bid, offer, market) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            (f_trade_date, f_stock_name, f_remarks, f_currency, f_high, f_low, f_last, f_change, f_volume, f_bid, f_offer, f_market)
             )
     except Exception as ex:
         logging.error(ex)
