@@ -29,26 +29,44 @@
 
                 <!-- Tab links -->
                 <div class="horizontal-tab">
-                    <button class="tablinks" onclick="openCity(event, 'London')">Trading</button>
-                    <button class="tablinks" onclick="openCity(event, 'Paris')">Game</button>
+                    <button class="tab-links" onclick="displayTabContent(event, 'Trading')">Trading</button>
+                    <button class="tab-links" onclick="displayTabContent(event, 'Game')">Game</button>
                     <!-- 
-                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">WMS</button>
-                    <button class="tablinks" onclick="openCity(event, 'Tokyo')">HR</button>
+                    <button class="tab-links" onclick="displayTabContent(event, 'Tokyo')">WMS</button>
+                    <button class="tab-links" onclick="displayTabContent(event, 'Tokyo')">HR</button>
                      -->
                 </div>
                 
                 <!-- Tab content -->
-                <div id="London" class="tabcontent">
-                    <h3>London</h3>
-                    <p>London is the capital city of England.</p>
+                <div id="Trading" class="tab-content">
+                    <h3>Trading</h3>
+
+                    <p>Algorithmic trading research. Currently looking into the following markets:</p>
+
+                    <ol>
+                      <li><a href="/trading/sgx">SGX</a></li>
+                      <li><a href="/trading/asx">ASX</a></li>
+                      <!--
+                        <li><a href="/trading/nyse">NYSE</a></li>
+                        <li><a href="/trading/nasdaq">NASDAQ</a></li>
+                        <li><a href="/trading/amex">AMEX</a></li>
+                      -->
+                      </ol>
+
                 </div>
                 
-                <div id="Paris" class="tabcontent">
-                    <h3>Paris</h3>
-                    <p>Paris is the capital of France.</p> 
+                <div id="Game" class="tab-content">
+                    <h3>Game</h3>
+
+                    <p>Some simple games that I'm working on.</p>
+                    
+                    <ol>
+                        <li><a href="/game/trading">Trading</a></li>
+                        <li><a href="/game/lottery">Lottery</a></li>
+                    </ol>
                 </div>
                 
-                <div id="Tokyo" class="tabcontent">
+                <div id="Tokyo" class="tab-content">
                     <h3>Tokyo</h3>
                     <p>Tokyo is the capital of Japan.</p>
                 </div>
@@ -98,7 +116,7 @@
 }
 
 /* Style the tab content */
-.tabcontent {
+.tab-content {
   display: none;
   padding: 6px 12px;
   border: 1px solid #ccc;
@@ -110,24 +128,24 @@
 
 {% block scripts %}
 <script type="text/javascript">
-function openCity(evt, cityName) {
+function displayTabContent(evt, tabName) {
   // Declare all variables
-  var i, tabcontent, tablinks;
+  var i, tabContentList, tabLinkList;
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+  // Get all elements with class="tab-content" and hide them
+  tabContentList = document.getElementsByClassName("tab-content");
+  for (i = 0; i < tabContentList.length; i++) {
+    tabContentList[i].style.display = "none";
   }
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  // Get all elements with class="tab-links" and remove the class "active"
+  tabLinkList = document.getElementsByClassName("tab-links");
+  for (i = 0; i < tabLinkList.length; i++) {
+    tabLinkList[i].className = tabLinkList[i].className.replace(" active", "");
   }
 
   // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 </script>

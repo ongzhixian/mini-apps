@@ -1,6 +1,6 @@
 <map version="1.0.1">
 <!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
-<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1551484784345" STYLE="fork" TEXT="focus">
+<node COLOR="#000000" CREATED="1550415149740" ID="ID_100807930" MODIFIED="1551833217684" STYLE="fork" TEXT="focus">
 <edge COLOR="#808080" STYLE="bezier" WIDTH="thin"/>
 <font NAME="Dialog" SIZE="20"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties"/>
