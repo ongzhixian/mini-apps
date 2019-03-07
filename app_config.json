@@ -15,7 +15,12 @@
         "acadian" : {
             "src_dir"   : "D:/src/github.com/ongzhixian/mini-apps",
             "temp_dir"  : "D:/temp"
+        },
+        "zoga330" : {
+            "src_dir"   : "C:/src/github.com/ongzhixian/mini-apps",
+            "temp_dir"  : "C:/src/temp"
         }
+
     }
 
 }

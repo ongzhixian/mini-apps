@@ -12,6 +12,8 @@ from datetime import datetime
 import requests
 import json
 
+from zipfile import ZipFile, BadZipFile
+
 ################################################################################
 # CONSTANT(s)
 ################################################################################
@@ -202,6 +204,32 @@ def process_isin_file(input_file_path):
                 )
             logging.debug("Updating ISIN for [{0}]".format(code))
     logging.info("Number of lines processed: [{0}]".format(len(lines)))
+
+
+def process_zipped_price_file(zipped_price_file_path, ses_temp_path):
+    logging.info("Processing [{0}]".format(zipped_price_file_path))
+    try:
+        # create directory for zipfile content extraction
+        output_dir_name = os.path.splitext(os.path.basename(os.path.normpath(zipped_price_file_path)))[0]
+        extract_dirpath = os.path.join(ses_temp_path, output_dir_name)
+        if not os.path.exists(extract_dirpath):
+            os.makedirs(extract_dirpath)
+        # unzip file
+        with ZipFile(zipped_price_file_path, 'r') as myzip:
+            logging.info("Extracting to {0}".format(extract_dirpath))
+            myzip.extractall(extract_dirpath)
+        # process the SESPRICE.DAT in each directory
+        price_file_path = os.path.join(extract_dirpath, "SESPRICE.DAT")
+        try:
+            process_price_file(price_file_path)
+        except Exception as ex:
+            logging.exception("Fail to process file: [{0}]".format(price_file_path))
+    except BadZipFile as badZipFileEx:
+        logging.error("FILENAME {0}; {1}".format(zipped_price_file_path, badZipFileEx))
+    except Exception as ex:
+        import pdb
+        pdb.set_trace()
+        logging.error(ex)
 
 def process_price_file(input_file_path):
     current_timestamp = datetime.now().strftime("%Y-%m-%d")

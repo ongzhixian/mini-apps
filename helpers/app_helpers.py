@@ -25,11 +25,18 @@ def get_appconfig():
     logging.debug("app_config loaded")
     return appconfig
 
+def get_hostname():
+    import socket
+    hostname = socket.gethostname()
+    return hostname
+
+
 ################################################################################
 # Variables dependent on Application basic functions
 ################################################################################
 
 appconfig = get_appconfig()
+hostname = get_hostname()
 
 ################################################################################
 # Main function

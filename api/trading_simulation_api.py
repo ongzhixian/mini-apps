@@ -13,7 +13,8 @@ from helpers.page_helpers import *
 # /api/game/trading/new-game    - Starts new simulation; returns session id
 # /api/game/trading/get-info    - Get various info given session id and parameters
 # /api/game/trading/get-price   - Get price data for given day
-
+# /api/game/trading/send-order  - Send order for execution
+# /api/game/trading/get_report  - Get report
 
 # /api/game/trading/add-player  - Register participant to session
 
@@ -27,18 +28,54 @@ from helpers.page_helpers import *
 # Setup routes
 ################################################################################
 
-# @route('/api/game/trading/new-game')
+@route('/api/game/trading/new-game')
 def api_game_trading_new_game():
     logging.debug("IN api_game_trading_new_game")
-    
+    # TODO: Write game session database
+    # TODO: Get game session data
     game_session = {
+        "data_type"         : "session-data",
         "session_id"        : "yyyyMMdd",
         "start_trade_date"  : "yyyyMMdd"
     }
-    #game_trading.new_session()
-    lot_result = toto_data.get_last_draw()
-    # ZX: lot = List of Tuple
     return json.dumps(game_session)
+
+
+@route('/api/game/trading/get-info/<session_id>')
+def api_game_trading_get_info(session_id=None):
+    logging.debug("IN api_game_trading_get_info")
+    game_session = {
+        "data_type"         : "session-info",
+        "session_id"        : "yyyyMMdd",
+        "start_trade_date"  : "yyyyMMdd",
+        "user_input"        : [session_id]
+    }
+    return json.dumps(game_session)
+
+
+@route('/api/game/trading/get-price/<session_id>/<code>')
+def api_game_trading_get_price(session_id=None, code=None):
+    logging.debug("IN api_game_trading_get_price")    
+    game_session = {
+        "data_type"         : "price",
+        "session_id"        : "yyyyMMdd",
+        "start_trade_date"  : "yyyyMMdd",
+        "user_input"        : [session_id, code]
+    }
+    return json.dumps(game_session)
+
+
+@route('/api/game/trading/send-order')
+def api_game_trading_send_order(session_id=None, code=None):
+    logging.debug("IN  api_game_trading_send_order")    
+    game_session = {
+        "data_type"         : "price",
+        "session_id"        : "yyyyMMdd",
+        "start_trade_date"  : "yyyyMMdd",
+        "user_input"        : [session_id, code]
+    }
+    return json.dumps(game_session)
+
 
 
 # @route('/api/toto/last-draw')
