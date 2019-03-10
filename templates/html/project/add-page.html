@@ -48,8 +48,8 @@
             <button>Add project</button>
         </form>
 
-        
-
+        <button id="btn_test">Test button</button>
+        <button id="btn_add">AJAX add button</button>
 
     </section>
 
@@ -65,8 +65,10 @@
 <script type="text/javascript">
 
     const ui = {
-        tabButtonList:  undefined,
-        tabContentList: undefined,
+        // UI controls
+        text_project_name : undefined,
+        select_category : undefined,
+        select_status : undefined,
 
         "hideAllTabContent" : function() {
             // hide content of all tabs
@@ -94,18 +96,97 @@
             event.currentTarget.className += " active";
         },
 
-        "init" : function() {
-            var i = 0;
+        "update_select" : function(select_element, pj) {
+            // Clear select options
+            select_element.options.length = 0;
+            // Append select select_element
+            // ZX: not bad; but is terrible for long list (a lot of redraws?!)
+            pj.forEach(function(e) {
+                select_element.options[select_element.options.length] =
+                new Option(e[1], e[0]);
+            });
 
-            ui.tabButtonList    = document.getElementsByClassName("tab-button");
-            ui.tabContentList   = document.getElementsByClassName("tab-content");
+        },
 
-            for (i = 0; i < ui.tabButtonList.length; i++) {
-                ui.tabButtonList[i].addEventListener("click", ui.openTab);
+        "ajax_get_json" : function(url, fn) {
+            // Make AJAX call
+            var result = {
+                "status" : undefined,
+                "data" : undefined
+            };
+            try {
+                var xhr = new XMLHttpRequest();
+                xhr.responseType = "json"; // https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseType
+                xhr.open('GET', url);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        var content_type = xhr.getResponseHeader("Content-Type");
+                        if (content_type === "application/json") {
+                            fn(xhr.response);
+                        } else {
+                            console.error("Unknown [Content-Type]", content_type);
+                        }
+                    } else {
+                        console.error('Request failed.  Returned status', xhr.status);
+                    }
+                };
+                xhr.send();
             }
+            catch(err) {
+                console.log(err)
+                result = null;
+            }
+            finally {
+                // 
+                return result;
+            }
+        },
 
-            ui.hideAllTabContent();
-            ui.tabButtonList[0].click(); // Display content of first tab by default.
+
+
+        "init" : function() {
+
+            ui.text_project_name = document.getElementById("text_project_name");
+            ui.select_category = document.getElementById("select_category");
+            ui.select_status = document.getElementById("select_status");
+            
+            btn_test.addEventListener("click", function(ev) {
+                ui.ajax_get_json('/api/project/get_category_list', function(pj) {
+                    ui.update_select(ui.select_category, pj);
+                });
+            });
+
+            btn_test.addEventListener("click", function(ev) {
+                ui.ajax_get_json('/api/project/get_status_list', function(pj) {
+                    ui.update_select(ui.select_status, pj);
+                });
+            });
+            
+            btn_add.addEventListener("click", function(ev) {
+               debugger;
+               var xhr = new XMLHttpRequest();
+               var inputData = {
+                   "project_name"       : "test",
+                   "project_category"   : 1,
+                   "project_status"     : 1,
+               };
+               
+                xhr.open('POST', '/api/project/add');
+                // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        // alert('Something went wrong.  Name is now ' + xhr.responseText);
+                        debugger;
+                    }
+                    else if (xhr.status !== 200) {
+                        console.error('Request failed.  Returned status of ' + xhr.status);
+                    }
+                };
+                // xhr.send(encodeURI('name=' + newName));
+                xhr.send(JSON.stringify(inputData));
+
+            });
 
         }
 
@@ -115,6 +196,7 @@
         // Wait for DOM to load
         document.addEventListener("DOMContentLoaded", function(event) {
             ui.init();
+            
 
             // Bind events
 
