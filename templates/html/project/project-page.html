@@ -1,0 +1,183 @@
+{% extends "./html/_layouts/_project.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block style %}
+<style type="text/css">
+.vertical-tabs, .tab-content {
+    box-sizing: border-box
+}
+
+/* Style the tab */
+.vertical-tabs {
+  float: left;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 30%;
+  height: 300px;
+}
+
+/* Style the buttons that are used to open the tab content */
+.vertical-tabs button {
+  display: block;
+  background-color: inherit;
+  color: black;
+  width: 100%;
+  border: none;
+  outline: none;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.vertical-tabs button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.vertical-tabs button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tab-content {
+  float: left;
+  padding: 0px 12px;
+  border: 1px solid #ccc;
+  width: 70%;
+  border-left: none;
+  height: 300px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Home', 'Home page') }}
+
+    <section>
+        <p>
+            Some simple online games that I'm making.
+        </p>
+
+        <div class="vertical-tabs">
+            <button class="tab-button" value="trading">Trading</button>
+            <button class="tab-button" value="lottery">Lottery</button>
+            <!--
+                <button class="tab-button" value="Paris">Paris</button>
+                <button class="tab-button" value="Tokyo">Tokyo</button>
+            -->
+        </div>
+        
+        <div id="trading" class="tab-content">
+            <h3>Trading</h3>
+            <p>
+                Trading is my trading simulation game.
+                <br/>It simulates a stock exchange.
+            </p>
+        </div>
+
+        <div id="lottery" class="tab-content">
+            <h3>Lottery</h3>
+            <p>
+                Lottery is my lottery simulation game.
+                <br/>It simulates a 6-49 lottery system.
+            </p>
+        </div>
+
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+
+    const ui = {
+        tabButtonList:  undefined,
+        tabContentList: undefined,
+
+        "hideAllTabContent" : function() {
+            // hide content of all tabs
+            for (i = 0; i < ui.tabContentList.length; i++) {
+                ui.tabContentList[i].style.display = "none";
+            }
+        },
+        "openTab" : function(event) {
+            var i;
+
+            // hide content of all tabs
+            // ZX:  This is kind of inefficient; I mean really?!
+            //      Iterate the whole list? Where's my pinpoint precision?! Lol
+            //      What we should really be doing is track the item that was last clicked;
+            //      Feeling lazy; KIV for now.
+            ui.hideAllTabContent();
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            for (i = 0; i < ui.tabButtonList.length; i++) {
+                ui.tabButtonList[i].className = ui.tabButtonList[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the link that opened the tab
+            document.getElementById(event.target.value).style.display = "block";
+            event.currentTarget.className += " active";
+        },
+
+        "init" : function() {
+            var i = 0;
+
+            ui.tabButtonList    = document.getElementsByClassName("tab-button");
+            ui.tabContentList   = document.getElementsByClassName("tab-content");
+
+            for (i = 0; i < ui.tabButtonList.length; i++) {
+                ui.tabButtonList[i].addEventListener("click", ui.openTab);
+            }
+
+            ui.hideAllTabContent();
+            ui.tabButtonList[0].click(); // Display content of first tab by default.
+
+        }
+
+    };
+
+    (function() {
+        // Wait for DOM to load
+        document.addEventListener("DOMContentLoaded", function(event) {
+            ui.init();
+
+            // Bind events
+
+            // Initialize state
+
+            // // Hide the submit button. Non-JavaScript users will still see it.
+            // document.getElementById("submit").style.display = "none";
+
+            // // Put the form control into a variable
+            // var e = document.getElementById("first_name");
+
+            // // Wait for user input  
+            // e.addEventListener("keyup", function() {
+
+            // var first_name = document.getElementById("first_name").value;
+            // document.getElementById("msg").textContent = first_name;
+
+            // }, false);
+
+        });
+
+
+    }());
+
+</script>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "./html/_layouts/_project.html" %}
+
+{% block title %} {{SITE_NAME}} {% endblock %}
+
+{% block content %}
+
+<!-- Primary Page Layout
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+<div class="container">
+
+    {{ macros.page_header('Project', 'List') }}
+
+    <section>
+
+        <div class="actions-panel">
+            <a class="button" href="/project/add">Add project</a>
+        </div>
+        
+        <div class="paging-control">
+
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Lottery</td>
+                    <td>Game</td>
+                    <td>Not started</td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+
+    </section>
+
+    <footer>
+        {{ macros.page_footer() }}
+    </footer>
+
+</div>
+
+{% endblock %}

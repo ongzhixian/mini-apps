@@ -494,5 +494,17 @@
 <font NAME="SansSerif" SIZE="16"/>
 </node>
 </node>
+<node COLOR="#0033ff" CREATED="1552173935145" ID="ID_1626419734" MODIFIED="1552173938487" POSITION="right" TEXT="security">
+<edge STYLE="sharp_bezier" WIDTH="8"/>
+<font NAME="Consolas" SIZE="18"/>
+<node COLOR="#00b439" CREATED="1552173939561" ID="ID_1773723179" MODIFIED="1552173941989" TEXT="sophos">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+<node COLOR="#00b439" CREATED="1552173942560" ID="ID_441908759" MODIFIED="1552173946767" TEXT="McAfee">
+<edge STYLE="bezier" WIDTH="thin"/>
+<font NAME="Consolas" SIZE="16"/>
+</node>
+</node>
 </node>
 </map>

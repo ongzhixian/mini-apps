@@ -15,16 +15,19 @@
 {% macro page_header(active_text, sub_title) %}
 {% 
     set menu_items = [
-        { 'href' : "/", 'text' : "Home" },
-        { 'href' : "/contact", 'text' : "Contact" },
-        { 'href' : "/url-dump", 'text' : "Url dump" },
-        { 'href' : "/trading/sgx", 'text' : "SGX" },
-        { 'href' : "/game/trading", 'text' : "Trading game" },
-        { 'href' : "/project", 'text' : "Project" },
+        { 'href' : "/project", 'text' : "Home" },
+        { 'href' : "/project/list", 'text' : "Project" },
+        { 'href' : "/project/kanban", 'text' : "Kanban" },
+        { 'href' : "/project/task", 'text' : "Task" },
+        { 'href' : "/project/gantt", 'text' : "Gantt" },
         ]
         %}
 {#
     { 'href' : "/about", 'text' : "About" },
+    { 'href' : "/contact", 'text' : "Contact" },
+    { 'href' : "/toto", 'text' : "Toto" },
+    { 'href' : "/url-dump", 'text' : "Url dump" },
+    { 'href' : "/software", 'text' : "Software" },
     { 'href' : "/test", 'text' : "Test" },
     { 'href' : "/test2", 'text' : "Test2" },
     { 'href' : "/test3", 'text' : "Test3" },
@@ -32,7 +35,8 @@
 #}
 <div class="row">
     <div class="twelve columns">
-        <h1 class="page-header">{{SITE_NAME}}
+        <h1 class="page-header">
+            Project
             {% if sub_title|length > 0 %}
             <small>&mdash; {{sub_title}}</small>
             {% endif %}
@@ -59,7 +63,7 @@
                     </div>
                 </div>
             -->
-                
+            <a href="/" style="float:right;font-size: 1.67em;font-weight: bold;padding: 8px 16px 7px;">&crarr;</a>
         </nav>
     </div>
 </div><!--end of .row .twelve.columns -->

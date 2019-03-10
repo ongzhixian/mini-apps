@@ -6,5 +6,6 @@ __all__ = [
     "site", "url_dump", "palindrome", "phaser", "brahman", "sw_news", 
     "zx",
     "trading",
-    "game"
+    "game",
+    "project"
     ]
