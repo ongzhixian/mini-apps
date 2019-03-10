@@ -137,3 +137,21 @@ http://www.monogame.net/documentation/?page=main
 
 
 https://www.qara.ai/dl
+
+API-first
+
+What Redis Pub/Sub
+Discord
+Mastodon
+
+
+https://forum.xda-developers.com/general/general/apps-applications-nucleus-os-t3580411
+https://www.design-reuse.com/articles/23806/android-linux-embedded-systems.html
+
+
+Python 
+	
+	
+	https://github.com/pirate/ArchiveBox
+	https://mudrex.com/strategy/3f0e84bb-0ef0-45c7-98c2-c0631fcf21cf
+	https://news.ycombinator.com/item?id=19330262
