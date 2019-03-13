@@ -155,3 +155,104 @@ Python
 	https://github.com/pirate/ArchiveBox
 	https://mudrex.com/strategy/3f0e84bb-0ef0-45c7-98c2-c0631fcf21cf
 	https://news.ycombinator.com/item?id=19330262
+
+
+Office interop
+https://www.claudiobernasconi.ch/2014/02/13/painless-office-interop-using-visual-c-sharp/
+
+
+OpenXML
+https://docs.microsoft.com/en-us/office/open-xml/how-to-insert-text-into-a-cell-in-a-spreadsheet
+
+
+Chart canvas
+https://code.tutsplus.com/tutorials/how-to-draw-a-pie-chart-and-doughnut-chart-using-javascript-and-html5-canvas--cms-27197
+https://www.google.com/search?rlz=1CDGOYI_enSG723SG723&hl=en-GB&ei=OamFXL6RJuLfz7sPv4S42As&q=generating+game+maps+canvas&oq=generating+game+maps+canvas&gs_l=mobile-gws-wiz-serp.3...23097.24584..25629...0.0..0.125.458.4j1......0....1.........0i71j30i10.qWSS51Gj-v8
+
+
+https://stackoverflow.com/questions/24926028/drag-and-drop-multiple-objects-in-html5-canvas
+
+https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes
+
+Web WOrkers
+https://www.w3schools.com/html/html5_webworkers.asp
+
+
+svg
+https://www.w3schools.com/htmL/html5_svg.asp
+https://flaviocopes.com/svg/
+https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial
+https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial
+
+
+Jquery plugin
+https://learn.jquery.com/plugins/basic-plugin-creation/
+
+C# Threading
+https://www.tutorialspoint.com/csharp/csharp_multithreading.htm
+
+Services set parameters
+https://stackoverflow.com/questions/27818050/c-sharp-services-how-to-set-the-start-parameters
+
+
+SImple websocket
+https://code.msdn.microsoft.com/The-simple-WebSocket-0dd65479
+
+WebSocket
+https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
+https://www.codeproject.com/Articles/618032/Using-WebSocket-in-NET-4-5-Part-2
+https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_client_applications
+
+Markov chains
+https://codefying.com/2016/09/15/a-tutorial-on-hidden-markov-model-with-a-stock-price-example/
+
+
+HttpModule HttpHandler
+https://support.microsoft.com/en-us/help/307996/how-to-create-an-asp-net-http-module-using-visual-c-net
+https://docs.microsoft.com/en-us/aspnet/core/migration/http-modules?view=aspnetcore-2.2
+
+
+html5_webworkers
+https://www.w3schools.com/html/html5_webworkers.asp
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw
+
+https://www.hanselman.com/blog/HowToHostYourOwnNuGetServerAndPackageFeed.aspx
+https://blogs.msdn.microsoft.com/mvpawardprogram/2016/06/28/creating-nuget-packages/
+https://blog.nuget.org/20141023/package-manifests.html
+https://stackoverflow.com/questions/9642183/how-to-create-a-nuget-package-by-hand-without-nuget-exe-or-nuget-explorer
+
+
+Diagram v
+https://www.google.com/search?q=diagram+v&rlz=1CDGOYI_enSG723SG723&oq=diagram+v&aqs=chrome..69i57j0l3.36179j1j7&hl=en-GB&sourceid=chrome-mobile&ie=UTF-8
+
+
+MVC5 Form
+https://www.codeproject.com/Articles/1078491/Creating-Forms-in-ASP-NET-MVC
+
+NN
+https://medium.com/coinmonks/implement-a-simple-neural-network-in-c-net-part-1-d44b49ae6e99
+
+https://www.tech-quantum.com/data-types-in-machine-learning/
+
+https://www.google.com/search?q=asp.net+mvc+safe+html&rlz=1CDGOYI_enSG723SG723&oq=asp.net+mvc+safe+&aqs=chrome.1.69i57j0l3.10116j1j7&hl=en-GB&sourceid=chrome-mobile&ie=UTF-8
+
+https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/index
+
+http://www.sullinger.us/blog/2014/1/6/create-objects-dynamically-in-c
+https://www.codeproject.com/Articles/12282/Implementing-a-PropertyBag-in-C
+https://gist.github.com/zunairmushtaq/aeaa48432d51cad0eb1c
+
+https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API
+https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer
+
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+https://css-tricks.com/
+
+https://code.tutsplus.com/tutorials/how-to-draw-a-pie-chart-and-doughnut-chart-using-javascript-and-html5-canvas--cms-27197
+
+https://css-tricks.com/making-charts-with-css/
+https://code.tutsplus.com/tutorials/how-to-draw-bar-charts-using-javascript-and-html5-canvas--cms-28561
+
+https://www.codeproject.com/Questions/997469/Csharp-code-to-create-multiple-sheets-dynamically
+
+https://code.msdn.microsoft.com/The-simple-WebSocket-0dd65479

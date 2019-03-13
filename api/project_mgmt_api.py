@@ -12,14 +12,25 @@ from bottle import response
 # What is this API suppose to start
 ################################################################################
 
-# /api/game/trading/<verb>-<noun>
-# /api/game/trading/new-game    - Starts new simulation; returns session id
-# /api/game/trading/get-info    - Get various info given session id and parameters
-# /api/game/trading/get-price   - Get price data for given day
-# /api/game/trading/send-order  - Send order for execution
-# /api/game/trading/get_report  - Get report
+# /api/<noun>/<verb>
+# /api/<noun>/<verb>-<noun>
 
-# /api/game/trading/add-player  - Register participant to session
+# /api/project/list         -
+# /api/project/add          -
+# /api/project/edit         -
+# /api/project/delete       -
+
+# /api/project/task/list    -
+# /api/project/task/add     -
+# /api/project/task/edit    -
+# /api/project/task/delete  -
+
+# /api/project/tag/list     -
+# /api/project/tag/add      -
+# /api/project/tag/edit     -
+# /api/project/tag/delete   -
+
+
 
 ################################################################################
 # Setup helper functions
@@ -32,7 +43,7 @@ from bottle import response
 ################################################################################
 
 ########################################
-# Get lists
+# Get lookup lists
 ########################################
 
 @route('/api/project/get_category_list')
@@ -46,6 +57,7 @@ def api_project_get_category_list():
     # response.headers['Cache-Control'] = 'no-cache'
     response.content_type = 'application/json'
     return json.dumps(result)
+
 
 @route('/api/project/get_status_list')
 def api_project_get_status_list():
@@ -67,15 +79,105 @@ def api_project_get_lookup_list(table_name):
     response.content_type = 'application/json'
     return json.dumps(result)
 
+########################################
+# Project related API calls
+########################################
+
+# /api/project/add          -
+# /api/project/edit         -
+# /api/project/delete       -
 
 @route('/api/project/list')
-def api_project_get_list():
-    logging.debug("IN api_project_get_lookup_list")
+def api_project_list_get():
+    logging.debug("IN api_project_list_get")
     with sqlite3.connect(project_mgmt.SQLITE_FILE_PATH) as conn:
         cursor = conn.cursor()
         result = project_mgmt.get_project_list(cursor)
     response.content_type = 'application/json'
     return json.dumps(result)
+
+@route('/api/project/add', method=["POST"])
+def api_project_add():
+    logging.debug("IN api_project_add")
+    
+    if request.content_type != "application/json":
+        return
+
+    json = request.json
+    # Validate input data
+    # Add record to database
+    # import pdb
+    # pdb.set_trace()
+    project_name = json['project_name']
+    project_category = json['project_category']
+    project_status = json['project_status']
+    timestamp = datetime.utcnow()
+
+    with sqlite3.connect(project_mgmt.SQLITE_FILE_PATH) as conn:
+        cursor = conn.cursor()
+        #result = project_mgmt.get_project_list(cursor)
+        records_affected = project_mgmt.upsert_project(
+            cursor,
+            project_name,
+            project_category,
+            project_status,
+            timestamp
+        )
+    response.content_type = 'application/json'
+    
+    return json.dumps({
+        "operation" : "api_project_add"
+        "records_affected": records_affected
+    })
+
+
+@route('/api/project/edit', method=["POST"])
+def api_project_edit_post():
+    logging.debug("IN api_project_list_get")
+    with sqlite3.connect(project_mgmt.SQLITE_FILE_PATH) as conn:
+        cursor = conn.cursor()
+        result = project_mgmt.get_project_list(cursor)
+    response.content_type = 'application/json'
+    return json.dumps(result)
+
+
+@route('/api/project/delete', method=["POST"])
+def api_project_delete_post():
+    logging.debug("IN api_project_list_get")
+    with sqlite3.connect(project_mgmt.SQLITE_FILE_PATH) as conn:
+        cursor = conn.cursor()
+        result = project_mgmt.get_project_list(cursor)
+    response.content_type = 'application/json'
+    return json.dumps(result)
+
+
+########################################
+# Project-Task related API calls
+########################################
+
+@route('/api/project/task/list')
+def api_project_task_list_get():
+    logging.debug("IN api_project_task_list_get")
+    with sqlite3.connect(project_mgmt.SQLITE_FILE_PATH) as conn:
+        cursor = conn.cursor()
+        result = project_mgmt.get_task_list(cursor)
+    response.content_type = 'application/json'
+    return json.dumps(result)
+
+
+########################################
+# Project-Tag related API calls
+########################################
+
+@route('/api/project/tag/list')
+def api_project_tag_list_get():
+    logging.debug("IN api_project_tag_list_get")
+    with sqlite3.connect(project_mgmt.SQLITE_FILE_PATH) as conn:
+        cursor = conn.cursor()
+        result = project_mgmt.get_tag_list(cursor)
+    response.content_type = 'application/json'
+    return json.dumps(result)
+
 
 ########################################
 # GETs singular
@@ -119,11 +221,6 @@ def api_project_add():
     response.content_type = 'application/json'
     return
     #return json.dumps(result)
-
-
-
-
-
 
 
 ########################################

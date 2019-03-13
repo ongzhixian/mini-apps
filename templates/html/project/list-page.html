@@ -51,3 +51,67 @@
 </div>
 
 {% endblock %}
+
+{% block scripts %}
+<script type="text/javascript">
+
+const ajax = {
+    "getRequest": function () {
+        if (window.XMLHttpRequest) {
+            return new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            return new ActiveXObject("Microsoft.XMLHTTP");
+        } else {
+            console.log("Browser does not support XMLHTTP.");
+            return false;
+        }
+    },
+    "get": function (targetUrl, data, fnProc) {
+        var actionUrl = "http://localhost:50001/api/recon/2018-12-14";
+        var xhr = ajax.getRequest();
+        xhr.onreadystatechange = function () {
+            var DONE = 4; // readyState 4 means the request is done.
+            var OK = 200; // status 200 is a successful return.
+            if (xhr.readyState === DONE) {
+                if (xhr.status === OK) {
+                    // Interpret result
+                    fnProc(xhr); // // pj = JSON.parse(xhr.responseText);
+                } else {
+                    console.debug("XHR Status is: ", xhr.status);
+                }
+            } else {
+                console.debug("XHR ReadyState is: ", xhr.readyState);
+            }
+        }
+        xhr.open('GET', targetUrl);
+        xhr.send(data);
+    }
+};
+
+
+const ui = {
+    // Bind controls on page
+    addProjectButton : undefined,
+
+    "init":function() {
+        // Bind control buttons
+        // Setup the button as a link
+        // ui.addProjectButton = document.getElementById("");
+        // Init list
+    },
+    "get_list": function() {
+        // AJAX call
+        
+        var actionUrl = "http://localhost:50001/api/recon/2018-12-14";
+        ajax,get(actionUrl, null, function(pj) {
+
+        });
+        
+    }
+};
+
+(function () {
+}());
+</script>
+
+{% endblock %}

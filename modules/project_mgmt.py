@@ -75,7 +75,7 @@ def upsert_lookup(sqlite3_cursor, table_name, nd_list):
 
 
 ########################################
-# isin table functions
+# project table functions
 ########################################
 
 def create_project_table(sqlite3_cursor):
@@ -93,11 +93,59 @@ def create_project_table(sqlite3_cursor):
         )''')
 
 def upsert_project(sqlite3_cursor, name, category_id, status_id, timestamp):
-    sqlite3_cursor.execute(
+    return sqlite3_cursor.execute(
         "INSERT OR REPLACE INTO project (name, category_id, status_id, timestamp) VALUES (?, ?, ?, ?)",
         (name, category_id, status_id, timestamp)
         )
 
+
+########################################
+# task table functions
+########################################
+
+def create_task_table(sqlite3_cursor):
+    # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
+    """
+    Project
+    """
+    return sqlite3_cursor.execute('''CREATE TABLE IF NOT EXISTS task (
+        id                  integer, 
+        name                text UNIQUE,
+        project_id          integer,
+        status_id           integer,
+        timestamp           text,
+        PRIMARY KEY (id)
+        )''')
+
+def upsert_task(sqlite3_cursor, name, category_id, status_id, timestamp):
+    sqlite3_cursor.execute(
+        "INSERT OR REPLACE INTO task (name, category_id, status_id, timestamp) VALUES (?, ?, ?, ?)",
+        (name, category_id, status_id, timestamp)
+        )
+
+########################################
+# task table functions
+########################################
+
+def create_tag_table(sqlite3_cursor):
+    # ZX: Rememeber there are only 5 data types in Sqlite3: text, numeric, integer, real, blob
+    """
+    Project
+    """
+    return sqlite3_cursor.execute('''CREATE TABLE IF NOT EXISTS tag (
+        id                  integer, 
+        name                text UNIQUE,
+        project_id          integer,
+        status_id           integer,
+        timestamp           text,
+        PRIMARY KEY (id)
+        )''')
+
+def upsert_task(sqlite3_cursor, name, category_id, status_id, timestamp):
+    sqlite3_cursor.execute(
+        "INSERT OR REPLACE INTO tag (name, category_id, status_id, timestamp) VALUES (?, ?, ?, ?)",
+        (name, category_id, status_id, timestamp)
+        )
 
 ########################################
 # create views
@@ -208,6 +256,38 @@ def get_lookup(cursor, table_name):
     return result
 
 
+def get_project_list(cursor):
+    # id                  integer, 
+    # name                text UNIQUE,
+    # project_id          integer,
+    # status_id           integer,
+    # timestamp           text,
+    SQL_QUERY = """
+    SELECT id, name, project_id, status_id, timestamp FROM project;
+    """
+    cursor.execute(SQL_QUERY)
+    result = cursor.fetchall()
+    return result
+
+def get_task_list(cursor):
+    SQL_QUERY = """
+    SELECT id, name, project_id, status_id, timestamp FROM task;
+    """
+    cursor.execute(SQL_QUERY)
+    result = cursor.fetchall()
+    return result
+
+def get_tag_list(cursor):
+    SQL_QUERY = """
+    SELECT id, name, project_id, status_id, timestamp FROM tag;
+    """
+    cursor.execute(SQL_QUERY)
+    result = cursor.fetchall()
+    return result
+
+
+
+
 # def get_last_draw():
 #     SQL_QUERY = """
 #     SELECT * FROM last_draw;
@@ -257,7 +337,11 @@ def initialize_sqlite_db(sqlitedb_path):
         cursor = conn.cursor()
         create_lookup_table(cursor, "project_category")
         create_lookup_table(cursor, "project_status")
+        create_lookup_table(cursor, "task_status")
+        create_lookup_table(cursor, "tag_status")
         create_project_table(cursor)
+        create_task_table(cursor)
+        create_tag_table(cursor)
 
         # ZX:   Meant for one-time table init; but this function is intended to be called multiple times
         #       Doing manual process; KIV for now
