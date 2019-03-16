@@ -4,8 +4,11 @@
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
     <dc:title>My Kindle Book</dc:title>
     <dc:language>en</dc:language>
-    <dc:identifier id="BookId" opf:scheme="ISBN">123456789X</dc:identifier>
-    <dc:creator opf:file-as="Garvin, Perry" opf:role="aut">Perry Garvin</dc:creator>
+    <!-- <dc:identifier id="BookId" opf:scheme="ISBN">123456789X</dc:identifier> -->
+
+    <!-- The UUID specified here needs to identical to the one in ncx -->
+    <dc:identifier id="BookId" opf:scheme="uuid">50f9f8b1-8a81-4dd5-b104-0766188d7d2c</dc:identifier>
+    <dc:creator opf:file-as="Zhixian, Ong" opf:role="aut">Zhixian Ong</dc:creator>
     <dc:publisher>Amazon.com</dc:publisher>
     <dc:subject>Reference</dc:subject>
     <dc:date>2011-12-07</dc:date>
@@ -21,7 +24,9 @@
     <item id="my-cover-image" href="mycover.jpg" media-type="image/jpeg" />
   </manifest>
  
-  <!-- Each itemref references the id of a document designated in the manifest. The order of the itemref elements organizes the associated content files into the linear reading order of the publication.  -->
+  <!-- 
+  Each itemref references the id of a document designated in the manifest. 
+  The order of the itemref elements organizes the associated content files into the linear reading order of the publication.  -->
   <spine toc="ncx">
     <itemref idref="tc" />
     <itemref idref="book" />

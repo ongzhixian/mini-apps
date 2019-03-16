@@ -9,7 +9,7 @@
     The following four metadata items are required for all NCX documents,
     including those conforming to the relaxed constraints of OPS 2.0 
     -->
-    <meta name="dtb:uid" content="123456789X"/> <!-- same as in .opf -->
+    <meta name="dtb:uid" content="50f9f8b1-8a81-4dd5-b104-0766188d7d2c"/> <!-- same as in .opf -->
     <meta name="dtb:depth" content="1"/> <!-- 1 or higher -->
     <meta name="dtb:totalPageCount" content="0"/> <!-- must be 0 -->
     <meta name="dtb:maxPageNumber" content="0"/> <!-- must be 0 -->
