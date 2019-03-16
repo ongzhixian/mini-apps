@@ -3,35 +3,38 @@
 <!--
 TODO: Specify a unique-identifier for your new book.
 -->
-<package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="BookId">
+<package version="2.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="zxtech-programming-reference">
     <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
-        <dc:title>My Reference Kindle Book</dc:title>
+        <dc:title>Zxtech Programming Reference</dc:title>
         <dc:language>en</dc:language>
         <!-- 
         TODO: id for identifier needs to match unique-identifier of package tag
               UUID needs to match the one in ncx file.  
         -->
-        <dc:identifier id="BookId" opf:scheme="uuid">50f9f8b1-8a81-4dd5-b104-0766188d7d2c</dc:identifier>
-        <dc:creator opf:file-as="Garvin, Perry" opf:role="aut">Perry Garvin</dc:creator>
+        <dc:identifier id="zxtech-programming-reference" opf:scheme="uuid">bf986d03-40ef-462b-9d25-cd7527d657d3</dc:identifier>
+        <dc:creator opf:file-as="Zhixian, Ong" opf:role="aut">Zhixian Ong</dc:creator>
         <dc:publisher>Amazon.com</dc:publisher>
         <dc:subject>Reference</dc:subject>
         <dc:date>2019-03-16</dc:date>
-        <dc:description>A short paragraph describing the publication … </dc:description>
-        <meta name="cover" content="my-cover-image" />
+        <dc:description>A reference book on all things related to programming.</dc:description>
+        <meta name="cover" content="book-cover" />
         
     </metadata>
  
   <manifest>
-    <item id="tc" href="toc.html" media-type="application/xhtml+xml"/>
+    <!-- 
+    -->
+    <item id="book-cover" href="book-cover.png" media-type="image/png" properties="coverimage" />
+    <item id="book-css" href="book.css" media-type="text/css"/>
+    <item id="book-ncx" href="book.ncx" media-type="application/x-dtbncx+xml"/>  
+    <item id="toc" href="toc.html" media-type="application/xhtml+xml"/>
     <item id="book" href="mykindlebook.html" media-type="application/xhtml+xml"/>
-    <item id="stylesheet" href="style.css" media-type="text/css"/>
-    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>  
-    <item id="my-cover-image" href="mycover.jpg" media-type="image/jpeg" properties="coverimage" />
+    
   </manifest>
  
   <!-- Each itemref references the id of a document designated in the manifest. The order of the itemref elements organizes the associated content files into the linear reading order of the publication.  -->
-  <spine toc="ncx">
-    <itemref idref="tc" />
+  <spine toc="book-ncx">
+    <itemref idref="toc" />
     <itemref idref="book" />
   </spine>
  
