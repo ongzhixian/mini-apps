@@ -1,6 +1,6 @@
 # Kindle
 
-## Overview
+## <a name="overview">Overview</a>
 
 Kindle is a brand name from Amazon. 
 It can represent either:
@@ -12,19 +12,20 @@ These files typically have the file extensions `.mobi` or `.kf8` for their respe
 
 The rest of this section describes how one would make an Kindle ebook.
 
-## Steps to make Kindle ebook
+## <a name="steps"></a>Steps to make Kindle ebook
 
 The file format of a Kindle ebook is proprietary to Amazon.  
 Hence, there is no easy way to generate one from scratch.  
 Amazon does provide tools for authors to convert works in other document formats such as HTML and XHTML or ebook formats (such as `EPUB`, `FB2` or `XMDF`) into their `.mobi` format.
 
-## Kindle format
+## <a name="kindle-format"></a>Kindle format
+
 
 The `.mobi` format files was developed by Mobipocket SA for the MobiPocket Reader. The company was bought over by Amazon which adopted the format for their ebook reading devices.
 
 The `.kf8` format is an enhanced version the `.mobi` format. It was intended to replace `.mobi`. It is backwards compatibility with most older generation of Amazon Kindle readers except for 1st & 2nd Generation Kindle devices and Kindle DX.
 
-## Tools
+## <a name="tools">Tools</a>
 
 There are 2 conversion tools provided by Amazon to convert existing content into Kindle format.
 

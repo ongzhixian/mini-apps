@@ -25,17 +25,19 @@ TODO: Specify a unique-identifier for your new book.
     <!-- 
     -->
     <item id="book-cover" href="book-cover.png" media-type="image/png" properties="coverimage" />
-    <item id="book-css" href="book.css" media-type="text/css"/>
-    <item id="book-ncx" href="book.ncx" media-type="application/x-dtbncx+xml"/>  
+    <item id="book-css" href="_book.css" media-type="text/css"/>
+    <item id="book-ncx" href="_book.ncx" media-type="application/x-dtbncx+xml"/>  
     <item id="toc" href="toc.html" media-type="application/xhtml+xml"/>
-    <item id="book" href="mykindlebook.html" media-type="application/xhtml+xml"/>
-    
+    <!--<item id="book" href="mykindlebook.html" media-type="application/xhtml+xml"/>-->
+    <item id="section-kindle" href="kindle.html" media-type="application/xhtml+xml"/>
   </manifest>
  
-  <!-- Each itemref references the id of a document designated in the manifest. The order of the itemref elements organizes the associated content files into the linear reading order of the publication.  -->
+  <!-- Each itemref references the id of a document designated in the manifest. 
+       The order of the itemref elements organizes the associated content files into the linear reading order of the publication.  
+  -->
   <spine toc="book-ncx">
     <itemref idref="toc" />
-    <itemref idref="book" />
+    <itemref idref="section-kindle" />
   </spine>
  
   <!-- The Kindle reading system supports two special guide items which are both mandatory.

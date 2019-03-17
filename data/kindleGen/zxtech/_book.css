@@ -1,0 +1,24 @@
+/* Page breaks for h1 and h2
+*****************************************/
+
+h1, h2 {
+    page-break-before: always;
+}
+
+/* CSS for toc (Table of Content)
+*****************************************/
+
+div.chapter {
+    margin-left: 1em;
+}
+div.subchapter { 
+    margin-left: 2em;
+}
+
+/**
+
+p {color:green;}
+img {float:right; padding:0 0 2em 2em;}
+
+
+*/

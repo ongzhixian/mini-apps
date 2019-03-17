@@ -1,12 +1,12 @@
 @ECHO OFF
 
 ECHO Zipping files ...
-PowerShell -Command "& { Compress-Archive -Path .\zxtech\* -DestinationPath zxtech.zip -Force }
+PowerShell -Command "& { Compress-Archive -Path .\%1\* -DestinationPath %1.zip -Force }
 
-IF EXIST zxtech.epub DEL zxtech.epub
+IF EXIST %1.epub DEL %1.epub
 
 ECHO Rename zip to epub ...
-REN zxtech.zip zxtech.epub
+REN %1.zip %1.epub
 
 ECHO Running kindlegen
-kindlegen zxtech.epub
+kindlegen %1.epub
