@@ -1,0 +1,11 @@
+# DiffTest Sample Test
+
+## Overview 123
+
+This is my sample text to demonstrate diff tools.
+This line ends with a carriage return line feed.
+This line ends with just line feed.
+
+This is another CRLF line. NOT!
+
+And this is the end.
