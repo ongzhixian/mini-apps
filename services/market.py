@@ -6,6 +6,7 @@
 import json
 import logging
 import random
+import signal
 import threading
 import time
 import uuid
@@ -231,6 +232,23 @@ def run_trader(trader_id):
     trader_profile.DoWork()
     del trader_profile
 
+
+################################################################################
+# Setup signal handler
+################################################################################
+
+def default_signal_handler(signalnum, frame):
+    """ default handler for all signals
+    """
+    if signalnum == signal.SIGINT:
+        logging.debug('Signal SIGINT received')
+        # TODO: Not sure if we need some form of graceful termination here
+        #       Do a sys.exit() for now
+        sys.exit()
+    if signalnum == signal.SIGTERM:
+        logging.debug('Signal SIGTERM received')
+
+
 ################################################################################
 # Main function
 ################################################################################
@@ -245,9 +263,14 @@ if __name__ == '__main__':
     # logging.info("%8s test message %s" % ("INFO", str(datetime.utcnow())))
     # logging.debug("%8s test message %s" % ("DEBUG", str(datetime.utcnow())))
     # Initial modules that requires it
+
+    # Map signals to their respective handlers
+    signal.signal(signal.SIGINT, default_signal_handler)
+    signal.signal(signal.SIGTERM, default_signal_handler)
+
     init_order_books()
 
-    for num in xrange(TRADER_COUNT):
+    for num in range(TRADER_COUNT):
         trader_id = "trader{0:0>2d}".format(num)
         new_trader = get_daemon_thread(
             run_trader, 
