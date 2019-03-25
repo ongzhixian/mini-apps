@@ -106,3 +106,6 @@ data/sqlite3/*
 
 #
 **/cryptography-keys.json
+data/kindleGen/pop3.epub
+data/kindleGen/*.epub
+data/kindleGen/*.mobi

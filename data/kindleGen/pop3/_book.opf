@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<!--
+TODO: Specify a unique-identifier for your new book.
+-->
+<package version="3.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="pop3-programming-reference">
+    <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+        <dc:title>Zxtech Programming Reference</dc:title>
+        <dc:language>en</dc:language>
+        <!-- 
+        TODO: id for identifier needs to match unique-identifier of package tag
+              UUID needs to match the one in ncx file.  
+        -->
+        <dc:identifier id="pop3-programming-reference" opf:scheme="uuid">605993be-844a-4715-9b04-493b664c7bcd</dc:identifier>
+        <dc:creator opf:file-as="Zhixian, Ong" opf:role="aut">Zhixian Ong</dc:creator>
+        <dc:publisher>Ong Zhi Xian</dc:publisher>
+        <dc:subject>Reference</dc:subject>
+        <dc:date>2019-03-26</dc:date>
+        <dc:description>A reference book on POP3.</dc:description>
+        <meta name="cover" content="book-cover" />
+        
+    </metadata>
+ 
+  <manifest>
+    <!-- 
+    -->
+    <item id="book-cover" href="book-cover.png" media-type="image/png" properties="cover-image" />
+    <item id="book-css" href="_book.css" media-type="text/css"/>
+    <item id="toc" properties="nav" href="toc.html"           media-type="application/xhtml+xml"/>
+    <item id="section-kindle" href="kindle.html"              media-type="application/xhtml+xml"/>
+    <item id="chapter-01"     href="01-introduction.html"     media-type="application/xhtml+xml"/>
+    <item id="chapter-02"     href="02-digression.html"       media-type="application/xhtml+xml"/>
+    <item id="chapter-03"     href="03-basic-operation.html"  media-type="application/xhtml+xml"/>
+  </manifest>
+ 
+  <!-- Each itemref references the id of a document designated in the manifest. 
+       The order of the itemref elements organizes the associated content files into the linear reading order of the publication.  
+  -->
+  <spine>
+    <itemref idref="toc" />
+    <itemref idref="chapter-01" />
+    <itemref idref="chapter-02" />
+    <itemref idref="chapter-03" />
+    <itemref idref="section-kindle" />
+  </spine>
+ 
+  <!-- The Kindle reading system supports two special guide items which are both mandatory.
+  type="toc" [mandatory]: a link to the HTML table of contents
+  type="text" [mandatory]: a link to where the content of the book starts (typically after the front matter) -->
+  <guide>
+    <reference type="toc" title="Table of Contents" href="toc.html"/>
+    <reference type="text" title="Beginning" href="toc.html"></reference>
+  </guide>
+ 
+</package>
