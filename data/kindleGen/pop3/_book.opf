@@ -5,7 +5,7 @@ TODO: Specify a unique-identifier for your new book.
 -->
 <package version="3.0" xmlns="http://www.idpf.org/2007/opf" unique-identifier="pop3-programming-reference">
     <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
-        <dc:title>Zxtech Programming Reference</dc:title>
+        <dc:title>POP3 Programming Reference</dc:title>
         <dc:language>en</dc:language>
         <!-- 
         TODO: id for identifier needs to match unique-identifier of package tag
@@ -31,6 +31,8 @@ TODO: Specify a unique-identifier for your new book.
     <item id="chapter-01"     href="01-introduction.html"     media-type="application/xhtml+xml"/>
     <item id="chapter-02"     href="02-digression.html"       media-type="application/xhtml+xml"/>
     <item id="chapter-03"     href="03-basic-operation.html"  media-type="application/xhtml+xml"/>
+    <item id="chapter-04"     href="04-authorization-state.html"  media-type="application/xhtml+xml"/>
+    <item id="chapter-05"     href="05-transaction-state.html"  media-type="application/xhtml+xml"/>
   </manifest>
  
   <!-- Each itemref references the id of a document designated in the manifest. 
@@ -41,15 +43,21 @@ TODO: Specify a unique-identifier for your new book.
     <itemref idref="chapter-01" />
     <itemref idref="chapter-02" />
     <itemref idref="chapter-03" />
+    <itemref idref="chapter-04" />
+    <itemref idref="chapter-05" />
     <itemref idref="section-kindle" />
   </spine>
  
   <!-- The Kindle reading system supports two special guide items which are both mandatory.
   type="toc" [mandatory]: a link to the HTML table of contents
-  type="text" [mandatory]: a link to where the content of the book starts (typically after the front matter) -->
+  type="text" [mandatory]: a link to where the content of the book starts 
+  (typically after the front matter) 
+  ZX: The guide element is now optional/deprecated in EPUB3.
+      But sticking to using guides
+  -->
   <guide>
     <reference type="toc" title="Table of Contents" href="toc.html"/>
     <reference type="text" title="Beginning" href="toc.html"></reference>
   </guide>
- 
+
 </package>

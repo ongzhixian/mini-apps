@@ -1,6 +1,7 @@
 /* Page breaks for h1 and h2
 *****************************************/
 
+div.page-break,
 h1, h2 {
     page-break-before: always;
 }
