@@ -1,0 +1,44 @@
+Dear Diary,
+12345678901234567890123456789012345678901234567890123456789012345678901234567890
+---------|---------|---------|---------|---------|---------|---------|---------|
+
+So of the 3 gadgets that I received in 2018, I mentioned the Kindle Fire and IPhone XS Max. This blog post is about the 3rd gadget that I got: The Lenovo Yoga 330-11IGM.
+
+I got this at a IT fair, where I think it just debuts recently. 
+I did not see this model anymore during a recent tour of an IT fair in March 2019. 
+What attracted me was its low price (around SGD $560) and the fact the its a Yoga.
+I always wanted a Yoga PC because I love the idea that I can use it as a tablet as well as a PC. However, a high-end Yoga with decent specs can set me back by around $3000 😟
+
+So I decided to get this low-end laptop, and try it for myself to see if I am better off getting a high-end Yoga or some other laptop or desktop for my replacement PC. 
+
+Its fairly small and light weight so its fairly portable. It has a decent battery capacity and charges quite rapidly too. However, this is definitely not a PC for doing heavy processing. It only has 4 GB RAM and 128 eMMC hard-disk space and uses a Pentium Silver N5000 processor. So for all use and purposes, I would say that its more like a laptop for student usage.
+
+Where programming activities are concern, I am using it to develop Python scripts as well as ASP.NET Core using Visual Studio Code. Performance is adequate and reasonable. I'm also trying to develop Android applications using Java and Flutter on it, but I have to admit, I didn't get very far on that score. I kept getting distracted by other topics.
+
+I did not bother to install Visual Studio on it as:
+
+1.  A full installation of Visual Studio takes up plenty of space and I only have 128 GB to play with.
+2.  The newer versions of Visual Studio seems to work better with PCs with more than 4 GB of RAM.
+
+So in a way, this PC fits in my current mood of going for focusing on light-weight devices for distributed computing.
+
+While the limited capability of the laptop was known before purchase, it does take some getting use to. For example, you will soon learnt not to open so many browser tabs. Lol! 😅😅
+
+Jokes aside, there ARE a couple of things that does need getting used to which I did not expect and they are:
+
+1.  Resolution - The resolution of the display is decent (1366 x 768 for an 11" display). However, if you are used to higher resolution, you may find the display of this laptop to be disappointing. 
+I think this is mostly due to expectation. Most of the time, when we think of tablets, IPad comes to mind and one have to admit Retina screens are gorgeous. The newer Samsung Tablets looks good too. So in comparison to them, the display for this laptop is just dreadful. Lol. 😁
+
+2.  Smaller display - As described, this laptop is fairly portable. Personally, I think the smaller display is fine if ONLY it has higher resolution. 
+
+3.  Keyboard - Because of its smaller size, the function keys are overlay with the laptop's own hotkeys. So you might find yourself always needing to hit the "Fn" key. After you are used to the layout, and went back to use a normal 101-keyboard, you have to re-train yourself.
+
+Other than these issues, I'm actually quite fond of this laptop.
+Its portable. 
+Can work as a tablet (has touch screen and all, although I have to admit, I do not use the touch screen much). 
+Has a lot of ports (earphone jack, SD card reader, a USB-C, 2 USBs and HDMI). 
+Built-in WIFI and bluetooth. 
+In short, most of the stuff you might need. 
+So I consider this to be one of more value-for-dollar purchase.
+
+
