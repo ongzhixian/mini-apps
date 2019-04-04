@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Table of Contents</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" href="_book.css">
+</head>
+
+<body>
+	<h1>Table of Content</h1>
+	<nav epub:type="toc">
+		<ol>
+			<!-- 
+   1. Introduction ................................................    2
+   2. A Short Digression ..........................................    2
+   3. Basic Operation .............................................    3
+   4. The AUTHORIZATION State .....................................    4
+      QUIT Command ................................................    5
+   5. The TRANSACTION State .......................................    5
+      STAT Command ................................................    6
+      LIST Command ................................................    6
+      RETR Command ................................................    8
+      DELE Command ................................................    8
+      NOOP Command ................................................    9
+      RSET Command ................................................    9
+   6. The UPDATE State ............................................   10
+      QUIT Command ................................................   10
+   7. Optional POP3 Commands ......................................   11
+      TOP Command .................................................   11
+      UIDL Command ................................................   12
+      USER Command ................................................   13
+      PASS Command ................................................   14
+      APOP Command ................................................   15
+   8. Scaling and Operational Considerations ......................   16
+   9. POP3 Command Summary ........................................   18
+   10. Example POP3 Session .......................................   19
+   11. Message Format .............................................   19
+   12. References .................................................   20
+   13. Security Considerations ....................................   20
+   14. Acknowledgements ...........................................   20
+   15. Authors' Addresses .........................................   21
+   Appendix A. Differences from RFC 1725 ..........................   22
+
+			-->
+
+
+			<!-- 
+			1. Introduction ................................................    2
+			2. A Short Digression ..........................................    2
+			3. Basic Operation .............................................    3 
+			-->
+
+			<li class="chapter"><a href="01-introduction.html">Introduction</a></li>
+			<li class="chapter"><a href="02-digression.html">Digression</a></li>
+			<li class="chapter"><a href="03-basic-operation.html">Basic operation</a></li>
+
+			<!-- 4. The AUTHORIZATION State .....................................    4
+					QUIT Command ................................................    5
+			-->
+			<li><a href="04-authorization-state.html">The AUTHORIZATION State</a>
+				<ol>
+					<li><a href="04-authorization-state.html#quit-command">QUIT command</a></li>
+				</ol>
+			</li>
+<!-- 
+			5. 	The TRANSACTION State .......................................    5
+				STAT Command ................................................    6
+				LIST Command ................................................    6
+				RETR Command ................................................    8
+				DELE Command ................................................    8
+				NOOP Command ................................................    9
+				RSET Command ................................................    9 
+			-->
+			<li><a href="05-transaction-state.html">The TRANSACTION State</a>
+				<ol>
+					<li><a href="05-transaction-state.html#stat-command">STAT command</a></li>
+					<li><a href="05-transaction-state.html#list-command">LIST command</a></li>
+					<li><a href="05-transaction-state.html#retr-command">RETR command</a></li>
+					<li><a href="05-transaction-state.html#dele-command">DELE command</a></li>
+					<li><a href="05-transaction-state.html#noop-command">NOOP command</a></li>
+					<li><a href="05-transaction-state.html#rset-command">RSET command</a></li>
+				</ol>
+			</li>
+
+			<li class="chapter"><a href="kindle.html#overview">Overview</a></li>
+			<li class="chapter"><a href="kindle.html#steps">Steps to make Kindle ebook</a></li>
+			<li class="chapter"><a href="kindle.html#kindle-format">Kindle format</a></li>
+			<li class="chapter"><a href="kindle.html#tools">Tools</a></li>
+			
+
+			<!-- <li><a href="Sway_body.html#preface_1">AUTHOR'S NOTE</a></li>
+			<li><a href="Sway_body.html#part_1">PART ONE</a>
+				<ol>
+					<li><a href="Sway_body.html#chapter_1">THE HOUSES, 1969</a></li>
+					<li><a href="Sway_body.html#chapter_2">ROCK AND ROLL, 1962</a></li>
+					<li><a href="Sway_body.html#chapter_3">THE EMPRESS, 1928–1947</a></li>
+				</ol>
+			</li>
+			 -->
+		</ol>
+	</nav>
+
+
+	<!--ZX: Although this is the recommended replacement for replacing guides in OPF,
+			I find it annoying that I cannot choose to start rendering the 
+			landmarks/guide on a different page (on Kindle Previewer anyways).
+			So sticking to using guides.
+			In any case, AmazonKindlePublishingGuidelines.pdf states that 
+			Kindle provides support for 
+			1. cover, 
+			2. TOC, and 
+			3. start reading location (Go to Beginning) guide items.
+			(implying that others are not supported?)
+	-->
+	<!--
+		<nav epub:type="landmarks">
+			<h2>Guide</h2>
+			<ol>
+				<li><a epub:type="toc" href="toc.html">Table of Contents</a></li>
+				<li><a epub:type="bodymatter" href="toc.html">Start of Content</a></li> 
+				<li><a epub:type="loi" href="content.html#loi">List of Illustrations</a></li>
+				<li><a epub:type="bodymatter" href="content.html#bodymatter">Start of Content</a></li>
+			</ol>
+		</nav>
+	-->
+
+
+
+</body>
+
+</html>
